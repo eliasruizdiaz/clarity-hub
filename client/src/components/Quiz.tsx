@@ -434,9 +434,11 @@ export default function Quiz({ isOpen, onClose, buttonOrigin = "Unknown" }: Quiz
               {/* CTA based on tier */}
               {getTierRecommendation(totalScore).tier === 1 ? (
                 <div className="space-y-3">
-                  <Button className="w-full bg-forest hover:bg-forest/90 text-white py-6 text-lg">
-                    Unirme a la Comunidad - $100/mes
-                  </Button>
+                  <Button 
+                    onClick={() => window.open('https://wa.me/595982120861?text=Hola%20Elías,%20completé%20el%20quiz%20en%20tu%20web%20y%20quiero%20unirme%20a%20la%20comunidad', '_blank' )}
+                    className="w-full bg-forest hover:bg-forest/90 text-white py-6 text-lg"
+                  >Unirme a la Comunidad - $100/mes</Button>
+                  
                   <p className="text-center text-sm text-muted-foreground">
                     Acceso inmediato a recursos, plantillas y comunidad
                   </p>
