@@ -443,9 +443,13 @@ export default function Quiz({ isOpen, onClose, buttonOrigin = "Unknown" }: Quiz
                 </div>
               ) : (
                 <div className="space-y-3">
-                  <Button className="w-full btn-primary-gradient text-white py-6 text-lg">
+                  <Button 
+                    onClick={() => window.open('https://wa.me/595982120861?text=Hola%20Elías,%20completé%20el%20quiz%20en%20tu%20web%20y%20quiero%20agendar%20una%20llamada', '_blank' )}
+                    className="w-full btn-primary-gradient text-white py-6 text-lg"
+                  >
                     Agendar llamada de diagnóstico gratuita
                   </Button>
+
                   <p className="text-center text-sm text-muted-foreground">
                     30 minutos para analizar tu caso específico
                   </p>
