@@ -29,6 +29,7 @@ export default function TiersSection({ onOpenQuiz }: TiersSectionProps) {
         { icon: Zap, text: "Descuentos en servicios premium" },
       ],
       cta: "Unirme a la comunidad",
+      ctaUrl: "https://whop.com/clhub",
       ctaStyle: "bg-forest hover:bg-forest/90 text-white",
     },
     {
@@ -174,12 +175,23 @@ export default function TiersSection({ onOpenQuiz }: TiersSectionProps) {
               </ul>
 
               {/* CTA */}
-              <button
-                onClick={() => onOpenQuiz(`Plan ${tier.name}`)}
-                className={`w-full py-4 px-6 rounded-xl font-semibold text-lg transition-all ${tier.ctaStyle}`}
-              >
-                {tier.cta}
-              </button>
+              {tier.ctaUrl ? (
+                <a
+                  href={tier.ctaUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`w-full py-4 px-6 rounded-xl font-semibold text-lg transition-all text-center inline-block ${tier.ctaStyle}`}
+                >
+                  {tier.cta}
+                </a>
+              ) : (
+                <button
+                  onClick={() => onOpenQuiz(`Plan ${tier.name}`)}
+                  className={`w-full py-4 px-6 rounded-xl font-semibold text-lg transition-all ${tier.ctaStyle}`}
+                >
+                  {tier.cta}
+                </button>
+              )}
             </motion.div>
           ))}
         </div>
