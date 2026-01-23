@@ -40,9 +40,9 @@ export default function Header({ onOpenQuiz }: HeaderProps) {
           {/* Logo */}
           <div className="h-10 w-[160px] overflow-hidden flex items-center">
             <img
-              src="/images/logo-clarityhub.png"
+              src="/images/logo_clarity.png"
               alt="Clarity Hub"
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-contain object-left"
             />
           </div>
 

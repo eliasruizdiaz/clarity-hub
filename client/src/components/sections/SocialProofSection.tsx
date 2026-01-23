@@ -43,11 +43,11 @@ export default function SocialProofSection() {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-forest text-white relative overflow-hidden" ref={ref}>
+    <section className="py-20 md:py-28 bg-mint/20 text-foreground relative overflow-hidden" ref={ref}>
       {/* Background decoration */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 left-10 w-72 h-72 bg-orange rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-mint rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-forest rounded-full blur-3xl" />
       </div>
 
       <div className="container relative">
@@ -73,7 +73,7 @@ export default function SocialProofSection() {
           <h2 className="text-3xl md:text-4xl font-semibold mb-6">
             He trabajado con empresas líderes en Europa y LATAM
           </h2>
-          <p className="text-lg text-white/70">
+          <p className="text-lg text-foreground/70">
             Más de 100 implementaciones exitosas en contact centers, 
             automatización y sistemas de IA conversacional.
           </p>
@@ -108,7 +108,7 @@ export default function SocialProofSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3 + index * 0.1, duration: 0.5 }}
-              className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
+              className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-white/60 shadow-sm"
             >
               {/* Stars */}
               <div className="flex gap-1 mb-4">
@@ -118,16 +118,16 @@ export default function SocialProofSection() {
               </div>
 
               {/* Quote */}
-              <p className="text-white/90 mb-6 leading-relaxed">
+              <p className="text-foreground/80 mb-6 leading-relaxed">
                 "{testimonial.quote}"
               </p>
 
               {/* Author */}
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="font-medium text-white">{testimonial.author}</p>
-                  <p className="text-sm text-white/60">{testimonial.role}</p>
-                  <p className="text-xs text-white/40">{testimonial.company}</p>
+                  <p className="font-medium text-foreground">{testimonial.author}</p>
+                  <p className="text-sm text-foreground/60">{testimonial.role}</p>
+                  <p className="text-xs text-foreground/50">{testimonial.company}</p>
                 </div>
                 <div className="bg-orange/20 text-orange px-3 py-1 rounded-full text-sm font-medium">
                   {testimonial.result}
@@ -142,23 +142,23 @@ export default function SocialProofSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.6, duration: 0.6 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 bg-white/5 rounded-2xl p-6 md:p-8"
+          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 bg-forest/5 border border-forest/10 rounded-2xl p-6 md:p-8"
         >
           <div className="text-center">
             <p className="text-3xl md:text-4xl font-bold text-orange">13+</p>
-            <p className="text-sm text-white/60">Años de experiencia</p>
+            <p className="text-sm text-foreground/70">Años de experiencia</p>
           </div>
           <div className="text-center">
             <p className="text-3xl md:text-4xl font-bold text-orange">100+</p>
-            <p className="text-sm text-white/60">Implementaciones</p>
+            <p className="text-sm text-foreground/70">Implementaciones</p>
           </div>
           <div className="text-center">
             <p className="text-3xl md:text-4xl font-bold text-orange">$2M+</p>
-            <p className="text-sm text-white/60">Ahorrados a clientes</p>
+            <p className="text-sm text-foreground/70">Ahorrados a clientes</p>
           </div>
           <div className="text-center">
             <p className="text-3xl md:text-4xl font-bold text-orange">Global</p>
-            <p className="text-sm text-white/60">Europa, UK y LATAM</p>
+            <p className="text-sm text-foreground/70">Europa, UK y LATAM</p>
           </div>
         </motion.div>
       </div>
