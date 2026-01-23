@@ -38,14 +38,15 @@ export default function Header({ onOpenQuiz }: HeaderProps) {
       <div className="container">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-forest-orange rounded-xl flex items-center justify-center">
-              <span className="text-white font-bold text-lg">C</span>
-            </div>
-            <span className="font-semibold text-xl text-foreground">
-              Clarity<span className="text-orange">Hub</span>
-            </span>
-          </a>
+          <div className="h-10 w-[160px] overflow-hidden flex items-center">
+            <img
+              src="/images/logo-clarityhub.png"
+              alt="Clarity Hub"
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
+
+
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
