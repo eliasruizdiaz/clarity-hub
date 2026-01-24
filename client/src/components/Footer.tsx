@@ -120,12 +120,12 @@ export default function Footer() {
             </ul>
             
             {/* Social proof mini */}
-            <div className="mt-4 pt-4 border-t border-white/10">
+            {/* <div className="mt-4 pt-4 border-t border-white/10">
               <p className="text-xs text-white/40 mb-2">Sígueme en redes:</p>
               <p className="text-sm text-white/60">
                 +50K seguidores en redes sociales
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
 

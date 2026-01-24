@@ -27,7 +27,7 @@ export default function SocialProofSection() {
       result: "+45% eficiencia",
     },
     {
-      quote: "Lo que más valoro es que no te vende humo. Te dice exactamente qué va a funcionar y qué no, basado en experiencia real. Eso no tiene precio cuando estás invirtiendo $50K+.",
+      quote: "Lo que más valoro es que salis con claridad. Te dice exactamente qué va a funcionar y qué no, basado en experiencia real. Eso no tiene precio cuando estás invirtiendo $50K+.",
       author: "Carlos Mendoza",
       role: "CTO",
       company: "Fintech Regional",
