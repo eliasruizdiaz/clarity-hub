@@ -74,22 +74,7 @@ export default function TiersSection({ onOpenQuiz }: TiersSectionProps) {
 
   return (
     <section id="planes" className="py-20 md:py-28 bg-cream relative" ref={ref}>
-      {/* Wave divider top */}
-      <div className="absolute top-0 left-0 right-0 -translate-y-full">
-        <svg
-          viewBox="0 0 1440 120"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-auto"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M0 0L60 10C120 20 240 40 360 50C480 60 600 60 720 55C840 50 960 40 1080 35C1200 30 1320 30 1380 30L1440 30V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0Z"
-            fill="#60Ba46"
-          />
-        </svg>
-      </div>
-
+      
       <div className="container">
         {/* Header */}
         <motion.div
