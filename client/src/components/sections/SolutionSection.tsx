@@ -35,7 +35,7 @@ export default function SolutionSection() {
   return (
     <section id="solucion" className="py-20 md:py-28 bg-mint/20 relative" ref={ref}>
       {/* Wave divider top */}
-      <div className="absolute top-0 left-0 right-0 rotate-180">
+      <div className="absolute top-0 left-0 right-0 rotate-180 pointer-events-none">
         <svg
           viewBox="0 0 1440 120"
           fill="none"
@@ -50,7 +50,7 @@ export default function SolutionSection() {
         </svg>
       </div>
 
-      <div className="container pt-8">
+      <div className="container pt-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left column - Content */}
           <motion.div
@@ -95,7 +95,7 @@ export default function SolutionSection() {
               href={WHOP_URL}
               target="_blank"
               rel="noreferrer"
-              className="btn-primary-gradient text-white font-semibold py-4 px-8 rounded-xl text-lg inline-flex items-center gap-2"
+              className="btn-primary-gradient text-white font-semibold py-4 px-8 rounded-xl text-lg inline-flex items-center gap-2 relative z-20"
             >
               Quiero mi arquitectura personalizada
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -132,7 +132,7 @@ export default function SolutionSection() {
       </div>
 
       {/* Wave divider bottom */}
-      <div className="absolute bottom-0 left-0 right-0">
+      <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
         <svg
           viewBox="0 0 1440 120"
           fill="none"

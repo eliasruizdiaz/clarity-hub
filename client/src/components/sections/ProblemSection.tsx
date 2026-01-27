@@ -101,7 +101,7 @@ export default function ProblemSection() {
               href={WHOP_URL}
               target="_blank"
               rel="noreferrer"
-              className="btn-primary-gradient text-white font-semibold py-4 px-8 rounded-xl text-lg inline-flex items-center gap-2"
+              className="btn-primary-gradient text-white font-semibold py-4 px-8 rounded-xl text-lg inline-flex items-center gap-2 relative z-10"
             >
               ¿Te suena familiar? Aprende a evitarlo
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
