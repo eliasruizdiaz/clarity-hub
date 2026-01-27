@@ -1,11 +1,9 @@
 import { motion } from "framer-motion";
-import Calculator from "@/components/Calculator";
+import VSLPlayer from "@/components/VSLPlayer";
 
-interface HeroSectionProps {
-  onOpenQuiz: (origin: string) => void;
-}
+const WHOP_URL = "https://whop.com/clhub";
 
-export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
+export default function HeroSection() {
   return (
     <section className="relative min-h-screen pt-20 md:pt-24 pb-16 overflow-hidden">
       {/* Background with organic shapes */}
@@ -29,13 +27,13 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
       </div>
 
       <div className="container">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left column - Text content */}
+        <div className="max-w-5xl mx-auto">
+          {/* Text content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center lg:text-left"
+            className="text-center mb-10"
           >
             {/* Badge */}
             <motion.div
@@ -55,58 +53,79 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
             </h1>
 
             {/* Subheadline */}
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0">
+            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               Ayudo a empresas medianas y grandes a evitar arquitecturas fallidas 
               que cuestan <span className="text-destructive font-medium">meses y mucho dinero</span> a la basura.
             </p>
+          </motion.div>
 
-            {/* Trust indicators */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 mb-8">
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-10 bg-forest/10 rounded-full flex items-center justify-center">
-                  <svg className="w-5 h-5 text-forest" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <span className="text-sm text-muted-foreground">100+ implementaciones</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-10 bg-orange/10 rounded-full flex items-center justify-center">
-                  <svg className="w-5 h-5 text-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
-                  </svg>
-                </div>
-                <span className="text-sm text-muted-foreground">Mercados globales</span>
-              </div>
-            </div>
+          {/* VSL Video */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mb-10"
+          >
+            <VSLPlayer />
+          </motion.div>
 
-            {/* CTA buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button
-                onClick={() => onOpenQuiz("Hero CTA")}
-                className="btn-primary-gradient text-white font-semibold py-4 px-8 rounded-xl text-lg inline-flex items-center justify-center gap-2"
-              >
-                Hacer diagnóstico gratis
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </button>
-              <a
-                href="#planes"
-                className="bg-white border-2 border-border text-foreground font-semibold py-4 px-8 rounded-xl text-lg inline-flex items-center justify-center gap-2 hover:border-forest/30 transition-colors"
-              >
-                Ver planes
-              </a>
+          {/* CTA buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          >
+            <a
+              href={WHOP_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-primary-gradient text-white font-semibold py-4 px-8 rounded-xl text-lg inline-flex items-center justify-center gap-2"
+            >
+              Acceder al Programa
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <svg className="w-5 h-5 text-forest" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+              <span>7 días de garantía total de reembolso</span>
             </div>
           </motion.div>
 
-          {/* Right column - Calculator */}
+          {/* Trust indicators */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="flex flex-wrap items-center justify-center gap-6 mt-10"
           >
-            <Calculator onOpenQuiz={onOpenQuiz} />
+            <div className="flex items-center gap-2">
+              <div className="w-10 h-10 bg-forest/10 rounded-full flex items-center justify-center">
+                <svg className="w-5 h-5 text-forest" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <span className="text-sm text-muted-foreground">100+ implementaciones</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-10 h-10 bg-orange/10 rounded-full flex items-center justify-center">
+                <svg className="w-5 h-5 text-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
+                </svg>
+              </div>
+              <span className="text-sm text-muted-foreground">Mercados globales</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-10 h-10 bg-mint/50 rounded-full flex items-center justify-center">
+                <svg className="w-5 h-5 text-forest" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <span className="text-sm text-muted-foreground">$297 USD</span>
+            </div>
           </motion.div>
         </div>
       </div>

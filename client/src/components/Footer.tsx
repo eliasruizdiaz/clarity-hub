@@ -7,6 +7,8 @@ const TikTokIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
+const WHOP_URL = "https://whop.com/clhub";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -94,13 +96,23 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#planes" className="text-white/60 hover:text-white transition-colors">
-                  Planes
+                <a href="#calculadora" className="text-white/60 hover:text-white transition-colors">
+                  Calculadora
                 </a>
               </li>
               <li>
                 <a href="#faq" className="text-white/60 hover:text-white transition-colors">
                   FAQ
+                </a>
+              </li>
+              <li>
+                <a 
+                  href={WHOP_URL} 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="text-orange hover:text-orange/80 transition-colors font-medium"
+                >
+                  Acceder al Programa
                 </a>
               </li>
             </ul>
@@ -119,13 +131,13 @@ export default function Footer() {
               <li>Consultoría remota global</li>
             </ul>
             
-            {/* Social proof mini */}
-            {/* <div className="mt-4 pt-4 border-t border-white/10">
-              <p className="text-xs text-white/40 mb-2">Sígueme en redes:</p>
+            {/* Guarantee reminder */}
+            <div className="mt-4 pt-4 border-t border-white/10">
+              <p className="text-xs text-white/40 mb-1">Garantía</p>
               <p className="text-sm text-white/60">
-                +50K seguidores en redes sociales
+                7 días de reembolso total
               </p>
-            </div> */}
+            </div>
           </div>
         </div>
 

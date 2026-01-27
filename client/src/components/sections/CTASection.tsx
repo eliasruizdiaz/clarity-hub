@@ -2,11 +2,9 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 
-interface CTASectionProps {
-  onOpenQuiz: (origin: string) => void;
-}
+const WHOP_URL = "https://whop.com/clhub";
 
-export default function CTASection({ onOpenQuiz }: CTASectionProps) {
+export default function CTASection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -28,25 +26,39 @@ export default function CTASection({ onOpenQuiz }: CTASectionProps) {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6">
             ¿Listo para implementar automatización sin perder tiempo ni dinero?
           </h2>
-          <p className="text-lg md:text-xl text-white/80 mb-10">
-            El diagnóstico es 100% gratuito y te toma menos de 3 minutos. 
-            Descubre exactamente qué necesitas para tu situación específica.
+          <p className="text-lg md:text-xl text-white/80 mb-6">
+            El Programa De Caos a Claridad te da todo lo que necesitas para 
+            implementar IA y automatización de forma correcta desde el día 1.
           </p>
 
+          {/* Price and guarantee */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-10">
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl px-6 py-4">
+              <p className="text-3xl font-bold text-white">$297</p>
+              <p className="text-sm text-white/70">Precio actual</p>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl px-6 py-4">
+              <p className="text-xl font-semibold text-white">7 días de garantía</p>
+              <p className="text-sm text-white/70">Reembolso total sin preguntas</p>
+            </div>
+          </div>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => onOpenQuiz("CTA Final")}
+            <a
+              href={WHOP_URL}
+              target="_blank"
+              rel="noreferrer"
               className="bg-white text-forest font-semibold py-4 px-8 rounded-xl text-lg inline-flex items-center justify-center gap-2 hover:bg-white/90 transition-colors shadow-xl"
             >
-              Hacer diagnóstico gratis
+              Acceder al Programa Ahora
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
-            </button>
+            </a>
           </div>
 
           <p className="text-white/60 text-sm mt-6">
-            Sin compromiso. Sin tarjeta de crédito. Solo claridad.
+            Sin riesgo. 7 días de garantía total de reembolso.
           </p>
         </motion.div>
       </div>

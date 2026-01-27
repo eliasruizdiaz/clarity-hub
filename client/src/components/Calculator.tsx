@@ -2,11 +2,9 @@ import { useState, useEffect } from "react";
 import { Slider } from "@/components/ui/slider";
 import { motion, AnimatePresence } from "framer-motion";
 
-interface CalculatorProps {
-  onOpenQuiz: (origin: string) => void;
-}
+const WHOP_URL = "https://whop.com/clhub";
 
-export default function Calculator({ onOpenQuiz }: CalculatorProps) {
+export default function Calculator() {
   const [hoursPerWeek, setHoursPerWeek] = useState(10);
   const [teamMembers, setTeamMembers] = useState(5);
   const [costPerHour, setCostPerHour] = useState(25);
@@ -172,12 +170,14 @@ export default function Calculator({ onOpenQuiz }: CalculatorProps) {
               </motion.div>
             )}
 
-            <button
-              onClick={() => onOpenQuiz("Calculator")}
-              className="w-full btn-primary-gradient text-white font-semibold py-4 px-6 rounded-xl text-lg"
+            <a
+              href={WHOP_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="w-full btn-primary-gradient text-white font-semibold py-4 px-6 rounded-xl text-lg text-center block"
             >
               Descubre cómo recuperar ese dinero →
-            </button>
+            </a>
           </motion.div>
         )}
       </AnimatePresence>

@@ -3,11 +3,9 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { AlertTriangle, Clock, DollarSign, Users } from "lucide-react";
 
-interface ProblemSectionProps {
-  onOpenQuiz: (origin: string) => void;
-}
+const WHOP_URL = "https://whop.com/clhub";
 
-export default function ProblemSection({ onOpenQuiz }: ProblemSectionProps) {
+export default function ProblemSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -99,15 +97,17 @@ export default function ProblemSection({ onOpenQuiz }: ProblemSectionProps) {
               ))}
             </div>
 
-            <button
-              onClick={() => onOpenQuiz("Problem Section")}
+            <a
+              href={WHOP_URL}
+              target="_blank"
+              rel="noreferrer"
               className="btn-primary-gradient text-white font-semibold py-4 px-8 rounded-xl text-lg inline-flex items-center gap-2"
             >
-              ¿Te suena familiar? Haz el diagnóstico
+              ¿Te suena familiar? Aprende a evitarlo
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
-            </button>
+            </a>
           </motion.div>
         </div>
       </div>

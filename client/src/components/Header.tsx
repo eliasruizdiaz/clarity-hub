@@ -3,11 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-interface HeaderProps {
-  onOpenQuiz: (origin: string) => void;
-}
+const WHOP_URL = "https://whop.com/clhub";
 
-export default function Header({ onOpenQuiz }: HeaderProps) {
+export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -23,7 +21,7 @@ export default function Header({ onOpenQuiz }: HeaderProps) {
     { href: "#problema", label: "El Problema" },
     { href: "#solucion", label: "Solución" },
     { href: "#beneficios", label: "Beneficios" },
-    { href: "#planes", label: "Planes" },
+    { href: "#calculadora", label: "Calculadora" },
     { href: "#faq", label: "FAQ" },
   ];
 
@@ -64,10 +62,12 @@ export default function Header({ onOpenQuiz }: HeaderProps) {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button
-              onClick={() => onOpenQuiz("Header")}
+              asChild
               className="btn-primary-gradient text-white font-medium px-6"
             >
-              Hacer diagnóstico gratis
+              <a href={WHOP_URL} target="_blank" rel="noreferrer">
+                Acceder al Programa
+              </a>
             </Button>
           </div>
 
@@ -108,13 +108,17 @@ export default function Header({ onOpenQuiz }: HeaderProps) {
               ))}
               <div className="pt-4">
                 <Button
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    onOpenQuiz("Header Mobile");
-                  }}
+                  asChild
                   className="w-full btn-primary-gradient text-white font-medium py-6"
                 >
-                  Hacer diagnóstico gratis
+                  <a 
+                    href={WHOP_URL} 
+                    target="_blank" 
+                    rel="noreferrer"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Acceder al Programa
+                  </a>
                 </Button>
               </div>
             </nav>

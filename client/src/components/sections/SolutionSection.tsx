@@ -3,11 +3,9 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { CheckCircle2, Lightbulb, Map, Shield } from "lucide-react";
 
-interface SolutionSectionProps {
-  onOpenQuiz: (origin: string) => void;
-}
+const WHOP_URL = "https://whop.com/clhub";
 
-export default function SolutionSection({ onOpenQuiz }: SolutionSectionProps) {
+export default function SolutionSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -93,15 +91,17 @@ export default function SolutionSection({ onOpenQuiz }: SolutionSectionProps) {
               ))}
             </div>
 
-            <button
-              onClick={() => onOpenQuiz("Solution Section")}
+            <a
+              href={WHOP_URL}
+              target="_blank"
+              rel="noreferrer"
               className="btn-primary-gradient text-white font-semibold py-4 px-8 rounded-xl text-lg inline-flex items-center gap-2"
             >
               Quiero mi arquitectura personalizada
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
-            </button>
+            </a>
           </motion.div>
 
           {/* Right column - Image */}
