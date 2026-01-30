@@ -3,7 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { CheckCircle2, Lightbulb, Map, Shield } from "lucide-react";
 
-const WHOP_URL = "https://whop.com/clhub";
+const WHOP_URL = "https://whop.com/clhub/clarity-hub-premium-72/";
 
 export default function SolutionSection() {
   const ref = useRef(null);

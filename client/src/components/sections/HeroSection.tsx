@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import VSLPlayer from "@/components/VSLPlayer";
 
-const WHOP_URL = "https://whop.com/clhub";
+const WHOP_URL = "https://whop.com/clhub/clarity-hub-premium-72/";
 
 export default function HeroSection() {
   return (

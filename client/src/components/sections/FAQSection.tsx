@@ -8,7 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const WHOP_URL = "https://whop.com/clhub";
+const WHOP_URL = "https://whop.com/clhub/clarity-hub-premium-72/";
 
 export default function FAQSection() {
   const ref = useRef(null);

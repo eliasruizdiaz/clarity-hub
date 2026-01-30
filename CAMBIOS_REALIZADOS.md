@@ -8,14 +8,14 @@
 - ✅ Controles de video: play, progress, tiempo, mute, volumen, fullscreen
 
 ### 2. CTAs Actualizados a Whop
-- ✅ Header: "Acceder al Programa" → https://whop.com/clhub
-- ✅ Hero: "Acceder al Programa" → https://whop.com/clhub
-- ✅ ProblemSection: "¿Te suena familiar? Aprende a evitarlo" → https://whop.com/clhub
-- ✅ SolutionSection: "Quiero mi arquitectura personalizada" → https://whop.com/clhub
-- ✅ CalculatorSection: "Recupera ese dinero ahora" → https://whop.com/clhub
-- ✅ Calculator: "Descubre cómo recuperar ese dinero" → https://whop.com/clhub
-- ✅ FAQSection: "Acceder al Programa" → https://whop.com/clhub
-- ✅ CTASection: "Acceder al Programa Ahora" → https://whop.com/clhub
+- ✅ Header: "Acceder al Programa" → https://whop.com/clhub/clarity-hub-premium-72/
+- ✅ Hero: "Acceder al Programa" → https://whop.com/clhub/clarity-hub-premium-72/
+- ✅ ProblemSection: "¿Te suena familiar? Aprende a evitarlo" → https://whop.com/clhub/clarity-hub-premium-72/
+- ✅ SolutionSection: "Quiero mi arquitectura personalizada" → https://whop.com/clhub/clarity-hub-premium-72/
+- ✅ CalculatorSection: "Recupera ese dinero ahora" → https://whop.com/clhub/clarity-hub-premium-72/
+- ✅ Calculator: "Descubre cómo recuperar ese dinero" → https://whop.com/clhub/clarity-hub-premium-72/
+- ✅ FAQSection: "Acceder al Programa" → https://whop.com/clhub/clarity-hub-premium-72/
+- ✅ CTASection: "Acceder al Programa Ahora" → https://whop.com/clhub/clarity-hub-premium-72/
 
 ### 3. Elementos Eliminados
 - ✅ Quiz component eliminado completamente

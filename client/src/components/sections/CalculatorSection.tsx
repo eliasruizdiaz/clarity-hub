@@ -3,7 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import Calculator from "@/components/Calculator";
 
-const WHOP_URL = "https://whop.com/clhub";
+const WHOP_URL = "https://whop.com/clhub/clarity-hub-premium-72/";
 
 export default function CalculatorSection() {
   const ref = useRef(null);

@@ -3,7 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { AlertTriangle, Clock, DollarSign, Users } from "lucide-react";
 
-const WHOP_URL = "https://whop.com/clhub";
+const WHOP_URL = "https://whop.com/clhub/clarity-hub-premium-72/";
 
 export default function ProblemSection() {
   const ref = useRef(null);

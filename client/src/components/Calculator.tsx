@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Slider } from "@/components/ui/slider";
 import { motion, AnimatePresence } from "framer-motion";
 
-const WHOP_URL = "https://whop.com/clhub";
+const WHOP_URL = "https://whop.com/clhub/clarity-hub-premium-72/";
 
 export default function Calculator() {
   const [hoursPerWeek, setHoursPerWeek] = useState(10);

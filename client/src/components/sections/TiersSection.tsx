@@ -29,7 +29,7 @@ export default function TiersSection({ onOpenQuiz }: TiersSectionProps) {
         { icon: Zap, text: "Descuentos en servicios premium" },
       ],
       cta: "Unirme a la comunidad",
-      ctaUrl: "https://whop.com/clhub",
+      ctaUrl: "https://whop.com/clhub/clarity-hub-premium-72/",
       ctaStyle: "bg-forest hover:bg-forest/90 text-white",
     },
     {
