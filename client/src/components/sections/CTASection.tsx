@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { trackInitiateCheckout } from "@/lib/metaTracking";
 
 const WHOP_URL = "https://whop.com/clhub/clarity-hub-premium-72/";
 
@@ -48,6 +49,7 @@ export default function CTASection() {
               href={WHOP_URL}
               target="_blank"
               rel="noreferrer"
+              onClick={() => trackInitiateCheckout('CTA Section')}
               className="bg-white text-forest font-semibold py-4 px-8 rounded-xl text-lg inline-flex items-center justify-center gap-2 hover:bg-white/90 transition-colors shadow-xl"
             >
               Acceder al Programa Ahora

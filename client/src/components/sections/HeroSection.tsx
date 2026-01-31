@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import VSLPlayer from "@/components/VSLPlayer";
+import { trackInitiateCheckout } from "@/lib/metaTracking";
 
 const WHOP_URL = "https://whop.com/clhub/clarity-hub-premium-72/";
 
@@ -82,6 +83,7 @@ export default function HeroSection() {
                 href={WHOP_URL}
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => trackInitiateCheckout('Hero Section')}
                 className="btn-primary-gradient text-white font-semibold py-4 px-8 rounded-xl text-lg inline-flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-shadow"
               >
                 Acceder al Programa

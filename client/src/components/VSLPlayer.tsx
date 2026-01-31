@@ -32,6 +32,17 @@ export default function VSLPlayer({ onVideoEnd }: VSLPlayerProps) {
         ratio: "16:9",
       });
 
+      // Track ViewContent cuando empieza a reproducir el video
+      playerRef.current.on("play", () => {
+        if (typeof window !== 'undefined' && (window as any).fbq) {
+          (window as any).fbq('track', 'ViewContent', {
+            content_name: 'VSL - Clarity Hub',
+            content_category: 'Video',
+            content_type: 'video'
+          });
+        }
+      });
+
       playerRef.current.on("ended", () => {
         if (onVideoEnd) {
           onVideoEnd();

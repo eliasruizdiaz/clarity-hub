@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { trackInitiateCheckout } from "@/lib/metaTracking";
 import { CheckCircle2, Lightbulb, Map, Shield } from "lucide-react";
 
 const WHOP_URL = "https://whop.com/clhub/clarity-hub-premium-72/";
@@ -95,6 +96,7 @@ export default function SolutionSection() {
               href={WHOP_URL}
               target="_blank"
               rel="noreferrer"
+              onClick={() => trackInitiateCheckout('Solution Section')}
               className="btn-primary-gradient text-white font-semibold py-4 px-8 rounded-xl text-lg inline-flex items-center gap-2 relative z-20"
             >
               Quiero mi arquitectura personalizada

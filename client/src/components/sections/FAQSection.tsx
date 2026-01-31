@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { trackInitiateCheckout } from "@/lib/metaTracking";
 import {
   Accordion,
   AccordionContent,
@@ -92,6 +93,7 @@ export default function FAQSection() {
               href={WHOP_URL}
               target="_blank"
               rel="noreferrer"
+              onClick={() => trackInitiateCheckout('FAQ Section')}
               className="btn-primary-gradient text-white font-semibold py-4 px-8 rounded-xl text-lg inline-flex items-center gap-2"
             >
               Acceder al Programa

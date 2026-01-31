@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { trackInitiateCheckout } from "@/lib/metaTracking";
 
 const WHOP_URL = "https://whop.com/clhub/clarity-hub-premium-72/";
 
@@ -65,7 +66,7 @@ export default function Header() {
               asChild
               className="btn-primary-gradient text-white font-medium px-6"
             >
-              <a href={WHOP_URL} target="_blank" rel="noreferrer">
+              <a href={WHOP_URL} target="_blank" rel="noreferrer" onClick={() => trackInitiateCheckout('Header Desktop')}>
                 Acceder al Programa
               </a>
             </Button>
@@ -115,7 +116,10 @@ export default function Header() {
                     href={WHOP_URL} 
                     target="_blank" 
                     rel="noreferrer"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={() => {
+                      trackInitiateCheckout('Header Mobile');
+                      setIsMobileMenuOpen(false);
+                    }}
                   >
                     Acceder al Programa
                   </a>

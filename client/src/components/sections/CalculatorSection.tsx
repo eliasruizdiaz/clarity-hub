@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import Calculator from "@/components/Calculator";
+import { trackInitiateCheckout } from "@/lib/metaTracking";
 
 const WHOP_URL = "https://whop.com/clhub/clarity-hub-premium-72/";
 
@@ -56,6 +57,7 @@ export default function CalculatorSection() {
               href={WHOP_URL}
               target="_blank"
               rel="noreferrer"
+              onClick={() => trackInitiateCheckout('Calculator Section')}
               className="btn-primary-gradient text-white font-semibold py-4 px-8 rounded-xl text-lg inline-flex items-center gap-2 relative z-10"
             >
               Recupera ese dinero ahora

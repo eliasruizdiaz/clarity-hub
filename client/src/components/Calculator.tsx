@@ -9,6 +9,7 @@ export default function Calculator() {
   const [teamMembers, setTeamMembers] = useState(5);
   const [costPerHour, setCostPerHour] = useState(25);
   const [isVisible, setIsVisible] = useState(false);
+  const [hasTrackedLead, setHasTrackedLead] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -51,7 +52,17 @@ export default function Calculator() {
           </div>
           <Slider
             value={[hoursPerWeek]}
-            onValueChange={(value) => setHoursPerWeek(value[0])}
+            onValueChange={(value) => {
+              setHoursPerWeek(value[0]);
+              // Track Lead event on first interaction
+              if (!hasTrackedLead && typeof window !== 'undefined' && (window as any).fbq) {
+                (window as any).fbq('track', 'Lead', {
+                  content_name: 'Calculator Interaction',
+                  content_category: 'ROI Calculator'
+                });
+                setHasTrackedLead(true);
+              }
+            }}
             min={1}
             max={40}
             step={1}

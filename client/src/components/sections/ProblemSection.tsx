@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { AlertTriangle, Clock, DollarSign, Users } from "lucide-react";
+import { trackInitiateCheckout } from "@/lib/metaTracking";
 
 const WHOP_URL = "https://whop.com/clhub/clarity-hub-premium-72/";
 
@@ -101,6 +102,7 @@ export default function ProblemSection() {
               href={WHOP_URL}
               target="_blank"
               rel="noreferrer"
+              onClick={() => trackInitiateCheckout('Problem Section')}
               className="btn-primary-gradient text-white font-semibold py-4 px-8 rounded-xl text-lg inline-flex items-center gap-2 relative z-10"
             >
               ¿Te suena familiar? Aprende a evitarlo
