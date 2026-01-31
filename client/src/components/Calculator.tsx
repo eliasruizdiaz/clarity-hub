@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Slider } from "@/components/ui/slider";
 import { motion, AnimatePresence } from "framer-motion";
+import { trackLead } from "@/lib/metaTracking";
 
 const WHOP_URL = "https://whop.com/clhub/clarity-hub-premium-72/";
 
@@ -55,11 +56,8 @@ export default function Calculator() {
             onValueChange={(value) => {
               setHoursPerWeek(value[0]);
               // Track Lead event on first interaction
-              if (!hasTrackedLead && typeof window !== 'undefined' && (window as any).fbq) {
-                (window as any).fbq('track', 'Lead', {
-                  content_name: 'Calculator Interaction',
-                  content_category: 'ROI Calculator'
-                });
+              if (!hasTrackedLead) {
+                trackLead('Calculator Interaction', 'ROI Calculator');
                 setHasTrackedLead(true);
               }
             }}

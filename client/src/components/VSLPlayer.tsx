@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import Plyr from "plyr";
 import "plyr/dist/plyr.css";
+import { trackViewContent } from "@/lib/metaTracking";
 
 interface VSLPlayerProps {
   onVideoEnd?: () => void;
@@ -34,13 +35,7 @@ export default function VSLPlayer({ onVideoEnd }: VSLPlayerProps) {
 
       // Track ViewContent cuando empieza a reproducir el video
       playerRef.current.on("play", () => {
-        if (typeof window !== 'undefined' && (window as any).fbq) {
-          (window as any).fbq('track', 'ViewContent', {
-            content_name: 'VSL - Clarity Hub',
-            content_category: 'Video',
-            content_type: 'video'
-          });
-        }
+        trackViewContent('VSL - Clarity Hub', 'Video');
       });
 
       playerRef.current.on("ended", () => {
