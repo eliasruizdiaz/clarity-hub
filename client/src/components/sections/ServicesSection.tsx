@@ -107,7 +107,7 @@ export default function ServicesSection() {
               
               <div className="mb-6">
                 <span className="text-lg text-muted-foreground">Desde</span>
-                <span className="text-4xl font-bold text-foreground ml-2">+$1,000</span>
+                <span className="text-4xl font-bold text-foreground ml-2">+$1,500</span>
                 <span className="text-muted-foreground ml-1">USD</span>
               </div>
 
