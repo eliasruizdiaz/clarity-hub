@@ -36,29 +36,19 @@ export default function HeroSection() {
             transition={{ duration: 0.6 }}
             className="text-center mb-8"
           >
-            {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 bg-mint/50 text-forest px-4 py-2 rounded-full text-sm font-medium mb-6"
-            >
-              <span className="w-2 h-2 bg-forest rounded-full animate-pulse" />
-              Formación + Comunidad en Automatización e IA
-            </motion.div>
 
             {/* Main headline */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground mb-6 leading-tight">
-              Automatiza Tu Operación con IA y{" "}
-              <span className="gradient-text">Reduce Costos Hasta 50%</span>{" "}
-              Sin Esperar Meses de Implementación
+              Maximizá tu ROI y{" "}
+              <span className="gradient-text">Reduce Tiempos, Costos y Errores operativos</span>{" "}
+              con Automatización e IA
             </h1>
 
             {/* Subheadline */}
             <p className="text-lg md:text-xl text-muted-foreground mb-6 max-w-3xl mx-auto">
-              La formación que te entrena para liderar proyectos de automatización e IA desde cero: 
-              identifica quick wins en 48h, implementa sin caos, y escala 3 procesos en 90 días. 
-              Metodología probada en <span className="text-foreground font-medium">+100 empresas</span> (desde startups hasta Fortune Global 500).
+              Aprende a identificar oportunidades de alto impacto, 
+              eliminar cuellos de botella y ejecutar automatizaciones 
+              con una metodología probada en <span className="text-foreground font-medium">+100 empresas</span>.
             </p>
           </motion.div>
 
@@ -119,14 +109,6 @@ export default function HeroSection() {
                     </svg>
                   </div>
                   <span className="text-sm font-medium text-foreground">Mercados globales</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-10 h-10 bg-mint/50 rounded-full flex items-center justify-center">
-                    <svg className="w-5 h-5 text-forest" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <span className="text-sm font-medium text-foreground">$297 USD</span>
                 </div>
               </div>
             </div>

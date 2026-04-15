@@ -20,20 +20,25 @@ export default function VSLPlayer({ onVideoEnd }: VSLPlayerProps) {
         controls: [
           "play-large",
           "play",
-          "progress",
-          "current-time",
           "mute",
           "volume",
           "settings",
           "fullscreen",
         ],
         settings: ["speed"],
-        speed: { selected: 1, options: [1, 1.3, 1.5, 2] },
-        autoplay: false,
+        speed: { selected: 1.3, options: [1, 1.3, 1.5, 2] },
+        autoplay: true,
+        muted: true,
         clickToPlay: true,
         hideControls: true,
         resetOnEnd: false,
         ratio: "16:9",
+      });
+
+      playerRef.current.on("ready", () => {
+        if (playerRef.current) {
+          playerRef.current.speed = 1.3;
+        }
       });
 
       // Track ViewContent cuando empieza a reproducir el video

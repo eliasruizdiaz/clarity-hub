@@ -1,14 +1,7 @@
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { trackInitiateCheckout } from "@/lib/metaTracking";
-
-const WHOP_URL = "https://whop.com/clhub/clarity-hub-premium-72/";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,14 +10,6 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const navLinks = [
-    { href: "#programa", label: "El Programa" },
-    { href: "#calculadora", label: "Calculadora" },
-    { href: "#testimonios", label: "Testimonios" },
-    { href: "#faq", label: "FAQ" },
-    { href: "#servicios", label: "Servicios" },
-  ];
 
   return (
     <header
@@ -35,8 +20,7 @@ export default function Header() {
       }`}
     >
       <div className="container">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
+        <div className="flex items-center h-16 md:h-20">
           <div className="h-30 w-[480px] overflow-hidden flex items-center">
             <img
               src="/images/logo_clarity.png"
@@ -44,89 +28,8 @@ export default function Header() {
               className="w-full h-full object-contain object-left"
             />
           </div>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <Button
-              asChild
-              className="btn-primary-gradient text-white font-medium px-6"
-            >
-              <a href={WHOP_URL} target="_blank" rel="noreferrer" onClick={() => trackInitiateCheckout('Header Desktop')}>
-                Acceder al Programa
-              </a>
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t border-border"
-          >
-            <nav className="container py-4 space-y-2">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block py-3 px-4 text-foreground/70 hover:text-foreground hover:bg-muted rounded-lg transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
-              <div className="pt-4">
-                <Button
-                  asChild
-                  className="w-full btn-primary-gradient text-white font-medium py-6"
-                >
-                  <a 
-                    href={WHOP_URL} 
-                    target="_blank" 
-                    rel="noreferrer"
-                    onClick={() => {
-                      trackInitiateCheckout('Header Mobile');
-                      setIsMobileMenuOpen(false);
-                    }}
-                  >
-                    Acceder al Programa
-                  </a>
-                </Button>
-              </div>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </header>
   );
 }
