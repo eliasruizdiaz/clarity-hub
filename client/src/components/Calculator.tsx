@@ -180,9 +180,7 @@ export default function Calculator() {
             )}
 
             <a
-              href={WHOP_URL}
-              target="_blank"
-              rel="noreferrer"
+              href="#servicios"
               className="w-full btn-primary-gradient text-white font-semibold py-4 px-6 rounded-xl text-lg text-center block"
             >
               Descubre cómo recuperar ese dinero →

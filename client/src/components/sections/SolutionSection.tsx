@@ -93,10 +93,7 @@ export default function SolutionSection() {
             </div>
 
             <a
-              href={WHOP_URL}
-              target="_blank"
-              rel="noreferrer"
-              onClick={() => trackInitiateCheckout('Solution Section')}
+              href="#servicios"
               className="btn-primary-gradient text-white font-semibold py-4 px-8 rounded-xl text-lg inline-flex items-center gap-2 relative z-20"
             >
               Quiero mi arquitectura personalizada

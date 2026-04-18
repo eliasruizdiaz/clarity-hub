@@ -72,10 +72,7 @@ export default function HeroSection() {
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
               <a
-                href={WHOP_URL}
-                target="_blank"
-                rel="noreferrer"
-                onClick={() => trackInitiateCheckout('Hero Section')}
+                href="#servicios"
                 className="btn-primary-gradient text-white font-semibold py-4 px-8 rounded-xl text-lg inline-flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-shadow"
               >
                 Acceder al Programa

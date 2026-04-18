@@ -106,10 +106,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a 
-                  href={WHOP_URL} 
-                  target="_blank" 
-                  rel="noreferrer"
+                <a
+                  href="#servicios"
                   className="text-orange hover:text-orange/80 transition-colors font-medium"
                 >
                   Acceder al Programa

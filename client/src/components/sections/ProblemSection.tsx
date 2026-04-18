@@ -99,10 +99,7 @@ export default function ProblemSection() {
             </div>
 
             <a
-              href={WHOP_URL}
-              target="_blank"
-              rel="noreferrer"
-              onClick={() => trackInitiateCheckout('Problem Section')}
+              href="#servicios"
               className="btn-primary-gradient text-white font-semibold py-4 px-8 rounded-xl text-lg inline-flex items-center gap-2 relative z-10"
             >
               ¿Te suena familiar? Aprende a evitarlo

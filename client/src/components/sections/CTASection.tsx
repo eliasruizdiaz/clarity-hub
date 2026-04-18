@@ -46,10 +46,7 @@ export default function CTASection() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href={WHOP_URL}
-              target="_blank"
-              rel="noreferrer"
-              onClick={() => trackInitiateCheckout('CTA Section')}
+              href="#servicios"
               className="bg-white text-forest font-semibold py-4 px-8 rounded-xl text-lg inline-flex items-center justify-center gap-2 hover:bg-white/90 transition-colors shadow-xl"
             >
               Acceder al Programa Ahora

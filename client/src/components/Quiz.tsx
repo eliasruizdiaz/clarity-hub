@@ -434,8 +434,8 @@ export default function Quiz({ isOpen, onClose, buttonOrigin = "Unknown" }: Quiz
               {/* CTA based on tier */}
               {getTierRecommendation(totalScore).tier === 1 ? (
                 <div className="space-y-3">
-                  <Button 
-                    onClick={() => window.open('https://whop.com/clhub/clarity-hub-premium-72/', '_blank' )}
+                  <Button
+                    onClick={() => { const el = document.getElementById('servicios'); if (el) { el.scrollIntoView({ behavior: 'smooth' }); } }}
                     className="w-full bg-forest hover:bg-forest/90 text-white py-6 text-lg"
                   >Unirme a la Comunidad - $100/mes</Button>
                   
