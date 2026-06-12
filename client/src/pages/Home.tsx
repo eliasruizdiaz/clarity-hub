@@ -4,6 +4,7 @@ import HeroSection from "@/components/sections/HeroSection";
 import ResultadoSection from "@/components/sections/ResultadoSection";
 import MetodoSection from "@/components/sections/MetodoSection";
 import RoiScanSection from "@/components/sections/RoiScanSection";
+import TransformationSection from "@/components/sections/TransformationSection";
 import CalculatorSection from "@/components/sections/CalculatorSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import FormacionSection from "@/components/sections/FormacionSection";
@@ -27,7 +28,9 @@ export default function Home() {
         <MetodoSection />
         {/* 5. ROI Scan en detalle (Paso 1) */}
         <RoiScanSection />
-        {/* 6. Precios: ROI Scan + Optimization + Transformation */}
+        {/* 6. Optimization + Transformation en detalle (Pasos 2 y 3) */}
+        <TransformationSection />
+        {/* 7. Precios: ROI Scan + Optimization + Transformation */}
         <ServicesSection />
         {/* 7. Formaciones (excepción) */}
         <FormacionSection />
