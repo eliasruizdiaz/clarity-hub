@@ -12,6 +12,7 @@
 
 @theme inline {
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -253,6 +254,53 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  /* Eyebrow label (deck style): mono, spaced, with a leading rule */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #D94E25;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 1.75rem;
+    height: 2px;
+    background: #D94E25;
+    flex: 0 0 auto;
+  }
+  .eyebrow.eyebrow-center {
+    justify-content: center;
+  }
+
+  /* Flujo automatizado: línea de datos que "corre sola" */
+  @keyframes flow-bg {
+    to { background-position: -16px 0; }
+  }
+  .flow-line {
+    background-image: linear-gradient(90deg, #60Ba46 0 45%, transparent 0 100%);
+    background-size: 16px 100%;
+    background-repeat: repeat-x;
+    animation: flow-bg 0.55s linear infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .flow-line { animation: none; }
+  }
+
+  /* Capa de automatización que orbita al equipo (DESPUÉS) */
+  @keyframes spin-slow {
+    to { transform: rotate(360deg); }
+  }
+  .spin-slow { animation: spin-slow 24s linear infinite; }
+  .spin-slow-rev { animation: spin-slow 30s linear infinite reverse; }
+  @media (prefers-reduced-motion: reduce) {
+    .spin-slow, .spin-slow-rev { animation: none; }
   }
   
   /* Primary Button Gradient - Orange más oscuro para mejor contraste */

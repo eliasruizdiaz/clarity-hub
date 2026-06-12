@@ -68,8 +68,10 @@ Ve a tu proyecto en Cloudflare Pages → Settings → Environment Variables y ag
 
 ```
 META_PIXEL_ID=1509576223444567
-META_ACCESS_TOKEN=EAAR0IkjYPo0BQlX4n2pwFZBIsFBE7qsgAhSKcy0TIiZBTa7g17Gj2Gf6zvuFId6T0RgfNA0X0RZCjZBRYAbLoVeUqKChH3h7dapKDZABkbRwmEW1XauFQwBljwMlXWt8SlWeaRuy5BbAPTeRhKIQsBf3kUhR887icxp3mf6l1lic338mOK7SuIWZBkasZA6SgZDZD
+META_ACCESS_TOKEN=<pegar el token SOLO en Cloudflare → Settings → Environment Variables, nunca en el repo>
 ```
+
+> ⚠️ **Seguridad:** el token de acceso NO debe vivir en el repositorio. Cargalo únicamente como variable de entorno en Cloudflare Pages. Si alguna vez estuvo commiteado (lo estaba), **rotalo en Meta** (Events Manager → Settings → Conversions API → generar nuevo token) y reemplazá el valor en Cloudflare. Rotarlo invalida el viejo aunque haya quedado en el historial de git.
 
 **Importante:** Agrega estas variables tanto en **Production** como en **Preview** environments.
 

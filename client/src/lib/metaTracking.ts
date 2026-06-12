@@ -62,60 +62,6 @@ const sendServerEvent = async (
 };
 
 /**
- * Track InitiateCheckout event when user clicks CTA to Whop
- */
-export const trackInitiateCheckout = (ctaLocation: string) => {
-  if (typeof window === 'undefined') return;
-
-  const eventId = generateEventId();
-  const customData = {
-    content_name: 'Clarity Hub Premium',
-    content_category: 'Course',
-    value: 297,
-    currency: 'USD',
-    cta_location: ctaLocation,
-  };
-
-  // Track on client-side (browser pixel)
-  if (window.fbq) {
-    window.fbq('track', 'InitiateCheckout', customData);
-  }
-
-  // Track on server-side (Conversions API)
-  sendServerEvent('InitiateCheckout', eventId, customData);
-
-  // Store event ID in sessionStorage for potential use
-  try {
-    sessionStorage.setItem('last_meta_event_id', eventId);
-    sessionStorage.setItem('last_meta_event_time', Date.now().toString());
-  } catch (e) {
-    // Ignore storage errors
-  }
-};
-
-/**
- * Track ViewContent event
- */
-export const trackViewContent = (contentName: string, contentCategory: string) => {
-  if (typeof window === 'undefined') return;
-
-  const eventId = generateEventId();
-  const customData = {
-    content_name: contentName,
-    content_category: contentCategory,
-    content_type: 'video',
-  };
-
-  // Track on client-side
-  if (window.fbq) {
-    window.fbq('track', 'ViewContent', customData);
-  }
-
-  // Track on server-side
-  sendServerEvent('ViewContent', eventId, customData);
-};
-
-/**
  * Track Lead event
  */
 export const trackLead = (contentName: string, contentCategory: string) => {
@@ -134,6 +80,38 @@ export const trackLead = (contentName: string, contentCategory: string) => {
 
   // Track on server-side
   sendServerEvent('Lead', eventId, customData);
+};
+
+/**
+ * Track Schedule event when user clicks the "Agendá 30 min" CTA (Google Calendar).
+ * This is the PRIMARY conversion event for the ROI Scan funnel.
+ */
+export const trackSchedule = (ctaLocation: string) => {
+  if (typeof window === 'undefined') return;
+
+  const eventId = generateEventId();
+  // Sin `value`: el agendado es gratis. Optimizamos por cantidad de agendados,
+  // no por un valor monetario (poner $1.500 acá infla el ROAS en Meta).
+  const customData = {
+    content_name: 'Discovery 30 min',
+    content_category: 'ROI Scan',
+    cta_location: ctaLocation,
+  };
+
+  // Track on client-side (browser pixel)
+  if (window.fbq) {
+    window.fbq('track', 'Schedule', customData);
+  }
+
+  // Track on server-side (Conversions API)
+  sendServerEvent('Schedule', eventId, customData);
+
+  try {
+    sessionStorage.setItem('last_meta_event_id', eventId);
+    sessionStorage.setItem('last_meta_event_time', Date.now().toString());
+  } catch (e) {
+    // Ignore storage errors
+  }
 };
 
 /**

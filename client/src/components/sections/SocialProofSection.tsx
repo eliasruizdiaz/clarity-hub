@@ -1,165 +1,96 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Star } from "lucide-react";
+
+const stats = [
+  { num: "+14", label: "Años de experiencia", accent: "orange" as const },
+  { num: "+150", label: "Implementaciones", accent: "forest" as const },
+  { num: "+50", label: "Empresas", accent: "orange" as const },
+];
+
+const logos = [
+  { name: "HSBC", logo: "/images/hsbc-logo.jpg" },
+  { name: "Itaú", logo: "/images/itau-logo.jpg" },
+  { name: "Movistar", logo: "/images/movistar-logo.png" },
+  { name: "Tigo", logo: "/images/tigo-logo.jpg" },
+  { name: "Personal", logo: "/images/personal-logo.png" },
+  { name: "Securitas Direct", logo: "/images/securitas-logo.jpg" },
+  { name: "Fortis Mayorista", logo: "/images/fortis-logo.png" },
+  { name: "Comfar", logo: "/images/comfar-logo.png" },
+];
 
 export default function SocialProofSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  // Company logos - Real companies Elías has worked with
-  const companyLogos = [
-    { name: "HSBC", logo: "/images/hsbc-logo.jpg" },
-    { name: "Itaú", logo: "/images/itau-logo.jpg" },
-    { name: "Tigo", logo: "/images/tigo-logo.jpg" },
-    { name: "Personal", logo: "/images/personal-logo.png" },
-    { name: "Securitas Direct", logo: "/images/securitas-logo.jpg" },
-    { name: "Movistar", logo: "/images/movistar-logo.png" },
-  ];
-
-  // Testimonials (fictional but realistic)
-  const testimonials = [
-    {
-      quote: "Llevábamos 8 meses intentando implementar un chatbot con IA. En 6 semanas con Elías teníamos la arquitectura clara y en 3 meses estaba funcionando. Nos ahorró al menos $150K en errores.",
-      author: "María González",
-      role: "Directora de Operaciones",
-      company: "Empresa de Telecomunicaciones",
-      result: "+45% eficiencia",
-    },
-    {
-      quote: "Lo que más valoro es que salis con claridad. Te dice exactamente qué va a funcionar y qué no, basado en experiencia real. Eso no tiene precio cuando estás invirtiendo $50K+.",
-      author: "Carlos Mendoza",
-      role: "CTO",
-      company: "Fintech Regional",
-      result: "3x más rápido",
-    },
-    {
-      quote: "Nuestro equipo técnico es bueno, pero no tenían experiencia en automatización de contact centers. Elías nos dio el mapa y el acompañamiento que necesitábamos.",
-      author: "Ana Rodríguez",
-      role: "VP de Tecnología",
-      company: "Empresa de Seguros",
-      result: "-40% costos",
-    },
-  ];
-
   return (
-    <section id="testimonios" className="py-20 md:py-28 bg-mint/20 text-foreground relative overflow-hidden" ref={ref}>
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-20">
+    <section id="confianza" className="py-20 md:py-28 bg-mint/20 relative overflow-hidden" ref={ref}>
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-orange rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-20 w-96 h-96 bg-forest rounded-full blur-3xl" />
       </div>
 
       <div className="container relative">
-        {/* Header with Elías photo */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-14"
         >
-          {/* Elías Photo */}
-          <div className="mb-8">
-            <img
-              src="/images/elias-logo.png"
-              alt="Elías Ruiz Díaz"
-              className="w-48 h-auto mx-auto rounded-2xl"
-            />
-          </div>
-          
-          <span className="inline-block text-orange font-medium text-sm uppercase tracking-wider mb-4">
-            Empresas que confían
-          </span>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-6">
-            He trabajado con empresas líderes en Europa y LATAM
+          <span className="eyebrow eyebrow-center mb-4">Confianza</span>
+          <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-4">
+            Lo que te proponemos <span className="text-forest">ya lo hicimos 150 veces</span>.
           </h2>
-          <p className="text-lg text-foreground/70">
-            Más de 100 implementaciones exitosas en contact centers, 
-            automatización y sistemas de IA conversacional.
-          </p>
+          <p className="text-lg text-muted-foreground">El track record no se inventa. Se acumula.</p>
         </motion.div>
 
-        {/* Company logos */}
+        {/* Stats */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="flex flex-wrap items-center justify-center gap-6 md:gap-10 mb-20"
+          transition={{ delay: 0.15, duration: 0.6 }}
+          className="grid grid-cols-3 gap-4 md:gap-8 max-w-3xl mx-auto mb-16"
         >
-          {companyLogos.map((company, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl p-4 px-6 hover:scale-105 transition-transform shadow-lg"
-            >
-              <img
-                src={company.logo}
-                alt={company.name}
-                className="h-10 md:h-12 w-auto object-contain"
-              />
+          {stats.map((s) => (
+            <div key={s.label} className="text-center">
+              <p className={`text-4xl md:text-6xl font-extrabold ${s.accent === "orange" ? "text-orange" : "text-forest"}`}>
+                {s.num}
+              </p>
+              <p className="text-xs md:text-sm font-semibold uppercase tracking-wide text-muted-foreground mt-1">{s.label}</p>
             </div>
           ))}
         </motion.div>
 
-        {/* Testimonials */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.3 + index * 0.1, duration: 0.5 }}
-              className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-white/60 shadow-sm"
-            >
-              {/* Stars */}
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-orange text-orange" />
-                ))}
-              </div>
-
-              {/* Quote */}
-              <p className="text-foreground/80 mb-6 leading-relaxed">
-                "{testimonial.quote}"
-              </p>
-
-              {/* Author */}
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="font-medium text-foreground">{testimonial.author}</p>
-                  <p className="text-sm text-foreground/60">{testimonial.role}</p>
-                  <p className="text-xs text-foreground/50">{testimonial.company}</p>
-                </div>
-                <div className="bg-orange/20 text-orange px-3 py-1 rounded-full text-sm font-medium">
-                  {testimonial.result}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Stats bar */}
+        {/* Logos */}
+        <p className="text-center font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground/70 mb-6">
+          Empresas con las que trabajamos
+        </p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.6, duration: 0.6 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 bg-forest/5 border border-forest/10 rounded-2xl p-6 md:p-8"
+          transition={{ delay: 0.25, duration: 0.6 }}
+          className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto mb-16"
         >
-          <div className="text-center">
-            <p className="text-3xl md:text-4xl font-bold text-orange">13+</p>
-            <p className="text-sm text-foreground/70">Años de experiencia</p>
-          </div>
-          <div className="text-center">
-            <p className="text-3xl md:text-4xl font-bold text-orange">100+</p>
-            <p className="text-sm text-foreground/70">Implementaciones</p>
-          </div>
-          <div className="text-center">
-            <p className="text-3xl md:text-4xl font-bold text-orange">$2M+</p>
-            <p className="text-sm text-foreground/70">Ahorrados a clientes</p>
-          </div>
-          <div className="text-center">
-            <p className="text-3xl md:text-4xl font-bold text-orange">Global</p>
-            <p className="text-sm text-foreground/70">Europa, UK y LATAM</p>
-          </div>
+          {logos.map((c) => (
+            <div
+              key={c.name}
+              className="bg-white rounded-xl p-4 h-20 flex items-center justify-center hover:scale-105 transition-transform shadow-sm"
+            >
+              <img src={c.logo} alt={c.name} className="max-h-10 w-auto object-contain" />
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Commitment */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="max-w-3xl mx-auto text-center bg-white/70 backdrop-blur-sm rounded-2xl border border-white/60 p-8"
+        >
+          <p className="text-lg md:text-xl text-foreground italic leading-relaxed">
+            "Cada implementación empieza por un ROI Scan medido en números, no en promesas. Es nuestra firma, no nuestra estrategia."
+          </p>
+          <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-forest mt-4">Clarity Hub</p>
         </motion.div>
       </div>
     </section>

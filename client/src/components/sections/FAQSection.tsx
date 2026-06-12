@@ -1,58 +1,61 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { trackInitiateCheckout } from "@/lib/metaTracking";
+import { Calendar, Clock } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { trackSchedule } from "@/lib/metaTracking";
+import { CALENDAR_URL } from "@/lib/links";
 
-const WHOP_URL = "https://whop.com/clhub/clarity-hub-premium-72/";
+const faqs = [
+  {
+    question: "¿Qué es exactamente el ROI Scan?",
+    answer:
+      "Es un diagnóstico de 2 semanas donde auditamos tus 3 procesos con mayor potencial de retorno, los priorizamos con una matriz de Impacto vs Complejidad y te entregamos una hoja de ruta + una cotización detallada para implementar. Salís sabiendo qué automatizar primero y cuánto cuesta.",
+  },
+  {
+    question: "¿Tengo que contratar el proyecto completo para empezar?",
+    answer:
+      "No. Empezás por el ROI Scan (desde $1.500). Recién después, con los números en la mano, decidís si avanzás a Optimization + Transformation (desde $3.500). Sin compromiso de continuar.",
+  },
+  {
+    question: "¿Qué pasa en los 30 minutos de Discovery?",
+    answer:
+      "Es una llamada sin pitch ni obligación. Entendemos tu operación, vemos si hay encaje y, si tiene sentido, arrancamos con el ROI Scan. Si no lo tiene, te lo decimos.",
+  },
+  {
+    question: "¿Para qué tipo de empresa es esto?",
+    answer:
+      "Trabajamos con empresas medianas y grandes con procesos críticos que hoy dependen de planillas, tareas manuales o sistemas que no se hablan entre sí. Si crecer hoy significa sumar gente, esto es para vos.",
+  },
+  {
+    question: "¿Reemplazan a mi equipo?",
+    answer:
+      "No. Lo potenciamos. Automatizamos lo mecánico para que tu equipo se enfoque en lo estratégico, y diseñamos los procesos codo a codo con las personas que los conocen de verdad.",
+  },
+  {
+    question: "¿Con qué herramientas trabajan?",
+    answer:
+      "Somos agnósticos. Recomendamos la tecnología que mejor se adapte a tu caso: automatizaciones, agentes de IA, integraciones, dashboards y bots conversacionales.",
+  },
+  {
+    question: "¿Cuánto tardan en verse resultados?",
+    answer:
+      "El ROI Scan entrega en 2 semanas. Los tiempos de Optimization + Transformation dependen del alcance que salga del Scan, pero priorizamos quick wins medibles desde el arranque.",
+  },
+  {
+    question: "¿Ofrecen formación para mi equipo?",
+    answer:
+      "Sí. Tenemos formaciones privadas (desde $500), personalizadas para equipos chicos o áreas puntuales, enfocadas en automatización e IA aplicada.",
+  },
+];
 
 export default function FAQSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const faqs = [
-    {
-      question: "¿Qué incluye exactamente el Programa De Caos a Claridad?",
-      answer: "El programa incluye: Diagnóstico express en 48 horas, plantillas y frameworks listos para usar, roadmaps de implementación, casos de uso reales, masterclasses, y acompañamiento durante la implementación. Es un sistema modular paso a paso que te lleva desde el diagnóstico hasta tener tu primer POC en producción en 30-60 días.",
-    },
-    {
-      question: "¿Qué tipo de empresas pueden beneficiarse de este programa?",
-      answer: "El programa está diseñado para empresas medianas y grandes (50-500+ empleados) que quieren implementar automatización o IA pero no saben por dónde empezar, o que ya han tenido intentos fallidos. Si tienes procesos manuales que consumen tiempo y dinero, y buscas una solución que realmente funcione, este programa es para ti.",
-    },
-    {
-      question: "¿Cuánto tiempo toma ver resultados?",
-      answer: "El diagnóstico express toma solo 48 horas y el primer POC está diseñado para ejecutarse en 30-60 días sin paralizar operaciones. Empiezas a aplicar conocimientos desde el día 1 con las plantillas y frameworks incluidos.",
-    },
-    {
-      question: "¿Qué pasa si mi equipo técnico no tiene experiencia en automatización?",
-      answer: "Perfecto, para eso está el programa. Incluye especificaciones lo suficientemente detalladas para que cualquier desarrollador competente pueda implementarlas. Además, incluye acompañamiento en la implementación, no solo recomendaciones en un PDF.",
-    },
-    {
-      question: "¿Cómo funciona la garantía de 7 días?",
-      answer: "Tienes 7 días de garantía total de reembolso. Cero preguntas, cero vueltas. Accede al programa, revisa el diagnóstico express, las plantillas, los roadmaps, todo. Si en 7 días no estás 100% convencido de que esto va a transformar tus operaciones, me escribes y te devuelvo cada centavo.",
-    },
-    {
-      question: "¿Por qué el precio es tan bajo comparado con una consultoría tradicional?",
-      answer: "Normalmente, una consultoría como esta costaría entre $15,000 y $25,000. Pero lo hice modular y digital para que más empresas puedan acceder. El precio de $297 es dinámico y sube por cada 10 nuevos integrantes. El precio que ves ahora es para el bloque actual.",
-    },
-    {
-      question: "¿Trabajas con herramientas específicas o eres agnóstico?",
-      answer: "Soy completamente agnóstico en cuanto a herramientas. Mi experiencia incluye Genesys, SAP, múltiples plataformas de chatbots, y prácticamente cualquier stack tecnológico. Recomiendo las herramientas que mejor se adapten a tu caso, no las que me paguen comisión.",
-    },
-    {
-      question: "¿Qué diferencia hay entre esto y contratar un consultor tradicional?",
-      answer: "La mayoría de consultores te entregan un PDF con recomendaciones que nadie lee. Este programa incluye acompañamiento en la implementación, plantillas listas para usar, prompts probados, scripts ETL, y guías de preparación de datos que eliminan el 70% del trabajo técnico. Es acción, no teoría.",
-    },
-    {
-      question: "¿Qué pasa si necesito que lo hagan por mí?",
-      answer: "Además de la formación, ofrecemos servicios personalizados: Discovery Express (diagnóstico profundo de tu operación en 48-72h) y Consultoría + Implementación (diseñamos y ejecutamos la automatización completa). Puedes empezar con la formación y luego escalar, o ir directo al servicio que necesites. Más detalles en la sección de Servicios.",
-    },
-  ];
 
   return (
     <section id="faq" className="py-20 md:py-28 bg-white" ref={ref}>
@@ -65,42 +68,37 @@ export default function FAQSection() {
             transition={{ duration: 0.6 }}
             className="lg:sticky lg:top-32 lg:self-start"
           >
-            <span className="inline-block text-orange font-medium text-sm uppercase tracking-wider mb-4">
-              Preguntas Frecuentes
-            </span>
-            <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-6">
-              Todo lo que necesitas saber antes de empezar
+            <span className="eyebrow mb-4">Preguntas frecuentes</span>
+            <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-6 mt-4">
+              Todo lo que querés saber antes de agendar
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Si tienes una pregunta que no está aquí, no dudes en contactarme 
-              directamente. Respondo personalmente a cada mensaje.
+              Si tenés una pregunta que no está acá, escribime directo. Respondo personalmente a cada mensaje.
             </p>
 
-            {/* Guarantee box */}
             <div className="bg-forest/5 border border-forest/20 rounded-xl p-6 mb-8">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-forest/10 rounded-xl flex items-center justify-center shrink-0">
-                  <svg className="w-6 h-6 text-forest" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
+                  <Clock className="w-6 h-6 text-forest" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">7 días de garantía total</h4>
+                  <h4 className="font-semibold text-foreground mb-1">El primer paso son 30 minutos</h4>
                   <p className="text-sm text-muted-foreground">
-                    Si no estás satisfecho, te devuelvo cada centavo. Sin preguntas, sin vueltas.
+                    Sin pitch ni obligación. Lo que sigue, lo decidís vos.
                   </p>
                 </div>
               </div>
             </div>
 
             <a
-              href="#servicios"
+              href={CALENDAR_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackSchedule("FAQ Section")}
               className="btn-primary-gradient text-white font-semibold py-4 px-8 rounded-xl text-lg inline-flex items-center gap-2"
             >
-              Acceder al Programa
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
+              <Calendar className="w-5 h-5" />
+              Agendá 30 min gratis
             </a>
           </motion.div>
 

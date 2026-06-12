@@ -3,8 +3,6 @@ import { Slider } from "@/components/ui/slider";
 import { motion, AnimatePresence } from "framer-motion";
 import { trackLead } from "@/lib/metaTracking";
 
-const WHOP_URL = "https://whop.com/clhub/clarity-hub-premium-72/";
-
 export default function Calculator() {
   const [hoursPerWeek, setHoursPerWeek] = useState(10);
   const [teamMembers, setTeamMembers] = useState(5);
