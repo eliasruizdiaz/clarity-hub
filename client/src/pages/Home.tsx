@@ -21,10 +21,10 @@ export default function Home() {
         <HeroSection />
         {/* 2. El Resultado: 6 caras */}
         <ResultadoSection />
-        {/* 3. El Método: 3 pasos (ROI Scan, Optimization, Transformation) */}
-        <MetodoSection />
-        {/* 4. Calculadora ROI (Lead) */}
+        {/* 3. Calculadora ROI (Lead) */}
         <CalculatorSection />
+        {/* 4. El Método: 3 pasos (ROI Scan, Optimization, Transformation) */}
+        <MetodoSection />
         {/* 5. ROI Scan en detalle (Paso 1) */}
         <RoiScanSection />
         {/* 6. Precios: ROI Scan + Optimization + Transformation */}

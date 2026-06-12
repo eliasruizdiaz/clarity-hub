@@ -53,9 +53,9 @@ export default function MetodoSection() {
           </p>
         </motion.div>
 
-        <div className="relative grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
-          {/* connecting line (desktop) - aligned to circle centers */}
-          <div className="hidden md:block absolute top-14 left-[16%] right-[16%] h-0.5 border-t-2 border-dashed border-border" />
+        <div className="relative grid grid-cols-3 gap-2 sm:gap-4 md:gap-6 lg:gap-8 max-w-6xl mx-auto">
+          {/* connecting line - aligned to circle centers */}
+          <div className="absolute top-7 md:top-14 left-[16.6%] right-[16.6%] h-0.5 border-t-2 border-dashed border-border" />
 
           {pasos.map((p, i) => (
             <motion.div
@@ -63,41 +63,37 @@ export default function MetodoSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.12 * i, duration: 0.5 }}
-              className={`relative bg-white rounded-2xl border-2 shadow-sm p-6 lg:p-7 flex flex-col ${
+              className={`relative bg-white rounded-xl md:rounded-2xl border md:border-2 shadow-sm p-3 md:p-6 lg:p-7 flex flex-col items-center text-center ${
                 p.accent === "orange" ? "border-orange/40" : "border-border"
               }`}
             >
               {/* Paso marker */}
-              <div className="flex flex-col items-center mb-4">
-                <div
-                  className={`relative z-10 w-16 h-16 rounded-full grid place-items-center text-white text-2xl font-extrabold ring-4 ring-white ${
-                    p.accent === "orange" ? "bg-orange" : "bg-forest"
-                  }`}
-                >
-                  {p.paso}
-                </div>
-                <span
-                  className={`mt-3 font-mono text-sm font-extrabold uppercase tracking-[0.25em] ${
-                    p.accent === "orange" ? "text-orange" : "text-forest"
-                  }`}
-                >
-                  Paso {p.paso}
-                </span>
+              <div
+                className={`relative z-10 w-10 h-10 md:w-16 md:h-16 rounded-full grid place-items-center text-white text-base md:text-2xl font-extrabold ring-4 ring-white ${
+                  p.accent === "orange" ? "bg-orange" : "bg-forest"
+                }`}
+              >
+                {p.paso}
               </div>
+              <span
+                className={`mt-2 md:mt-3 font-mono text-[9px] md:text-sm font-extrabold uppercase tracking-[0.12em] md:tracking-[0.25em] ${
+                  p.accent === "orange" ? "text-orange" : "text-forest"
+                }`}
+              >
+                Paso {p.paso}
+              </span>
 
-              <div className="text-center mb-3">
-                {p.badge && (
-                  <span className="inline-block font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-orange bg-orange/10 rounded-full px-2.5 py-1 mb-2">
-                    {p.badge}
-                  </span>
-                )}
-                <h3 className="text-xl font-bold text-foreground">{p.name}</h3>
-                <span className="inline-block mt-1 text-xs font-medium text-muted-foreground bg-cream border border-border rounded-full px-2.5 py-0.5">
-                  {p.dur}
+              {p.badge && (
+                <span className="hidden md:inline-block mt-2 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-orange bg-orange/10 rounded-full px-2.5 py-1">
+                  {p.badge}
                 </span>
-              </div>
+              )}
+              <h3 className="text-xs md:text-xl font-bold text-foreground leading-tight mt-1.5 md:mt-2">{p.name}</h3>
+              <span className="hidden md:inline-block mt-1 text-xs font-medium text-muted-foreground bg-cream border border-border rounded-full px-2.5 py-0.5">
+                {p.dur}
+              </span>
 
-              <p className="text-sm text-muted-foreground text-center">{p.desc}</p>
+              <p className="hidden md:block text-sm text-muted-foreground mt-3">{p.desc}</p>
             </motion.div>
           ))}
         </div>
