@@ -1,6 +1,5 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Check } from "lucide-react";
 
 const pasos = [
   {
@@ -98,15 +97,7 @@ export default function MetodoSection() {
                 </span>
               </div>
 
-              <p className="text-sm text-muted-foreground text-center mb-5 flex-1">{p.desc}</p>
-
-              <div className="bg-forest/5 border border-forest/15 rounded-xl p-4">
-                <div className="flex items-center gap-2 mb-1">
-                  <Check className="w-4 h-4 text-forest" />
-                  <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-forest">Te llevás</span>
-                </div>
-                <p className="text-sm text-foreground">{p.entrega}</p>
-              </div>
+              <p className="text-sm text-muted-foreground text-center">{p.desc}</p>
             </motion.div>
           ))}
         </div>

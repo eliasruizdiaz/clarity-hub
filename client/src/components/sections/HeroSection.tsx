@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Calendar, ArrowRight } from "lucide-react";
+import { Calendar } from "lucide-react";
 import BrechaChart from "@/components/BrechaChart";
 import { trackSchedule } from "@/lib/metaTracking";
 import { CALENDAR_URL } from "@/lib/links";
@@ -41,7 +41,7 @@ export default function HeroSection() {
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-4">
+          <div className="flex justify-center mb-4">
             <a
               href={CALENDAR_URL}
               target="_blank"
@@ -51,13 +51,6 @@ export default function HeroSection() {
             >
               <Calendar className="w-5 h-5" />
               Agendá 30 min gratis
-            </a>
-            <a
-              href="#metodo"
-              className="text-foreground font-semibold py-4 px-6 rounded-xl text-lg inline-flex items-center justify-center gap-2 hover:text-orange transition-colors"
-            >
-              Ver cómo funciona
-              <ArrowRight className="w-5 h-5" />
             </a>
           </div>
           <p className="text-sm text-muted-foreground">

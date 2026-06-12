@@ -176,13 +176,6 @@ export default function Calculator() {
                 </p>
               </motion.div>
             )}
-
-            <a
-              href="#servicios"
-              className="w-full btn-primary-gradient text-white font-semibold py-4 px-6 rounded-xl text-lg text-center block"
-            >
-              Descubre cómo recuperar ese dinero →
-            </a>
           </motion.div>
         )}
       </AnimatePresence>
