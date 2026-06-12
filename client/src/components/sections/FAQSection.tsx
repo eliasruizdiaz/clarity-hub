@@ -19,7 +19,7 @@ const faqs = [
   {
     question: "¿Tengo que contratar el proyecto completo para empezar?",
     answer:
-      "No. Empezás por el ROI Scan (desde $1.500). Recién después, con los números en la mano, decidís si avanzás a Optimization + Transformation (desde $3.500). Sin compromiso de continuar.",
+      "No. Empezás por el ROI Scan. Recién después, con los números en la mano, decidís si avanzás a Optimization + Transformation. Sin compromiso de continuar.",
   },
   {
     question: "¿Qué pasa en los 30 minutos de Discovery?",
@@ -49,7 +49,7 @@ const faqs = [
   {
     question: "¿Ofrecen formación para mi equipo?",
     answer:
-      "Sí. Tenemos formaciones privadas (desde $500), personalizadas para equipos chicos o áreas puntuales, enfocadas en automatización e IA aplicada.",
+      "Sí. Tenemos formaciones privadas, personalizadas para equipos chicos o áreas puntuales, enfocadas en automatización e IA aplicada.",
   },
 ];
 

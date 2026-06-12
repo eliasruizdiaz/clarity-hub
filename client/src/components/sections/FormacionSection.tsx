@@ -24,7 +24,7 @@ export default function FormacionSection() {
             <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/70">
               ¿Solo necesitás capacitar a tu equipo?
             </span>
-            <h3 className="text-xl font-bold text-foreground mt-1">Formaciones privadas · desde $500</h3>
+            <h3 className="text-xl font-bold text-foreground mt-1">Formaciones privadas</h3>
             <p className="text-sm text-muted-foreground mt-1">
               Sesiones a medida sobre automatización e IA aplicada, para equipos chicos o áreas puntuales.
             </p>

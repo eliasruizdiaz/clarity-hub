@@ -17,7 +17,7 @@ export default function ServicesSection() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="eyebrow eyebrow-center mb-4">Precios</span>
+          <span className="eyebrow eyebrow-center mb-4">Planes</span>
           <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-4">
             Empezás por el <span className="text-orange">ROI Scan</span>.
           </h2>
@@ -38,11 +38,6 @@ export default function ServicesSection() {
             <div className="p-6 lg:p-8 flex flex-col flex-1">
               <h3 className="text-xl font-bold text-foreground mb-1">ROI Scan</h3>
               <p className="text-sm text-muted-foreground mb-6">El diagnóstico que define dónde invertir</p>
-              <div className="mb-6">
-                <span className="text-lg text-muted-foreground">desde</span>
-                <span className="text-4xl font-bold text-foreground ml-2">$1.500</span>
-                <span className="text-muted-foreground ml-1">USD</span>
-              </div>
               <ul className="space-y-3 mb-8 flex-1">
                 {[
                   "Auditoría de los 3 procesos de mayor ROI",
@@ -82,11 +77,6 @@ export default function ServicesSection() {
             <div className="p-6 lg:p-8 flex flex-col flex-1">
               <h3 className="text-xl font-bold text-foreground mb-1">Optimization + Transformation</h3>
               <p className="text-sm text-muted-foreground mb-6">Lo rediseñamos y lo implementamos</p>
-              <div className="mb-6">
-                <span className="text-lg text-muted-foreground">desde</span>
-                <span className="text-4xl font-bold text-foreground ml-2">$3.500</span>
-                <span className="text-muted-foreground ml-1">USD</span>
-              </div>
               <ul className="space-y-3 mb-8 flex-1">
                 {[
                   "Todo lo que define el ROI Scan",
