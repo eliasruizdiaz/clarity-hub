@@ -93,7 +93,7 @@ export default function MetodoSection() {
                 {p.dur}
               </span>
 
-              <p className="hidden md:block text-sm text-muted-foreground mt-3">{p.desc}</p>
+              <p className="text-[11px] md:text-sm text-muted-foreground leading-snug mt-2 md:mt-3">{p.desc}</p>
             </motion.div>
           ))}
         </div>
