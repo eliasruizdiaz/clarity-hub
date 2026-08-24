@@ -118,10 +118,10 @@ function FlowGraphic() {
     { label: "Notion", src: "/images/brecha/notion.svg", className: "flow-tool-notion" },
     { label: "Drive", src: "/images/brecha/drive.svg", className: "flow-tool-drive" },
     { label: "CRM", src: "/images/brecha/salesforce.svg", className: "flow-tool-crm" },
-    { label: "Sheets", src: "/images/brecha/google-sheets.svg", className: "flow-tool-sheets" },
+    { label: "Facebook", src: "/images/brecha/facebook.svg", className: "flow-tool-sheets" },
     { label: "Excel", src: "/images/brecha/excel.svg", className: "flow-tool-excel" },
     { label: "WhatsApp", src: "/images/brecha/whatsapp.svg", className: "flow-tool-whatsapp" },
-    { label: "HubSpot", src: "/images/brecha/hubspot.svg", className: "flow-tool-hubspot" },
+    { label: "Instagram", src: "/images/brecha/instagram.svg", className: "flow-tool-hubspot" },
   ];
 
   return (
