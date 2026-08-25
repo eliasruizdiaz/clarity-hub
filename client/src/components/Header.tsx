@@ -20,7 +20,7 @@ export default function Header() {
         isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm" : "bg-transparent"
       }`}
     >
-      <a href="#acquisition-os" className="acquisition-offer-bar">
+      <a href="/acquisition-os" className="acquisition-offer-bar">
         <span>¿Sos coach o infoproductor high ticket?</span>
         <strong>Conocé Clarity Acquisition OS</strong>
         <ArrowDown aria-hidden="true" />

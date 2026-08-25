@@ -4,9 +4,7 @@
  * using real operational sources and a scanning-first hierarchy rather than a separate product microsite.
  */
 import { motion } from "framer-motion";
-import { ArrowRight, Calendar, CheckCircle2, Network } from "lucide-react";
-import { trackSchedule } from "@/lib/metaTracking";
-import { CALENDAR_URL } from "@/lib/links";
+import { ArrowRight, CheckCircle2, Network } from "lucide-react";
 
 const sources = [
   { label: "Notion", icon: "/images/brecha/notion.svg", position: "top-5 left-5 sm:left-8" },
@@ -61,14 +59,11 @@ export default function AcquisitionOSSection() {
               ))}
             </div>
             <a
-              href={CALENDAR_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackSchedule("Acquisition OS section")}
+              href="/acquisition-os"
               className="mt-9 inline-flex items-center gap-2 rounded-xl bg-[#ef5f33] px-5 py-3.5 text-sm font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-[#d94e25]"
             >
-              <Calendar className="h-4 w-4" />
-              Quiero revisar mi sistema
+              Ver la landing completa
+              <ArrowRight className="h-4 w-4" />
             </a>
           </motion.div>
 
