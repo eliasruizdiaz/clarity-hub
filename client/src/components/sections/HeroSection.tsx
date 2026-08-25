@@ -6,7 +6,7 @@ import { CALENDAR_URL } from "@/lib/links";
 
 export default function HeroSection() {
   return (
-    <section className="relative pt-28 md:pt-32 pb-16 overflow-hidden">
+    <section className="relative pt-40 md:pt-44 pb-16 overflow-hidden">
       {/* Background with organic shapes */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-cream" />

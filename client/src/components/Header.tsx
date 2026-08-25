@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Calendar } from "lucide-react";
+import { ArrowDown, Calendar } from "lucide-react";
 import { trackSchedule } from "@/lib/metaTracking";
 import { CALENDAR_URL } from "@/lib/links";
 
@@ -20,6 +20,11 @@ export default function Header() {
         isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm" : "bg-transparent"
       }`}
     >
+      <a href="#acquisition-os" className="acquisition-offer-bar">
+        <span>¿Sos coach o infoproductor high ticket?</span>
+        <strong>Conocé Clarity Acquisition OS</strong>
+        <ArrowDown aria-hidden="true" />
+      </a>
       <div className="container">
         <div className="flex items-center justify-between h-16 md:h-20">
           <a href="#" className="h-12 md:h-14 max-w-[200px] md:max-w-[260px] overflow-hidden flex items-center">
