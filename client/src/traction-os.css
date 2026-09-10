@@ -262,6 +262,31 @@
 .board-footer strong { display: flex; align-items: flex-start; gap: .4rem; color: var(--forest); font-size: .7rem; line-height: 1.35; }
 .board-footer svg { flex: 0 0 auto; width: .85rem; margin-top: .08rem; color: var(--coral); }
 
+/* Antes/despues como tabla editorial, sin cards */
+.contrast-table { margin-top: .5rem; border-top: 1px solid rgba(27,33,24,.16); }
+.contrast-head { display: none; }
+.contrast-row { display: grid; gap: .5rem; padding: 1.4rem 0; border-bottom: 1px solid rgba(27,33,24,.12); }
+.contrast-who { color: var(--ink); font-family: "Fraunces", Georgia, serif; font-size: 1.3rem; letter-spacing: -.038em; line-height: 1.1; }
+.contrast-now, .contrast-next { margin: 0; line-height: 1.5; }
+.contrast-now { color: #8d9386; font-size: .95rem; }
+.contrast-next { color: #253522; font-size: .98rem; font-weight: 700; }
+.contrast-now::before, .contrast-next::before { display: block; margin-bottom: .2rem; font-family: "DM Mono", monospace; font-size: .55rem; font-weight: 500; letter-spacing: .16em; }
+.contrast-now::before { content: "HOY"; color: #a8ad9f; }
+.contrast-next::before { content: "DESPUÉS"; color: var(--forest); }
+.contrast-arrow { display: none; }
+
+@media (min-width: 900px) {
+  .contrast-head, .contrast-row { grid-template-columns: minmax(0, .78fr) minmax(0, 1.1fr) 2rem minmax(0, 1.1fr); align-items: start; gap: 1.6rem; }
+  .contrast-head { display: grid; padding: .85rem 0; }
+  .contrast-head span { font-family: "DM Mono", monospace; font-size: .62rem; font-weight: 500; letter-spacing: .17em; text-transform: uppercase; }
+  .contrast-head .head-now { color: #a8ad9f; }
+  .contrast-head .head-next { color: var(--forest); }
+  .contrast-who { font-size: 1.5rem; }
+  .contrast-now::before, .contrast-next::before { display: none; }
+  .contrast-arrow { display: block; width: 1.1rem; margin-top: .28rem; color: var(--coral); }
+  .contrast-row:hover .contrast-now { color: #7d8377; }
+}
+
 /* Metodo Sombra: medidor de aprobaciones por etapa */
 .stage-meter { display: grid; align-content: center; gap: .55rem; height: 9.25rem; margin: 1rem 0 1.3rem; padding: 1rem .9rem; border: 1px solid rgba(46,106,52,.15); border-radius: .85rem; background: linear-gradient(125deg,#f9fbf4,#edf6e6); }
 .stage-meter-head { display: flex; align-items: baseline; justify-content: space-between; gap: .5rem; color: #6c7766; font-family: "DM Mono", monospace; font-size: .46rem; letter-spacing: .1em; text-transform: uppercase; }

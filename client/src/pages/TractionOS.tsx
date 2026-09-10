@@ -17,12 +17,9 @@ import {
   Layers,
   Lightbulb,
   Radar,
-  Repeat,
   Repeat2,
   ShieldCheck,
   Sparkles,
-  Timer,
-  Trophy,
   UserMinus,
   Workflow,
 } from "lucide-react";
@@ -31,30 +28,26 @@ const logo = "/images/logo_clarity.png";
 const heroBackground = "/images/hero-bg.png";
 const calendarUrl = "https://calendar.app.google/ngxAfHKR5fs7SW8aA";
 
-const painCards = [
+const contrasts = [
   {
-    icon: Repeat,
-    label: "El que no capta",
-    today: "Se lo explicaste mil veces y sigue publicando otra cosa.",
-    tomorrow: "Ve una sola acción por vez, la que le toca según lo que ya hizo.",
+    who: "El que no capta",
+    now: "Se lo explicaste mil veces y sigue publicando otra cosa.",
+    next: "Ve una sola acción por vez, la que le toca según lo que ya hizo.",
   },
   {
-    icon: Timer,
-    label: "El que espera",
-    today: "Mandó su guion y tu devolución le llega cuando ya publicó.",
-    tomorrow: "Recibe su corrección enseguida, con tu criterio y tu visto bueno.",
+    who: "El que espera",
+    now: "Mandó su guion y tu devolución le llega cuando ya publicó.",
+    next: "Recibe su corrección enseguida, con tu criterio y tu visto bueno.",
   },
   {
-    icon: UserMinus,
-    label: "El que desaparece",
-    today: "No se queja ni avisa: deja de publicar y no vuelve más.",
-    tomorrow: "Lo ves dejar de publicar mientras todavía lo podés recuperar.",
+    who: "El que desaparece",
+    now: "No se queja ni avisa: deja de publicar y no vuelve más.",
+    next: "Lo ves dejar de publicar mientras todavía lo podés recuperar.",
   },
   {
-    icon: Trophy,
-    label: "Los que llegan",
-    today: "Son los dos o tres que ya venían con todo resuelto de antes.",
-    tomorrow: "Medís cuántos llegan a su caso de éxito y en cuánto tiempo.",
+    who: "Los que llegan",
+    now: "Son los dos o tres que ya venían con todo resuelto de antes.",
+    next: "Medís cuántos llegan a su caso de éxito y en cuánto tiempo.",
   },
 ];
 
@@ -250,12 +243,11 @@ function StageMeter({ stage }: { stage: (typeof stages)[number] }) {
 }
 
 function GroupCostCalculator() {
-  const [students, setStudents] = useState(20);
-  const [groups, setGroups] = useState(3);
+  const [students, setStudents] = useState(5);
   const [ticket, setTicket] = useState(3000);
   const [reach, setReach] = useState(25);
 
-  const perYear = students * groups;
+  const perYear = students * 12;
   const withCase = Math.round((perYear * reach) / 100);
   const withoutCase = perYear - withCase;
   const value = withoutCase * ticket;
@@ -271,12 +263,8 @@ function GroupCostCalculator() {
           <p>Con los números reales de tu programa.</p>
         </div>
         <label className="range-field">
-          <span>Alumnos por grupo <b>{students}</b></span>
-          <input type="range" min="3" max="80" value={students} onChange={(event) => setStudents(Number(event.target.value))} />
-        </label>
-        <label className="range-field">
-          <span>Grupos por año <b>{groups}</b></span>
-          <input type="range" min="1" max="8" value={groups} onChange={(event) => setGroups(Number(event.target.value))} />
+          <span>Alumnos nuevos por mes <b>{students}</b></span>
+          <input type="range" min="1" max="100" value={students} onChange={(event) => setStudents(Number(event.target.value))} />
         </label>
         <label className="range-field">
           <span>Ticket del programa <b>US$ {ticket.toLocaleString("es-PY")}</b></span>
@@ -294,7 +282,7 @@ function GroupCostCalculator() {
           {money(value)} <small>por año</small>
         </motion.strong>
         <div className="calculator-breakdown">
-          <span>{withoutCase}<small>testimonios que no tenés</small></span>
+          <span>{withoutCase}<small>testimonios por año que no tenés</small></span>
           <span>{withCase}<small>llegan a su caso de éxito</small></span>
         </div>
         <p className="calculator-note">
@@ -337,7 +325,7 @@ export default function TractionOS() {
               className="hero-copy"
             >
               <h1>
-                Dejá de perder <em>testimonios</em> en <span className="brand-highlight">tu mentoría</span> con cada alumno que no publica.
+                Dejá de perder <em>testimonios</em> en <span className="brand-highlight">tu mentoría</span> con cada alumno que no hace lo que le&nbsp;dijiste.
               </h1>
               <h2>Hasta 8 de cada 10 llegando a su primer caso de éxito en 90 días.</h2>
               <p className="hero-description">
@@ -379,26 +367,28 @@ export default function TractionOS() {
                 No es que no sepas qué decirle a cada uno. Es que son veinte mandando guiones al mismo tiempo, y para cuando les contestás ya publicaron cualquier cosa.
               </p>
             </div>
-            <div className="pain-grid">
-              {painCards.map((card, index) => {
-                const Icon = card.icon;
-                return (
-                  <motion.article
-                    key={card.label}
-                    initial={{ opacity: 0, y: 18 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.45, delay: index * 0.06 }}
-                    className="pain-card"
-                  >
-                    <div className="pain-icon"><Icon className="h-5 w-5" /></div>
-                    <span className="card-label">{card.label}</span>
-                    <p className="pain-today">{card.today}</p>
-                    <div className="pain-arrow"><ArrowDownRight className="h-4 w-4" /></div>
-                    <p className="pain-tomorrow">{card.tomorrow}</p>
-                  </motion.article>
-                );
-              })}
+            <div className="contrast-table">
+              <div className="contrast-head">
+                <span />
+                <span className="head-now">Hoy</span>
+                <span />
+                <span className="head-next">Con el sistema</span>
+              </div>
+              {contrasts.map((row, index) => (
+                <motion.div
+                  key={row.who}
+                  initial={{ opacity: 0, y: 14 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.4, delay: index * 0.06 }}
+                  className="contrast-row"
+                >
+                  <span className="contrast-who">{row.who}</span>
+                  <p className="contrast-now">{row.now}</p>
+                  <ArrowRight className="contrast-arrow" aria-hidden="true" />
+                  <p className="contrast-next">{row.next}</p>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
