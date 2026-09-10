@@ -95,7 +95,7 @@ const stages = [
 ] as const;
 
 const ladoAlumno = [
-  "Ve **una sola cosa**: el paso que le toca según lo que ya entregó. No el curso entero.",
+  "Ve **una sola cosa**: el paso de tu programa que le toca según lo que ya entregó.",
   "Entrega ahí mismo su guion, su gancho o su carrusel, y queda registrado con fecha.",
   "Recibe la corrección **con tu criterio** y, recién ahí, el paso siguiente.",
 ];
@@ -443,7 +443,7 @@ export default function TractionOS() {
                 <h2>Dos lados del <em>mismo sistema.</em></h2>
               </div>
               <p>
-                Un lado mira a tus alumnos y les da el paso que les toca. El otro te mira a vos y te saca de encima las horas de revisión. En el medio hay una IA entrenada con tu método, no una IA genérica que leyó cualquier cosa en internet.
+                Un lado acompaña a tus alumnos paso a paso por tu programa. El otro te mira a vos y te saca de encima las horas de revisión. En el medio hay una IA entrenada con tu método, no una IA genérica que leyó cualquier cosa en internet.
               </p>
             </div>
 
@@ -472,7 +472,7 @@ export default function TractionOS() {
                     <span>El sistema, del lado del alumno</span>
                   </div>
                   <div className="panel-block">
-                    <span className="panel-label">Tu paso de hoy</span>
+                    <span className="panel-label">Tu paso de hoy en el programa</span>
                     <span className="panel-title">Paso 3 · Guion del reel</span>
                     <div className="panel-drop"><Upload aria-hidden="true" /> Subí tu guion corregido</div>
                   </div>
