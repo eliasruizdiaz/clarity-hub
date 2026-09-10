@@ -13,6 +13,13 @@ const students = [
   { initials: "DI", name: "Diego", step: "Paso 4 · Primer caso en curso", chip: "Avanza", tone: "go" },
 ] as const;
 
+const channels = [
+  { label: "Instagram", src: "/images/brecha/instagram.svg" },
+  { label: "TikTok", src: "/images/brecha/tiktok.svg" },
+  { label: "Facebook", src: "/images/brecha/facebook.svg" },
+  { label: "Meta", src: "/images/brecha/meta.svg" },
+] as const;
+
 const toneClasses = {
   go: "bg-[#e4f4d9] text-[#3c7040]",
   wait: "bg-[#fdeadf] text-[#b04923]",
@@ -48,7 +55,7 @@ export default function TractionOSSection() {
               Clarity <span className="text-[#c9f29e]">Traction OS.</span>
             </h2>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#e0ecdb] md:text-xl">
-              Enseñás a crear <strong className="text-[#c9f29e]">contenido</strong> y tus alumnos publican otra cosa. Esto hace que cada guion salga con tu criterio y tu visto bueno.
+              Enseñás a crear <strong className="text-[#c9f29e]">contenido</strong> y tus alumnos aplican la versión que entendieron. Ahí se te van los casos de éxito que necesitás para vender el próximo grupo.
             </p>
             <div className="mt-8 grid gap-3">
               {[
@@ -81,6 +88,21 @@ export default function TractionOSSection() {
             <div className="flex items-center justify-between border-b border-[#dce7d6] pb-4">
               <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#628267]">Tu mentoría hoy</span>
               <span className="rounded-full bg-[#e7f5df] px-2.5 py-1 text-[0.62rem] font-bold uppercase tracking-[0.1em] text-[#3f7147]">Método en ejecución</span>
+            </div>
+            <div className="mt-4 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 rounded-xl border border-[#dce7d6] bg-gradient-to-r from-[#ef5f33]/[0.07] to-[#60ba46]/[0.1] px-3 py-2.5">
+              <span className="max-w-[7.5rem] text-[0.55rem] font-bold uppercase leading-tight tracking-[0.11em] text-[#54754f]">
+                Donde publican tus alumnos
+              </span>
+              <div className="flex flex-1 items-center justify-end gap-3 sm:gap-4">
+                {channels.map((channel) => (
+                  <img
+                    key={channel.label}
+                    src={channel.src}
+                    alt={channel.label}
+                    className="h-8 w-8 object-contain drop-shadow-sm sm:h-10 sm:w-10"
+                  />
+                ))}
+              </div>
             </div>
             <div className="mt-5 grid gap-2.5">
               {students.map((student, index) => (

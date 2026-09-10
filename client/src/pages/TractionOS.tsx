@@ -176,6 +176,13 @@ const boardStudents = [
   { initials: "LU", name: "Lucía", step: "Paso 2 · Repitió el error del gancho", state: "wait" as const, chip: "Revisar" },
 ];
 
+const channels = [
+  { label: "Instagram", src: "/images/brecha/instagram.svg" },
+  { label: "TikTok", src: "/images/brecha/tiktok.svg" },
+  { label: "Facebook", src: "/images/brecha/facebook.svg" },
+  { label: "Meta", src: "/images/brecha/meta.svg" },
+];
+
 const chipIcon = { go: Check, wait: ClipboardCheck, risk: UserMinus };
 
 function GroupBoard() {
@@ -184,6 +191,14 @@ function GroupBoard() {
       <div className="board-topline">
         <div className="flow-brand-signature"><img src={logo} alt="Clarity Hub" /><span>TRACTION OS</span></div>
         <span className="status-pill"><span /> MÉTODO EN EJECUCIÓN</span>
+      </div>
+      <div className="board-channels">
+        <span className="board-channels-label">Donde publican tus alumnos</span>
+        <div className="board-channels-icons">
+          {channels.map((channel) => (
+            <img key={channel.label} src={channel.src} alt={channel.label} />
+          ))}
+        </div>
       </div>
       <div className="board-subline">
         <span>Tu mentoría · 5 alumnos</span>
@@ -328,11 +343,11 @@ export default function TractionOS() {
             >
               <span className="eyebrow eyebrow-hero">PARA MENTORÍAS DE CONTENIDO Y MARCA PERSONAL</span>
               <h1>
-                Enseñás a crear <span className="brand-highlight">contenido</span>. Tus alumnos publican <em>otra cosa</em>.
+                Enseñás a crear <span className="brand-highlight">contenido</span>. Tus alumnos aplican <em>la versión que entendieron</em>.
               </h1>
               <h2>Hasta 8 de cada 10 llegando a su primer caso de éxito en 90 días.</h2>
               <p className="hero-description">
-                Vos enseñás cómo se arma un gancho, un guion y un carrusel. El sistema se asegura de que cada alumno lo haga así, con tu visto bueno antes de que publique.
+                No es que tu método no funcione. Es que cada alumno ejecuta su propia versión, y cada grupo te termina dejando menos casos de éxito de los que necesitás para vender el próximo.
               </p>
               <div className="hero-actions">
                 <ScrollButton />
