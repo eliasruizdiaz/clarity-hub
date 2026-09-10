@@ -242,12 +242,10 @@
 .group-board { container-type: inline-size; position: relative; overflow: hidden; padding: 1.15rem; border: 1px solid rgba(46,106,52,.18); border-radius: 1.5rem; background: rgba(255,255,255,.84); box-shadow: 0 22px 64px rgba(51,69,45,.14); backdrop-filter: blur(12px); }
 .group-board::before { content: ""; position: absolute; top: -28%; right: -18%; width: 72%; aspect-ratio: 1; border-radius: 50%; background: rgba(244,81,42,.12); filter: blur(22px); }
 .board-topline { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
-.board-channels { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: clamp(.6rem, 2.5vw, 1.1rem); margin-top: 1rem; padding: clamp(.6rem, 2vw, .85rem) clamp(.7rem, 2.4vw, 1rem); border: 1px solid rgba(46,106,52,.16); border-radius: .9rem; background: linear-gradient(120deg, rgba(244,81,42,.07), rgba(105,189,72,.09)); }
-.board-channels-label { flex: 0 1 auto; max-width: 7.5rem; color: #54754f; font-family: "DM Mono", monospace; font-size: clamp(.44rem, 2cqw, .53rem); letter-spacing: .11em; line-height: 1.35; text-transform: uppercase; }
-.board-channels-icons { display: flex; flex: 1 1 auto; align-items: center; justify-content: flex-end; gap: clamp(.5rem, 2.6vw, 1.15rem); min-width: 0; }
-.board-channels-icons img { width: 2.2rem; height: 2.2rem; width: clamp(1.8rem, 11cqw, 2.9rem); height: clamp(1.8rem, 11cqw, 2.9rem); flex: 0 1 auto; object-fit: contain; filter: drop-shadow(0 5px 10px rgba(27,33,24,.16)); }
+.board-channels { position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; gap: clamp(1rem, 7cqw, 2.6rem); margin-top: 1rem; padding: clamp(.7rem, 2.2vw, 1rem) clamp(.8rem, 2.4vw, 1.1rem); border: 1px solid rgba(46,106,52,.16); border-radius: .9rem; background: linear-gradient(120deg, rgba(244,81,42,.07), rgba(105,189,72,.09)); }
+.board-channels img { width: 2.4rem; height: 2.4rem; width: clamp(1.9rem, 12cqw, 3.1rem); height: clamp(1.9rem, 12cqw, 3.1rem); flex: 0 1 auto; object-fit: contain; filter: drop-shadow(0 5px 10px rgba(27,33,24,.16)); }
 
-.board-subline { position: relative; z-index: 2; display: flex; align-items: baseline; justify-content: space-between; gap: .6rem; margin: 1rem 0 .6rem; padding-bottom: .5rem; border-bottom: 1px solid rgba(46,106,52,.14); color: #6c7766; font-family: "DM Mono", monospace; font-size: .52rem; letter-spacing: .11em; text-transform: uppercase; }
+.board-subline { position: relative; z-index: 2; display: flex; align-items: baseline; justify-content: space-between; gap: .6rem; margin: 1rem 0 .6rem; padding-bottom: .5rem; border-bottom: 1px solid rgba(46,106,52,.14); color: #6c7766; font-family: "DM Mono", monospace; font-size: clamp(.44rem, 2cqw, .53rem); letter-spacing: .11em; line-height: 1.35; text-transform: uppercase; }
 .board-rows { position: relative; z-index: 2; display: grid; gap: .42rem; }
 .student-row { display: grid; grid-template-columns: 1.85rem minmax(0, 1fr) auto; align-items: center; gap: .6rem; padding: .55rem .6rem; border: 1px solid rgba(27,33,24,.08); border-radius: .7rem; background: #fff; box-shadow: 0 6px 14px rgba(27,33,24,.05); }
 .student-row-risk { border-color: rgba(244,81,42,.34); box-shadow: 0 6px 16px rgba(244,81,42,.12); }
@@ -318,10 +316,7 @@
 
 @media (max-width: 639px) {
   .group-board { padding: .85rem; }
-  .board-channels { flex-direction: column; align-items: flex-start; gap: .55rem; }
-  .board-channels-label { max-width: none; }
-  .board-channels-icons { width: 100%; justify-content: space-between; gap: .4rem; }
-  .board-channels-icons img { width: clamp(2rem, 12vw, 2.75rem); height: clamp(2rem, 12vw, 2.75rem); }
+  .board-channels { gap: clamp(.9rem, 9vw, 2rem); }
   .board-subline { font-size: .45rem; letter-spacing: .08em; }
   .student-row { grid-template-columns: 1.6rem minmax(0, 1fr); gap: .5rem; padding: .5rem .55rem; }
   .student-avatar { width: 1.6rem; height: 1.6rem; font-size: .48rem; }
@@ -340,8 +335,5 @@
 /* La franja de canales se apila cuando la tarjeta es angosta, sin importar el viewport
    (a 900px la tarjeta mide ~350px aunque el layout sea de escritorio). */
 @container (max-width: 460px) {
-  .board-channels { flex-direction: column; align-items: flex-start; gap: .6rem; }
-  .board-channels-label { max-width: none; }
-  .board-channels-icons { width: 100%; justify-content: space-between; gap: .4rem; }
-  .board-channels-icons img { width: clamp(2rem, 15cqw, 2.9rem); height: clamp(2rem, 15cqw, 2.9rem); }
+  .board-channels { justify-content: space-around; gap: .5rem; padding-inline: .6rem; }
 }

@@ -14,7 +14,6 @@ import {
   Check,
   ClipboardCheck,
   Gauge,
-  HeartHandshake,
   Layers,
   Lightbulb,
   Radar,
@@ -35,26 +34,26 @@ const calendarUrl = "https://calendar.app.google/ngxAfHKR5fs7SW8aA";
 const painCards = [
   {
     icon: Repeat,
-    label: "Ejecución",
-    today: "Publican una versión deformada de lo que les enseñaste.",
-    tomorrow: "Cada uno ve una sola acción por vez, la que le toca según lo que ya hizo.",
+    label: "El que no capta",
+    today: "Se lo explicaste mil veces y sigue publicando otra cosa.",
+    tomorrow: "Ve una sola acción por vez, la que le toca según lo que ya hizo.",
   },
   {
     icon: Timer,
-    label: "Velocidad",
-    today: "Veinte guiones esperando tu devolución y la tuya llega cuando ya publicaron.",
-    tomorrow: "Cada uno recibe su corrección enseguida, con tu criterio y tu visto bueno.",
+    label: "El que espera",
+    today: "Mandó su guion y tu devolución le llega cuando ya publicó.",
+    tomorrow: "Recibe su corrección enseguida, con tu criterio y tu visto bueno.",
   },
   {
     icon: UserMinus,
-    label: "Alumnos que perdés",
-    today: "El que se desanima no te avisa: deja de publicar y no vuelve.",
-    tomorrow: "Ves quién dejó de publicar mientras todavía lo podés recuperar.",
+    label: "El que desaparece",
+    today: "No se queja ni avisa: deja de publicar y no vuelve más.",
+    tomorrow: "Lo ves dejar de publicar mientras todavía lo podés recuperar.",
   },
   {
     icon: Trophy,
-    label: "Casos",
-    today: "Tus casos de éxito salen de los dos o tres que ya venían con todo.",
+    label: "Los que llegan",
+    today: "Son los dos o tres que ya venían con todo resuelto de antes.",
     tomorrow: "Medís cuántos llegan a su caso de éxito y en cuánto tiempo.",
   },
 ];
@@ -193,12 +192,9 @@ function GroupBoard() {
         <span className="status-pill"><span /> MÉTODO EN EJECUCIÓN</span>
       </div>
       <div className="board-channels">
-        <span className="board-channels-label">Donde publican tus alumnos</span>
-        <div className="board-channels-icons">
-          {channels.map((channel) => (
-            <img key={channel.label} src={channel.src} alt={channel.label} />
-          ))}
-        </div>
+        {channels.map((channel) => (
+          <img key={channel.label} src={channel.src} alt={channel.label} />
+        ))}
       </div>
       <div className="board-subline">
         <span>Tu mentoría · 5 alumnos</span>
@@ -229,8 +225,7 @@ function GroupBoard() {
         })}
       </div>
       <div className="board-footer">
-        <span><UserMinus aria-hidden="true" /> Antes te enterabas cuando el alumno ya no volvía.</span>
-        <strong><Radar aria-hidden="true" /> Ahora lo ves a tiempo, cuando todavía lo podés recuperar.</strong>
+        <strong><Radar aria-hidden="true" /> Lo ves a tiempo, cuando todavía lo podés recuperar.</strong>
       </div>
     </div>
   );
@@ -257,7 +252,7 @@ function StageMeter({ stage }: { stage: (typeof stages)[number] }) {
 function GroupCostCalculator() {
   const [students, setStudents] = useState(20);
   const [groups, setGroups] = useState(3);
-  const [ticket, setTicket] = useState(1500);
+  const [ticket, setTicket] = useState(3000);
   const [reach, setReach] = useState(25);
 
   const perYear = students * groups;
@@ -272,8 +267,8 @@ function GroupCostCalculator() {
       <div className="calculator-controls">
         <div className="calculator-label">
           <span className="eyebrow">CALCULADORA</span>
-          <h3>¿Cuánto vale el grupo que no llega?</h3>
-          <p>Mové los controles con los números de tu programa y mirá cuánto pesa cada grupo que termina sin casos de éxito.</p>
+          <h3>¿Cuántos testimonios perdiste el año pasado?</h3>
+          <p>Con los números reales de tu programa.</p>
         </div>
         <label className="range-field">
           <span>Alumnos por grupo <b>{students}</b></span>
@@ -293,13 +288,13 @@ function GroupCostCalculator() {
         </label>
       </div>
       <div className="calculator-result" aria-live="polite">
-        <span className="eyebrow">LO QUE SE PAGÓ SIN LLEGAR A UN CASO</span>
-        <p>Cada año, esto es lo que pagaron los alumnos que no llegaron a su caso de éxito:</p>
+        <span className="eyebrow">TESTIMONIOS QUE NO TENÉS</span>
+        <p>Alumnos que te pagaron y no llegaron a su caso de éxito. En plata:</p>
         <motion.strong key={value} initial={{ opacity: 0.5, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.22 }}>
           {money(value)} <small>por año</small>
         </motion.strong>
         <div className="calculator-breakdown">
-          <span>{withoutCase}<small>sin caso de éxito</small></span>
+          <span>{withoutCase}<small>testimonios que no tenés</small></span>
           <span>{withCase}<small>llegan a su caso de éxito</small></span>
         </div>
         <p className="calculator-note">
@@ -378,10 +373,10 @@ export default function TractionOS() {
             <div className="section-heading split-heading">
               <div>
                 <span className="eyebrow">EL PROBLEMA</span>
-                <h2>Tu método funciona. <em>El problema es cómo llega.</em></h2>
+                <h2>Vos ya sabés cuáles <em>no van a llegar.</em></h2>
               </div>
               <p>
-                No es que no sepas qué decirle a cada uno. Es que son veinte mandando guiones y borradores al mismo tiempo, y la devolución que necesitan hoy les llega tarde o no les llega.
+                No es que no sepas qué decirle a cada uno. Es que son veinte mandando guiones al mismo tiempo, y para cuando les contestás ya publicaron cualquier cosa.
               </p>
             </div>
             <div className="pain-grid">
@@ -413,10 +408,10 @@ export default function TractionOS() {
             <div className="system-mark" aria-hidden="true"><Lightbulb /></div>
             <div>
               <span className="eyebrow">CLARITY TRACTION OS</span>
-              <h2>Un sistema entrenado con tu método para que cada alumno reciba la corrección que necesita, <em>con tu visto bueno antes de que le llegue.</em></h2>
+              <h2>Que ninguno se caiga por algo que <em>ya les explicaste mil veces.</em></h2>
             </div>
             <p>
-              Las correcciones, los entregables de cada paso y el resumen de cada alumno son componentes. El sistema es lo que hace que todos sigan tu criterio y no otro.
+              Un sistema entrenado con tu método, que corrige a cada alumno como lo corregirías vos y no le deja pasar nada sin tu visto bueno.
             </p>
           </div>
         </section>
@@ -463,7 +458,7 @@ export default function TractionOS() {
           <div className="container">
             <div className="section-heading centered-heading">
               <span className="eyebrow">PARA QUÉ SIRVE</span>
-              <h2>Más alumnos que llegan es <em>más gente comprando</em> lo próximo que vendas.</h2>
+              <h2>Cada alumno que llega es <em>un testimonio nuevo</em> para vender el próximo grupo.</h2>
             </div>
             <div className="result-grid">
               {results.map((result, index) => (
@@ -517,7 +512,7 @@ export default function TractionOS() {
               <span className="eyebrow">LO QUE SUMA ADEMÁS</span>
               <h2>Tres cosas para que tu grupo <em>actual</em> lo use desde la primera semana.</h2>
               <p>
-                El riesgo real de cualquier herramienta nueva es que los alumnos no la adopten. Estos tres bonos existen justamente para cerrar ese hueco.
+                El riesgo real de cualquier herramienta nueva es que los alumnos no la abran nunca.
               </p>
             </div>
             <div className="capability-list">
@@ -592,13 +587,11 @@ export default function TractionOS() {
               <p>
                 En la llamada revisamos cómo es tu método y cuántos de tus alumnos llegan hoy a un caso de éxito. Traelo como está.
               </p>
-              <div className="request-note"><HeartHandshake aria-hidden="true" /> Abrí la agenda y elegí el horario que te quede mejor.</div>
             </div>
             <div className="agenda-card">
               <CalendarCheck aria-hidden="true" />
               <span className="eyebrow">GOOGLE CALENDAR</span>
               <h3>Agenda abierta</h3>
-              <p>La reserva se realiza directamente en tu calendario.</p>
               <a href={calendarUrl} target="_blank" rel="noopener noreferrer" className="clarity-button clarity-button-full">
                 Abrir mi agenda <ArrowRight className="h-5 w-5" />
               </a>

@@ -89,20 +89,15 @@ export default function TractionOSSection() {
               <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#628267]">Tu mentoría hoy</span>
               <span className="rounded-full bg-[#e7f5df] px-2.5 py-1 text-[0.62rem] font-bold uppercase tracking-[0.1em] text-[#3f7147]">Método en ejecución</span>
             </div>
-            <div className="mt-4 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 rounded-xl border border-[#dce7d6] bg-gradient-to-r from-[#ef5f33]/[0.07] to-[#60ba46]/[0.1] px-3 py-2.5">
-              <span className="max-w-[7.5rem] text-[0.55rem] font-bold uppercase leading-tight tracking-[0.11em] text-[#54754f]">
-                Donde publican tus alumnos
-              </span>
-              <div className="flex flex-1 items-center justify-end gap-3 sm:gap-4">
-                {channels.map((channel) => (
-                  <img
-                    key={channel.label}
-                    src={channel.src}
-                    alt={channel.label}
-                    className="h-8 w-8 object-contain drop-shadow-sm sm:h-10 sm:w-10"
-                  />
-                ))}
-              </div>
+            <div className="mt-4 flex items-center justify-center gap-5 rounded-xl border border-[#dce7d6] bg-gradient-to-r from-[#ef5f33]/[0.07] to-[#60ba46]/[0.1] px-3 py-3 sm:gap-8">
+              {channels.map((channel) => (
+                <img
+                  key={channel.label}
+                  src={channel.src}
+                  alt={channel.label}
+                  className="h-9 w-9 object-contain drop-shadow-sm sm:h-11 sm:w-11"
+                />
+              ))}
             </div>
             <div className="mt-5 grid gap-2.5">
               {students.map((student, index) => (
@@ -129,9 +124,6 @@ export default function TractionOSSection() {
                 </motion.div>
               ))}
             </div>
-            <p className="mt-4 flex items-center justify-center gap-2 text-center text-sm font-semibold text-[#47784e]">
-              Lo ves a tiempo, no cuando ya no vuelve <ArrowRight className="h-4 w-4 text-[#d94e25]" />
-            </p>
           </motion.div>
         </div>
 
