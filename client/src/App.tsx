@@ -6,11 +6,13 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import AcquisitionOS from "./pages/AcquisitionOS";
+import TractionOS from "./pages/TractionOS";
 
 function Router() {
   return (
     <Switch>
       <Route path={"/"} component={Home} />
+      <Route path={"/traction-os"} component={TractionOS} />
       <Route path={"/acquisition-os"} component={AcquisitionOS} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />

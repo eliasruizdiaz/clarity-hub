@@ -5,7 +5,7 @@ import ResultadoSection from "@/components/sections/ResultadoSection";
 import MetodoSection from "@/components/sections/MetodoSection";
 import RoiScanSection from "@/components/sections/RoiScanSection";
 import TransformationSection from "@/components/sections/TransformationSection";
-import AcquisitionOSSection from "@/components/sections/AcquisitionOSSection";
+import TractionOSSection from "@/components/sections/TractionOSSection";
 import CalculatorSection from "@/components/sections/CalculatorSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import FormacionSection from "@/components/sections/FormacionSection";
@@ -31,8 +31,8 @@ export default function Home() {
         <RoiScanSection />
         {/* 6. Optimization + Transformation en detalle (Pasos 2 y 3) */}
         <TransformationSection />
-        {/* 6b. Oferta especializada para coaches e infoproductores high ticket */}
-        <AcquisitionOSSection />
+        {/* 6b. Oferta especializada para mentores con programa de contenido */}
+        <TractionOSSection />
         {/* 7. Precios: ROI Scan + Optimization + Transformation */}
         <ServicesSection />
         {/* 7. Formaciones (excepción) */}

@@ -391,8 +391,8 @@
   }
 }
 
-/* Clarity Hub root offer: a restrained route into the specialized Acquisition OS. */
-.acquisition-offer-bar {
+/* Clarity Hub root offer: a restrained route into the specialized Traction OS. */
+.offer-bar {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -409,36 +409,36 @@
   transition: background 180ms ease, color 180ms ease;
 }
 
-.acquisition-offer-bar strong {
+.offer-bar strong {
   color: #c9f29e;
   font-weight: 800;
 }
 
-.acquisition-offer-bar svg {
+.offer-bar svg {
   width: 0.9rem;
   height: 0.9rem;
   flex: 0 0 auto;
   transition: transform 180ms ease;
 }
 
-.acquisition-offer-bar:hover {
+.offer-bar:hover {
   color: #ffffff;
   background: #194a27;
 }
 
-.acquisition-offer-bar:hover svg {
+.offer-bar:hover svg {
   transform: translate(2px, -2px);
 }
 
 @media (max-width: 520px) {
-  .acquisition-offer-bar {
+  .offer-bar {
     gap: 0.32rem;
     min-height: 2.7rem;
     padding-inline: 0.75rem;
     font-size: 0.61rem;
   }
 
-  .acquisition-offer-bar strong {
+  .offer-bar strong {
     font-size: 0.66rem;
   }
 }
