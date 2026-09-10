@@ -35,15 +35,42 @@
   </head>
 
   <body>
-    <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1509576223444567&ev=PageView&noscript=1"
-    /></noscript>
-    <div id="root"></div>
+    <noscript><img height="1" width="1" style="display:none" alt=""
+      src="https://www.facebook.com/tr?id=1509576223444567&amp;ev=PageView&amp;noscript=1" /></noscript>
+
+    <div id="root"><div id="boot-fallback" style="display:none;box-sizing:border-box;max-width:34rem;margin:0 auto;padding:3.5rem 1.5rem;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;color:#1b2118;text-align:center"><img src="/images/logo_clarity.png" alt="Clarity Hub" style="display:block;width:9rem;height:auto;margin:0 auto 1.75rem" /><h1 style="margin:0 0 .75rem;font-size:1.3rem;line-height:1.35;font-weight:700">Tu navegador no pudo cargar esta página.</h1><p style="margin:0 0 1.75rem;color:#55624f;font-size:.95rem;line-height:1.6">Suele pasar con bloqueadores de contenido muy estrictos. Probá con otro navegador, o escribinos y lo resolvemos por acá.</p><p style="margin:0 0 2rem"><a href="https://wa.me/595982120861" style="color:#f4512a;font-weight:700;text-decoration:none">WhatsApp +595 982 120 861</a></p><pre id="boot-error" style="display:none;margin:0;padding:.8rem;background:#f2f0e9;border-radius:.5rem;color:#7a8074;font-size:.68rem;line-height:1.45;text-align:left;white-space:pre-wrap;overflow:auto"></pre></div></div>
+
+    <script>
+      // Red de seguridad de arranque. Si React no llega a montar, el visitante ve
+      // algo util en vez de una pantalla vacia, y nosotros vemos por que fallo.
+      // createRoot().render() reemplaza el contenido de #root, asi que cuando
+      // React monta bien este bloque se desconecta solo y nunca se muestra.
+      (function () {
+        var fallos = [];
+        window.addEventListener('error', function (ev) {
+          if (ev && ev.target && ev.target !== window && ev.target.src) {
+            fallos.push('no cargo: ' + ev.target.src);
+            return;
+          }
+          fallos.push('error: ' + ((ev && ev.message) || '') + ' @ ' + ((ev && ev.filename) || '') + ':' + ((ev && ev.lineno) || ''));
+        }, true);
+        window.addEventListener('unhandledrejection', function (ev) {
+          var r = ev && ev.reason;
+          fallos.push('promesa rechazada: ' + ((r && r.message) || r || ''));
+        });
+        setTimeout(function () {
+          var caja = document.getElementById('boot-fallback');
+          if (!caja || !caja.isConnected) return; // React monto: no hay nada que mostrar
+          caja.style.display = 'block';
+          if (fallos.length) {
+            var detalle = document.getElementById('boot-error');
+            if (detalle) { detalle.style.display = 'block'; detalle.textContent = fallos.join('\n'); }
+          }
+        }, 4000);
+      })();
+    </script>
+
     <script type="module" src="/src/main.tsx"></script>
-    <script
-      defer
-      src="%VITE_ANALYTICS_ENDPOINT%/umami"
-      data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
   </body>
 
 </html>
