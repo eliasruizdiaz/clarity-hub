@@ -14,12 +14,15 @@ import {
   Check,
   ClipboardCheck,
   Gauge,
+  HeartHandshake,
   Layers,
+  Lock,
   Lightbulb,
   Radar,
   Repeat2,
   ShieldCheck,
   Sparkles,
+  Upload,
   UserMinus,
   Workflow,
 } from "lucide-react";
@@ -56,7 +59,7 @@ const stages = [
     number: "01",
     key: "sombra",
     title: "Sombra",
-    copy: "El alumno manda su guion, el sistema le marca la corrección con tu método y vos la aprobás antes de que le llegue.",
+    copy: "Arrancás acá. Cada corrección pasa por vos y cada cambio que hacés queda adentro del sistema.",
     icon: ClipboardCheck,
     approval: 100,
     meterLabel: "Correcciones que revisás vos",
@@ -68,7 +71,7 @@ const stages = [
     number: "02",
     key: "copiloto",
     title: "Copiloto",
-    copy: "Las correcciones que ya aprobaste mil veces salen solas. El sistema te consulta solo lo que no sabe cómo responderías vos.",
+    copy: "Ya sabe cómo corregís los errores que se repiten. Te consulta solo lo que no vio antes.",
     icon: Workflow,
     approval: 40,
     meterLabel: "Correcciones que revisás vos",
@@ -80,7 +83,7 @@ const stages = [
     number: "03",
     key: "autonomo",
     title: "Autónomo",
-    copy: "Tu forma de corregir ya está adentro. Mirás el tablero y sabés dónde está parado cada alumno sin preguntarle a nadie.",
+    copy: "Corrige como corregirías vos y te avisa. Tu trabajo pasa a ser mirar el tablero.",
     icon: Gauge,
     approval: 12,
     meterLabel: "Correcciones que revisás vos",
@@ -89,6 +92,34 @@ const stages = [
     tomorrow: "Lo ves en el tablero",
   },
 ] as const;
+
+const howSteps = [
+  {
+    n: "01",
+    title: "El alumno entra a su panel y ve una sola cosa",
+    copy: "El paso que le toca según lo que ya entregó. No el curso entero ni el módulo 7 que todavía no le sirve.",
+  },
+  {
+    n: "02",
+    title: "Entrega ahí mismo",
+    copy: "Sube su guion, su gancho, su carrusel, lo que ese paso pida. Queda registrado con fecha, así sabés quién entregó y quién no.",
+  },
+  {
+    n: "03",
+    title: "El sistema lo revisa con tu método",
+    copy: "Arma la corrección: qué está mal, por qué y cómo se arregla. Con tu criterio, no con el de una IA que leyó cualquier cosa en internet.",
+  },
+  {
+    n: "04",
+    title: "Esa corrección te llega a vos antes que al alumno",
+    copy: "La aprobás, la editás o la escribís de nuevo. Nada sale sin tu visto bueno, y cada cambio tuyo le enseña cómo corregís.",
+  },
+  {
+    n: "05",
+    title: "Recién ahí le llega, junto con el paso siguiente",
+    copy: "Y vos ves el tablero: quién avanzó, quién está esperando y quién hace días que no entrega.",
+  },
+];
 
 const setupDeliverables = [
   "Tu método cargado tal como lo enseñás",
@@ -147,7 +178,7 @@ const faqs = [
   },
   {
     q: "¿Qué pasa si no funciona?",
-    a: "Garantía Hasta Que Lleguen: si a los 90 días los alumnos que siguieron el método no llegaron a su caso de éxito, seguimos trabajando sin cobrar el mantenimiento hasta que lleguen.",
+    a: "Hay garantía, y las condiciones las escribimos con tus números en la llamada: qué contás vos como caso de éxito, en cuánto tiempo y sobre qué alumnos se mide. No es un párrafo genérico igual para todos.",
   },
 ];
 
@@ -412,34 +443,88 @@ export default function TractionOS() {
 
         <section id="metodo" className="section section-mint">
           <div className="container">
-            <div className="section-heading centered-heading">
-              <span className="eyebrow">EL MÉTODO SOMBRA</span>
-              <h2>Tres etapas hasta que tu método corra sin que tengas que repetirlo.</h2>
+            <div className="section-heading split-heading">
+              <div>
+                <span className="eyebrow">CÓMO FUNCIONA</span>
+                <h2>Tus alumnos entran a un panel donde solo ven <em>el paso que les toca.</em></h2>
+              </div>
+              <p>
+                No es un chat ni un curso más. Es el circuito por donde pasa cada entrega de cada alumno, con tu método adentro y con vos aprobando antes de que salga.
+              </p>
             </div>
-            <div className="method-grid">
-              {stages.map((stage, index) => {
-                const Icon = stage.icon;
-                return (
-                  <motion.article
+
+            <div className="how-layout">
+              <div className="how-steps">
+                {howSteps.map((step, index) => (
+                  <motion.div
+                    key={step.n}
+                    initial={{ opacity: 0, y: 14 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    className="how-step"
+                  >
+                    <span>{step.n}</span>
+                    <div>
+                      <h3>{step.title}</h3>
+                      <p>{step.copy}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5 }}
+                className="student-panel"
+                aria-label="Panel del alumno"
+              >
+                <div className="student-panel-top">
+                  <img src={logo} alt="Clarity Hub" />
+                  <span>Panel del alumno</span>
+                </div>
+
+                <div className="panel-block">
+                  <span className="panel-label">Tu paso de hoy</span>
+                  <span className="panel-title">Paso 3 · Guion del reel</span>
+                  <div className="panel-drop"><Upload aria-hidden="true" /> Subí tu guion corregido</div>
+                </div>
+
+                <div className="panel-note">
+                  <div className="panel-note-head">
+                    <span>Corrección de tu mentor</span>
+                    <b><Check aria-hidden="true" /> Aprobada</b>
+                  </div>
+                  <p>El gancho recién arranca en el segundo 4. Tiene que estar en el primero. Reescribilo empezando por la frase que hoy tenés en el medio.</p>
+                </div>
+
+                <div className="panel-next"><Lock aria-hidden="true" /> Paso 4 · Edición. Se abre cuando este quede aprobado.</div>
+              </motion.div>
+            </div>
+
+            <div className="stage-strip">
+              <span className="eyebrow">EL MÉTODO SOMBRA</span>
+              <p>
+                Al principio revisás todas las correcciones. Después el sistema resuelve solo las que ya le corregiste mil veces y te consulta únicamente lo que no sabe cómo responderías vos.
+              </p>
+              <div className="stage-grid">
+                {stages.map((stage, index) => (
+                  <motion.div
                     key={stage.title}
-                    initial={{ opacity: 0, y: 22 }}
+                    initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.25 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="method-card"
+                    transition={{ duration: 0.45, delay: index * 0.08 }}
+                    className="stage-item"
                   >
-                    <div className="method-top"><span>{stage.number}</span><Icon className="h-5 w-5" /></div>
-                    <StageMeter stage={stage} />
                     <h3>{stage.title}</h3>
+                    <StageMeter stage={stage} />
                     <p>{stage.copy}</p>
-                    <div className="method-contrast">
-                      <span><small>HOY</small>{stage.today}</span>
-                      <ArrowRight aria-hidden="true" />
-                      <strong><small>DESPUÉS</small>{stage.tomorrow}</strong>
-                    </div>
-                  </motion.article>
-                );
-              })}
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -517,18 +602,19 @@ export default function TractionOS() {
           </div>
         </section>
 
-        <section id="garantia" className="section section-mint">
+        <section id="estado" className="section section-mint">
           <div className="container">
             <div className="founder-card">
-              <span className="eyebrow">GARANTÍA Y ESTADO REAL</span>
-              <h3>Garantía Hasta Que Lleguen</h3>
+              <span className="eyebrow">ESTADO REAL</span>
+              <h3>Sos de los primeros y te lo digo de frente.</h3>
               <p>
-                Si a los 90 días los alumnos que siguieron el método no llegaron a su caso de éxito, seguimos trabajando sin cobrar el mantenimiento hasta que lleguen.
+                Como producto esto es nuevo. Por eso entrás con condiciones de fundador, y por eso te digo lo que sigue antes de que lo tengas que preguntar.
               </p>
               <div className="founder-points">
                 <p><ShieldCheck aria-hidden="true" /> El motor de este sistema corre en nuestro propio negocio hace meses: nuestros mensajes, nuestros recursos y el aprendizaje de cada corrección funcionan con él.</p>
-                <p><BadgeCheck aria-hidden="true" /> Todavía no hay casos de éxito de clientes publicados. Sos de los primeros, y por eso las condiciones de fundador y una garantía así de fuerte.</p>
+                <p><BadgeCheck aria-hidden="true" /> Todavía no hay casos de éxito de clientes publicados. Cuando alguien te muestre veinte logos en esta etapa, desconfiá.</p>
                 <p><Workflow aria-hidden="true" /> El sistema corre en tu infraestructura y en tus cuentas. La documentación y los procesos quedan tuyos.</p>
+                <p><HeartHandshake aria-hidden="true" /> Hay garantía. Las condiciones las escribimos con tus números en la llamada, no en una landing.</p>
               </div>
             </div>
           </div>

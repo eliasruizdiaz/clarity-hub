@@ -298,6 +298,46 @@
 .stage-track span.is-on { border-color: var(--forest); background: var(--forest); color: #f8fbf1; }
 .stage-meter-foot { margin: 0; color: #6b7866; font-size: .59rem; line-height: 1.35; }
 
+/* Como funciona: circuito concreto + panel del alumno */
+.how-layout { display: grid; gap: 2.6rem; align-items: start; }
+.how-steps { border-top: 1px solid rgba(46,106,52,.22); }
+.how-step { display: grid; grid-template-columns: 2.1rem minmax(0, 1fr); gap: 1rem; padding: 1.25rem 0; border-bottom: 1px solid rgba(46,106,52,.16); }
+.how-step > span { color: var(--coral); font-family: "DM Mono", monospace; font-size: .68rem; padding-top: .18rem; }
+.how-step h3 { margin: 0; color: var(--ink); font-family: "Fraunces", Georgia, serif; font-size: 1.25rem; letter-spacing: -.035em; line-height: 1.12; }
+.how-step p { margin: .4rem 0 0; color: #55624f; font-size: .94rem; line-height: 1.55; }
+.how-step p b { color: #253522; font-weight: 700; }
+
+.student-panel { position: relative; container-type: inline-size; overflow: hidden; padding: 1.15rem; border: 1px solid rgba(46,106,52,.2); border-radius: 1.4rem; background: #fffefa; box-shadow: 0 20px 52px rgba(51,69,45,.13); }
+.student-panel-top { display: flex; align-items: center; justify-content: space-between; gap: .5rem; padding-bottom: .75rem; border-bottom: 1px solid rgba(46,106,52,.14); }
+.student-panel-top img { width: 4.4rem; height: 2rem; object-fit: contain; }
+.student-panel-top span { color: #6c7766; font-family: "DM Mono", monospace; font-size: .5rem; letter-spacing: .12em; text-transform: uppercase; }
+.panel-block { margin-top: .9rem; padding: .85rem .9rem; border: 1px solid rgba(46,106,52,.16); border-radius: .8rem; background: linear-gradient(125deg,#f9fbf4,#eef6e7); }
+.panel-label { display: block; color: #6c7766; font-family: "DM Mono", monospace; font-size: .48rem; letter-spacing: .13em; text-transform: uppercase; }
+.panel-title { display: block; margin-top: .35rem; color: var(--ink); font-family: "Fraunces", Georgia, serif; font-size: 1.1rem; letter-spacing: -.03em; }
+.panel-drop { display: flex; align-items: center; gap: .5rem; margin-top: .7rem; padding: .65rem .7rem; border: 1px dashed rgba(46,106,52,.4); border-radius: .6rem; color: #5c6b56; font-size: .74rem; background: rgba(255,255,255,.75); }
+.panel-drop svg { flex: 0 0 auto; width: .95rem; color: var(--forest); }
+.panel-note { margin-top: .9rem; padding: .85rem .9rem; border: 1px solid rgba(244,81,42,.24); border-radius: .8rem; background: #fff7f3; }
+.panel-note-head { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+.panel-note-head span { color: #9b4a37; font-family: "DM Mono", monospace; font-size: .48rem; letter-spacing: .12em; text-transform: uppercase; }
+.panel-note-head b { display: inline-flex; align-items: center; gap: .25rem; padding: .22rem .42rem; border-radius: .4rem; background: #e4f4d9; color: #3c7040; font-family: "DM Mono", monospace; font-size: .44rem; letter-spacing: .07em; text-transform: uppercase; }
+.panel-note-head svg { width: .6rem; height: .6rem; }
+.panel-note p { margin: .5rem 0 0; color: #3f4a3b; font-size: .84rem; line-height: 1.5; }
+.panel-next { display: flex; align-items: center; gap: .45rem; margin-top: .9rem; padding-top: .8rem; border-top: 1px solid rgba(46,106,52,.14); color: #7b8875; font-size: .68rem; }
+.panel-next svg { flex: 0 0 auto; width: .85rem; color: #9aa393; }
+
+.stage-strip { margin-top: 3.2rem; padding-top: 2.2rem; border-top: 1px solid rgba(46,106,52,.2); }
+.stage-strip > p { max-width: 42rem; margin: .8rem 0 2rem; color: #55624f; font-size: 1rem; line-height: 1.6; }
+.stage-grid { display: grid; gap: 1.6rem; }
+.stage-item h3 { margin: 0 0 .55rem; color: var(--ink); font-family: "Fraunces", Georgia, serif; font-size: 1.35rem; letter-spacing: -.038em; }
+.stage-item .stage-meter { height: auto; margin: 0 0 .7rem; }
+.stage-item > p { margin: 0; color: #55624f; font-size: .9rem; line-height: 1.5; }
+
+@media (min-width: 900px) {
+  .how-layout { grid-template-columns: 1.05fr .95fr; gap: 4.5rem; }
+  .stage-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .how-step h3 { font-size: 1.4rem; }
+}
+
 /* Resultado: la cadena casos -> testimonios -> recurrencia */
 .result-grid { display: grid; gap: 1.1rem; }
 .result-card { position: relative; padding: clamp(1.25rem, 2.6vw, 1.7rem); border: 1px solid rgba(46,106,52,.16); border-radius: 1.2rem; background: #fffefa; box-shadow: 0 10px 28px rgba(45,57,39,.05); }
