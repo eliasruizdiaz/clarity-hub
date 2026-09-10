@@ -10,7 +10,7 @@ const students = [
   { initials: "MA", name: "Martina", step: "Paso 3 · Guion del reel aprobado", chip: "Avanza", tone: "go" },
   { initials: "JO", name: "Joaquín", step: "Paso 2 · Gancho espera tu OK", chip: "Tu turno", tone: "wait" },
   { initials: "CA", name: "Camila", step: "Paso 1 · Hace 6 días que no publica", chip: "La estás perdiendo", tone: "risk" },
-  { initials: "DI", name: "Diego", step: "Paso 4 · Primer caso en curso", chip: "Avanza", tone: "go" },
+  { initials: "DI", name: "Diego", step: "Paso 4 · Primer caso de éxito en curso", chip: "Avanza", tone: "go" },
 ] as const;
 
 const channels = [
@@ -55,13 +55,13 @@ export default function TractionOSSection() {
               Clarity <span className="text-[#c9f29e]">Traction OS.</span>
             </h2>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#e0ecdb] md:text-xl">
-              Enseñás a crear <strong className="text-[#c9f29e]">contenido</strong> y tus alumnos aplican la versión que entendieron. Ahí se te van los casos de éxito que necesitás para vender el próximo grupo.
+              Dejá de perder <strong className="text-[#c9f29e]">testimonios</strong> con cada alumno que se queja, no capta lo que enseñás y termina dejando de publicar.
             </p>
             <div className="mt-8 grid gap-3">
               {[
                 "Cada guion vuelve corregido enseguida, con tu criterio y tu visto bueno.",
                 "Ves quién dejó de publicar mientras todavía lo podés recuperar.",
-                "Más alumnos que llegan a su caso es más testimonios y más gente que quiere seguir con vos.",
+                "Más alumnos que llegan a su caso de éxito es más testimonios y más gente que quiere seguir con vos.",
               ].map((item) => (
                 <p key={item} className="flex items-start gap-3 text-sm leading-relaxed text-[#e7f1df] md:text-base">
                   <CheckCircle2 className="mt-0.5 h-5 w-5 flex-none text-[#9bd875]" />

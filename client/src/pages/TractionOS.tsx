@@ -54,7 +54,7 @@ const painCards = [
   {
     icon: Trophy,
     label: "Casos",
-    today: "Tus casos salen de los dos o tres que ya venían con todo.",
+    today: "Tus casos de éxito salen de los dos o tres que ya venían con todo.",
     tomorrow: "Medís cuántos llegan a su caso de éxito y en cuánto tiempo.",
   },
 ];
@@ -104,13 +104,13 @@ const setupDeliverables = [
   "Correcciones con tu visto bueno",
   "Resumen de cada alumno antes de la sesión",
   "Quién avanza y quién se está quedando",
-  "Medición de casos y tiempos",
+  "Medición de casos de éxito y tiempos",
 ];
 
 const results = [
   {
     number: "01",
-    title: "Más alumnos llegan a su caso",
+    title: "Más alumnos llegan a su caso de éxito",
     copy: "No solamente los dos o tres que ya entraron con todo resuelto. La mayoría del grupo llega a un resultado concreto.",
   },
   {
@@ -155,7 +155,7 @@ const faqs = [
   },
   {
     q: "¿Qué pasa si no funciona?",
-    a: "Garantía Hasta Que Lleguen: si a los 90 días los alumnos que siguieron el método no llegaron a su caso, seguimos trabajando sin cobrar el mantenimiento hasta que lleguen.",
+    a: "Garantía Hasta Que Lleguen: si a los 90 días los alumnos que siguieron el método no llegaron a su caso de éxito, seguimos trabajando sin cobrar el mantenimiento hasta que lleguen.",
   },
 ];
 
@@ -172,7 +172,7 @@ const boardStudents = [
   { initials: "MA", name: "Martina", step: "Paso 3 · Guion del reel aprobado", state: "go" as const, chip: "Avanza" },
   { initials: "JO", name: "Joaquín", step: "Paso 2 · Gancho del carrusel espera tu OK", state: "wait" as const, chip: "Tu turno" },
   { initials: "CA", name: "Camila", step: "Paso 1 · Hace 6 días que no publica", state: "risk" as const, chip: "La estás perdiendo" },
-  { initials: "DI", name: "Diego", step: "Paso 4 · Primer caso en curso", state: "go" as const, chip: "Avanza" },
+  { initials: "DI", name: "Diego", step: "Paso 4 · Primer caso de éxito en curso", state: "go" as const, chip: "Avanza" },
   { initials: "LU", name: "Lucía", step: "Paso 2 · Repitió el error del gancho", state: "wait" as const, chip: "Revisar" },
 ];
 
@@ -273,7 +273,7 @@ function GroupCostCalculator() {
         <div className="calculator-label">
           <span className="eyebrow">CALCULADORA</span>
           <h3>¿Cuánto vale el grupo que no llega?</h3>
-          <p>Mové los controles con los números de tu programa y mirá cuánto pesa cada grupo que termina sin casos.</p>
+          <p>Mové los controles con los números de tu programa y mirá cuánto pesa cada grupo que termina sin casos de éxito.</p>
         </div>
         <label className="range-field">
           <span>Alumnos por grupo <b>{students}</b></span>
@@ -288,19 +288,19 @@ function GroupCostCalculator() {
           <input type="range" min="200" max="6000" step="100" value={ticket} onChange={(event) => setTicket(Number(event.target.value))} />
         </label>
         <label className="range-field">
-          <span>Alumnos que hoy llegan a un caso <b>{reach}%</b></span>
+          <span>Alumnos que hoy llegan a un caso de éxito <b>{reach}%</b></span>
           <input type="range" min="5" max="80" step="5" value={reach} onChange={(event) => setReach(Number(event.target.value))} />
         </label>
       </div>
       <div className="calculator-result" aria-live="polite">
         <span className="eyebrow">LO QUE SE PAGÓ SIN LLEGAR A UN CASO</span>
-        <p>Cada año, esto es lo que pagaron los alumnos que no llegaron a su caso:</p>
+        <p>Cada año, esto es lo que pagaron los alumnos que no llegaron a su caso de éxito:</p>
         <motion.strong key={value} initial={{ opacity: 0.5, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.22 }}>
           {money(value)} <small>por año</small>
         </motion.strong>
         <div className="calculator-breakdown">
-          <span>{withoutCase}<small>alumnos sin caso</small></span>
-          <span>{withCase}<small>llegan a su caso</small></span>
+          <span>{withoutCase}<small>sin caso de éxito</small></span>
+          <span>{withCase}<small>llegan a su caso de éxito</small></span>
         </div>
         <p className="calculator-note">
           Ese alumno no te compra lo próximo, no te refiere a nadie y no te deja un testimonio para vender el grupo que viene.
@@ -341,18 +341,17 @@ export default function TractionOS() {
               transition={{ duration: 0.62, ease: [0.23, 1, 0.32, 1] }}
               className="hero-copy"
             >
-              <span className="eyebrow eyebrow-hero">PARA MENTORÍAS DE CONTENIDO Y MARCA PERSONAL</span>
               <h1>
-                Enseñás a crear <span className="brand-highlight">contenido</span>. Tus alumnos aplican <em>la versión que entendieron</em>.
+                Dejá de perder <em>testimonios</em> en <span className="brand-highlight">tu mentoría</span> con cada alumno que no publica.
               </h1>
               <h2>Hasta 8 de cada 10 llegando a su primer caso de éxito en 90 días.</h2>
               <p className="hero-description">
-                No es que tu método no funcione. Es que cada alumno ejecuta su propia versión, y cada grupo te termina dejando menos casos de éxito de los que necesitás para vender el próximo.
+                Se quejan, no captan lo que enseñás y dejan de publicar. Cada uno de esos es un caso de éxito que no vas a poder mostrar cuando abras el próximo grupo.
               </p>
               <div className="hero-actions">
                 <ScrollButton />
                 <span className="hero-microcopy">
-                  <BadgeCheck aria-hidden="true" /> Primero vemos cómo es tu método y cuántos de tus alumnos llegan hoy a un caso. Después revisamos si hay encaje.
+                  <BadgeCheck aria-hidden="true" /> Primero vemos cómo es tu método y cuántos de tus alumnos llegan hoy a un caso de éxito. Después revisamos si hay encaje.
                 </span>
               </div>
             </motion.div>
@@ -484,7 +483,7 @@ export default function TractionOS() {
             </div>
             <p className="result-close">
               <Repeat2 aria-hidden="true" />
-              Cada grupo que sale con casos hace más fácil vender el siguiente. Es el mismo programa que ya tenés, pero con la mayoría del grupo llegando en vez de unos pocos.
+              Cada grupo que sale con casos de éxito hace más fácil vender el siguiente. Es el mismo programa que ya tenés, pero con la mayoría del grupo llegando en vez de unos pocos.
             </p>
           </div>
         </section>
@@ -539,11 +538,11 @@ export default function TractionOS() {
               <span className="eyebrow">GARANTÍA Y ESTADO REAL</span>
               <h3>Garantía Hasta Que Lleguen</h3>
               <p>
-                Si a los 90 días los alumnos que siguieron el método no llegaron a su caso, seguimos trabajando sin cobrar el mantenimiento hasta que lleguen.
+                Si a los 90 días los alumnos que siguieron el método no llegaron a su caso de éxito, seguimos trabajando sin cobrar el mantenimiento hasta que lleguen.
               </p>
               <div className="founder-points">
                 <p><ShieldCheck aria-hidden="true" /> El motor de este sistema corre en nuestro propio negocio hace meses: nuestros mensajes, nuestros recursos y el aprendizaje de cada corrección funcionan con él.</p>
-                <p><BadgeCheck aria-hidden="true" /> Todavía no hay casos de clientes publicados. Sos de los primeros, y por eso las condiciones de fundador y una garantía así de fuerte.</p>
+                <p><BadgeCheck aria-hidden="true" /> Todavía no hay casos de éxito de clientes publicados. Sos de los primeros, y por eso las condiciones de fundador y una garantía así de fuerte.</p>
                 <p><Workflow aria-hidden="true" /> El sistema corre en tu infraestructura y en tus cuentas. La documentación y los procesos quedan tuyos.</p>
               </div>
             </div>
@@ -554,9 +553,9 @@ export default function TractionOS() {
           <div className="container fit-layout">
             <div>
               <span className="eyebrow">¿HAY ENCAJE?</span>
-              <h2>Esto es para vos si tu método ya produjo casos y el problema es que pocos alumnos lo ejecutan bien.</h2>
+              <h2>Esto es para vos si tu método ya produjo casos de éxito y el problema es que pocos alumnos lo ejecutan bien.</h2>
               <p className="fit-note">
-                Y no es para vos si tu método todavía no produjo ningún caso. <strong>El sistema no arregla un método: lo expone más rápido.</strong>
+                Y no es para vos si tu método todavía no produjo ningún caso de éxito. <strong>El sistema no arregla un método: lo expone más rápido.</strong>
               </p>
             </div>
             <div className="fit-checklist">
@@ -588,10 +587,10 @@ export default function TractionOS() {
               <span className="eyebrow eyebrow-light">SIGUIENTE PASO</span>
               <h2>¿Cuándo arranca tu próximo grupo?</h2>
               <p>
-                Si arrancamos ahora, ese grupo empieza con esto andando. Si no, ese grupo entero son casos y testimonios que no van a existir.
+                Si arrancamos ahora, ese grupo empieza con esto andando. Si no, ese grupo entero son casos de éxito y testimonios que no van a existir.
               </p>
               <p>
-                En la llamada revisamos cómo es tu método y cuántos de tus alumnos llegan hoy a un caso. Traelo como está.
+                En la llamada revisamos cómo es tu método y cuántos de tus alumnos llegan hoy a un caso de éxito. Traelo como está.
               </p>
               <div className="request-note"><HeartHandshake aria-hidden="true" /> Abrí la agenda y elegí el horario que te quede mejor.</div>
             </div>
