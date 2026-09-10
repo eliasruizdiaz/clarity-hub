@@ -10,21 +10,19 @@ import {
   ArrowDownRight,
   ArrowRight,
   BadgeCheck,
-  Bot,
   CalendarCheck,
-  CalendarClock,
   Check,
   ClipboardCheck,
   Gauge,
-  GraduationCap,
   HeartHandshake,
   Layers,
   Lightbulb,
-  Minus,
   Radar,
   Repeat,
+  Repeat2,
   ShieldCheck,
   Sparkles,
+  Timer,
   Trophy,
   UserMinus,
   Workflow,
@@ -39,19 +37,19 @@ const painCards = [
     icon: Repeat,
     label: "Ejecución",
     today: "Tus alumnos aplican la versión del método que ellos entendieron.",
-    tomorrow: "Cada uno ve una sola acción por vez, la que le toca según su nivel y su semana.",
+    tomorrow: "Cada uno ve una sola acción por vez, la que le toca según lo que ya hizo.",
   },
   {
-    icon: CalendarClock,
-    label: "Los seis días",
-    today: "Entre sesión y sesión no sabés qué está pasando en el grupo.",
-    tomorrow: "Llegás a cada sesión con el brief de cada alumno: qué hizo, qué le costó, qué toca.",
+    icon: Timer,
+    label: "Velocidad",
+    today: "Son muchos pidiendo revisión al mismo tiempo y la respuesta les llega tarde.",
+    tomorrow: "Cada uno recibe su corrección enseguida, con tu criterio y tu visto bueno.",
   },
   {
     icon: UserMinus,
-    label: "Abandono",
-    today: "El que se está por caer no avisa: se desconecta en silencio.",
-    tomorrow: "El sistema marca quién dejó de avanzar antes de que desaparezca.",
+    label: "Alumnos que perdés",
+    today: "El que se desanima no te avisa: deja de entregar y no vuelve.",
+    tomorrow: "Ves quién dejó de entregar mientras todavía lo podés recuperar.",
   },
   {
     icon: Trophy,
@@ -66,67 +64,72 @@ const stages = [
     number: "01",
     key: "sombra",
     title: "Sombra",
-    copy: "El sistema propone referencias, ángulos y guiones con tu método. Vos aprobás todo y cada corrección lo entrena.",
+    copy: "Cuando un alumno entrega, el sistema le marca la corrección con tu método. Vos aprobás esa corrección antes de que le llegue.",
     icon: ClipboardCheck,
     approval: 100,
-    meterLabel: "Aprobás vos",
-    foot: "Nada le llega a un alumno sin que vos lo hayas aprobado.",
-    today: "Corregís en la sesión",
-    tomorrow: "Corregís antes de que produzcan",
+    meterLabel: "Correcciones que revisás vos",
+    foot: "Ninguna corrección le llega a un alumno sin tu visto bueno.",
+    today: "La corrección llega tarde",
+    tomorrow: "Llega apenas entregan",
   },
   {
     number: "02",
     key: "copiloto",
     title: "Copiloto",
-    copy: "Resuelve solo lo que ya domina y te consulta lo dudoso. Cada semana necesitás aprobar menos.",
+    copy: "Las correcciones que ya aprobaste mil veces salen solas. El sistema te consulta solo lo que no sabe cómo responderías vos.",
     icon: Workflow,
     approval: 40,
-    meterLabel: "Aprobás vos",
-    foot: "Ves lo nuevo y lo dudoso, no lo que ya corregiste diez veces.",
-    today: "Repetís lo mismo cada grupo",
+    meterLabel: "Correcciones que revisás vos",
+    foot: "Mirás lo nuevo, no lo que ya corregiste diez veces.",
+    today: "Contestás lo mismo de siempre",
     tomorrow: "Solo mirás lo nuevo",
   },
   {
     number: "03",
     key: "autonomo",
     title: "Autónomo",
-    copy: "Tu método corre solo. Mirás el tablero y llegás a cada sesión sabiendo dónde está parado cada alumno.",
+    copy: "Tu forma de corregir ya está adentro. Mirás el tablero y sabés dónde está parado cada alumno sin preguntarle a nadie.",
     icon: Gauge,
     approval: 12,
-    meterLabel: "Aprobás vos",
+    meterLabel: "Correcciones que revisás vos",
     foot: "Tu criterio ya está adentro. Vos mirás el tablero.",
-    today: "Sesión a ciegas",
-    tomorrow: "Sesión con brief por alumno",
+    today: "No sabés quién está mal",
+    tomorrow: "Lo ves en el tablero",
   },
 ] as const;
 
 const setupDeliverables = [
-  "Tu metodología cargada por niveles",
-  "Ejecución asistida de cada paso",
-  "Aprobación con aprendizaje",
-  "Brief semanal por alumno",
-  "Salud del grupo en un tablero",
+  "Tu método cargado tal como lo enseñás",
+  "Cada paso con lo que el alumno tiene que entregar",
+  "Correcciones con tu visto bueno",
+  "Resumen de cada alumno antes de la sesión",
+  "Quién avanza y quién se está quedando",
   "Medición de casos y tiempos",
+];
+
+const results = [
+  {
+    number: "01",
+    title: "Más alumnos llegan a su caso",
+    copy: "No solamente los dos o tres que ya entraron con todo resuelto. La mayoría del grupo llega a un resultado concreto.",
+  },
+  {
+    number: "02",
+    title: "Más testimonios para vender",
+    copy: "Cada alumno que llega es una prueba fresca para vender el próximo grupo, y no tenés que salir a pedir favores para conseguir un video.",
+  },
+  {
+    number: "03",
+    title: "Alumnos que se quedan con vos",
+    copy: "El que consigue resultados quiere seguir. Ahí un programa que se cobraba una sola vez se convierte en alguien que te paga todos los meses.",
+    final: true,
+  },
 ];
 
 const bonuses = [
   "Kit de Lanzamiento Interno: cómo presentárselo a tus alumnos para que lo usen desde la primera semana.",
-  "Radiografía del Método al día 30: qué paso de tu curso se malentiende más y por qué.",
+  "Radiografía del Método al día 30: qué paso de tu curso se entiende mal más seguido y por qué.",
   "Tu Grupo Actual Entra: los alumnos que ya tenés hoy, no solamente el próximo grupo.",
-];
-
-const chatbotPoints = [
-  "Espera a que el alumno pregunte.",
-  "El que entendió mal cree que entendió, así que no pregunta.",
-  "El que postergó tiene vergüenza de preguntar.",
-  "El que se desanimó ya ni entra a preguntar.",
-];
-
-const systemPoints = [
-  "Actúa entre sesiones, sin esperar que nadie pregunte.",
-  "Pide tu aprobación antes de que el alumno produzca.",
-  "Aprende de cada corrección tuya y necesita aprobar menos.",
-  "Mide quién avanza, quién se trabó y quién dejó de entrar.",
 ];
 
 const fitSignals = [
@@ -140,11 +143,11 @@ const fitSignals = [
 const faqs = [
   {
     q: "¿Reemplaza mis sesiones?",
-    a: "No. Llegás a cada sesión con el brief de cada alumno: qué hizo, qué le costó y qué le toca. Las sesiones rinden más, no desaparecen.",
+    a: "No. Llegás a cada sesión con el resumen de cada alumno: qué hizo, qué le costó y qué le toca. Las sesiones rinden más, no desaparecen.",
   },
   {
     q: "¿La IA va a hablar como yo?",
-    a: "Nada le llega a tus alumnos sin tu aprobación. El sistema aprende de cada corrección tuya, y cada semana necesitás aprobar menos.",
+    a: "Ninguna corrección le llega a tus alumnos sin tu visto bueno. El sistema aprende de cada una que aprobás y con el tiempo necesita consultarte menos.",
   },
   {
     q: "¿Mis alumnos lo van a usar?",
@@ -166,9 +169,9 @@ function ScrollButton({ className = "" }: { className?: string }) {
 }
 
 const boardStudents = [
-  { initials: "MA", name: "Martina", step: "Paso 3 · Guion aprobado por vos", state: "go" as const, chip: "Avanza" },
-  { initials: "JO", name: "Joaquín", step: "Paso 2 · Ángulos esperando tu OK", state: "wait" as const, chip: "Tu turno" },
-  { initials: "CA", name: "Camila", step: "Paso 1 · 6 días sin entregar", state: "risk" as const, chip: "Se está cayendo" },
+  { initials: "MA", name: "Martina", step: "Paso 3 · Corrección aprobada por vos", state: "go" as const, chip: "Avanza" },
+  { initials: "JO", name: "Joaquín", step: "Paso 2 · Corrección esperando tu OK", state: "wait" as const, chip: "Tu turno" },
+  { initials: "CA", name: "Camila", step: "Paso 1 · Hace 6 días que no entrega", state: "risk" as const, chip: "La estás perdiendo" },
   { initials: "DI", name: "Diego", step: "Paso 4 · Primer caso en curso", state: "go" as const, chip: "Avanza" },
   { initials: "LU", name: "Lucía", step: "Paso 2 · Repitió el mismo error", state: "wait" as const, chip: "Revisar" },
 ];
@@ -183,8 +186,8 @@ function GroupBoard() {
         <span className="status-pill"><span /> MÉTODO EN EJECUCIÓN</span>
       </div>
       <div className="board-subline">
-        <span>Tu grupo · Semana 4</span>
-        <span>3 avanzan · 1 te espera · 1 en riesgo</span>
+        <span>Tu grupo</span>
+        <span>3 avanzan · 1 espera tu OK · 1 a punto de abandonar</span>
       </div>
       <div className="board-rows">
         {boardStudents.map((student, index) => {
@@ -211,8 +214,8 @@ function GroupBoard() {
         })}
       </div>
       <div className="board-footer">
-        <span><CalendarClock aria-hidden="true" /> Antes te enterabas el día de la sesión.</span>
-        <strong><Radar aria-hidden="true" /> Ahora lo ves el martes, cuando todavía se puede hacer algo.</strong>
+        <span><UserMinus aria-hidden="true" /> Antes te enterabas cuando el alumno ya no volvía.</span>
+        <strong><Radar aria-hidden="true" /> Ahora lo ves a tiempo, cuando todavía lo podés recuperar.</strong>
       </div>
     </div>
   );
@@ -220,7 +223,7 @@ function GroupBoard() {
 
 function StageMeter({ stage }: { stage: (typeof stages)[number] }) {
   return (
-    <div className="stage-meter" aria-label={`Etapa ${stage.title}: aprobás el ${stage.approval} por ciento`}>
+    <div className="stage-meter" aria-label={`Etapa ${stage.title}: revisás el ${stage.approval} por ciento de las correcciones`}>
       <div className="stage-meter-head">
         <span>{stage.meterLabel}</span>
         <b>{stage.approval}%</b>
@@ -285,7 +288,7 @@ function GroupCostCalculator() {
           <span>{withCase}<small>llegan a su caso</small></span>
         </div>
         <p className="calculator-note">
-          No todos piden reembolso. Pero ninguno renueva, ninguno te refiere y ninguno te sirve de testimonio para vender el próximo grupo.
+          Ese alumno no te compra lo próximo, no te refiere a nadie y no te deja un testimonio para vender el grupo que viene.
         </p>
         <a href={calendarUrl} target="_blank" rel="noopener noreferrer" className="calculator-link">
           Quiero mover ese número <ArrowRight aria-hidden="true" />
@@ -329,7 +332,7 @@ export default function TractionOS() {
               </h1>
               <h2>Hasta 8 de cada 10 llegando a su primer caso de éxito en 90 días.</h2>
               <p className="hero-description">
-                La promesa vale para los alumnos que siguen el método y entran con algo para vender, en programas cuyo método ya produjo casos. La definición de caso de éxito la fijás vos al arrancar.
+                Cada alumno recibe la corrección que le toca apenas entrega, con tu criterio y con tu visto bueno. Sin hacer cola detrás del resto del grupo y sin que vos tengas que revisar uno por uno.
               </p>
               <div className="hero-actions">
                 <ScrollButton />
@@ -348,9 +351,9 @@ export default function TractionOS() {
             </motion.div>
           </div>
           <div className="hero-footnote container">
-            <span><Sparkles aria-hidden="true" /> Sombra: aprobás todo.</span>
+            <span><Sparkles aria-hidden="true" /> Sombra: aprobás cada corrección.</span>
             <ArrowRight aria-hidden="true" />
-            <span>Copiloto: te consulta lo dudoso.</span>
+            <span>Copiloto: te consulta solo lo dudoso.</span>
             <ArrowRight aria-hidden="true" />
             <span>Autónomo: mirás el tablero.</span>
           </div>
@@ -364,7 +367,7 @@ export default function TractionOS() {
                 <h2>Tu método funciona. <em>El problema es cómo llega.</em></h2>
               </div>
               <p>
-                Entre una sesión y la siguiente pasan seis días. Ahí es donde el alumno entiende mal un paso, posterga justo el que más importa y se apaga sin decir nada.
+                No es que no sepas qué decirle a cada uno. Es que son muchos pidiendo revisión al mismo tiempo, y la respuesta que necesitan hoy les llega tarde o no les llega.
               </p>
             </div>
             <div className="pain-grid">
@@ -396,10 +399,10 @@ export default function TractionOS() {
             <div className="system-mark" aria-hidden="true"><Lightbulb /></div>
             <div>
               <span className="eyebrow">CLARITY TRACTION OS</span>
-              <h2>Un sistema entrenado con tu método para que cada alumno haga el paso que le toca, <em>con tu aprobación antes de producir.</em></h2>
+              <h2>Un sistema entrenado con tu método para que cada alumno reciba la corrección que necesita, <em>con tu visto bueno antes de que le llegue.</em></h2>
             </div>
             <p>
-              Las referencias, los ángulos, los guiones y el brief semanal son componentes. El sistema es lo que hace que todos sigan tu criterio y no otro.
+              Las correcciones, los entregables de cada paso y el resumen de cada alumno son componentes. El sistema es lo que hace que todos sigan tu criterio y no otro.
             </p>
           </div>
         </section>
@@ -442,51 +445,32 @@ export default function TractionOS() {
           </div>
         </section>
 
-        <section id="diferencia" className="section section-white">
+        <section id="resultado" className="section section-white">
           <div className="container">
-            <div className="section-heading split-heading">
-              <div>
-                <span className="eyebrow">LA DIFERENCIA QUE IMPORTA</span>
-                <h2>El alumno que se está por caer <em>no pregunta.</em></h2>
-              </div>
-              <p>
-                Si ya tenés un agente entrenado con tu contenido, esto no compite con eso. Hace lo que un chatbot de dudas no puede hacer.
-              </p>
+            <div className="section-heading centered-heading">
+              <span className="eyebrow">PARA QUÉ SIRVE</span>
+              <h2>Más alumnos que llegan es <em>más gente comprando</em> lo próximo que vendas.</h2>
             </div>
-            <div className="versus-layout">
-              <motion.article
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.45 }}
-                className="versus-card versus-card-muted"
-              >
-                <div className="pain-icon" style={{ background: "#e9e8dd", color: "#8a9182" }}><Bot className="h-5 w-5" /></div>
-                <h3>Un chatbot entrenado con tu contenido</h3>
-                <p>Contesta bien, pero solo cuando alguien le habla.</p>
-                <ul className="versus-list">
-                  {chatbotPoints.map((point) => (
-                    <li key={point}><Minus aria-hidden="true" />{point}</li>
-                  ))}
-                </ul>
-              </motion.article>
-              <motion.article
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.45, delay: 0.08 }}
-                className="versus-card versus-card-strong"
-              >
-                <div className="pain-icon"><GraduationCap className="h-5 w-5" /></div>
-                <h3>Clarity Traction OS</h3>
-                <p>Trabaja en los seis días en que hoy no ves nada.</p>
-                <ul className="versus-list">
-                  {systemPoints.map((point) => (
-                    <li key={point}><Check aria-hidden="true" />{point}</li>
-                  ))}
-                </ul>
-              </motion.article>
+            <div className="result-grid">
+              {results.map((result, index) => (
+                <motion.article
+                  key={result.number}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.45, delay: index * 0.08 }}
+                  className={`result-card ${result.final ? "result-card-final" : ""}`}
+                >
+                  <span>{result.number}</span>
+                  <h3>{result.title}</h3>
+                  <p>{result.copy}</p>
+                </motion.article>
+              ))}
             </div>
+            <p className="result-close">
+              <Repeat2 aria-hidden="true" />
+              Cada grupo que sale con casos hace más fácil vender el siguiente. Es el mismo programa que ya tenés, pero con la mayoría del grupo llegando en vez de unos pocos.
+            </p>
           </div>
         </section>
 
@@ -495,9 +479,9 @@ export default function TractionOS() {
             <div className="audit-copy">
               <span className="eyebrow eyebrow-light">EMPEZÁS ACÁ</span>
               <h2>Setup con tu método</h2>
-              <p className="audit-lead">Tu metodología cargada por niveles y funcionando con tu próximo grupo.</p>
+              <p className="audit-lead">Tu método, paso por paso, funcionando con tu próximo grupo.</p>
               <p>
-                Tomamos tu método tal como lo enseñás, lo ordenamos por niveles y lo dejamos corriendo sobre tus alumnos: cada paso con sus entregables, tu aprobación en el medio y el tablero que te dice quién avanza.
+                Tomamos tu método tal como lo enseñás y lo dejamos corriendo sobre tus alumnos: cada paso con lo que tienen que entregar, tu visto bueno en cada corrección y un tablero que te dice quién avanza y quién se está quedando.
               </p>
               <ScrollButton className="clarity-button-light" />
             </div>
