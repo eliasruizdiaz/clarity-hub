@@ -14,6 +14,7 @@ import {
   Check,
   ClipboardCheck,
   Gauge,
+  GraduationCap,
   HeartHandshake,
   Layers,
   Lock,
@@ -59,7 +60,7 @@ const stages = [
     number: "01",
     key: "sombra",
     title: "Sombra",
-    copy: "Arrancás acá. Cada corrección pasa por vos y cada cambio que hacés queda adentro del sistema.",
+    copy: "Arrancás acá. Cada corrección pasa por vos y cada cambio que hacés entrena a la IA con tu criterio.",
     icon: ClipboardCheck,
     approval: 100,
     meterLabel: "Correcciones que revisás vos",
@@ -71,7 +72,7 @@ const stages = [
     number: "02",
     key: "copiloto",
     title: "Copiloto",
-    copy: "Ya sabe cómo corregís los errores que se repiten. Te consulta solo lo que no vio antes.",
+    copy: "La IA ya sabe cómo corregís los errores que se repiten. Te consulta solo lo que no vio antes.",
     icon: Workflow,
     approval: 40,
     meterLabel: "Correcciones que revisás vos",
@@ -83,7 +84,7 @@ const stages = [
     number: "03",
     key: "autonomo",
     title: "Autónomo",
-    copy: "Corrige como corregirías vos y te avisa. Tu trabajo pasa a ser mirar el tablero.",
+    copy: "La IA corrige como corregirías vos y te avisa. Tu trabajo pasa a ser mirar el tablero.",
     icon: Gauge,
     approval: 12,
     meterLabel: "Correcciones que revisás vos",
@@ -93,38 +94,23 @@ const stages = [
   },
 ] as const;
 
-const howSteps = [
-  {
-    n: "01",
-    title: "El alumno entra a su panel y ve una sola cosa",
-    copy: "El paso que le toca según lo que ya entregó. No el curso entero ni el módulo 7 que todavía no le sirve.",
-  },
-  {
-    n: "02",
-    title: "Entrega ahí mismo",
-    copy: "Sube su guion, su gancho, su carrusel, lo que ese paso pida. Queda registrado con fecha, así sabés quién entregó y quién no.",
-  },
-  {
-    n: "03",
-    title: "El sistema lo revisa con tu método",
-    copy: "Arma la corrección: qué está mal, por qué y cómo se arregla. Con tu criterio, no con el de una IA que leyó cualquier cosa en internet.",
-  },
-  {
-    n: "04",
-    title: "Esa corrección te llega a vos antes que al alumno",
-    copy: "La aprobás, la editás o la escribís de nuevo. Nada sale sin tu visto bueno, y cada cambio tuyo le enseña cómo corregís.",
-  },
-  {
-    n: "05",
-    title: "Recién ahí le llega, junto con el paso siguiente",
-    copy: "Y vos ves el tablero: quién avanzó, quién está esperando y quién hace días que no entrega.",
-  },
+const ladoAlumno = [
+  "Ve **una sola cosa**: el paso que le toca según lo que ya entregó. No el curso entero.",
+  "Entrega ahí mismo su guion, su gancho o su carrusel, y queda registrado con fecha.",
+  "Recibe la corrección **con tu criterio** y, recién ahí, el paso siguiente.",
+];
+
+const ladoMentor = [
+  "La IA revisa cada entrega con tu método y te deja **la corrección ya escrita**. Vos aprobás o cambiás.",
+  "Dejás de contestar de cero lo mismo de siempre: eso lo resuelve la IA con lo que ya le corregiste.",
+  "Ves el tablero completo: quién avanza, quién espera tu OK y quién dejó de entregar.",
+  "**Podés tomar más alumnos sin bajar la calidad**, porque tu criterio ya no depende de tu tiempo.",
 ];
 
 const setupDeliverables = [
   "Tu método cargado tal como lo enseñás",
   "Cada paso con su entregable: referencias, ángulos, guion",
-  "Correcciones con tu visto bueno",
+  "Correcciones de la IA con tu visto bueno",
   "Resumen de cada alumno antes de la sesión",
   "Quién avanza y quién se está quedando",
   "Medición de casos de éxito y tiempos",
@@ -169,8 +155,8 @@ const faqs = [
     a: "No. Llegás a cada sesión con el resumen de cada alumno: qué hizo, qué le costó y qué le toca. Las sesiones rinden más, no desaparecen.",
   },
   {
-    q: "¿La IA va a hablar como yo?",
-    a: "Ninguna corrección le llega a tus alumnos sin tu visto bueno. El sistema aprende de cada una que aprobás y con el tiempo necesita consultarte menos.",
+    q: "¿La IA va a corregir como yo?",
+    a: "Ninguna corrección le llega a tus alumnos sin tu visto bueno. La IA aprende de cada corrección que aprobás y con el tiempo necesita consultarte menos.",
   },
   {
     q: "¿Mis alumnos lo van a usar?",
@@ -181,6 +167,14 @@ const faqs = [
     a: "Hay garantía, y las condiciones las escribimos con tus números en la llamada: qué contás vos como caso de éxito, en cuánto tiempo y sobre qué alumnos se mide. No es un párrafo genérico igual para todos.",
   },
 ];
+
+function Resaltado({ texto }: { texto: string }) {
+  return (
+    <span>
+      {texto.split("**").map((parte, i) => (i % 2 ? <b key={i}>{parte}</b> : parte))}
+    </span>
+  );
+}
 
 function ScrollButton({ className = "" }: { className?: string }) {
   return (
@@ -432,7 +426,7 @@ export default function TractionOS() {
               <h2>Que ninguno se caiga por algo que <em>ya les explicaste mil veces.</em></h2>
             </div>
             <p>
-              Un sistema entrenado con tu método, que corrige a cada alumno como lo corregirías vos y no le deja pasar nada sin tu visto bueno.
+              Una IA entrenada con tu método, que corrige a cada alumno como lo corregirías vos y no le deja pasar nada sin tu visto bueno.
             </p>
           </div>
         </section>
@@ -446,68 +440,102 @@ export default function TractionOS() {
             <div className="section-heading split-heading">
               <div>
                 <span className="eyebrow">CÓMO FUNCIONA</span>
-                <h2>Tus alumnos entran a un panel donde solo ven <em>el paso que les toca.</em></h2>
+                <h2>Dos lados del <em>mismo sistema.</em></h2>
               </div>
               <p>
-                No es un chat ni un curso más. Es el circuito por donde pasa cada entrega de cada alumno, con tu método adentro y con vos aprobando antes de que salga.
+                Un lado mira a tus alumnos y les da el paso que les toca. El otro te mira a vos y te saca de encima las horas de revisión. En el medio hay una IA entrenada con tu método, no una IA genérica que leyó cualquier cosa en internet.
               </p>
             </div>
 
-            <div className="how-layout">
-              <div className="how-steps">
-                {howSteps.map((step, index) => (
-                  <motion.div
-                    key={step.n}
-                    initial={{ opacity: 0, y: 14 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.4, delay: index * 0.05 }}
-                    className="how-step"
-                  >
-                    <span>{step.n}</span>
-                    <div>
-                      <h3>{step.title}</h3>
-                      <p>{step.copy}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
+            <div className="sides-grid">
               <motion.div
-                initial={{ opacity: 0, y: 18 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5 }}
-                className="student-panel"
-                aria-label="Panel del alumno"
+                transition={{ duration: 0.45 }}
+                className="side-block"
               >
-                <div className="student-panel-top">
-                  <img src={logo} alt="Clarity Hub" />
-                  <span>Panel del alumno</span>
-                </div>
+                <span className="side-tag side-tag-student"><GraduationCap aria-hidden="true" /> Del lado de tus alumnos</span>
+                <h3>Nunca se preguntan qué hacer hoy.</h3>
+                <ul className="side-points">
+                  {ladoAlumno.map((punto) => (
+                    <li key={punto}>
+                      <Check aria-hidden="true" />
+                      <Resaltado texto={punto} />
+                    </li>
+                  ))}
+                </ul>
 
-                <div className="panel-block">
-                  <span className="panel-label">Tu paso de hoy</span>
-                  <span className="panel-title">Paso 3 · Guion del reel</span>
-                  <div className="panel-drop"><Upload aria-hidden="true" /> Subí tu guion corregido</div>
-                </div>
-
-                <div className="panel-note">
-                  <div className="panel-note-head">
-                    <span>Corrección de tu mentor</span>
-                    <b><Check aria-hidden="true" /> Aprobada</b>
+                <div className="student-panel" aria-label="El sistema del lado del alumno">
+                  <div className="student-panel-top">
+                    <img src={logo} alt="Clarity Hub" />
+                    <span>El sistema, del lado del alumno</span>
                   </div>
-                  <p>El gancho recién arranca en el segundo 4. Tiene que estar en el primero. Reescribilo empezando por la frase que hoy tenés en el medio.</p>
+                  <div className="panel-block">
+                    <span className="panel-label">Tu paso de hoy</span>
+                    <span className="panel-title">Paso 3 · Guion del reel</span>
+                    <div className="panel-drop"><Upload aria-hidden="true" /> Subí tu guion corregido</div>
+                  </div>
+                  <div className="panel-note">
+                    <div className="panel-note-head">
+                      <span>Corrección de tu mentor</span>
+                      <b><Check aria-hidden="true" /> Aprobada</b>
+                    </div>
+                    <p>El gancho recién arranca en el segundo 4. Tiene que estar en el primero. Reescribilo empezando por la frase que hoy tenés en el medio.</p>
+                  </div>
+                  <div className="panel-next"><Lock aria-hidden="true" /> Paso 4 · Edición. Se abre cuando este quede aprobado.</div>
                 </div>
+              </motion.div>
 
-                <div className="panel-next"><Lock aria-hidden="true" /> Paso 4 · Edición. Se abre cuando este quede aprobado.</div>
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.45, delay: 0.08 }}
+                className="side-block"
+              >
+                <span className="side-tag side-tag-mentor"><Sparkles aria-hidden="true" /> De tu lado</span>
+                <h3>Corregís en minutos lo que hoy te lleva la semana.</h3>
+                <ul className="side-points">
+                  {ladoMentor.map((punto) => (
+                    <li key={punto}>
+                      <Check aria-hidden="true" />
+                      <Resaltado texto={punto} />
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="queue-card" aria-label="El sistema del lado del mentor">
+                  <div className="queue-top">
+                    <img src={logo} alt="Clarity Hub" />
+                    <span>El sistema, de tu lado</span>
+                  </div>
+                  <div className="queue-head">
+                    <span>Correcciones para aprobar</span>
+                    <b>2</b>
+                  </div>
+                  <div className="queue-item">
+                    <span>Joaquín · Gancho del carrusel</span>
+                    <p>La IA propone: "el gancho promete algo que la pieza no cumple. Cambialo por el resultado concreto del caso."</p>
+                    <div className="queue-actions"><i className="queue-ok">Aprobar</i><i className="queue-edit">Editar</i></div>
+                  </div>
+                  <div className="queue-item">
+                    <span>Lucía · Guion del reel</span>
+                    <p>La IA propone: "volvió a poner el contexto antes del gancho. Ya se lo corregiste dos veces."</p>
+                    <div className="queue-actions"><i className="queue-ok">Aprobar</i><i className="queue-edit">Editar</i></div>
+                  </div>
+                  <div className="queue-foot">
+                    <Sparkles aria-hidden="true" />
+                    <span>Esta semana: <b>18 correcciones</b>, y 11 salieron solas porque la IA ya sabía cómo las corregís.</span>
+                  </div>
+                </div>
               </motion.div>
             </div>
 
             <div className="stage-strip">
               <span className="eyebrow">EL MÉTODO SOMBRA</span>
               <p>
-                Al principio revisás todas las correcciones. Después el sistema resuelve solo las que ya le corregiste mil veces y te consulta únicamente lo que no sabe cómo responderías vos.
+                Al principio revisás todas las correcciones. Después la IA resuelve sola las que ya le corregiste mil veces y te consulta únicamente lo que no sabe cómo responderías vos.
               </p>
               <div className="stage-grid">
                 {stages.map((stage, index) => (
@@ -535,20 +563,20 @@ export default function TractionOS() {
               <span className="eyebrow">PARA QUÉ SIRVE</span>
               <h2>Cada alumno que llega es <em>un testimonio nuevo</em> para vender el próximo grupo.</h2>
             </div>
-            <div className="result-grid">
+            <div className="result-rows">
               {results.map((result, index) => (
-                <motion.article
+                <motion.div
                   key={result.number}
-                  initial={{ opacity: 0, y: 18 }}
+                  initial={{ opacity: 0, y: 14 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.45, delay: index * 0.08 }}
-                  className={`result-card ${result.final ? "result-card-final" : ""}`}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.4, delay: index * 0.06 }}
+                  className="result-row"
                 >
                   <span>{result.number}</span>
                   <h3>{result.title}</h3>
                   <p>{result.copy}</p>
-                </motion.article>
+                </motion.div>
               ))}
             </div>
             <p className="result-close">
@@ -611,7 +639,7 @@ export default function TractionOS() {
                 Como producto esto es nuevo. Por eso entrás con condiciones de fundador, y por eso te digo lo que sigue antes de que lo tengas que preguntar.
               </p>
               <div className="founder-points">
-                <p><ShieldCheck aria-hidden="true" /> El motor de este sistema corre en nuestro propio negocio hace meses: nuestros mensajes, nuestros recursos y el aprendizaje de cada corrección funcionan con él.</p>
+                <p><ShieldCheck aria-hidden="true" /> El motor de IA de este sistema corre en nuestro propio negocio hace meses: nuestros mensajes, nuestros recursos y el aprendizaje de cada corrección funcionan con él.</p>
                 <p><BadgeCheck aria-hidden="true" /> Todavía no hay casos de éxito de clientes publicados. Cuando alguien te muestre veinte logos en esta etapa, desconfiá.</p>
                 <p><Workflow aria-hidden="true" /> El sistema corre en tu infraestructura y en tus cuentas. La documentación y los procesos quedan tuyos.</p>
                 <p><HeartHandshake aria-hidden="true" /> Hay garantía. Las condiciones las escribimos con tus números en la llamada, no en una landing.</p>
