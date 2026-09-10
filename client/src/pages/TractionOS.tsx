@@ -36,20 +36,20 @@ const painCards = [
   {
     icon: Repeat,
     label: "Ejecución",
-    today: "Tus alumnos aplican la versión del método que ellos entendieron.",
+    today: "Publican una versión deformada de lo que les enseñaste.",
     tomorrow: "Cada uno ve una sola acción por vez, la que le toca según lo que ya hizo.",
   },
   {
     icon: Timer,
     label: "Velocidad",
-    today: "Son muchos pidiendo revisión al mismo tiempo y la respuesta les llega tarde.",
+    today: "Veinte guiones esperando tu devolución y la tuya llega cuando ya publicaron.",
     tomorrow: "Cada uno recibe su corrección enseguida, con tu criterio y tu visto bueno.",
   },
   {
     icon: UserMinus,
     label: "Alumnos que perdés",
-    today: "El que se desanima no te avisa: deja de entregar y no vuelve.",
-    tomorrow: "Ves quién dejó de entregar mientras todavía lo podés recuperar.",
+    today: "El que se desanima no te avisa: deja de publicar y no vuelve.",
+    tomorrow: "Ves quién dejó de publicar mientras todavía lo podés recuperar.",
   },
   {
     icon: Trophy,
@@ -64,7 +64,7 @@ const stages = [
     number: "01",
     key: "sombra",
     title: "Sombra",
-    copy: "Cuando un alumno entrega, el sistema le marca la corrección con tu método. Vos aprobás esa corrección antes de que le llegue.",
+    copy: "El alumno manda su guion, el sistema le marca la corrección con tu método y vos la aprobás antes de que le llegue.",
     icon: ClipboardCheck,
     approval: 100,
     meterLabel: "Correcciones que revisás vos",
@@ -100,7 +100,7 @@ const stages = [
 
 const setupDeliverables = [
   "Tu método cargado tal como lo enseñás",
-  "Cada paso con lo que el alumno tiene que entregar",
+  "Cada paso con su entregable: referencias, ángulos, guion",
   "Correcciones con tu visto bueno",
   "Resumen de cada alumno antes de la sesión",
   "Quién avanza y quién se está quedando",
@@ -169,11 +169,11 @@ function ScrollButton({ className = "" }: { className?: string }) {
 }
 
 const boardStudents = [
-  { initials: "MA", name: "Martina", step: "Paso 3 · Corrección aprobada por vos", state: "go" as const, chip: "Avanza" },
-  { initials: "JO", name: "Joaquín", step: "Paso 2 · Corrección esperando tu OK", state: "wait" as const, chip: "Tu turno" },
-  { initials: "CA", name: "Camila", step: "Paso 1 · Hace 6 días que no entrega", state: "risk" as const, chip: "La estás perdiendo" },
+  { initials: "MA", name: "Martina", step: "Paso 3 · Guion del reel aprobado", state: "go" as const, chip: "Avanza" },
+  { initials: "JO", name: "Joaquín", step: "Paso 2 · Gancho del carrusel espera tu OK", state: "wait" as const, chip: "Tu turno" },
+  { initials: "CA", name: "Camila", step: "Paso 1 · Hace 6 días que no publica", state: "risk" as const, chip: "La estás perdiendo" },
   { initials: "DI", name: "Diego", step: "Paso 4 · Primer caso en curso", state: "go" as const, chip: "Avanza" },
-  { initials: "LU", name: "Lucía", step: "Paso 2 · Repitió el mismo error", state: "wait" as const, chip: "Revisar" },
+  { initials: "LU", name: "Lucía", step: "Paso 2 · Repitió el error del gancho", state: "wait" as const, chip: "Revisar" },
 ];
 
 const chipIcon = { go: Check, wait: ClipboardCheck, risk: UserMinus };
@@ -186,7 +186,7 @@ function GroupBoard() {
         <span className="status-pill"><span /> MÉTODO EN EJECUCIÓN</span>
       </div>
       <div className="board-subline">
-        <span>Tu grupo</span>
+        <span>Tu mentoría · 5 alumnos</span>
         <span>3 avanzan · 1 espera tu OK · 1 a punto de abandonar</span>
       </div>
       <div className="board-rows">
@@ -326,13 +326,13 @@ export default function TractionOS() {
               transition={{ duration: 0.62, ease: [0.23, 1, 0.32, 1] }}
               className="hero-copy"
             >
-              <span className="eyebrow eyebrow-hero">PARA MENTORES CON PROGRAMA DE CONTENIDO ACTIVO</span>
+              <span className="eyebrow eyebrow-hero">PARA MENTORÍAS DE CONTENIDO Y MARCA PERSONAL</span>
               <h1>
-                Que tus alumnos ejecuten <span className="brand-highlight">tu método</span>, no la <em>versión que entendieron</em>.
+                Enseñás a crear <span className="brand-highlight">contenido</span>. Tus alumnos publican <em>otra cosa</em>.
               </h1>
               <h2>Hasta 8 de cada 10 llegando a su primer caso de éxito en 90 días.</h2>
               <p className="hero-description">
-                Cada alumno recibe la corrección que le toca apenas entrega, con tu criterio y con tu visto bueno. Sin hacer cola detrás del resto del grupo y sin que vos tengas que revisar uno por uno.
+                Vos enseñás cómo se arma un gancho, un guion y un carrusel. El sistema se asegura de que cada alumno lo haga así, con tu visto bueno antes de que publique.
               </p>
               <div className="hero-actions">
                 <ScrollButton />
@@ -367,7 +367,7 @@ export default function TractionOS() {
                 <h2>Tu método funciona. <em>El problema es cómo llega.</em></h2>
               </div>
               <p>
-                No es que no sepas qué decirle a cada uno. Es que son muchos pidiendo revisión al mismo tiempo, y la respuesta que necesitan hoy les llega tarde o no les llega.
+                No es que no sepas qué decirle a cada uno. Es que son veinte mandando guiones y borradores al mismo tiempo, y la devolución que necesitan hoy les llega tarde o no les llega.
               </p>
             </div>
             <div className="pain-grid">

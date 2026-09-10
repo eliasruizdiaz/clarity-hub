@@ -7,9 +7,9 @@ import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, GraduationCap } from "lucide-react";
 
 const students = [
-  { initials: "MA", name: "Martina", step: "Paso 3 · Corrección aprobada", chip: "Avanza", tone: "go" },
-  { initials: "JO", name: "Joaquín", step: "Paso 2 · Corrección esperando tu OK", chip: "Tu turno", tone: "wait" },
-  { initials: "CA", name: "Camila", step: "Paso 1 · Hace 6 días que no entrega", chip: "La estás perdiendo", tone: "risk" },
+  { initials: "MA", name: "Martina", step: "Paso 3 · Guion del reel aprobado", chip: "Avanza", tone: "go" },
+  { initials: "JO", name: "Joaquín", step: "Paso 2 · Gancho espera tu OK", chip: "Tu turno", tone: "wait" },
+  { initials: "CA", name: "Camila", step: "Paso 1 · Hace 6 días que no publica", chip: "La estás perdiendo", tone: "risk" },
   { initials: "DI", name: "Diego", step: "Paso 4 · Primer caso en curso", chip: "Avanza", tone: "go" },
 ] as const;
 
@@ -20,7 +20,7 @@ const toneClasses = {
 } as const;
 
 const stages = [
-  ["01", "Sombra", "El alumno entrega, el sistema le marca la corrección con tu método y vos la aprobás antes de que le llegue."],
+  ["01", "Sombra", "El alumno manda su guion, el sistema le marca la corrección con tu método y vos la aprobás antes de que le llegue."],
   ["02", "Copiloto", "Las correcciones que ya aprobaste mil veces salen solas. Te consulta solo lo que no sabe cómo responderías."],
   ["03", "Autónomo", "Tu forma de corregir ya está adentro. Mirás el tablero y sabés dónde está parado cada alumno."],
 ] as const;
@@ -41,19 +41,19 @@ export default function TractionOSSection() {
           >
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#bfe5a1]/25 bg-[#f7fbf1]/10 px-3 py-1.5 text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#c9f29e]">
               <GraduationCap className="h-3.5 w-3.5" />
-              Para mentores con programa de contenido
+              Para mentorías de contenido y marca personal
             </div>
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-[#f6a48a]">Oferta especializada</p>
             <h2 className="max-w-2xl font-serif text-4xl font-semibold leading-[0.98] tracking-[-0.045em] md:text-5xl lg:text-6xl">
               Clarity <span className="text-[#c9f29e]">Traction OS.</span>
             </h2>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#e0ecdb] md:text-xl">
-              Que tus alumnos ejecuten <strong className="text-[#c9f29e]">tu método</strong>, no la versión que entendieron. Con tu visto bueno en cada corrección.
+              Enseñás a crear <strong className="text-[#c9f29e]">contenido</strong> y tus alumnos publican otra cosa. Esto hace que cada guion salga con tu criterio y tu visto bueno.
             </p>
             <div className="mt-8 grid gap-3">
               {[
-                "Cada alumno recibe su corrección enseguida, con tu criterio y tu visto bueno.",
-                "Ves quién dejó de entregar mientras todavía lo podés recuperar.",
+                "Cada guion vuelve corregido enseguida, con tu criterio y tu visto bueno.",
+                "Ves quién dejó de publicar mientras todavía lo podés recuperar.",
                 "Más alumnos que llegan a su caso es más testimonios y más gente que quiere seguir con vos.",
               ].map((item) => (
                 <p key={item} className="flex items-start gap-3 text-sm leading-relaxed text-[#e7f1df] md:text-base">
@@ -79,7 +79,7 @@ export default function TractionOSSection() {
             className="rounded-[1.5rem] border border-[#c9f29e]/20 bg-[#fbfcf6] p-4 text-[#223a29] shadow-2xl md:p-6"
           >
             <div className="flex items-center justify-between border-b border-[#dce7d6] pb-4">
-              <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#628267]">Tu grupo hoy</span>
+              <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#628267]">Tu mentoría hoy</span>
               <span className="rounded-full bg-[#e7f5df] px-2.5 py-1 text-[0.62rem] font-bold uppercase tracking-[0.1em] text-[#3f7147]">Método en ejecución</span>
             </div>
             <div className="mt-5 grid gap-2.5">
