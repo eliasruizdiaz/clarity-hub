@@ -55,7 +55,7 @@ export default function TractionOSSection() {
               Clarity <span className="text-[#c9f29e]">Traction OS.</span>
             </h2>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#e0ecdb] md:text-xl">
-              Tus alumnos no publican porque no saben por dónde empezar. El sistema les da <strong className="text-[#c9f29e]">las referencias, el ángulo y el borrador del guion</strong> con tu método.
+              Un sistema que hace <strong className="text-[#c9f29e]">guiones y carruseles</strong> para tus alumnos con tu método. Ellos los terminan, vos los aprobás, y recién ahí se publica.
             </p>
             <div className="mt-8 grid gap-3">
               {[

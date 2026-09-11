@@ -350,11 +350,11 @@ export default function TractionOS() {
               className="hero-copy"
             >
               <h1>
-                Tus alumnos no <span className="brand-highlight">publican</span> porque no saben <em>por dónde empezar</em>.
+                Un sistema que hace <em>guiones y carruseles</em> para tus alumnos con <span className="brand-highlight">tu método</span>.
               </h1>
               <h2>Hasta 8 de cada 10 llegando a su primer caso de éxito en 90 días.</h2>
               <p className="hero-description">
-                El sistema les da las referencias, el ángulo y el borrador del guion con tu método. Ellos lo terminan, vos lo aprobás, y recién ahí se publica. Cada uno que produce es un caso de éxito que vas a poder mostrar.
+                A cada alumno le llega el borrador con las referencias y el ángulo que tu método indica para ese paso. Él lo termina, vos lo aprobás, y recién ahí se publica. Cada uno que produce es un caso de éxito que vas a poder mostrar.
               </p>
               <div className="hero-actions">
                 <ScrollButton />
