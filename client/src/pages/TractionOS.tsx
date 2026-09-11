@@ -34,24 +34,24 @@ const calendarUrl = "https://calendar.app.google/ngxAfHKR5fs7SW8aA";
 
 const contrasts = [
   {
-    who: "El que no capta",
-    now: "Se lo explicaste mil veces y sigue publicando otra cosa.",
-    next: "Ve una sola acción por vez, la que le toca según lo que ya hizo.",
+    who: "El que no arranca",
+    now: "Abre el documento en blanco y se queda mirando la pantalla.",
+    next: "Abre el sistema y ya tiene referencias, un ángulo y el guion empezado.",
   },
   {
-    who: "El que espera",
-    now: "Mandó su guion y tu devolución le llega cuando ya publicó.",
-    next: "Recibe su corrección enseguida, con tu criterio y tu visto bueno.",
+    who: "El que tarda una semana",
+    now: "Un reel que vos resolvés en veinte minutos a él le come siete días.",
+    next: "Arranca con el borrador hecho y solo tiene que terminarlo.",
+  },
+  {
+    who: "El que publica cualquier cosa",
+    now: "Produce algo que no se parece a lo que le enseñaste y ya lo subió.",
+    next: "Nada se publica sin tu visto bueno, y la propuesta ya sale con tu criterio.",
   },
   {
     who: "El que desaparece",
     now: "No se queja ni avisa: deja de publicar y no vuelve más.",
     next: "Lo ves dejar de publicar mientras todavía lo podés recuperar.",
-  },
-  {
-    who: "Los que llegan",
-    now: "Son los dos o tres que ya venían con todo resuelto de antes.",
-    next: "Medís cuántos llegan a su caso de éxito y en cuánto tiempo.",
   },
 ];
 
@@ -60,11 +60,11 @@ const stages = [
     number: "01",
     key: "sombra",
     title: "Sombra",
-    copy: "Arrancás acá. Cada corrección pasa por vos y cada cambio que hacés entrena a la IA con tu criterio.",
+    copy: "Arrancás acá. Cada propuesta pasa por vos y cada cambio que hacés entrena a la IA con tu criterio.",
     icon: ClipboardCheck,
     approval: 100,
-    meterLabel: "Correcciones que revisás vos",
-    foot: "Ninguna corrección le llega a un alumno sin tu visto bueno.",
+    meterLabel: "Propuestas que revisás vos",
+    foot: "Nada le llega a un alumno sin tu visto bueno.",
     today: "La corrección llega tarde",
     tomorrow: "Llega apenas entregan",
   },
@@ -72,22 +72,22 @@ const stages = [
     number: "02",
     key: "copiloto",
     title: "Copiloto",
-    copy: "La IA ya sabe cómo corregís los errores que se repiten. Te consulta solo lo que no vio antes.",
+    copy: "La IA ya sabe cómo armás las piezas que se repiten. Te consulta solo lo que no vio antes.",
     icon: Workflow,
     approval: 40,
-    meterLabel: "Correcciones que revisás vos",
+    meterLabel: "Propuestas que revisás vos",
     foot: "Mirás lo nuevo, no lo que ya corregiste diez veces.",
-    today: "Contestás lo mismo de siempre",
+    today: "Mandás lo mismo de siempre",
     tomorrow: "Solo mirás lo nuevo",
   },
   {
     number: "03",
     key: "autonomo",
     title: "Autónomo",
-    copy: "La IA corrige como corregirías vos y te avisa. Tu trabajo pasa a ser mirar el tablero.",
+    copy: "La IA propone como lo harías vos y te avisa. Tu trabajo pasa a ser mirar el tablero.",
     icon: Gauge,
     approval: 12,
-    meterLabel: "Correcciones que revisás vos",
+    meterLabel: "Propuestas que revisás vos",
     foot: "Tu criterio ya está adentro. Vos mirás el tablero.",
     today: "No sabés quién está mal",
     tomorrow: "Lo ves en el tablero",
@@ -95,22 +95,22 @@ const stages = [
 ] as const;
 
 const ladoAlumno = [
-  "Ve **una sola cosa**: el paso de tu programa que le toca según lo que ya entregó.",
-  "Entrega ahí mismo su guion, su gancho o su carrusel, y queda registrado con fecha.",
-  "Recibe la corrección **con tu criterio** y, recién ahí, el paso siguiente.",
+  "Recibe **las referencias y el ángulo** que tu método indica para ese paso. Nunca arranca de una hoja en blanco.",
+  "Le llega **el guion ya empezado**, escrito con tu criterio. Él lo termina y lo hace suyo.",
+  "Lo manda, vos lo aprobás y recién ahí se publica. Después se abre el paso siguiente.",
 ];
 
 const ladoMentor = [
-  "La IA revisa cada entrega con tu método y te deja **la corrección ya escrita**. Vos aprobás o cambiás.",
-  "Dejás de contestar de cero lo mismo de siempre: eso lo resuelve la IA con lo que ya le corregiste.",
-  "Ves el tablero completo: quién avanza, quién espera tu OK y quién dejó de entregar.",
+  "La IA produce las propuestas con tu método y **te las deja listas para aprobar**. Vos decidís, no redactás.",
+  "Dejás de mandar por décima vez la misma referencia y el mismo ejemplo a cada alumno nuevo.",
   "**Podés tomar más alumnos sin bajar la calidad**, porque tu criterio ya no depende de tu tiempo.",
+  "Y de paso ves quién avanza y quién se trabó, sin tener que perseguir a nadie.",
 ];
 
 const setupDeliverables = [
   "Tu método cargado tal como lo enseñás",
-  "Cada paso con su entregable: referencias, ángulos, guion",
-  "Correcciones de la IA con tu visto bueno",
+  "Referencias y ángulos listos para cada paso de tu método",
+  "Borradores de guion escritos con tu criterio",
   "Resumen de cada alumno antes de la sesión",
   "Quién avanza y quién se está quedando",
   "Medición de casos de éxito y tiempos",
@@ -120,7 +120,7 @@ const results = [
   {
     number: "01",
     title: "Más alumnos llegan a su caso de éxito",
-    copy: "No solamente los dos o tres que ya entraron con todo resuelto. La mayoría del grupo llega a un resultado concreto.",
+    copy: "No solamente los dos o tres que ya sabían producir solos. La mayoría del grupo publica y llega a un resultado concreto.",
   },
   {
     number: "02",
@@ -155,8 +155,8 @@ const faqs = [
     a: "No. Llegás a cada sesión con el resumen de cada alumno: qué hizo, qué le costó y qué le toca. Las sesiones rinden más, no desaparecen.",
   },
   {
-    q: "¿La IA va a corregir como yo?",
-    a: "Ninguna corrección le llega a tus alumnos sin tu visto bueno. La IA aprende de cada corrección que aprobás y con el tiempo necesita consultarte menos.",
+    q: "¿La IA va a escribir como yo?",
+    a: "Nada le llega a tus alumnos sin tu visto bueno. La IA arranca con tus referencias y tus guiones, aprende de cada cambio que le hacés, y con el tiempo necesita consultarte menos.",
   },
   {
     q: "¿Mis alumnos lo van a usar?",
@@ -186,8 +186,8 @@ function ScrollButton({ className = "" }: { className?: string }) {
 }
 
 const boardStudents = [
-  { initials: "MA", name: "Martina", step: "Paso 3 · Guion del reel aprobado", state: "go" as const, chip: "Avanza" },
-  { initials: "JO", name: "Joaquín", step: "Paso 2 · Gancho del carrusel espera tu OK", state: "wait" as const, chip: "Tu turno" },
+  { initials: "MA", name: "Martina", step: "Paso 3 · Reel aprobado, produciendo", state: "go" as const, chip: "Avanza" },
+  { initials: "JO", name: "Joaquín", step: "Paso 2 · Carrusel esperando tu OK", state: "wait" as const, chip: "Tu turno" },
   { initials: "CA", name: "Camila", step: "Paso 1 · Hace 6 días que no publica", state: "risk" as const, chip: "La estás perdiendo" },
   { initials: "DI", name: "Diego", step: "Paso 4 · Primer caso de éxito en curso", state: "go" as const, chip: "Avanza" },
   { initials: "LU", name: "Lucía", step: "Paso 2 · Repitió el error del gancho", state: "wait" as const, chip: "Revisar" },
@@ -216,7 +216,7 @@ function GroupBoard() {
       </div>
       <div className="board-subline">
         <span>Tu mentoría · 5 alumnos</span>
-        <span>3 avanzan · 1 espera tu OK · 1 a punto de abandonar</span>
+        <span>3 produciendo · 1 espera tu OK · 1 a punto de abandonar</span>
       </div>
       <div className="board-rows">
         {boardStudents.map((student, index) => {
@@ -243,7 +243,7 @@ function GroupBoard() {
         })}
       </div>
       <div className="board-footer">
-        <strong><Radar aria-hidden="true" /> Lo ves a tiempo, cuando todavía lo podés recuperar.</strong>
+        <strong><Radar aria-hidden="true" /> Todos con algo en marcha, y el que se frena lo ves a tiempo.</strong>
       </div>
     </div>
   );
@@ -350,16 +350,16 @@ export default function TractionOS() {
               className="hero-copy"
             >
               <h1>
-                Dejá de perder <em>testimonios</em> en <span className="brand-highlight">tu mentoría</span> con cada alumno que no hace lo que le&nbsp;dijiste.
+                Tus alumnos no <span className="brand-highlight">publican</span> porque no saben <em>por dónde empezar</em>.
               </h1>
               <h2>Hasta 8 de cada 10 llegando a su primer caso de éxito en 90 días.</h2>
               <p className="hero-description">
-                Se quejan, no captan lo que enseñás y dejan de publicar. Cada uno de esos es un caso de éxito que no vas a poder mostrar cuando abras el próximo grupo.
+                El sistema les da las referencias, el ángulo y el borrador del guion con tu método. Ellos lo terminan, vos lo aprobás, y recién ahí se publica. Cada uno que produce es un caso de éxito que vas a poder mostrar.
               </p>
               <div className="hero-actions">
                 <ScrollButton />
                 <span className="hero-microcopy">
-                  <BadgeCheck aria-hidden="true" /> Primero vemos cómo es tu método y cuántos de tus alumnos llegan hoy a un caso de éxito. Después revisamos si hay encaje.
+                  <BadgeCheck aria-hidden="true" /> Primero vemos cómo es tu método y cuánto produce hoy tu grupo. Después revisamos si hay encaje.
                 </span>
               </div>
             </motion.div>
@@ -373,7 +373,7 @@ export default function TractionOS() {
             </motion.div>
           </div>
           <div className="hero-footnote container">
-            <span><Sparkles aria-hidden="true" /> Sombra: aprobás cada corrección.</span>
+            <span><Sparkles aria-hidden="true" /> Sombra: aprobás cada propuesta.</span>
             <ArrowRight aria-hidden="true" />
             <span>Copiloto: te consulta solo lo dudoso.</span>
             <ArrowRight aria-hidden="true" />
@@ -386,10 +386,10 @@ export default function TractionOS() {
             <div className="section-heading split-heading">
               <div>
                 <span className="eyebrow">EL PROBLEMA</span>
-                <h2>Vos ya sabés cuáles <em>no van a llegar.</em></h2>
+                <h2>Saben qué tienen que hacer. <em>No saben cómo empezarlo.</em></h2>
               </div>
               <p>
-                No es que no sepas qué decirle a cada uno. Es que son veinte mandando guiones al mismo tiempo, y para cuando les contestás ya publicaron cualquier cosa.
+                Les diste el método y lo entendieron. Pero abren el documento en blanco, no saben con qué gancho arrancar, lo dejan para mañana, y mañana ya arrancó la semana siguiente.
               </p>
             </div>
             <div className="contrast-table">
@@ -423,10 +423,10 @@ export default function TractionOS() {
             <div className="system-mark" aria-hidden="true"><Lightbulb /></div>
             <div>
               <span className="eyebrow">CLARITY TRACTION OS</span>
-              <h2>Que ninguno se caiga por algo que <em>ya les explicaste mil veces.</em></h2>
+              <h2>Que ninguno se quede <em>mirando la pantalla en blanco.</em></h2>
             </div>
             <p>
-              Una IA entrenada con tu método, que corrige a cada alumno como lo corregirías vos y no le deja pasar nada sin tu visto bueno.
+              Una IA entrenada con tu método, que le arma a cada alumno lo que vos le armarías, y no deja salir nada sin tu visto bueno.
             </p>
           </div>
         </section>
@@ -443,7 +443,7 @@ export default function TractionOS() {
                 <h2>Dos lados del <em>mismo sistema.</em></h2>
               </div>
               <p>
-                Un lado acompaña a tus alumnos paso a paso por tu programa. El otro te mira a vos y te saca de encima las horas de revisión. En el medio hay una IA entrenada con tu método, no una IA genérica que leyó cualquier cosa en internet.
+                Un lado le saca la hoja en blanco a tus alumnos y les da con qué arrancar cada paso de tu programa. El otro te deja a vos solo la decisión de aprobar. En el medio hay una IA entrenada con tu método, no una IA genérica que leyó cualquier cosa en internet.
               </p>
             </div>
 
@@ -456,7 +456,7 @@ export default function TractionOS() {
                 className="side-block"
               >
                 <span className="side-tag side-tag-student"><GraduationCap aria-hidden="true" /> Del lado de tus alumnos</span>
-                <h3>Nunca se preguntan qué hacer hoy.</h3>
+                <h3>Nunca arrancan de cero.</h3>
                 <ul className="side-points">
                   {ladoAlumno.map((punto) => (
                     <li key={punto}>
@@ -473,15 +473,17 @@ export default function TractionOS() {
                   </div>
                   <div className="panel-block">
                     <span className="panel-label">Tu paso de hoy en el programa</span>
-                    <span className="panel-title">Paso 3 · Guion del reel</span>
-                    <div className="panel-drop"><Upload aria-hidden="true" /> Subí tu guion corregido</div>
+                    <span className="panel-title">Paso 3 · Reel de autoridad</span>
                   </div>
-                  <div className="panel-note">
-                    <div className="panel-note-head">
-                      <span>Corrección de tu mentor</span>
-                      <b><Check aria-hidden="true" /> Aprobada</b>
+                  <div className="panel-give">
+                    <span className="panel-label">Lo que ya tenés listo</span>
+                    <div className="panel-chips">
+                      <i><Check aria-hidden="true" /> 3 referencias</i>
+                      <i><Check aria-hidden="true" /> Ángulo sugerido</i>
                     </div>
-                    <p>El gancho recién arranca en el segundo 4. Tiene que estar en el primero. Reescribilo empezando por la frase que hoy tenés en el medio.</p>
+                    <p className="panel-draft-label"><Sparkles aria-hidden="true" /> Borrador del guion, con el criterio de tu mentor</p>
+                    <p className="panel-draft">"Si llevás tres meses publicando y no te escribió nadie, el problema no es el algoritmo. Es que estás contando lo que sabés y no lo que a esa persona le duele."</p>
+                    <div className="panel-drop"><Upload aria-hidden="true" /> Terminalo y mandalo</div>
                   </div>
                   <div className="panel-next"><Lock aria-hidden="true" /> Paso 4 · Edición. Se abre cuando este quede aprobado.</div>
                 </div>
@@ -495,7 +497,7 @@ export default function TractionOS() {
                 className="side-block"
               >
                 <span className="side-tag side-tag-mentor"><Sparkles aria-hidden="true" /> De tu lado</span>
-                <h3>Corregís en minutos lo que hoy te lleva la semana.</h3>
+                <h3>Decidís en minutos lo que hoy te lleva la semana.</h3>
                 <ul className="side-points">
                   {ladoMentor.map((punto) => (
                     <li key={punto}>
@@ -511,22 +513,22 @@ export default function TractionOS() {
                     <span>El sistema, de tu lado</span>
                   </div>
                   <div className="queue-head">
-                    <span>Correcciones para aprobar</span>
+                    <span>Propuestas para aprobar</span>
                     <b>2</b>
                   </div>
                   <div className="queue-item">
-                    <span>Joaquín · Gancho del carrusel</span>
-                    <p>La IA propone: "el gancho promete algo que la pieza no cumple. Cambialo por el resultado concreto del caso."</p>
+                    <span>Joaquín · Carrusel del Paso 2</span>
+                    <p>La IA propone el ángulo "los tres errores que cometí el primer año" y un guion armado con tus referencias.</p>
                     <div className="queue-actions"><i className="queue-ok">Aprobar</i><i className="queue-edit">Editar</i></div>
                   </div>
                   <div className="queue-item">
-                    <span>Lucía · Guion del reel</span>
-                    <p>La IA propone: "volvió a poner el contexto antes del gancho. Ya se lo corregiste dos veces."</p>
+                    <span>Lucía · Reel del Paso 3</span>
+                    <p>La IA propone el gancho, la estructura y el cierre. Marca que Lucía suele poner el contexto antes de tiempo.</p>
                     <div className="queue-actions"><i className="queue-ok">Aprobar</i><i className="queue-edit">Editar</i></div>
                   </div>
                   <div className="queue-foot">
                     <Sparkles aria-hidden="true" />
-                    <span>Esta semana: <b>18 correcciones</b>, y 11 salieron solas porque la IA ya sabía cómo las corregís.</span>
+                    <span>Esta semana: <b>18 propuestas</b>, y 11 salieron solas porque la IA ya sabía cómo las escribirías vos.</span>
                   </div>
                 </div>
               </motion.div>
@@ -535,7 +537,7 @@ export default function TractionOS() {
             <div className="stage-strip">
               <span className="eyebrow">EL MÉTODO SOMBRA</span>
               <p>
-                Al principio revisás todas las correcciones. Después la IA resuelve sola las que ya le corregiste mil veces y te consulta únicamente lo que no sabe cómo responderías vos.
+                Al principio revisás todas las propuestas. Después la IA resuelve sola las que ya le corregiste mil veces y te consulta únicamente lo que no sabe cómo lo harías vos.
               </p>
               <div className="stage-grid">
                 {stages.map((stage, index) => (

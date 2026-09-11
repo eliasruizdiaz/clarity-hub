@@ -316,6 +316,15 @@
 .panel-title { display: block; margin-top: .35rem; color: var(--ink); font-family: "Fraunces", Georgia, serif; font-size: 1.1rem; letter-spacing: -.03em; }
 .panel-drop { display: flex; align-items: center; gap: .5rem; margin-top: .7rem; padding: .65rem .7rem; border: 1px dashed rgba(46,106,52,.4); border-radius: .6rem; color: #5c6b56; font-size: .74rem; background: rgba(255,255,255,.75); }
 .panel-drop svg { flex: 0 0 auto; width: .95rem; color: var(--forest); }
+/* Lo que el sistema le entrega al alumno: referencias, angulo y borrador */
+.panel-give { margin-top: .9rem; padding: .85rem .9rem; border: 1px solid rgba(244,81,42,.22); border-radius: .8rem; background: #fff8f4; }
+.panel-chips { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .5rem; }
+.panel-chips i { display: inline-flex; align-items: center; gap: .28rem; padding: .28rem .5rem; border: 1px solid rgba(46,106,52,.22); border-radius: .42rem; background: #fff; color: #4d6349; font-family: "DM Mono", monospace; font-size: .46rem; font-style: normal; letter-spacing: .06em; text-transform: uppercase; }
+.panel-chips i svg { width: .6rem; height: .6rem; color: var(--forest); }
+.panel-draft-label { display: flex; align-items: center; gap: .3rem; margin: .8rem 0 .3rem; color: #9b4a37; font-family: "DM Mono", monospace; font-size: .46rem; letter-spacing: .12em; text-transform: uppercase; }
+.panel-draft-label svg { width: .6rem; height: .6rem; }
+.panel-draft { margin: 0; padding: .6rem .65rem; border-left: 2px solid var(--coral); border-radius: 0 .4rem .4rem 0; background: rgba(255,255,255,.85); color: #3f4a3b; font-size: .78rem; line-height: 1.5; }
+
 .panel-note { margin-top: .9rem; padding: .85rem .9rem; border: 1px solid rgba(244,81,42,.24); border-radius: .8rem; background: #fff7f3; }
 .panel-note-head { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
 .panel-note-head span { color: #9b4a37; font-family: "DM Mono", monospace; font-size: .48rem; letter-spacing: .12em; text-transform: uppercase; }

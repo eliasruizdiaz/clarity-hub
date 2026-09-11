@@ -7,8 +7,8 @@ import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, GraduationCap } from "lucide-react";
 
 const students = [
-  { initials: "MA", name: "Martina", step: "Paso 3 · Guion del reel aprobado", chip: "Avanza", tone: "go" },
-  { initials: "JO", name: "Joaquín", step: "Paso 2 · Gancho espera tu OK", chip: "Tu turno", tone: "wait" },
+  { initials: "MA", name: "Martina", step: "Paso 3 · Reel aprobado, produciendo", chip: "Avanza", tone: "go" },
+  { initials: "JO", name: "Joaquín", step: "Paso 2 · Carrusel esperando tu OK", chip: "Tu turno", tone: "wait" },
   { initials: "CA", name: "Camila", step: "Paso 1 · Hace 6 días que no publica", chip: "La estás perdiendo", tone: "risk" },
   { initials: "DI", name: "Diego", step: "Paso 4 · Primer caso de éxito en curso", chip: "Avanza", tone: "go" },
 ] as const;
@@ -27,9 +27,9 @@ const toneClasses = {
 } as const;
 
 const stages = [
-  ["01", "Sombra", "El alumno manda su guion, el sistema le marca la corrección con tu método y vos la aprobás antes de que le llegue."],
-  ["02", "Copiloto", "Las correcciones que ya aprobaste mil veces salen solas. Te consulta solo lo que no sabe cómo responderías."],
-  ["03", "Autónomo", "Tu forma de corregir ya está adentro. Mirás el tablero y sabés dónde está parado cada alumno."],
+  ["01", "Sombra", "La IA arma la propuesta con tu método y vos la aprobás antes de que le llegue al alumno."],
+  ["02", "Copiloto", "Las piezas que ya aprobaste mil veces salen solas. Te consulta solo lo que no vio antes."],
+  ["03", "Autónomo", "Tu criterio ya está adentro. Mirás el tablero y sabés dónde está parado cada alumno."],
 ] as const;
 
 export default function TractionOSSection() {
@@ -55,13 +55,13 @@ export default function TractionOSSection() {
               Clarity <span className="text-[#c9f29e]">Traction OS.</span>
             </h2>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#e0ecdb] md:text-xl">
-              Dejá de perder <strong className="text-[#c9f29e]">testimonios</strong> con cada alumno que se queja, no capta lo que enseñás y termina dejando de publicar.
+              Tus alumnos no publican porque no saben por dónde empezar. El sistema les da <strong className="text-[#c9f29e]">las referencias, el ángulo y el borrador del guion</strong> con tu método.
             </p>
             <div className="mt-8 grid gap-3">
               {[
-                "Cada guion vuelve corregido enseguida, con tu criterio y tu visto bueno.",
-                "Ves quién dejó de publicar mientras todavía lo podés recuperar.",
-                "Más alumnos que llegan a su caso de éxito es más testimonios y más gente que quiere seguir con vos.",
+                "Nunca arrancan de una hoja en blanco: reciben con qué empezar cada paso.",
+                "La IA arma las propuestas con tu método y vos solo aprobás, no redactás.",
+                "Más alumnos produciendo es más casos de éxito, más testimonios y más gente que quiere seguir con vos.",
               ].map((item) => (
                 <p key={item} className="flex items-start gap-3 text-sm leading-relaxed text-[#e7f1df] md:text-base">
                   <CheckCircle2 className="mt-0.5 h-5 w-5 flex-none text-[#9bd875]" />
