@@ -111,15 +111,15 @@ const setupDeliverables = [
   "Tu método cargado tal como lo enseñás",
   "Referencias y ángulos listos para cada paso de tu método",
   "Borradores de guion escritos con tu criterio",
-  "Resumen de cada alumno antes de la sesión",
-  "Quién avanza y quién se está quedando",
-  "Medición de casos de éxito y tiempos",
+  "Ángulos sugeridos según lo que cada uno ya hizo",
+  "Tu cola de propuestas para aprobar en minutos",
+  "Quién está produciendo y quién se frenó",
 ];
 
 const results = [
   {
     number: "01",
-    title: "Más alumnos llegan a su caso de éxito",
+    title: "Más alumnos produciendo de verdad",
     copy: "No solamente los dos o tres que ya sabían producir solos. La mayoría del grupo publica y llega a un resultado concreto.",
   },
   {
@@ -137,7 +137,7 @@ const results = [
 
 const bonuses = [
   "Kit de Lanzamiento Interno: cómo presentárselo a tus alumnos para que lo usen desde la primera semana.",
-  "Radiografía del Método al día 30: qué paso de tu curso se entiende mal más seguido y por qué.",
+  "Radiografía del Método al día 30: en qué paso se traban más tus alumnos y qué les falta para arrancarlo.",
   "Tu Grupo Actual Entra: los alumnos que ya tenés hoy, no solamente el próximo grupo.",
 ];
 
@@ -284,7 +284,7 @@ function GroupCostCalculator() {
       <div className="calculator-controls">
         <div className="calculator-label">
           <span className="eyebrow">CALCULADORA</span>
-          <h3>¿Cuántos testimonios perdiste el año pasado?</h3>
+          <h3>¿Cuánto dejaste de vender el año pasado?</h3>
           <p>Con los números reales de tu programa.</p>
         </div>
         <label className="range-field">
@@ -301,17 +301,17 @@ function GroupCostCalculator() {
         </label>
       </div>
       <div className="calculator-result" aria-live="polite">
-        <span className="eyebrow">TESTIMONIOS QUE NO TENÉS</span>
-        <p>Alumnos que te pagaron y no llegaron a su caso de éxito. En plata:</p>
+        <span className="eyebrow">VENTAS QUE NO PASARON</span>
+        <p>Los alumnos que no llegaron a su caso de éxito no te compran lo próximo. A tu ticket:</p>
         <motion.strong key={value} initial={{ opacity: 0.5, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.22 }}>
           {money(value)} <small>por año</small>
         </motion.strong>
         <div className="calculator-breakdown">
-          <span>{withoutCase}<small>testimonios por año que no tenés</small></span>
+          <span>{withoutCase}<small>no te vuelven a comprar</small></span>
           <span>{withCase}<small>llegan a su caso de éxito</small></span>
         </div>
         <p className="calculator-note">
-          Ese alumno no te compra lo próximo, no te refiere a nadie y no te deja un testimonio para vender el grupo que viene.
+          No todos te habrían comprado de nuevo, eso es honesto decirlo. Pero el que llega a su caso de éxito vuelve, te refiere y te deja un testimonio. El que no llega no hace ninguna de las tres.
         </p>
         <a href={calendarUrl} target="_blank" rel="noopener noreferrer" className="calculator-link">
           Quiero mover ese número <ArrowRight aria-hidden="true" />
@@ -592,15 +592,15 @@ export default function TractionOS() {
           <div className="container audit-layout">
             <div className="audit-copy">
               <span className="eyebrow eyebrow-light">EMPEZÁS ACÁ</span>
-              <h2>Setup con tu método</h2>
-              <p className="audit-lead">Tu método, paso por paso, funcionando con tu próximo grupo.</p>
+              <h2>Tu método, convertido en piezas</h2>
+              <p className="audit-lead">Tus referencias, tus ángulos y tus guiones, listos para que tu próximo grupo produzca.</p>
               <p>
-                Tomamos tu método tal como lo enseñás y lo dejamos corriendo sobre tus alumnos: cada paso con lo que tienen que entregar, tu visto bueno en cada corrección y un tablero que te dice quién avanza y quién se está quedando.
+                Tomamos tu método tal como lo enseñás, tus mejores referencias y tus guiones que ya funcionaron, y los cargamos adentro. Desde ahí la IA arma lo de cada alumno con tu criterio, y vos solo aprobás.
               </p>
               <ScrollButton className="clarity-button-light" />
             </div>
             <div className="audit-deliverables">
-              <div className="audit-deliverables-head"><Layers aria-hidden="true" /><span>QUÉ QUEDA ANDANDO</span><b>DESDE EL DÍA UNO</b></div>
+              <div className="audit-deliverables-head"><Layers aria-hidden="true" /><span>QUÉ QUEDA CARGADO</span><b>DESDE EL DÍA UNO</b></div>
               <div className="deliverables-grid">
                 {setupDeliverables.map((item) => <div key={item}><Check aria-hidden="true" />{item}</div>)}
               </div>
@@ -615,7 +615,7 @@ export default function TractionOS() {
           <div className="container capability-layout">
             <div className="capability-intro">
               <span className="eyebrow">LO QUE SUMA ADEMÁS</span>
-              <h2>Tres cosas para que tu grupo <em>actual</em> lo use desde la primera semana.</h2>
+              <h2>Tres cosas para que tu grupo <em>actual</em> empiece a producir desde la primera semana.</h2>
               <p>
                 El riesgo real de cualquier herramienta nueva es que los alumnos no la abran nunca.
               </p>
@@ -654,7 +654,7 @@ export default function TractionOS() {
           <div className="container fit-layout">
             <div>
               <span className="eyebrow">¿HAY ENCAJE?</span>
-              <h2>Esto es para vos si tu método ya produjo casos de éxito y el problema es que pocos alumnos lo ejecutan bien.</h2>
+              <h2>Esto es para vos si tu método ya produjo casos de éxito y el problema es que pocos alumnos llegan a producir con él.</h2>
               <p className="fit-note">
                 Y no es para vos si tu método todavía no produjo ningún caso de éxito. <strong>El sistema no arregla un método: lo expone más rápido.</strong>
               </p>
@@ -691,7 +691,7 @@ export default function TractionOS() {
                 Si arrancamos ahora, ese grupo empieza con esto andando. Si no, ese grupo entero son casos de éxito y testimonios que no van a existir.
               </p>
               <p>
-                En la llamada revisamos cómo es tu método y cuántos de tus alumnos llegan hoy a un caso de éxito. Traelo como está.
+                En la llamada revisamos tu método, tus referencias y cuánto produce hoy tu grupo. Traelo como está.
               </p>
             </div>
             <div className="agenda-card">
@@ -709,7 +709,7 @@ export default function TractionOS() {
       <footer className="site-footer">
         <div className="container footer-inner">
           <img src={logo} alt="Clarity Hub" />
-          <p>Clarity Traction OS · Para que el método del mentor llegue entero a cada alumno.</p>
+          <p>Clarity Traction OS · Guiones y carruseles para los alumnos del mentor, con su método.</p>
           <span>Clarity Hub</span>
         </div>
       </footer>
