@@ -55,13 +55,13 @@ export default function TractionOSSection() {
               Clarity <span className="text-[#c9f29e]">Traction OS.</span>
             </h2>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#e0ecdb] md:text-xl">
-              Un sistema que hace <strong className="text-[#c9f29e]">guiones y carruseles</strong> para tus alumnos con tu método. Ellos los terminan, vos los aprobás, y recién ahí se publica.
+              Una IA convierte tu método en <strong className="text-[#c9f29e]">guiones, carruseles y pasos de ejecución personalizados</strong>, para que tus alumnos sepan exactamente qué hacer y cómo aplicarlo.
             </p>
             <div className="mt-8 grid gap-3">
               {[
-                "Nunca arrancan de una hoja en blanco: reciben con qué empezar cada paso.",
-                "La IA arma las propuestas con tu método y vos solo aprobás, no redactás.",
-                "Más alumnos produciendo es más casos de éxito, más testimonios y más gente que quiere seguir con vos.",
+                "Cada alumno ve el paso exacto que le toca y recibe con qué ejecutarlo.",
+                "La IA arma las piezas con tu método y vos solo aprobás, no redactás.",
+                "Más alumnos consiguiendo resultados es más testimonios y más gente que quiere seguir con vos.",
               ].map((item) => (
                 <p key={item} className="flex items-start gap-3 text-sm leading-relaxed text-[#e7f1df] md:text-base">
                   <CheckCircle2 className="mt-0.5 h-5 w-5 flex-none text-[#9bd875]" />

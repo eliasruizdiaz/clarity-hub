@@ -36,7 +36,7 @@ const contrasts = [
   {
     who: "El que no arranca",
     now: "Abre el documento en blanco y se queda mirando la pantalla.",
-    next: "Abre el sistema y ya tiene referencias, un ángulo y el guion empezado.",
+    next: "Abre el sistema y ya tiene el paso que le toca, con referencias y el guion empezado para su caso.",
   },
   {
     who: "El que tarda una semana",
@@ -95,8 +95,8 @@ const stages = [
 ] as const;
 
 const ladoAlumno = [
-  "Recibe **las referencias y el ángulo** que tu método indica para ese paso. Nunca arranca de una hoja en blanco.",
-  "Le llega **el guion ya empezado**, escrito con tu criterio. Él lo termina y lo hace suyo.",
+  "Ve **el paso exacto que le toca**, según lo que ya hizo y dónde se trabó. No el programa entero encima.",
+  "Recibe las referencias, el ángulo y **el guion ya empezado**, armados para su caso y con tu criterio.",
   "Lo manda, vos lo aprobás y recién ahí se publica. Después se abre el paso siguiente.",
 ];
 
@@ -111,7 +111,7 @@ const setupDeliverables = [
   "Tu método cargado tal como lo enseñás",
   "Referencias y ángulos listos para cada paso de tu método",
   "Borradores de guion escritos con tu criterio",
-  "Ángulos sugeridos según lo que cada uno ya hizo",
+  "Pasos de ejecución personalizados para cada alumno",
   "Tu cola de propuestas para aprobar en minutos",
   "Quién está produciendo y quién se frenó",
 ];
@@ -350,11 +350,13 @@ export default function TractionOS() {
               className="hero-copy"
             >
               <h1>
-                Un sistema que hace <em>guiones y carruseles</em> para tus alumnos con <span className="brand-highlight">tu método</span>.
+                Ayudá a tus alumnos a conseguir <em>resultados</em> con <span className="brand-highlight">tu metodología</span> en 90 días.
               </h1>
-              <h2>Hasta 8 de cada 10 llegando a su primer caso de éxito en 90 días.</h2>
+              <h2 className="hero-sub">
+                Un sistema de IA convierte tu método en guiones, carruseles y pasos de ejecución personalizados, para que tus alumnos sepan exactamente qué hacer y cómo aplicarlo.
+              </h2>
               <p className="hero-description">
-                A cada alumno le llega el borrador con las referencias y el ángulo que tu método indica para ese paso. Él lo termina, vos lo aprobás, y recién ahí se publica. Cada uno que produce es un caso de éxito que vas a poder mostrar.
+                Cada pieza sale con tu criterio y pasa por tu aprobación antes de llegarles. Ellos la terminan y la publican.
               </p>
               <div className="hero-actions">
                 <ScrollButton />
@@ -386,10 +388,10 @@ export default function TractionOS() {
             <div className="section-heading split-heading">
               <div>
                 <span className="eyebrow">EL PROBLEMA</span>
-                <h2>Saben qué tienen que hacer. <em>No saben cómo empezarlo.</em></h2>
+                <h2>Entendieron tu método. <em>No saben aplicarlo a su caso.</em></h2>
               </div>
               <p>
-                Les diste el método y lo entendieron. Pero abren el documento en blanco, no saben con qué gancho arrancar, lo dejan para mañana, y mañana ya arrancó la semana siguiente.
+                Se los explicaste bien y te dijeron que sí. Pero cuando se sientan solos no saben qué ángulo usar, con qué gancho arrancar ni si lo que hicieron sirve. Ahí se frena todo.
               </p>
             </div>
             <div className="contrast-table">
@@ -423,10 +425,10 @@ export default function TractionOS() {
             <div className="system-mark" aria-hidden="true"><Lightbulb /></div>
             <div>
               <span className="eyebrow">CLARITY TRACTION OS</span>
-              <h2>Que ninguno se quede <em>mirando la pantalla en blanco.</em></h2>
+              <h2>Que el resultado no dependa de <em>a quién le sale solo.</em></h2>
             </div>
             <p>
-              Una IA entrenada con tu método, que le arma a cada alumno lo que vos le armarías, y no deja salir nada sin tu visto bueno.
+              Una IA entrenada con tu método, que le arma a cada alumno el paso que le toca y las piezas para ejecutarlo, sin que nada salga sin tu visto bueno.
             </p>
           </div>
         </section>
@@ -443,7 +445,7 @@ export default function TractionOS() {
                 <h2>Dos lados del <em>mismo sistema.</em></h2>
               </div>
               <p>
-                Un lado le saca la hoja en blanco a tus alumnos y les da con qué arrancar cada paso de tu programa. El otro te deja a vos solo la decisión de aprobar. En el medio hay una IA entrenada con tu método, no una IA genérica que leyó cualquier cosa en internet.
+                Un lado le dice a cada alumno exactamente qué hacer y le da con qué hacerlo. El otro te deja a vos solo la decisión de aprobar. En el medio hay una IA entrenada con tu método, no una IA genérica que leyó cualquier cosa en internet.
               </p>
             </div>
 
@@ -456,7 +458,7 @@ export default function TractionOS() {
                 className="side-block"
               >
                 <span className="side-tag side-tag-student"><GraduationCap aria-hidden="true" /> Del lado de tus alumnos</span>
-                <h3>Nunca arrancan de cero.</h3>
+                <h3>Siempre saben exactamente qué hacer.</h3>
                 <ul className="side-points">
                   {ladoAlumno.map((punto) => (
                     <li key={punto}>
@@ -583,7 +585,7 @@ export default function TractionOS() {
             </div>
             <p className="result-close">
               <Repeat2 aria-hidden="true" />
-              Cada grupo que sale con casos de éxito hace más fácil vender el siguiente. Es el mismo programa que ya tenés, pero con la mayoría del grupo llegando en vez de unos pocos.
+              Hasta 8 de cada 10 de los que siguen el método llegan a su primer caso de éxito en 90 días. Y cada grupo que sale con casos hace más fácil vender el siguiente.
             </p>
           </div>
         </section>
@@ -654,7 +656,7 @@ export default function TractionOS() {
           <div className="container fit-layout">
             <div>
               <span className="eyebrow">¿HAY ENCAJE?</span>
-              <h2>Esto es para vos si tu método ya produjo casos de éxito y el problema es que pocos alumnos llegan a producir con él.</h2>
+              <h2>Esto es para vos si tu método ya produjo casos de éxito y el problema es que pocos alumnos llegan a aplicarlo bien.</h2>
               <p className="fit-note">
                 Y no es para vos si tu método todavía no produjo ningún caso de éxito. <strong>El sistema no arregla un método: lo expone más rápido.</strong>
               </p>
@@ -709,7 +711,7 @@ export default function TractionOS() {
       <footer className="site-footer">
         <div className="container footer-inner">
           <img src={logo} alt="Clarity Hub" />
-          <p>Clarity Traction OS · Guiones y carruseles para los alumnos del mentor, con su método.</p>
+          <p>Clarity Traction OS · Para que los alumnos del mentor sepan exactamente qué hacer, y lo hagan.</p>
           <span>Clarity Hub</span>
         </div>
       </footer>
