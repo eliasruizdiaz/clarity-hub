@@ -20,6 +20,7 @@ import {
   Brain,
   CalendarCheck,
   Check,
+  Clock,
   Lightbulb,
   MessageSquareQuote,
   MousePointerClick,
@@ -237,6 +238,12 @@ function ContentWall() {
   );
 }
 
+const entregas = [
+  { inicial: "MA", nombre: "Martina", cuando: "Pidió su reel un domingo" },
+  { inicial: "JO", nombre: "Joaquín", cuando: "Tres piezas esta semana" },
+  { inicial: "CA", nombre: "Camila", cuando: "Otra versión, 2 de la mañana" },
+];
+
 const agentes = [
   { icono: Lightbulb, nombre: "Ideas de contenido" },
   { icono: Search, nombre: "Referencias de su nicho" },
@@ -247,7 +254,7 @@ const agentes = [
 
 function CerebroDiagrama() {
   return (
-    <div className="cerebro" aria-label="Los agentes salen de tu cerebro">
+    <div className="cerebro" aria-label="Del cerebro a los agentes, y de ahi a cada cliente">
       <div className="cerebro-nucleo">
         <Brain aria-hidden="true" />
         <b>Tu cerebro</b>
@@ -260,6 +267,24 @@ function CerebroDiagrama() {
             {nombre}
           </i>
         ))}
+      </div>
+      <div className="cerebro-entrega">
+        <span className="cerebro-247">
+          <Clock aria-hidden="true" /> Disponible 24/7
+        </span>
+        <div className="cerebro-clientes">
+          {entregas.map((e) => (
+            <i key={e.inicial}>
+              <b>{e.inicial}</b>
+              <span>
+                {e.nombre}
+                <small>{e.cuando}</small>
+              </span>
+            </i>
+          ))}
+          <i className="cerebro-mas">+17</i>
+        </div>
+        <small className="cerebro-pie">Cada cliente pide lo suyo cuando lo necesita, no cuando tenés sesión.</small>
       </div>
     </div>
   );
@@ -510,6 +535,20 @@ export default function TractionOS() {
           </div>
         </section>
 
+        {/* 1b · EL DIAGRAMA, pegado al hero. Es lo primero que ve despues del
+            titular: de donde sale todo y a quien le llega. Muestra, no explica. */}
+        <section className="section cerebro-band">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.5 }}
+            className="container cerebro-wrap"
+          >
+            <CerebroDiagrama />
+          </motion.div>
+        </section>
+
         {/* 2 · EL DOLOR, TUYO. Escenas en segunda persona, no conceptos. */}
         <section id="dolor" className="section section-cream">
           <div className="container">
@@ -599,7 +638,6 @@ export default function TractionOS() {
             </div>
 
             <div className="gancho">
-              <CerebroDiagrama />
               <p>
                 Cada agente trabaja con <strong>tu cerebro</strong>, cargado una sola vez. Cómo se carga y cómo
                 escribe cada uno te lo muestro en la llamada.
