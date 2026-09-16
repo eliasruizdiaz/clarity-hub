@@ -292,7 +292,7 @@ function ContentWall() {
 
       <div className="board-channels">
         <GradienteInstagram />
-        <IconoInfinito className="format-icon format-icon-infinito" degradado />
+        <IconoInfinito className="format-icon" degradado />
         <img src="/images/brecha/instagram.svg" alt="Instagram" />
         {formatos.map((Icono, i) => (
           <Icono key={i} className="format-icon" degradado />
