@@ -1,0 +1,16 @@
+# clarity.xp.com.py
+User-agent: *
+Allow: /
+
+# Rastreadores de IA: permitidos a proposito. La landing explica la oferta y
+# preferimos que la citen bien a que la inventen.
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://clarity.xp.com.py/sitemap.xml
