@@ -26,12 +26,6 @@ const toneClasses = {
   risk: "bg-[#fbdfd9] text-[#a3372a]",
 } as const;
 
-const stages = [
-  ["01", "Sombra", "La IA arma la propuesta con tu método y vos la aprobás antes de que le llegue al alumno."],
-  ["02", "Copiloto", "Las piezas que ya aprobaste mil veces salen solas. Te consulta solo lo que no vio antes."],
-  ["03", "Autónomo", "Tu criterio ya está adentro. Mirás el tablero y sabés dónde está parado cada alumno."],
-] as const;
-
 export default function TractionOSSection() {
   return (
     <section id="traction-os" className="relative overflow-hidden bg-[#1e4428] py-20 text-[#f7fbf1] md:py-28">
@@ -55,13 +49,15 @@ export default function TractionOSSection() {
               Clarity <span className="text-[#c9f29e]">Traction OS.</span>
             </h2>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#e0ecdb] md:text-xl">
-              <strong className="text-[#c9f29e]">Tu propio sistema de contenido con IA</strong>, para que tus alumnos creen guiones, carruseles y stories con tu metodología, y consigan resultados en 90 días.
+              Tenés veinte alumnos. Cada uno necesita que le armes el guion. Y hay una sola cabeza para eso: la tuya.
+            </p>
+            <p className="mt-4 max-w-xl text-lg leading-relaxed text-[#e0ecdb] md:text-xl">
+              <strong className="text-[#c9f29e]">Tu propio sistema de contenido con IA</strong>, para que tus alumnos creen guiones, carruseles y stories con tu metodología.
             </p>
             <div className="mt-8 grid gap-3">
               {[
-                "Cada alumno ve el paso exacto que le toca y recibe con qué ejecutarlo.",
-                "La IA arma las piezas con tu método y vos solo aprobás, no redactás.",
-                "Más alumnos consiguiendo resultados es más testimonios y más gente que quiere seguir con vos.",
+                "Tus alumnos producen sin que vos redactes.",
+                "Ves quién avanza y quién se está quedando, sin preguntar.",
               ].map((item) => (
                 <p key={item} className="flex items-start gap-3 text-sm leading-relaxed text-[#e7f1df] md:text-base">
                   <CheckCircle2 className="mt-0.5 h-5 w-5 flex-none text-[#9bd875]" />
@@ -73,9 +69,10 @@ export default function TractionOSSection() {
               href="/traction-os"
               className="mt-9 inline-flex items-center gap-2 rounded-xl bg-[#ef5f33] px-5 py-3.5 text-sm font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-[#d94e25]"
             >
-              Ver la landing completa
+              Ver cómo funciona
               <ArrowRight className="h-4 w-4" />
             </a>
+            <p className="mt-4 text-sm text-[#bcd3b6]">Tomamos 5 mentores por mes.</p>
           </motion.div>
 
           <motion.div
@@ -127,18 +124,6 @@ export default function TractionOSSection() {
           </motion.div>
         </div>
 
-        <div className="mt-14 border-t border-[#c9f29e]/20 pt-10 md:mt-20 md:pt-12">
-          <p className="mb-6 text-xs font-bold uppercase tracking-[0.18em] text-[#c9f29e]">El Método Sombra, en tres etapas</p>
-          <div className="grid gap-4 md:grid-cols-3">
-            {stages.map(([number, title, detail]) => (
-              <div key={number} className="rounded-2xl border border-[#c9f29e]/15 bg-[#ffffff]/[0.06] p-5">
-                <span className="text-sm font-bold text-[#f6a48a]">{number}</span>
-                <h3 className="mt-8 text-2xl font-semibold tracking-tight text-white">{title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-[#d7e6d2]">{detail}</p>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

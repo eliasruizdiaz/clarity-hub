@@ -1,7 +1,12 @@
 /**
- * Clarity Traction OS landing
- * Design reminder: preserve Clarity Hub's warm editorial coral/green system.
- * Every visual shows the mentor's method running on his group, never a generic AI tool.
+ * Clarity Traction OS landing — v2
+ *
+ * Objetivo unico: que agende. La pagina NO explica el sistema.
+ * Si una frase dice COMO funciona, va a la llamada, no aca.
+ *
+ * Regla de escritura: cada oracion tiene que entenderse leida sola, fuera de la
+ * pagina. Nada de "el que", "eso", "lo que": sujeto y objeto siempre.
+ * Segunda persona: el que lee es el mentor, no el alumno.
  */
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -12,132 +17,43 @@ import {
   BadgeCheck,
   CalendarCheck,
   Check,
-  ClipboardCheck,
-  Gauge,
-  GraduationCap,
-  HeartHandshake,
-  Layers,
   Lock,
-  Lightbulb,
-  Repeat2,
   ShieldCheck,
   Sparkles,
   Upload,
-  UserMinus,
-  Workflow,
 } from "lucide-react";
 
 const logo = "/images/logo_clarity.png";
 const heroBackground = "/images/hero-bg.png";
 const calendarUrl = "https://calendar.app.google/ngxAfHKR5fs7SW8aA";
 
-const contrasts = [
-  {
-    who: "El que no arranca",
-    now: "Abre el documento en blanco y se queda mirando la pantalla.",
-    next: "Abre el sistema y ya tiene el paso que le toca, con referencias y el guion empezado para su caso.",
-  },
-  {
-    who: "El que tarda una semana",
-    now: "Un reel que vos resolvés en veinte minutos a él le come siete días.",
-    next: "Arranca con el borrador hecho y solo tiene que terminarlo.",
-  },
-  {
-    who: "El que publica cualquier cosa",
-    now: "Produce algo que no se parece a lo que le enseñaste y ya lo subió.",
-    next: "Nada se publica sin tu visto bueno, y la propuesta ya sale con tu criterio.",
-  },
-  {
-    who: "El que desaparece",
-    now: "No se queja ni avisa: deja de publicar y no vuelve más.",
-    next: "Lo ves dejar de publicar mientras todavía lo podés recuperar.",
-  },
+// Cupo real confirmado por el dueno el 2026-09-16. Si cambia, cambiarlo aca:
+// se usa en el titular del cierre y en el texto del boton.
+const CUPO_MENSUAL = 5;
+
+// El dolor del MENTOR, no del alumno. Tres escenas, no tres conceptos.
+const escenas = [
+  "Tenés veinte alumnos. Cada uno necesita que le armes el guion. Y hay una sola cabeza para eso: la tuya.",
+  "Les explicaste el método en la sesión y te dijeron que sí. El martes no había ningún reel publicado.",
+  "El alumno que no produce no llega a su caso de éxito. Sin casos no tenés testimonios para vender el próximo grupo.",
 ];
 
-const stages = [
+const beneficios = [
   {
-    number: "01",
-    key: "sombra",
-    title: "Sombra",
-    copy: "Arrancás acá. Cada propuesta pasa por vos y cada cambio que hacés entrena a la IA con tu criterio.",
-    icon: ClipboardCheck,
-    approval: 100,
-    meterLabel: "Propuestas que revisás vos",
-    foot: "Nada le llega a un alumno sin tu visto bueno.",
-    today: "La corrección llega tarde",
-    tomorrow: "Llega apenas entregan",
+    titulo: "Tus alumnos reciben el guion empezado",
+    texto: "Con tus referencias, tu ángulo y tu criterio. Nunca abren una hoja en blanco.",
+    mock: "alumno" as const,
   },
   {
-    number: "02",
-    key: "copiloto",
-    title: "Copiloto",
-    copy: "La IA ya sabe cómo armás las piezas que se repiten. Te consulta solo lo que no vio antes.",
-    icon: Workflow,
-    approval: 40,
-    meterLabel: "Propuestas que revisás vos",
-    foot: "Mirás lo nuevo, no lo que ya corregiste diez veces.",
-    today: "Mandás lo mismo de siempre",
-    tomorrow: "Solo mirás lo nuevo",
+    titulo: "Vos aprobás en minutos, no redactás",
+    texto: "Las propuestas te llegan escritas. Aprobás, editás o las rehacés.",
+    mock: "mentor" as const,
   },
   {
-    number: "03",
-    key: "autonomo",
-    title: "Autónomo",
-    copy: "La IA propone como lo harías vos y te avisa. Tu trabajo pasa a ser mirar el tablero.",
-    icon: Gauge,
-    approval: 12,
-    meterLabel: "Propuestas que revisás vos",
-    foot: "Tu criterio ya está adentro. Vos mirás el tablero.",
-    today: "No sabés quién está mal",
-    tomorrow: "Lo ves en el tablero",
+    titulo: "Tomás más alumnos sin bajar la calidad",
+    texto: "Tu criterio deja de depender de tus horas.",
+    mock: null,
   },
-] as const;
-
-const ladoAlumno = [
-  "Ve **el paso exacto que le toca**, según lo que ya hizo y dónde se trabó. No el programa entero encima.",
-  "Recibe las referencias, el ángulo y **el guion ya empezado**, armados para su caso y con tu criterio.",
-  "Lo manda, vos lo aprobás y recién ahí se publica. Después se abre el paso siguiente.",
-];
-
-const ladoMentor = [
-  "La IA produce las propuestas con tu método y **te las deja listas para aprobar**. Vos decidís, no redactás.",
-  "Dejás de mandar por décima vez la misma referencia y el mismo ejemplo a cada alumno nuevo.",
-  "**Podés tomar más alumnos sin bajar la calidad**, porque tu criterio ya no depende de tu tiempo.",
-  "Y de paso ves quién avanza y quién se trabó, sin tener que perseguir a nadie.",
-];
-
-const setupDeliverables = [
-  "Tu método cargado tal como lo enseñás",
-  "Referencias y ángulos listos para cada paso de tu método",
-  "Borradores de guion escritos con tu criterio",
-  "Pasos de ejecución personalizados para cada alumno",
-  "Tu cola de propuestas para aprobar en minutos",
-  "Quién está produciendo y quién se frenó",
-];
-
-const results = [
-  {
-    number: "01",
-    title: "Más alumnos produciendo de verdad",
-    copy: "No solamente los dos o tres que ya sabían producir solos. La mayoría del grupo publica y llega a un resultado concreto.",
-  },
-  {
-    number: "02",
-    title: "Más testimonios para vender",
-    copy: "Cada alumno que llega es una prueba fresca para vender el próximo grupo, y no tenés que salir a pedir favores para conseguir un video.",
-  },
-  {
-    number: "03",
-    title: "Alumnos que se quedan con vos",
-    copy: "El que consigue resultados quiere seguir. Ahí un programa que se cobraba una sola vez se convierte en alguien que te paga todos los meses.",
-    final: true,
-  },
-];
-
-const bonuses = [
-  "Kit de Lanzamiento Interno: cómo presentárselo a tus alumnos para que lo usen desde la primera semana.",
-  "Radiografía del Método al día 30: en qué paso se traban más tus alumnos y qué les falta para arrancarlo.",
-  "Tu Grupo Actual Entra: los alumnos que ya tenés hoy, no solamente el próximo grupo.",
 ];
 
 const fitSignals = [
@@ -145,40 +61,25 @@ const fitSignals = [
   "Trabajás con grupos de varios alumnos a la vez.",
   "Cobrás ticket alto por ese programa.",
   "Tu método ya produjo casos de éxito.",
-  "Tus alumnos entran con algo para vender.",
 ];
 
+// Solo las dos objeciones que frenan el agendado. Las otras dos que habia eran
+// explicacion de producto y se fueron a la llamada.
 const faqs = [
   {
     q: "¿Reemplaza mis sesiones?",
-    a: "No. Llegás a cada sesión con el resumen de cada alumno: qué hizo, qué le costó y qué le toca. Las sesiones rinden más, no desaparecen.",
-  },
-  {
-    q: "¿La IA va a escribir como yo?",
-    a: "Nada le llega a tus alumnos sin tu visto bueno. La IA arranca con tus referencias y tus guiones, aprende de cada cambio que le hacés, y con el tiempo necesita consultarte menos.",
-  },
-  {
-    q: "¿Mis alumnos lo van a usar?",
-    a: "Para eso existe el Kit de Lanzamiento Interno, y por eso tu grupo actual entra desde el día uno en vez de esperar al próximo.",
+    a: "No. Llegás a cada sesión sabiendo qué hizo cada alumno y qué le costó. Las sesiones rinden más.",
   },
   {
     q: "¿Qué pasa si no funciona?",
-    a: "Hay garantía, y las condiciones las escribimos con tus números en la llamada: qué contás vos como caso de éxito, en cuánto tiempo y sobre qué alumnos se mide. No es un párrafo genérico igual para todos.",
+    a: "Hay garantía. Las condiciones las escribimos con tus números en la llamada.",
   },
 ];
 
-function Resaltado({ texto }: { texto: string }) {
-  return (
-    <span>
-      {texto.split("**").map((parte, i) => (i % 2 ? <b key={i}>{parte}</b> : parte))}
-    </span>
-  );
-}
-
-function ScrollButton({ className = "" }: { className?: string }) {
+function Cta({ texto, className = "" }: { texto: string; className?: string }) {
   return (
     <a href={calendarUrl} target="_blank" rel="noopener noreferrer" className={`clarity-button ${className}`}>
-      Agendá una llamada
+      {texto}
       <ArrowDownRight aria-hidden="true" className="h-5 w-5" />
     </a>
   );
@@ -267,9 +168,6 @@ const contentPieces = [
   { src: "/images/traction/carrusel-6.jpg" + V, formato: "carrusel" as const },
 ];
 
-
-const chipIcon = { go: Check, wait: ClipboardCheck, risk: UserMinus };
-
 function ContentWall() {
   const COLUMNAS = 3;
   // Con 9 piezas o mas, cada columna recibe su propio set sin compartir ninguna:
@@ -302,6 +200,8 @@ function ContentWall() {
       <div className="content-wall">
         <div className="wall-cols">
           {reparto.map((set, c) => {
+            // Exactamente 2 copias: la animacion va a -50%, asi que el corte cae
+            // justo en el inicio de la segunda y el loop empalma sin costura.
             const loop = set.length ? [...set, ...set] : [];
             return (
               <div className={clases[c]} key={c} aria-hidden="true">
@@ -319,78 +219,123 @@ function ContentWall() {
 
       <div className="wall-caption">
         <Sparkles aria-hidden="true" />
-        <span>Piezas nuevas todas las semanas, para cada alumno, con tu método adentro.</span>
+        <span>Piezas nuevas cada semana, para cada alumno, con tu método adentro.</span>
       </div>
     </div>
   );
 }
 
-function StageMeter({ stage }: { stage: (typeof stages)[number] }) {
+function MockAlumno() {
   return (
-    <div className="stage-meter" aria-label={`Etapa ${stage.title}: revisás el ${stage.approval} por ciento de las correcciones`}>
-      <div className="stage-meter-head">
-        <span>{stage.meterLabel}</span>
-        <b>{stage.approval}%</b>
+    <div className="student-panel" aria-label="Lo que ve tu alumno">
+      <div className="student-panel-top">
+        <img src={logo} alt="Clarity Hub" />
+        <span>El sistema, del lado del alumno</span>
       </div>
-      <div className="stage-bar"><i style={{ width: `${stage.approval}%` }} /></div>
-      <div className="stage-track">
-        {stages.map((item) => (
-          <span key={item.key} className={item.key === stage.key ? "is-on" : ""}>{item.title}</span>
-        ))}
+      <div className="panel-block">
+        <span className="panel-label">Tu paso de hoy en el programa</span>
+        <span className="panel-title">Paso 3 · Reel de autoridad</span>
       </div>
-      <p className="stage-meter-foot">{stage.foot}</p>
+      <div className="panel-give">
+        <span className="panel-label">Lo que ya tenés listo</span>
+        <div className="panel-chips">
+          <i><Check aria-hidden="true" /> 3 referencias</i>
+          <i><Check aria-hidden="true" /> Ángulo sugerido</i>
+        </div>
+        <p className="panel-draft-label"><Sparkles aria-hidden="true" /> Borrador del guion, con el criterio de tu mentor</p>
+        <p className="panel-draft">"Si llevás tres meses publicando y no te escribió nadie, el problema no es el algoritmo. Es que estás contando lo que sabés y no lo que a esa persona le duele."</p>
+        <div className="panel-drop"><Upload aria-hidden="true" /> Terminalo y mandalo</div>
+      </div>
+      <div className="panel-next"><Lock aria-hidden="true" /> Paso 4 · Edición. Se abre cuando este quede aprobado.</div>
     </div>
   );
 }
 
-function GroupCostCalculator() {
-  const [students, setStudents] = useState(5);
-  const [ticket, setTicket] = useState(3000);
-  const [reach, setReach] = useState(25);
+function MockMentor() {
+  return (
+    <div className="queue-card" aria-label="Lo que ves vos">
+      <div className="queue-top">
+        <img src={logo} alt="Clarity Hub" />
+        <span>El sistema, de tu lado</span>
+      </div>
+      <div className="queue-head">
+        <span>Propuestas para aprobar</span>
+        <b>2</b>
+      </div>
+      <div className="queue-item">
+        <span>Joaquín · Carrusel del Paso 2</span>
+        <p>La IA propone el ángulo "los tres errores que cometí el primer año" y un guion armado con tus referencias.</p>
+        <div className="queue-actions"><i className="queue-ok">Aprobar</i><i className="queue-edit">Editar</i></div>
+      </div>
+      <div className="queue-item">
+        <span>Lucía · Reel del Paso 3</span>
+        <p>La IA propone el gancho, la estructura y el cierre. Marca que Lucía suele poner el contexto antes de tiempo.</p>
+        <div className="queue-actions"><i className="queue-ok">Aprobar</i><i className="queue-edit">Editar</i></div>
+      </div>
+      <div className="queue-foot">
+        <Sparkles aria-hidden="true" />
+        <span>Esta semana: <b>18 propuestas</b>, y 11 salieron solas porque la IA ya sabía cómo las escribirías vos.</span>
+      </div>
+    </div>
+  );
+}
 
-  const perYear = students * 12;
-  const withCase = Math.round((perYear * reach) / 100);
-  const withoutCase = perYear - withCase;
-  const value = withoutCase * ticket;
-  const money = (amount: number) =>
-    new Intl.NumberFormat("es-PY", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(amount);
+/**
+ * Calculadora de HORAS, no de plata.
+ *
+ * La version anterior calculaba "ventas que no pasaron" (alumnos sin caso por
+ * ticket) y no se entendia que media: mezclaba plata ya cobrada con recompra
+ * hipotetica. Esta calcula el tiempo del mentor con sus propios numeros, que es
+ * aritmetica verificable, y ademas es el dolor nuevo de la pagina: el cuello de
+ * botella es el.
+ */
+function CalculadoraHoras() {
+  const [alumnos, setAlumnos] = useState(20);
+  const [piezas, setPiezas] = useState(4);
+  const [minutos, setMinutos] = useState(20);
+
+  const piezasMes = alumnos * piezas;
+  const horas = (piezasMes * minutos) / 60;
+  const dias = horas / 8;
+  const num = (n: number, dec = 0) =>
+    new Intl.NumberFormat("es-PY", { maximumFractionDigits: dec }).format(n);
 
   return (
     <div className="loss-calculator">
       <div className="calculator-controls">
         <div className="calculator-label">
           <span className="eyebrow">CALCULADORA</span>
-          <h3>¿Cuánto dejaste de vender el año pasado?</h3>
-          <p>Con los números reales de tu programa.</p>
+          <h3>¿Cuántas horas al mes te lleva el contenido de tus alumnos?</h3>
+          <p>Con los números de tu programa.</p>
         </div>
         <label className="range-field">
-          <span>Alumnos nuevos por mes <b>{students}</b></span>
-          <input type="range" min="1" max="100" value={students} onChange={(event) => setStudents(Number(event.target.value))} />
+          <span>Alumnos en tu programa <b>{alumnos}</b></span>
+          <input type="range" min="3" max="60" value={alumnos} onChange={(e) => setAlumnos(Number(e.target.value))} />
         </label>
         <label className="range-field">
-          <span>Ticket del programa <b>US$ {ticket.toLocaleString("es-PY")}</b></span>
-          <input type="range" min="200" max="6000" step="100" value={ticket} onChange={(event) => setTicket(Number(event.target.value))} />
+          <span>Piezas que produce cada uno por mes <b>{piezas}</b></span>
+          <input type="range" min="1" max="12" value={piezas} onChange={(e) => setPiezas(Number(e.target.value))} />
         </label>
         <label className="range-field">
-          <span>Alumnos que hoy llegan a un caso de éxito <b>{reach}%</b></span>
-          <input type="range" min="5" max="80" step="5" value={reach} onChange={(event) => setReach(Number(event.target.value))} />
+          <span>Minutos que te lleva cada pieza <b>{minutos} min</b></span>
+          <input type="range" min="5" max="60" step="5" value={minutos} onChange={(e) => setMinutos(Number(e.target.value))} />
         </label>
       </div>
       <div className="calculator-result" aria-live="polite">
-        <span className="eyebrow">VENTAS QUE NO PASARON</span>
-        <p>Los alumnos que no llegaron a su caso de éxito no te compran lo próximo. A tu ticket:</p>
-        <motion.strong key={value} initial={{ opacity: 0.5, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.22 }}>
-          {money(value)} <small>por año</small>
+        <span className="eyebrow">TU TIEMPO, CADA MES</span>
+        <p>Entre armar, revisar y corregir esas piezas:</p>
+        <motion.strong key={horas} initial={{ opacity: 0.5, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.22 }}>
+          {num(horas, 1)} horas <small>por mes</small>
         </motion.strong>
         <div className="calculator-breakdown">
-          <span>{withoutCase}<small>no te vuelven a comprar</small></span>
-          <span>{withCase}<small>llegan a su caso de éxito</small></span>
+          <span>{num(piezasMes)}<small>piezas por mes</small></span>
+          <span>{num(dias, 1)}<small>días de trabajo</small></span>
         </div>
         <p className="calculator-note">
-          No todos te habrían comprado de nuevo, eso es honesto decirlo. Pero el que llega a su caso de éxito vuelve, te refiere y te deja un testimonio. El que no llega no hace ninguna de las tres.
+          Esas piezas se van a hacer igual. La pregunta es si las hacés vos.
         </p>
         <a href={calendarUrl} target="_blank" rel="noopener noreferrer" className="calculator-link">
-          Quiero mover ese número <ArrowRight aria-hidden="true" />
+          Quiero bajar ese número <ArrowRight aria-hidden="true" />
         </a>
       </div>
     </div>
@@ -405,7 +350,7 @@ export default function TractionOS() {
     routeStyle.dataset.routeStyles = "traction-os";
     routeStyle.textContent = tractionStyles;
     document.head.appendChild(routeStyle);
-    document.title = "Clarity Traction OS · Que tus alumnos apliquen tu método";
+    document.title = "Clarity Traction OS · Tu propio sistema de contenido con IA";
 
     return () => {
       routeStyle.remove();
@@ -416,6 +361,7 @@ export default function TractionOS() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#fbfaf4] text-[#1b2118]">
       <main>
+        {/* 1 · HERO — no se toca */}
         <section id="inicio" className="hero-section">
           <div className="hero-background" style={{ backgroundImage: `url(${heroBackground})` }} />
           <div className="hero-grid container">
@@ -435,7 +381,7 @@ export default function TractionOS() {
                 Cada pieza sale con tu criterio y pasa por tu aprobación antes de llegarles. Ellos la terminan y la publican.
               </p>
               <div className="hero-actions">
-                <ScrollButton />
+                <Cta texto="Agendá una llamada" />
                 <span className="hero-microcopy">
                   <BadgeCheck aria-hidden="true" /> Primero vemos cómo es tu método y cuánto produce hoy tu grupo. Después revisamos si hay encaje.
                 </span>
@@ -459,282 +405,111 @@ export default function TractionOS() {
           </div>
         </section>
 
-        <section id="problema" className="section section-cream">
+        {/* 2 · EL DOLOR, TUYO. Escenas en segunda persona, no conceptos. */}
+        <section id="dolor" className="section section-cream">
           <div className="container">
-            <div className="section-heading split-heading">
-              <div>
-                <span className="eyebrow">LO QUE PASA HOY</span>
-                <h2>Tus alumnos entienden tu método pero <em>no saben hacer el contenido.</em></h2>
-              </div>
-              <p>
-                Se los explicaste bien y te dijeron que sí. Pero cuando se sientan solos no saben qué ángulo usar, con qué gancho arrancar ni si lo que hicieron sirve. Ahí se frena todo.
-              </p>
+            <div className="section-heading">
+              <span className="eyebrow">LO QUE PASA HOY</span>
+              <h2>Sos el cuello de botella de <em>tu propio programa.</em></h2>
             </div>
-            <div className="contrast-table">
-              <div className="contrast-head">
-                <span />
-                <span className="head-now">Hoy</span>
-                <span />
-                <span className="head-next">Con el sistema</span>
-              </div>
-              {contrasts.map((row, index) => (
-                <motion.div
-                  key={row.who}
+            <div className="escenas">
+              {escenas.map((e, i) => (
+                <motion.p
+                  key={e}
                   initial={{ opacity: 0, y: 14 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.4, delay: index * 0.06 }}
-                  className="contrast-row"
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{ duration: 0.45, delay: i * 0.08 }}
+                  className="escena"
                 >
-                  <span className="contrast-who">{row.who}</span>
-                  <p className="contrast-now">{row.now}</p>
-                  <ArrowRight className="contrast-arrow" aria-hidden="true" />
-                  <p className="contrast-next">{row.next}</p>
-                </motion.div>
+                  {e}
+                </motion.p>
               ))}
             </div>
+            <div className="calculadora-wrap"><CalculadoraHoras /></div>
           </div>
         </section>
 
-        <section className="section section-white">
-          <div className="container system-statement">
-            <div className="system-mark" aria-hidden="true"><Lightbulb /></div>
-            <div>
-              <span className="eyebrow">CLARITY TRACTION OS</span>
-              <h2>Una IA entrenada con tu método que <em>le escribe el contenido</em> a cada alumno.</h2>
-            </div>
-            <p>
-              Guiones, carruseles y el paso que le toca a cada uno, armados con tu criterio. Nada le llega sin tu visto bueno.
-            </p>
-          </div>
-        </section>
-
-        <section id="calculadora" className="section calculator-section">
-          <div className="container"><GroupCostCalculator /></div>
-        </section>
-
-        <section id="metodo" className="section section-mint">
-          <div className="container">
-            <div className="section-heading split-heading">
-              <div>
-                <span className="eyebrow">CÓMO FUNCIONA</span>
-                <h2>La IA escribe, <em>vos aprobás</em>, tu alumno publica.</h2>
-              </div>
-              <p>
-                Un lado le dice a cada alumno exactamente qué hacer y le da con qué hacerlo. El otro te deja a vos solo la decisión de aprobar. En el medio hay una IA entrenada con tu método, no una IA genérica que leyó cualquier cosa en internet.
-              </p>
-            </div>
-
-            <div className="sides-grid">
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.45 }}
-                className="side-block"
-              >
-                <span className="side-tag side-tag-student"><GraduationCap aria-hidden="true" /> Del lado de tus alumnos</span>
-                <h3>Tus alumnos reciben el guion hecho</h3>
-                <ul className="side-points">
-                  {ladoAlumno.map((punto) => (
-                    <li key={punto}>
-                      <Check aria-hidden="true" />
-                      <Resaltado texto={punto} />
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="student-panel" aria-label="El sistema del lado del alumno">
-                  <div className="student-panel-top">
-                    <img src={logo} alt="Clarity Hub" />
-                    <span>El sistema, del lado del alumno</span>
-                  </div>
-                  <div className="panel-block">
-                    <span className="panel-label">Tu paso de hoy en el programa</span>
-                    <span className="panel-title">Paso 3 · Reel de autoridad</span>
-                  </div>
-                  <div className="panel-give">
-                    <span className="panel-label">Lo que ya tenés listo</span>
-                    <div className="panel-chips">
-                      <i><Check aria-hidden="true" /> 3 referencias</i>
-                      <i><Check aria-hidden="true" /> Ángulo sugerido</i>
-                    </div>
-                    <p className="panel-draft-label"><Sparkles aria-hidden="true" /> Borrador del guion, con el criterio de tu mentor</p>
-                    <p className="panel-draft">"Si llevás tres meses publicando y no te escribió nadie, el problema no es el algoritmo. Es que estás contando lo que sabés y no lo que a esa persona le duele."</p>
-                    <div className="panel-drop"><Upload aria-hidden="true" /> Terminalo y mandalo</div>
-                  </div>
-                  <div className="panel-next"><Lock aria-hidden="true" /> Paso 4 · Edición. Se abre cuando este quede aprobado.</div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.45, delay: 0.08 }}
-                className="side-block"
-              >
-                <span className="side-tag side-tag-mentor"><Sparkles aria-hidden="true" /> De tu lado</span>
-                <h3>Vos aprobás, no escribís</h3>
-                <ul className="side-points">
-                  {ladoMentor.map((punto) => (
-                    <li key={punto}>
-                      <Check aria-hidden="true" />
-                      <Resaltado texto={punto} />
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="queue-card" aria-label="El sistema del lado del mentor">
-                  <div className="queue-top">
-                    <img src={logo} alt="Clarity Hub" />
-                    <span>El sistema, de tu lado</span>
-                  </div>
-                  <div className="queue-head">
-                    <span>Propuestas para aprobar</span>
-                    <b>2</b>
-                  </div>
-                  <div className="queue-item">
-                    <span>Joaquín · Carrusel del Paso 2</span>
-                    <p>La IA propone el ángulo "los tres errores que cometí el primer año" y un guion armado con tus referencias.</p>
-                    <div className="queue-actions"><i className="queue-ok">Aprobar</i><i className="queue-edit">Editar</i></div>
-                  </div>
-                  <div className="queue-item">
-                    <span>Lucía · Reel del Paso 3</span>
-                    <p>La IA propone el gancho, la estructura y el cierre. Marca que Lucía suele poner el contexto antes de tiempo.</p>
-                    <div className="queue-actions"><i className="queue-ok">Aprobar</i><i className="queue-edit">Editar</i></div>
-                  </div>
-                  <div className="queue-foot">
-                    <Sparkles aria-hidden="true" />
-                    <span>Esta semana: <b>18 propuestas</b>, y 11 salieron solas porque la IA ya sabía cómo las escribirías vos.</span>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-
-            <div className="stage-strip">
-              <span className="eyebrow">EL MÉTODO SOMBRA</span>
-              <p>
-                Al principio revisás todas las propuestas. Después la IA resuelve sola las que ya le corregiste mil veces y te consulta únicamente lo que no sabe cómo lo harías vos.
-              </p>
-              <div className="stage-grid">
-                {stages.map((stage, index) => (
-                  <motion.div
-                    key={stage.title}
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.25 }}
-                    transition={{ duration: 0.45, delay: index * 0.08 }}
-                    className="stage-item"
-                  >
-                    <h3>{stage.title}</h3>
-                    <StageMeter stage={stage} />
-                    <p>{stage.copy}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="resultado" className="section section-white">
+        {/* 3 · ANTES / DESPUES. Un solo contraste, grande. */}
+        <section id="cambio" className="section section-white">
           <div className="container">
             <div className="section-heading centered-heading">
-              <span className="eyebrow">EL RESULTADO</span>
-              <h2>Más alumnos publicando es <em>más testimonios</em> para vender el próximo grupo.</h2>
+              <span className="eyebrow">EL CAMBIO</span>
+              <h2>Hoy los guiones salen de tu cabeza. <em>Después salen del sistema.</em></h2>
             </div>
-            <div className="result-rows">
-              {results.map((result, index) => (
+            <div className="swap-grid">
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.45 }}
+                className="swap-card swap-antes"
+              >
+                <span className="swap-tag">Hoy</span>
+                <p>Ochenta piezas por mes. Todas escritas por vos, una por una.</p>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.45, delay: 0.1 }}
+                className="swap-card swap-despues"
+              >
+                <span className="swap-tag">Con el sistema</span>
+                <p>Las mismas ochenta, con tu método adentro. Vos aprobás.</p>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* 4 · QUE CAMBIA PARA VOS. Beneficios con los mocks. El mecanismo se
+            NOMBRA y no se explica: ese hueco es el que lleva a la llamada. */}
+        <section id="sistema" className="section section-mint">
+          <div className="container">
+            <div className="section-heading">
+              <span className="eyebrow">QUÉ CAMBIA PARA VOS</span>
+              <h2>Tu método hace el trabajo. <em>Vos decidís.</em></h2>
+            </div>
+
+            <div className="beneficios">
+              {beneficios.map((b, i) => (
                 <motion.div
-                  key={result.number}
-                  initial={{ opacity: 0, y: 14 }}
+                  key={b.titulo}
+                  initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.4, delay: index * 0.06 }}
-                  className="result-row"
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.45, delay: i * 0.06 }}
+                  className={`beneficio ${b.mock ? "" : "beneficio-solo"}`}
                 >
-                  <span>{result.number}</span>
-                  <h3>{result.title}</h3>
-                  <p>{result.copy}</p>
+                  <div className="beneficio-texto">
+                    <span>0{i + 1}</span>
+                    <h3>{b.titulo}</h3>
+                    <p>{b.texto}</p>
+                  </div>
+                  {b.mock === "alumno" && <MockAlumno />}
+                  {b.mock === "mentor" && <MockMentor />}
                 </motion.div>
               ))}
             </div>
-            <p className="result-close">
-              <Repeat2 aria-hidden="true" />
-              Hasta 8 de cada 10 de los que siguen el método llegan a su primer caso de éxito en 90 días. Y cada grupo que sale con casos hace más fácil vender el siguiente.
-            </p>
-          </div>
-        </section>
 
-        <section id="setup" className="section section-dark">
-          <div className="container audit-layout">
-            <div className="audit-copy">
-              <span className="eyebrow eyebrow-light">QUÉ SE CARGA</span>
-              <h2>Tu método, convertido en guiones y carruseles</h2>
-              <p className="audit-lead">Tus referencias, tus ángulos y tus guiones, listos para que tu próximo grupo produzca.</p>
+            <div className="gancho">
               <p>
-                Tomamos tu método tal como lo enseñás, tus mejores referencias y tus guiones que ya funcionaron, y los cargamos adentro. Desde ahí la IA arma lo de cada alumno con tu criterio, y vos solo aprobás.
+                Lo hace con el <strong>Método Sombra</strong>: al principio aprobás todo, y cada semana menos.
+                Cómo funciona por dentro te lo muestro en la llamada.
               </p>
-              <ScrollButton className="clarity-button-light" />
-            </div>
-            <div className="audit-deliverables">
-              <div className="audit-deliverables-head"><Layers aria-hidden="true" /><span>QUÉ QUEDA CARGADO</span><b>DESDE EL DÍA UNO</b></div>
-              <div className="deliverables-grid">
-                {setupDeliverables.map((item) => <div key={item}><Check aria-hidden="true" />{item}</div>)}
-              </div>
-              <p>
-                La fase siguiente se cotiza aparte: módulo de escala para alumnos que ya monetizan, pasos de venta, métricas de Instagram por alumno, tablero completo del programa e integraciones con tus herramientas.
-              </p>
+              <Cta texto="Mostrame cómo lo hace" />
             </div>
           </div>
         </section>
 
-        <section className="section section-white">
-          <div className="container capability-layout">
-            <div className="capability-intro">
-              <span className="eyebrow">BONOS</span>
-              <h2>Tres cosas para que tu grupo <em>actual</em> empiece a producir desde la primera semana.</h2>
-              <p>
-                El riesgo real de cualquier herramienta nueva es que los alumnos no la abran nunca.
-              </p>
-            </div>
-            <div className="capability-list">
-              {bonuses.map((bonus, index) => (
-                <div className="capability-item" key={bonus}>
-                  <span>0{index + 1}</span>
-                  <p>{bonus}</p>
-                  <ArrowRight aria-hidden="true" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="estado" className="section section-mint">
-          <div className="container">
-            <div className="founder-card">
-              <span className="eyebrow">ESTADO REAL</span>
-              <h3>Sos de los primeros y te lo digo de frente.</h3>
-              <p>
-                Como producto esto es nuevo. Por eso entrás con condiciones de fundador, y por eso te digo lo que sigue antes de que lo tengas que preguntar.
-              </p>
-              <div className="founder-points">
-                <p><ShieldCheck aria-hidden="true" /> El motor de IA de este sistema corre en nuestro propio negocio hace meses: nuestros mensajes, nuestros recursos y el aprendizaje de cada corrección funcionan con él.</p>
-                <p><BadgeCheck aria-hidden="true" /> Todavía no hay casos de éxito de clientes publicados. Cuando alguien te muestre veinte logos en esta etapa, desconfiá.</p>
-                <p><Workflow aria-hidden="true" /> El sistema corre en tu infraestructura y en tus cuentas. La documentación y los procesos quedan tuyos.</p>
-                <p><HeartHandshake aria-hidden="true" /> Hay garantía. Las condiciones las escribimos con tus números en la llamada, no en una landing.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
+        {/* 5 · PARA QUIEN ES. Filtro honesto, corto. */}
         <section id="encaje" className="section section-cream fit-section">
           <div className="container fit-layout">
             <div>
               <span className="eyebrow">¿HAY ENCAJE?</span>
               <h2>Para mentorías de contenido con grupos, <em>no para cursos sueltos.</em></h2>
               <p className="fit-note">
-                Y no es para vos si tu método todavía no produjo ningún caso de éxito. <strong>El sistema no arregla un método: lo expone más rápido.</strong>
+                No es para vos si tu método todavía no produjo un caso de éxito. <strong>El sistema no arregla un método: lo expone.</strong>
               </p>
             </div>
             <div className="fit-checklist">
@@ -743,42 +518,32 @@ export default function TractionOS() {
           </div>
         </section>
 
-        <section id="preguntas" className="section section-white">
-          <div className="container">
-            <div className="section-heading centered-heading">
-              <span className="eyebrow">PREGUNTAS</span>
-              <h2>Lo que preguntan antes de la llamada.</h2>
-            </div>
-            <div className="faq-grid">
-              {faqs.map((faq) => (
-                <article className="faq-item" key={faq.q}>
-                  <h3>{faq.q}</h3>
-                  <p>{faq.a}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="agenda" className="section request-section">
-          <div className="container request-grid">
-            <div className="request-copy">
+        {/* 6 · CIERRE: estado real + cupo + la unica puerta. */}
+        <section id="cierre" className="section section-dark">
+          <div className="container cierre-layout">
+            <div className="cierre-copy">
               <span className="eyebrow eyebrow-light">SIGUIENTE PASO</span>
-              <h2>¿Cuándo arranca tu próximo grupo?</h2>
-              <p>
-                Si arrancamos ahora, ese grupo empieza con esto andando. Si no, ese grupo entero son casos de éxito y testimonios que no van a existir.
-              </p>
-              <p>
-                En la llamada revisamos tu método, tus referencias y cuánto produce hoy tu grupo. Traelo como está.
-              </p>
+              <h2>Tomamos {CUPO_MENSUAL} mentores <em>por mes.</em></h2>
+              <p>Es la cantidad que podemos cargar bien, con el método de cada uno adentro.</p>
+              <div className="cierre-honesto">
+                <p><ShieldCheck aria-hidden="true" /> Sos de los primeros. El motor corre en nuestro propio negocio hace meses.</p>
+                <p><BadgeCheck aria-hidden="true" /> Todavía no hay casos de éxito de clientes publicados. Cuando alguien te muestre veinte logos en esta etapa, desconfiá.</p>
+              </div>
             </div>
             <div className="agenda-card">
               <CalendarCheck aria-hidden="true" />
-              <span className="eyebrow">GOOGLE CALENDAR</span>
-              <h3>Agenda abierta</h3>
-              <a href={calendarUrl} target="_blank" rel="noopener noreferrer" className="clarity-button clarity-button-full">
-                Abrir mi agenda <ArrowRight className="h-5 w-5" />
-              </a>
+              <span className="eyebrow">30 MINUTOS</span>
+              <h3>Reservá tu lugar</h3>
+              <p>Revisamos tu método y cuánto produce hoy tu grupo. Sin pitch.</p>
+              <Cta texto={`Reservar uno de los ${CUPO_MENSUAL}`} className="clarity-button-full" />
+              <div className="faq-corto">
+                {faqs.map((f) => (
+                  <details key={f.q}>
+                    <summary>{f.q}</summary>
+                    <p>{f.a}</p>
+                  </details>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -787,7 +552,7 @@ export default function TractionOS() {
       <footer className="site-footer">
         <div className="container footer-inner">
           <img src={logo} alt="Clarity Hub" />
-          <p>Clarity Traction OS · Para que los alumnos del mentor sepan exactamente qué hacer, y lo hagan.</p>
+          <p>Clarity Traction OS · Guiones, carruseles y stories para los alumnos del mentor.</p>
           <span>Clarity Hub</span>
         </div>
       </footer>
