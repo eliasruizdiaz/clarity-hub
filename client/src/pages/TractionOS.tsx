@@ -387,8 +387,8 @@ export default function TractionOS() {
           <div className="container">
             <div className="section-heading split-heading">
               <div>
-                <span className="eyebrow">EL PROBLEMA</span>
-                <h2>Entendieron tu método. <em>No saben aplicarlo a su caso.</em></h2>
+                <span className="eyebrow">LO QUE PASA HOY</span>
+                <h2>Tus alumnos entienden tu método pero <em>no saben hacer el contenido.</em></h2>
               </div>
               <p>
                 Se los explicaste bien y te dijeron que sí. Pero cuando se sientan solos no saben qué ángulo usar, con qué gancho arrancar ni si lo que hicieron sirve. Ahí se frena todo.
@@ -425,10 +425,10 @@ export default function TractionOS() {
             <div className="system-mark" aria-hidden="true"><Lightbulb /></div>
             <div>
               <span className="eyebrow">CLARITY TRACTION OS</span>
-              <h2>Que el resultado no dependa de <em>a quién le sale solo.</em></h2>
+              <h2>Una IA entrenada con tu método que <em>le escribe el contenido</em> a cada alumno.</h2>
             </div>
             <p>
-              Una IA entrenada con tu método, que le arma a cada alumno el paso que le toca y las piezas para ejecutarlo, sin que nada salga sin tu visto bueno.
+              Guiones, carruseles y el paso que le toca a cada uno, armados con tu criterio. Nada le llega sin tu visto bueno.
             </p>
           </div>
         </section>
@@ -442,7 +442,7 @@ export default function TractionOS() {
             <div className="section-heading split-heading">
               <div>
                 <span className="eyebrow">CÓMO FUNCIONA</span>
-                <h2>Dos lados del <em>mismo sistema.</em></h2>
+                <h2>La IA escribe, <em>vos aprobás</em>, tu alumno publica.</h2>
               </div>
               <p>
                 Un lado le dice a cada alumno exactamente qué hacer y le da con qué hacerlo. El otro te deja a vos solo la decisión de aprobar. En el medio hay una IA entrenada con tu método, no una IA genérica que leyó cualquier cosa en internet.
@@ -458,7 +458,7 @@ export default function TractionOS() {
                 className="side-block"
               >
                 <span className="side-tag side-tag-student"><GraduationCap aria-hidden="true" /> Del lado de tus alumnos</span>
-                <h3>Siempre saben exactamente qué hacer.</h3>
+                <h3>Tus alumnos reciben el guion hecho</h3>
                 <ul className="side-points">
                   {ladoAlumno.map((punto) => (
                     <li key={punto}>
@@ -499,7 +499,7 @@ export default function TractionOS() {
                 className="side-block"
               >
                 <span className="side-tag side-tag-mentor"><Sparkles aria-hidden="true" /> De tu lado</span>
-                <h3>Decidís en minutos lo que hoy te lleva la semana.</h3>
+                <h3>Vos aprobás, no escribís</h3>
                 <ul className="side-points">
                   {ladoMentor.map((punto) => (
                     <li key={punto}>
@@ -564,8 +564,8 @@ export default function TractionOS() {
         <section id="resultado" className="section section-white">
           <div className="container">
             <div className="section-heading centered-heading">
-              <span className="eyebrow">PARA QUÉ SIRVE</span>
-              <h2>Cada alumno que llega es <em>un testimonio nuevo</em> para vender el próximo grupo.</h2>
+              <span className="eyebrow">EL RESULTADO</span>
+              <h2>Más alumnos publicando es <em>más testimonios</em> para vender el próximo grupo.</h2>
             </div>
             <div className="result-rows">
               {results.map((result, index) => (
@@ -593,8 +593,8 @@ export default function TractionOS() {
         <section id="setup" className="section section-dark">
           <div className="container audit-layout">
             <div className="audit-copy">
-              <span className="eyebrow eyebrow-light">EMPEZÁS ACÁ</span>
-              <h2>Tu método, convertido en piezas</h2>
+              <span className="eyebrow eyebrow-light">QUÉ SE CARGA</span>
+              <h2>Tu método, convertido en guiones y carruseles</h2>
               <p className="audit-lead">Tus referencias, tus ángulos y tus guiones, listos para que tu próximo grupo produzca.</p>
               <p>
                 Tomamos tu método tal como lo enseñás, tus mejores referencias y tus guiones que ya funcionaron, y los cargamos adentro. Desde ahí la IA arma lo de cada alumno con tu criterio, y vos solo aprobás.
@@ -616,7 +616,7 @@ export default function TractionOS() {
         <section className="section section-white">
           <div className="container capability-layout">
             <div className="capability-intro">
-              <span className="eyebrow">LO QUE SUMA ADEMÁS</span>
+              <span className="eyebrow">BONOS</span>
               <h2>Tres cosas para que tu grupo <em>actual</em> empiece a producir desde la primera semana.</h2>
               <p>
                 El riesgo real de cualquier herramienta nueva es que los alumnos no la abran nunca.
@@ -656,7 +656,7 @@ export default function TractionOS() {
           <div className="container fit-layout">
             <div>
               <span className="eyebrow">¿HAY ENCAJE?</span>
-              <h2>Esto es para vos si tu método ya produjo casos de éxito y el problema es que pocos alumnos llegan a aplicarlo bien.</h2>
+              <h2>Para mentorías de contenido con grupos, <em>no para cursos sueltos.</em></h2>
               <p className="fit-note">
                 Y no es para vos si tu método todavía no produjo ningún caso de éxito. <strong>El sistema no arregla un método: lo expone más rápido.</strong>
               </p>
