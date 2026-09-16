@@ -300,7 +300,7 @@ function MockMentor() {
  */
 function CalculadoraPerdida() {
   const [alumnos, setAlumnos] = useState(20);
-  const [ticket, setTicket] = useState(1000);
+  const [ticket, setTicket] = useState(3000);
   const [llegan, setLlegan] = useState(3);
 
   const sinResultado = Math.round(alumnos * ((10 - llegan) / 10));
@@ -316,12 +316,12 @@ function CalculadoraPerdida() {
           <p>Con los números de tu programa.</p>
         </div>
         <label className="range-field">
-          <span>Alumnos en tu programa <b>{alumnos}</b></span>
+          <span>Alumnos al mes <b>{alumnos}</b></span>
           <input type="range" min="3" max="60" value={alumnos} onChange={(e) => setAlumnos(Number(e.target.value))} />
         </label>
         <label className="range-field">
           <span>Lo que te paga cada uno <b>USD {num(ticket)}</b></span>
-          <input type="range" min="200" max="5000" step="100" value={ticket} onChange={(e) => setTicket(Number(e.target.value))} />
+          <input type="range" min="500" max="30000" step="100" value={ticket} onChange={(e) => setTicket(Number(e.target.value))} />
         </label>
         <label className="range-field">
           <span>De cada 10, cuántos consiguen resultados hoy <b>{llegan}</b></span>
@@ -332,11 +332,11 @@ function CalculadoraPerdida() {
         <span className="eyebrow">LO QUE NO TE VUELVE A ENTRAR</span>
         <p>Los alumnos que no consiguen resultados no renuevan ni te recomiendan:</p>
         <motion.strong key={perdida} initial={{ opacity: 0.5, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.22 }}>
-          USD {num(perdida)} <small>por grupo</small>
+          USD {num(perdida)} <small>por mes</small>
         </motion.strong>
         <div className="calculator-breakdown">
           <span>{num(sinResultado)}<small>alumnos sin resultado</small></span>
-          <span>{10 - llegan} de 10<small>de tu grupo actual</small></span>
+          <span>{10 - llegan} de 10<small>de tus alumnos</small></span>
         </div>
         <p className="calculator-note">
           Es tu ticket por los alumnos que no llegan. No cuenta lo que ya cobraste: cuenta lo que no vas a volver a cobrar.
