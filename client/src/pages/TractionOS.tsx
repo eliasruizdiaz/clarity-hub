@@ -404,7 +404,7 @@ function MockAlcance() {
       </div>
       <div className="queue-foot">
         <Sparkles aria-hidden="true" />
-        <span>Los ochenta guiones del mes salieron con tu criterio. Vos elegís con cuál te sentás.</span>
+        <span>Los ochenta guiones del mes se escribieron con tu método. Vos elegís con cuál cliente te sentás.</span>
       </div>
     </div>
   );
@@ -563,7 +563,7 @@ export default function TractionOS() {
           <div className="container">
             <div className="section-heading centered-heading">
               <span className="eyebrow">EL CAMBIO</span>
-              <h2>Hoy revisás los que llegás a revisar. <em>Después salen todos con tu criterio puesto.</em></h2>
+              <h2>Hoy los guiones los escribe cada cliente. <em>Después los escribe tu sistema.</em></h2>
             </div>
             <div className="swap-grid">
               <motion.div
@@ -574,7 +574,7 @@ export default function TractionOS() {
                 className="swap-card swap-antes"
               >
                 <span className="swap-tag">Hoy</span>
-                <p>Ochenta guiones al mes. Mirás los que entran en la sesión. El resto se publica sin vos.</p>
+                <p>Cada cliente escribe su guion como puede. En la sesión llegás a corregir cuatro. Los otros dieciséis se publican igual.</p>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
@@ -584,7 +584,7 @@ export default function TractionOS() {
                 className="swap-card swap-despues"
               >
                 <span className="swap-tag">Con el sistema</span>
-                <p>Los mismos ochenta, escritos con tu método adentro antes de que te los muestren.</p>
+                <p>Los ochenta guiones del mes ya vienen escritos con tu método. Vos no escribís ninguno.</p>
               </motion.div>
             </div>
           </div>
