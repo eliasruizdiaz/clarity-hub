@@ -301,7 +301,11 @@
 .wall-col-c { animation-duration: 29s; }
 .wall-col-c { display: none; }
 .wall-item { position: relative; overflow: hidden; border: 1px solid rgba(27,33,24,.1); border-radius: .7rem; background: #fff; box-shadow: 0 6px 16px rgba(27,33,24,.08); }
-.wall-item img { display: block; width: 100%; height: auto; }
+.wall-item img { display: block; width: 100%; height: auto; object-fit: cover; }
+/* La caja reserva su alto ANTES de que cargue la imagen. Sin esto, cualquier
+   imagen que no llegue colapsa la columna y el marquee se descuadra. */
+.wall-item-reel img { aspect-ratio: 359 / 560; height: auto; }
+.wall-item-carrusel img { aspect-ratio: 3 / 4; height: auto; }
 .wall-item > svg { position: absolute; top: .38rem; right: .38rem; width: .95rem; height: .95rem; color: #fff; filter: drop-shadow(0 1px 3px rgba(0,0,0,.55)); }
 .wall-caption { position: relative; z-index: 2; display: flex; align-items: flex-start; gap: .45rem; margin-top: .85rem; padding-top: .8rem; border-top: 1px solid rgba(46,106,52,.14); color: var(--forest); font-size: .7rem; font-weight: 700; line-height: 1.35; }
 .wall-caption svg { flex: 0 0 auto; width: .9rem; margin-top: .06rem; color: var(--coral); }

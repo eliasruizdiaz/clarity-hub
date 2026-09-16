@@ -265,8 +265,8 @@ function ContentWall() {
             return (
               <div className={clases[c]} key={c} aria-hidden="true">
                 {loop.map((pieza, i) => (
-                  <figure className="wall-item" key={`${c}-${i}`}>
-                    <img src={pieza.src} alt="" loading="lazy" />
+                  <figure className={`wall-item wall-item-${pieza.formato}`} key={`${c}-${i}`}>
+                    <img src={pieza.src} alt="" />
                     {pieza.formato === "reel" ? <IconoReel /> : <IconoCarrusel />}
                   </figure>
                 ))}
