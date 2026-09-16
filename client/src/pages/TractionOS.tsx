@@ -210,19 +210,25 @@ const formatos = [
   { Icono: IconoCarrusel, label: "Carrusel" },
 ];
 
+// ?v=2 rompe la cache del borde. Cloudflare habia guardado el HTML del fallback
+// bajo estas URLs (se consultaron antes de que existieran, y _headers le pone
+// max-age=86400 a /images/*), asi que servia text/html y el navegador mostraba
+// imagen rota. Subir el numero si vuelve a pasar.
+const V = "?v=2";
+
 const contentPieces = [
-  { src: "/images/traction/reel-1.jpg", formato: "reel" as const },
-  { src: "/images/traction/carrusel-1.jpg", formato: "carrusel" as const },
-  { src: "/images/traction/reel-2.jpg", formato: "reel" as const },
-  { src: "/images/traction/carrusel-2.jpg", formato: "carrusel" as const },
-  { src: "/images/traction/reel-3.jpg", formato: "reel" as const },
-  { src: "/images/traction/carrusel-3.jpg", formato: "carrusel" as const },
-  { src: "/images/traction/reel-4.jpg", formato: "reel" as const },
-  { src: "/images/traction/carrusel-4.jpg", formato: "carrusel" as const },
-  { src: "/images/traction/reel-5.jpg", formato: "reel" as const },
-  { src: "/images/traction/carrusel-5.jpg", formato: "carrusel" as const },
-  { src: "/images/traction/reel-6.jpg", formato: "reel" as const },
-  { src: "/images/traction/carrusel-6.jpg", formato: "carrusel" as const },
+  { src: "/images/traction/reel-1.jpg" + V, formato: "reel" as const },
+  { src: "/images/traction/carrusel-1.jpg" + V, formato: "carrusel" as const },
+  { src: "/images/traction/reel-2.jpg" + V, formato: "reel" as const },
+  { src: "/images/traction/carrusel-2.jpg" + V, formato: "carrusel" as const },
+  { src: "/images/traction/reel-3.jpg" + V, formato: "reel" as const },
+  { src: "/images/traction/carrusel-3.jpg" + V, formato: "carrusel" as const },
+  { src: "/images/traction/reel-4.jpg" + V, formato: "reel" as const },
+  { src: "/images/traction/carrusel-4.jpg" + V, formato: "carrusel" as const },
+  { src: "/images/traction/reel-5.jpg" + V, formato: "reel" as const },
+  { src: "/images/traction/carrusel-5.jpg" + V, formato: "carrusel" as const },
+  { src: "/images/traction/reel-6.jpg" + V, formato: "reel" as const },
+  { src: "/images/traction/carrusel-6.jpg" + V, formato: "carrusel" as const },
 ];
 
 
