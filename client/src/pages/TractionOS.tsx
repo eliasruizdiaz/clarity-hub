@@ -462,6 +462,7 @@ export default function TractionOS() {
     const routeStyle = document.createElement("style");
 
     routeStyle.dataset.routeStyles = "traction-os";
+    routeStyle.dataset.build = "v2-1";
     routeStyle.textContent = tractionStyles;
     document.head.appendChild(routeStyle);
     document.title = "Clarity Traction OS · Tu propio sistema de contenido con IA";
