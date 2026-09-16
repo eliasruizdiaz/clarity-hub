@@ -184,31 +184,59 @@ function ScrollButton({ className = "" }: { className?: string }) {
   );
 }
 
-function IconoReel({ className = "" }: { className?: string }) {
+// El degradado de Instagram se define una sola vez y lo referencian todos los
+// iconos. Con "degradado" se pintan con el color de la marca; sin el, heredan
+// currentColor (blanco sobre las miniaturas, como hace Instagram de verdad).
+function GradienteInstagram() {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <rect x="3" y="3" width="18" height="18" rx="5" />
-      <path d="M3.4 8.6h17.2" />
-      <path d="m8.6 3.2 3.2 5.4" />
-      <path d="m14.6 3.2 3.2 5.4" />
-      <path d="M10.6 12.3v4.6l4-2.3z" fill="currentColor" stroke="none" />
+    <svg width="0" height="0" aria-hidden="true" focusable="false" style={{ position: "absolute" }}>
+      <defs>
+        <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#FEDA75" />
+          <stop offset="25%" stopColor="#FA7E1E" />
+          <stop offset="50%" stopColor="#D62976" />
+          <stop offset="75%" stopColor="#962FBF" />
+          <stop offset="100%" stopColor="#4F5BD5" />
+        </linearGradient>
+      </defs>
     </svg>
   );
 }
 
-function IconoCarrusel({ className = "" }: { className?: string }) {
+type PropsIcono = { className?: string; degradado?: boolean };
+const trazo = (degradado?: boolean) => (degradado ? "url(#ig-grad)" : "currentColor");
+
+function IconoReel({ className = "", degradado }: PropsIcono) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke={trazo(degradado)} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <path d="M3.4 8.6h17.2" />
+      <path d="m8.6 3.2 3.2 5.4" />
+      <path d="m14.6 3.2 3.2 5.4" />
+      <path d="M10.6 12.3v4.6l4-2.3z" fill={trazo(degradado)} stroke="none" />
+    </svg>
+  );
+}
+
+function IconoCarrusel({ className = "", degradado }: PropsIcono) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke={trazo(degradado)} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <rect x="7.5" y="3.5" width="13" height="13" rx="3" />
       <path d="M16.5 20.5h-9a4 4 0 0 1-4-4v-9" />
     </svg>
   );
 }
 
-const formatos = [
-  { Icono: IconoReel, label: "Reel" },
-  { Icono: IconoCarrusel, label: "Carrusel" },
-];
+function IconoStories({ className = "", degradado }: PropsIcono) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke={trazo(degradado)} strokeWidth="1.9" strokeLinecap="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="9.1" strokeDasharray="5.6 3.4" />
+      <path d="M12 8.2v7.6M8.2 12h7.6" />
+    </svg>
+  );
+}
+
+const formatos = [IconoReel, IconoCarrusel, IconoStories];
 
 // ?v=2 rompe la cache del borde. Cloudflare habia guardado el HTML del fallback
 // bajo estas URLs (se consultaron antes de que existieran, y _headers le pone
@@ -255,12 +283,10 @@ function ContentWall() {
       </div>
 
       <div className="board-channels">
+        <GradienteInstagram />
         <img src="/images/brecha/instagram.svg" alt="Instagram" />
-        {formatos.map(({ Icono, label }) => (
-          <span className="format-item" key={label}>
-            <Icono />
-            <span>{label}</span>
-          </span>
+        {formatos.map((Icono, i) => (
+          <Icono key={i} className="format-icon" degradado />
         ))}
       </div>
 
@@ -273,7 +299,7 @@ function ContentWall() {
                 {loop.map((pieza, i) => (
                   <figure className={`wall-item wall-item-${pieza.formato}`} key={`${c}-${i}`}>
                     <img src={pieza.src} alt="" />
-                    {pieza.formato === "reel" ? <IconoReel /> : <IconoCarrusel />}
+                    {pieza.formato === "reel" ? <IconoReel degradado /> : <IconoCarrusel degradado />}
                   </figure>
                 ))}
               </div>
