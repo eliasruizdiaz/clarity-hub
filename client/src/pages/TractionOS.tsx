@@ -240,12 +240,6 @@ function ContentWall() {
   );
 }
 
-const entregas = [
-  { inicial: "MA", nombre: "Martina", nicho: "Entrenamiento para mamás" },
-  { inicial: "JO", nombre: "Joaquín", nicho: "Finanzas personales" },
-  { inicial: "CA", nombre: "Camila", nicho: "Repostería" },
-];
-
 const agentes = [
   { icono: Lightbulb, nombre: "Ideas de contenido" },
   { icono: Search, nombre: "Referencias de su nicho" },
@@ -325,28 +319,18 @@ function CerebroDiagrama() {
         <span className="cerebro-247">
           <Clock aria-hidden="true" /> Disponible 24/7 para tus clientes
         </span>
-        <div className="cerebro-clientes">
-          {entregas.map((e) => (
-            <i key={e.inicial}>
-              <b>{e.inicial}</b>
-              <span>
-                {e.nombre}
-                <small>{e.nicho}</small>
-              </span>
-            </i>
-          ))}
-          <i className="cerebro-mas">+17</i>
+        <div className="cerebro-stat">
+          <b>230</b>
+          <small>piezas generadas esta semana</small>
         </div>
-        <small className="cerebro-pie">Sus piezas ya están hechas. No esperan a la sesión.</small>
         <div className="cerebro-resultado">
           <span className="confeti" aria-hidden="true">
             {Array.from({ length: 12 }, (_, i) => <i key={i} />)}
           </span>
-          <Medal aria-hidden="true" className="medalla" />
-          <div className="resultado-texto">
-            <b>Martina llegó a su caso de éxito</b>
-            <small>Su testimonio es el argumento de tu próxima venta.</small>
-          </div>
+          <span className="resultado-hito">
+            <Medal aria-hidden="true" /> Caso de éxito
+          </span>
+          <ArrowRight aria-hidden="true" className="resultado-flecha" />
           <span className="resultado-ventas">
             <TrendingUp aria-hidden="true" /> Más ventas
           </span>
