@@ -55,7 +55,7 @@ export default function TractionOSSection() {
               Clarity <span className="text-[#c9f29e]">Traction OS.</span>
             </h2>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#e0ecdb] md:text-xl">
-              Una IA convierte tu método en <strong className="text-[#c9f29e]">guiones, carruseles y pasos de ejecución personalizados</strong>, para que tus alumnos sepan exactamente qué hacer y cómo aplicarlo.
+              <strong className="text-[#c9f29e]">Tu propio sistema de contenido con IA</strong>: convierte tu metodología en guiones, carruseles y pasos de ejecución personalizados, para que tus alumnos sepan exactamente qué hacer y cómo aplicarlo.
             </p>
             <div className="mt-8 grid gap-3">
               {[

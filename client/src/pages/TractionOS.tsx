@@ -350,10 +350,10 @@ export default function TractionOS() {
               className="hero-copy"
             >
               <h1>
-                Ayudá a tus alumnos a conseguir <em>resultados</em> con <span className="brand-highlight">tu metodología</span> en 90 días.
+                <span className="brand-highlight">Tu propio sistema de contenido</span> con IA, para que tus alumnos consigan <em>resultados en 90&nbsp;días</em>.
               </h1>
               <h2 className="hero-sub">
-                Un sistema de IA convierte tu método en guiones, carruseles y pasos de ejecución personalizados, para que tus alumnos sepan exactamente qué hacer y cómo aplicarlo.
+                Convierte tu metodología en guiones, carruseles y pasos de ejecución personalizados, para que tus alumnos sepan exactamente qué hacer y cómo aplicarlo.
               </h2>
               <p className="hero-description">
                 Cada pieza sale con tu criterio y pasa por tu aprobación antes de llegarles. Ellos la terminan y la publican.
