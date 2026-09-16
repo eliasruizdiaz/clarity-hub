@@ -244,6 +244,9 @@
 .board-topline { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
 .board-channels { position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; gap: clamp(1rem, 7cqw, 2.6rem); margin-top: 1rem; padding: clamp(.7rem, 2.2vw, 1rem) clamp(.8rem, 2.4vw, 1.1rem); border: 1px solid rgba(46,106,52,.16); border-radius: .9rem; background: linear-gradient(120deg, rgba(244,81,42,.07), rgba(105,189,72,.09)); }
 .board-channels img { width: 2.4rem; height: 2.4rem; width: clamp(1.9rem, 12cqw, 3.1rem); height: clamp(1.9rem, 12cqw, 3.1rem); flex: 0 1 auto; object-fit: contain; filter: drop-shadow(0 5px 10px rgba(27,33,24,.16)); }
+.format-item { display: grid; justify-items: center; gap: .3rem; color: var(--forest); }
+.format-item svg { width: clamp(1.6rem, 9cqw, 2.4rem); height: clamp(1.6rem, 9cqw, 2.4rem); }
+.format-item span { color: #6c7766; font-family: "DM Mono", monospace; font-size: clamp(.4rem, 1.9cqw, .5rem); letter-spacing: .1em; text-transform: uppercase; }
 
 .board-subline { position: relative; z-index: 2; display: flex; align-items: baseline; justify-content: space-between; gap: .6rem; margin: 1rem 0 .6rem; padding-bottom: .5rem; border-bottom: 1px solid rgba(46,106,52,.14); color: #6c7766; font-family: "DM Mono", monospace; font-size: clamp(.44rem, 2cqw, .53rem); letter-spacing: .11em; line-height: 1.35; text-transform: uppercase; }
 .board-rows { position: relative; z-index: 2; display: grid; gap: .42rem; }
@@ -299,7 +302,7 @@
 .wall-col-c { display: none; }
 .wall-item { position: relative; overflow: hidden; border: 1px solid rgba(27,33,24,.1); border-radius: .7rem; background: #fff; box-shadow: 0 6px 16px rgba(27,33,24,.08); }
 .wall-item img { display: block; width: 100%; height: auto; }
-.wall-item span { position: absolute; top: .4rem; left: .4rem; padding: .2rem .42rem; border-radius: .35rem; background: rgba(27,33,24,.72); color: #fff; font-family: "DM Mono", monospace; font-size: .44rem; letter-spacing: .08em; text-transform: uppercase; backdrop-filter: blur(4px); }
+.wall-item > svg { position: absolute; top: .38rem; right: .38rem; width: .95rem; height: .95rem; color: #fff; filter: drop-shadow(0 1px 3px rgba(0,0,0,.55)); }
 .wall-caption { position: relative; z-index: 2; display: flex; align-items: flex-start; gap: .45rem; margin-top: .85rem; padding-top: .8rem; border-top: 1px solid rgba(46,106,52,.14); color: var(--forest); font-size: .7rem; font-weight: 700; line-height: 1.35; }
 .wall-caption svg { flex: 0 0 auto; width: .9rem; margin-top: .06rem; color: var(--coral); }
 

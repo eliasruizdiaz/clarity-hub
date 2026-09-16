@@ -184,33 +184,54 @@ function ScrollButton({ className = "" }: { className?: string }) {
   );
 }
 
-const contentPieces = [
-  { src: "/images/traction/reel-1.jpg", tipo: "Reel", alt: "Reel generado con el método del mentor" },
-  { src: "/images/traction/carrusel-1.jpg", tipo: "Carrusel", alt: "Carrusel generado con el método del mentor" },
-  { src: "/images/traction/reel-2.jpg", tipo: "Reel", alt: "Reel generado con el método del mentor" },
-  { src: "/images/traction/carrusel-2.jpg", tipo: "Carrusel", alt: "Carrusel generado con el método del mentor" },
+function IconoReel({ className = "" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <path d="M3.4 8.6h17.2" />
+      <path d="m8.6 3.2 3.2 5.4" />
+      <path d="m14.6 3.2 3.2 5.4" />
+      <path d="M10.6 12.3v4.6l4-2.3z" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+function IconoCarrusel({ className = "" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="7.5" y="3.5" width="13" height="13" rx="3" />
+      <path d="M16.5 20.5h-9a4 4 0 0 1-4-4v-9" />
+    </svg>
+  );
+}
+
+const formatos = [
+  { Icono: IconoReel, label: "Reel" },
+  { Icono: IconoCarrusel, label: "Carrusel" },
 ];
 
-const channels = [
-  { label: "Instagram", src: "/images/brecha/instagram.svg" },
-  { label: "TikTok", src: "/images/brecha/tiktok.svg" },
-  { label: "Facebook", src: "/images/brecha/facebook.svg" },
-  { label: "Meta", src: "/images/brecha/meta.svg" },
+const contentPieces = [
+  { src: "/images/traction/reel-1.jpg", formato: "reel" as const },
+  { src: "/images/traction/carrusel-1.jpg", formato: "carrusel" as const },
+  { src: "/images/traction/reel-2.jpg", formato: "reel" as const },
+  { src: "/images/traction/carrusel-2.jpg", formato: "carrusel" as const },
 ];
+
 
 const chipIcon = { go: Check, wait: ClipboardCheck, risk: UserMinus };
 
 function ContentWall() {
-  // Cada columna arranca en una pieza distinta y se duplica, para que el loop no se note.
-  const columna = (desde: number) => {
-    const rotada = [...contentPieces.slice(desde), ...contentPieces.slice(0, desde)];
-    return [...rotada, ...rotada];
-  };
-  const columnas = [
-    { clase: "wall-col", piezas: columna(0) },
-    { clase: "wall-col wall-col-b", piezas: columna(2) },
-    { clase: "wall-col wall-col-c", piezas: columna(1) },
-  ];
+  const COLUMNAS = 3;
+  // Con 9 piezas o mas, cada columna recibe su propio set sin compartir ninguna:
+  // asi nunca se ve la misma dos veces al mismo tiempo. Con menos no alcanza para
+  // repartir, y se rota la lista para que ninguna columna quede vacia.
+  const alcanzaParaRepartir = contentPieces.length >= COLUMNAS * 3;
+  const reparto = Array.from({ length: COLUMNAS }, (_, c) =>
+    alcanzaParaRepartir
+      ? contentPieces.filter((_, i) => i % COLUMNAS === c)
+      : [...contentPieces.slice(c), ...contentPieces.slice(0, c)]
+  );
+  const clases = ["wall-col", "wall-col wall-col-b", "wall-col wall-col-c"];
 
   return (
     <div className="group-board" aria-label="Contenido generado con el método del mentor">
@@ -220,23 +241,30 @@ function ContentWall() {
       </div>
 
       <div className="board-channels">
-        {channels.map((channel) => (
-          <img key={channel.label} src={channel.src} alt={channel.label} />
+        <img src="/images/brecha/instagram.svg" alt="Instagram" />
+        {formatos.map(({ Icono, label }) => (
+          <span className="format-item" key={label}>
+            <Icono />
+            <span>{label}</span>
+          </span>
         ))}
       </div>
 
       <div className="content-wall">
         <div className="wall-cols">
-          {columnas.map((col, ci) => (
-            <div className={col.clase} key={col.clase} aria-hidden="true">
-              {col.piezas.map((pieza, i) => (
-                <figure className="wall-item" key={`${ci}-${i}`}>
-                  <img src={pieza.src} alt="" loading="lazy" />
-                  <span>{pieza.tipo}</span>
-                </figure>
-              ))}
-            </div>
-          ))}
+          {reparto.map((set, c) => {
+            const loop = set.length ? [...set, ...set, ...set] : [];
+            return (
+              <div className={clases[c]} key={c} aria-hidden="true">
+                {loop.map((pieza, i) => (
+                  <figure className="wall-item" key={`${c}-${i}`}>
+                    <img src={pieza.src} alt="" loading="lazy" />
+                    {pieza.formato === "reel" ? <IconoReel /> : <IconoCarrusel />}
+                  </figure>
+                ))}
+              </div>
+            );
+          })}
         </div>
       </div>
 
