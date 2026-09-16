@@ -34,23 +34,23 @@ const calendarUrl = "https://calendar.app.google/ngxAfHKR5fs7SW8aA";
 const contrasts = [
   {
     who: "El que no arranca",
-    now: "Abre el documento en blanco y se queda mirando la pantalla.",
-    next: "Abre el sistema y ya tiene el paso que le toca, con referencias y el guion empezado para su caso.",
+    now: "Abre el documento en blanco y se queda mirando.",
+    next: "Abre el sistema y tiene su paso, con referencias y el guion empezado.",
   },
   {
     who: "El que tarda una semana",
     now: "Un reel que vos resolvés en veinte minutos a él le come siete días.",
-    next: "Arranca con el borrador hecho y solo tiene que terminarlo.",
+    next: "Arranca con el borrador hecho y lo termina.",
   },
   {
     who: "El que publica cualquier cosa",
-    now: "Produce algo que no se parece a lo que le enseñaste y ya lo subió.",
-    next: "Nada se publica sin tu visto bueno, y la propuesta ya sale con tu criterio.",
+    now: "Publica algo que no se parece a lo que le enseñaste.",
+    next: "Nada se publica sin tu visto bueno.",
   },
   {
     who: "El que desaparece",
-    now: "No se queja ni avisa: deja de publicar y no vuelve más.",
-    next: "Lo ves dejar de publicar mientras todavía lo podés recuperar.",
+    now: "No se queja ni avisa: deja de publicar y no vuelve.",
+    next: "Lo ves frenarse cuando todavía lo podés recuperar.",
   },
 ];
 
@@ -59,7 +59,7 @@ const stages = [
     number: "01",
     key: "sombra",
     title: "Sombra",
-    copy: "Arrancás acá. Cada propuesta pasa por vos y cada cambio que hacés entrena a la IA con tu criterio.",
+    copy: "Cada propuesta pasa por vos. Cada cambio que hacés entrena a la IA con tu criterio.",
     icon: ClipboardCheck,
     approval: 100,
     meterLabel: "Propuestas que revisás vos",
@@ -71,7 +71,7 @@ const stages = [
     number: "02",
     key: "copiloto",
     title: "Copiloto",
-    copy: "La IA ya sabe cómo armás las piezas que se repiten. Te consulta solo lo que no vio antes.",
+    copy: "La IA ya sabe cómo armás lo que se repite. Te consulta lo que no vio antes.",
     icon: Workflow,
     approval: 40,
     meterLabel: "Propuestas que revisás vos",
@@ -83,7 +83,7 @@ const stages = [
     number: "03",
     key: "autonomo",
     title: "Autónomo",
-    copy: "La IA propone como lo harías vos y te avisa. Tu trabajo pasa a ser mirar el tablero.",
+    copy: "La IA propone como lo harías vos. Tu trabajo es mirar el tablero.",
     icon: Gauge,
     approval: 12,
     meterLabel: "Propuestas que revisás vos",
@@ -94,16 +94,16 @@ const stages = [
 ] as const;
 
 const ladoAlumno = [
-  "Ve **el paso exacto que le toca**, según lo que ya hizo y dónde se trabó. No el programa entero encima.",
-  "Recibe las referencias, el ángulo y **el guion ya empezado**, armados para su caso y con tu criterio.",
-  "Lo manda, vos lo aprobás y recién ahí se publica. Después se abre el paso siguiente.",
+  "Ve **el paso que le toca**, según lo que ya hizo y dónde se trabó.",
+  "Recibe las referencias, el ángulo y **el guion ya empezado**, armados para su caso.",
+  "Lo manda, vos lo aprobás, se publica. Ahí se abre el paso siguiente.",
 ];
 
 const ladoMentor = [
-  "La IA produce las propuestas con tu método y **te las deja listas para aprobar**. Vos decidís, no redactás.",
-  "Dejás de mandar por décima vez la misma referencia y el mismo ejemplo a cada alumno nuevo.",
-  "**Podés tomar más alumnos sin bajar la calidad**, porque tu criterio ya no depende de tu tiempo.",
-  "Y de paso ves quién avanza y quién se trabó, sin tener que perseguir a nadie.",
+  "La IA arma las propuestas con tu método y **te las deja listas**. Vos decidís, no redactás.",
+  "Dejás de mandar la misma referencia a cada alumno nuevo.",
+  "**Tomás más alumnos sin bajar la calidad**: tu criterio ya no depende de tu tiempo.",
+  "Ves quién avanza y quién se trabó, sin perseguir a nadie.",
 ];
 
 const setupDeliverables = [
@@ -119,25 +119,25 @@ const results = [
   {
     number: "01",
     title: "Más alumnos produciendo de verdad",
-    copy: "No solamente los dos o tres que ya sabían producir solos. La mayoría del grupo publica y llega a un resultado concreto.",
+    copy: "No solo los dos o tres que ya sabían. La mayoría del grupo publica y llega a un resultado.",
   },
   {
     number: "02",
     title: "Más testimonios para vender",
-    copy: "Cada alumno que llega es una prueba fresca para vender el próximo grupo, y no tenés que salir a pedir favores para conseguir un video.",
+    copy: "Cada alumno que llega es prueba para vender el próximo grupo. No tenés que rogar por un video.",
   },
   {
     number: "03",
     title: "Alumnos que se quedan con vos",
-    copy: "El que consigue resultados quiere seguir. Ahí un programa que se cobraba una sola vez se convierte en alguien que te paga todos los meses.",
+    copy: "El que consigue resultados quiere seguir. Un programa que cobrabas una vez pasa a pagarte todos los meses.",
     final: true,
   },
 ];
 
 const bonuses = [
-  "Kit de Lanzamiento Interno: cómo presentárselo a tus alumnos para que lo usen desde la primera semana.",
-  "Radiografía del Método al día 30: en qué paso se traban más tus alumnos y qué les falta para arrancarlo.",
-  "Tu Grupo Actual Entra: los alumnos que ya tenés hoy, no solamente el próximo grupo.",
+  "Kit de Lanzamiento Interno: cómo presentárselo para que lo usen desde la primera semana.",
+  "Radiografía del Método al día 30: en qué paso se traban y qué les falta.",
+  "Tu Grupo Actual Entra: los alumnos que ya tenés, no solo el próximo grupo.",
 ];
 
 const fitSignals = [
@@ -151,19 +151,19 @@ const fitSignals = [
 const faqs = [
   {
     q: "¿Reemplaza mis sesiones?",
-    a: "No. Llegás a cada sesión con el resumen de cada alumno: qué hizo, qué le costó y qué le toca. Las sesiones rinden más, no desaparecen.",
+    a: "No. Llegás a cada sesión con el resumen de cada alumno: qué hizo, qué le costó, qué le toca. Rinden más, no desaparecen.",
   },
   {
     q: "¿La IA va a escribir como yo?",
-    a: "Nada le llega a tus alumnos sin tu visto bueno. La IA arranca con tus referencias y tus guiones, aprende de cada cambio que le hacés, y con el tiempo necesita consultarte menos.",
+    a: "Nada le llega a tus alumnos sin tu visto bueno. La IA arranca con tus referencias y tus guiones, aprende de cada cambio tuyo y con el tiempo te consulta menos.",
   },
   {
     q: "¿Mis alumnos lo van a usar?",
-    a: "Para eso existe el Kit de Lanzamiento Interno, y por eso tu grupo actual entra desde el día uno en vez de esperar al próximo.",
+    a: "Para eso existe el Kit de Lanzamiento Interno. Y tu grupo actual entra desde el día uno.",
   },
   {
     q: "¿Qué pasa si no funciona?",
-    a: "Hay garantía, y las condiciones las escribimos con tus números en la llamada: qué contás vos como caso de éxito, en cuánto tiempo y sobre qué alumnos se mide. No es un párrafo genérico igual para todos.",
+    a: "Hay garantía. Las condiciones las escribimos con tus números en la llamada: qué contás como caso de éxito, en cuánto tiempo y sobre qué alumnos se mide. No un párrafo igual para todos.",
   },
 ];
 
@@ -319,7 +319,7 @@ function ContentWall() {
 
       <div className="wall-caption">
         <Sparkles aria-hidden="true" />
-        <span>Piezas nuevas todas las semanas, para cada alumno, con tu método adentro.</span>
+        <span>Piezas nuevas cada semana, para cada alumno, con tu método adentro.</span>
       </div>
     </div>
   );
@@ -361,7 +361,7 @@ function GroupCostCalculator() {
         <div className="calculator-label">
           <span className="eyebrow">CALCULADORA</span>
           <h3>¿Cuánto dejaste de vender el año pasado?</h3>
-          <p>Con los números reales de tu programa.</p>
+          <p>Con los números de tu programa.</p>
         </div>
         <label className="range-field">
           <span>Alumnos nuevos por mes <b>{students}</b></span>
@@ -378,7 +378,7 @@ function GroupCostCalculator() {
       </div>
       <div className="calculator-result" aria-live="polite">
         <span className="eyebrow">VENTAS QUE NO PASARON</span>
-        <p>Los alumnos que no llegaron a su caso de éxito no te compran lo próximo. A tu ticket:</p>
+        <p>El que no llega a su caso de éxito no te compra lo próximo. A tu ticket:</p>
         <motion.strong key={value} initial={{ opacity: 0.5, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.22 }}>
           {money(value)} <small>por año</small>
         </motion.strong>
@@ -387,7 +387,7 @@ function GroupCostCalculator() {
           <span>{withCase}<small>llegan a su caso de éxito</small></span>
         </div>
         <p className="calculator-note">
-          No todos te habrían comprado de nuevo, eso es honesto decirlo. Pero el que llega a su caso de éxito vuelve, te refiere y te deja un testimonio. El que no llega no hace ninguna de las tres.
+          No todos te habrían comprado de nuevo. Pero el que llega vuelve, te refiere y te deja un testimonio. El que no llega, ninguna de las tres.
         </p>
         <a href={calendarUrl} target="_blank" rel="noopener noreferrer" className="calculator-link">
           Quiero mover ese número <ArrowRight aria-hidden="true" />
@@ -429,15 +429,15 @@ export default function TractionOS() {
                 <span className="brand-highlight">Tu propio sistema de contenido</span> con IA, para que tus alumnos creen <em>guiones, carruseles y stories</em>.
               </h1>
               <h2 className="hero-sub">
-                Convierte tu metodología en piezas personalizadas para cada alumno, para que sepan exactamente qué hacer y consigan resultados en 90 días.
+                Convierte tu metodología en piezas para cada alumno, para que sepan qué hacer y consigan resultados en 90 días.
               </h2>
               <p className="hero-description">
-                Cada pieza sale con tu criterio y pasa por tu aprobación antes de llegarles. Ellos la terminan y la publican.
+                Cada pieza sale con tu criterio y pasa por tu aprobación. Ellos la terminan y la publican.
               </p>
               <div className="hero-actions">
                 <ScrollButton />
                 <span className="hero-microcopy">
-                  <BadgeCheck aria-hidden="true" /> Primero vemos cómo es tu método y cuánto produce hoy tu grupo. Después revisamos si hay encaje.
+                  <BadgeCheck aria-hidden="true" /> Vemos tu método y cuánto produce hoy tu grupo. Después, si hay encaje.
                 </span>
               </div>
             </motion.div>
@@ -467,7 +467,7 @@ export default function TractionOS() {
                 <h2>Tus alumnos entienden tu método pero <em>no saben hacer el contenido.</em></h2>
               </div>
               <p>
-                Se los explicaste bien y te dijeron que sí. Pero cuando se sientan solos no saben qué ángulo usar, con qué gancho arrancar ni si lo que hicieron sirve. Ahí se frena todo.
+                Se los explicaste y te dijeron que sí. Pero solos no saben qué ángulo usar, con qué gancho arrancar, ni si lo que hicieron sirve.
               </p>
             </div>
             <div className="contrast-table">
@@ -504,7 +504,7 @@ export default function TractionOS() {
               <h2>Una IA entrenada con tu método que <em>le escribe el contenido</em> a cada alumno.</h2>
             </div>
             <p>
-              Guiones, carruseles y el paso que le toca a cada uno, armados con tu criterio. Nada le llega sin tu visto bueno.
+              Guiones, carruseles y el paso que le toca a cada uno. Nada sale sin tu visto bueno.
             </p>
           </div>
         </section>
@@ -521,7 +521,7 @@ export default function TractionOS() {
                 <h2>La IA escribe, <em>vos aprobás</em>, tu alumno publica.</h2>
               </div>
               <p>
-                Un lado le dice a cada alumno exactamente qué hacer y le da con qué hacerlo. El otro te deja a vos solo la decisión de aprobar. En el medio hay una IA entrenada con tu método, no una IA genérica que leyó cualquier cosa en internet.
+                Un lado le dice a cada alumno qué hacer y le da con qué. El otro te deja solo la decisión de aprobar. En el medio, una IA entrenada con tu método, no una genérica.
               </p>
             </div>
 
@@ -615,7 +615,7 @@ export default function TractionOS() {
             <div className="stage-strip">
               <span className="eyebrow">EL MÉTODO SOMBRA</span>
               <p>
-                Al principio revisás todas las propuestas. Después la IA resuelve sola las que ya le corregiste mil veces y te consulta únicamente lo que no sabe cómo lo harías vos.
+                Al principio revisás todas. Después la IA resuelve sola las que ya corregiste mil veces y te consulta solo lo que no vio.
               </p>
               <div className="stage-grid">
                 {stages.map((stage, index) => (
@@ -661,7 +661,7 @@ export default function TractionOS() {
             </div>
             <p className="result-close">
               <Repeat2 aria-hidden="true" />
-              Hasta 8 de cada 10 de los que siguen el método llegan a su primer caso de éxito en 90 días. Y cada grupo que sale con casos hace más fácil vender el siguiente.
+              Hasta 8 de cada 10 de los que siguen el método llegan a su primer caso de éxito en 90 días. Cada grupo con casos hace más fácil vender el siguiente.
             </p>
           </div>
         </section>
@@ -673,7 +673,7 @@ export default function TractionOS() {
               <h2>Tu método, convertido en guiones y carruseles</h2>
               <p className="audit-lead">Tus referencias, tus ángulos y tus guiones, listos para que tu próximo grupo produzca.</p>
               <p>
-                Tomamos tu método tal como lo enseñás, tus mejores referencias y tus guiones que ya funcionaron, y los cargamos adentro. Desde ahí la IA arma lo de cada alumno con tu criterio, y vos solo aprobás.
+                Cargamos tu método, tus referencias y los guiones que ya funcionaron. Desde ahí la IA arma lo de cada alumno con tu criterio, y vos aprobás.
               </p>
               <ScrollButton className="clarity-button-light" />
             </div>
@@ -683,7 +683,7 @@ export default function TractionOS() {
                 {setupDeliverables.map((item) => <div key={item}><Check aria-hidden="true" />{item}</div>)}
               </div>
               <p>
-                La fase siguiente se cotiza aparte: módulo de escala para alumnos que ya monetizan, pasos de venta, métricas de Instagram por alumno, tablero completo del programa e integraciones con tus herramientas.
+                La fase siguiente se cotiza aparte: escala para alumnos que ya monetizan, pasos de venta, métricas por alumno, tablero del programa e integraciones.
               </p>
             </div>
           </div>
@@ -695,7 +695,7 @@ export default function TractionOS() {
               <span className="eyebrow">BONOS</span>
               <h2>Tres cosas para que tu grupo <em>actual</em> empiece a producir desde la primera semana.</h2>
               <p>
-                El riesgo real de cualquier herramienta nueva es que los alumnos no la abran nunca.
+                El riesgo de toda herramienta nueva es que los alumnos no la abran.
               </p>
             </div>
             <div className="capability-list">
@@ -716,12 +716,12 @@ export default function TractionOS() {
               <span className="eyebrow">ESTADO REAL</span>
               <h3>Sos de los primeros y te lo digo de frente.</h3>
               <p>
-                Como producto esto es nuevo. Por eso entrás con condiciones de fundador, y por eso te digo lo que sigue antes de que lo tengas que preguntar.
+                Como producto esto es nuevo. Por eso entrás con condiciones de fundador, y por eso te digo lo que sigue antes de que preguntes.
               </p>
               <div className="founder-points">
-                <p><ShieldCheck aria-hidden="true" /> El motor de IA de este sistema corre en nuestro propio negocio hace meses: nuestros mensajes, nuestros recursos y el aprendizaje de cada corrección funcionan con él.</p>
-                <p><BadgeCheck aria-hidden="true" /> Todavía no hay casos de éxito de clientes publicados. Cuando alguien te muestre veinte logos en esta etapa, desconfiá.</p>
-                <p><Workflow aria-hidden="true" /> El sistema corre en tu infraestructura y en tus cuentas. La documentación y los procesos quedan tuyos.</p>
+                <p><ShieldCheck aria-hidden="true" /> El motor de IA corre en nuestro negocio hace meses: nuestros mensajes, nuestros recursos y el aprendizaje de cada corrección.</p>
+                <p><BadgeCheck aria-hidden="true" /> Todavía no hay casos de clientes publicados. Cuando alguien te muestre veinte logos en esta etapa, desconfiá.</p>
+                <p><Workflow aria-hidden="true" /> Corre en tu infraestructura y tus cuentas. La documentación y los procesos quedan tuyos.</p>
                 <p><HeartHandshake aria-hidden="true" /> Hay garantía. Las condiciones las escribimos con tus números en la llamada, no en una landing.</p>
               </div>
             </div>
@@ -734,7 +734,7 @@ export default function TractionOS() {
               <span className="eyebrow">¿HAY ENCAJE?</span>
               <h2>Para mentorías de contenido con grupos, <em>no para cursos sueltos.</em></h2>
               <p className="fit-note">
-                Y no es para vos si tu método todavía no produjo ningún caso de éxito. <strong>El sistema no arregla un método: lo expone más rápido.</strong>
+                No es para vos si tu método todavía no produjo un caso de éxito. <strong>El sistema no arregla un método: lo expone.</strong>
               </p>
             </div>
             <div className="fit-checklist">
@@ -766,10 +766,10 @@ export default function TractionOS() {
               <span className="eyebrow eyebrow-light">SIGUIENTE PASO</span>
               <h2>¿Cuándo arranca tu próximo grupo?</h2>
               <p>
-                Si arrancamos ahora, ese grupo empieza con esto andando. Si no, ese grupo entero son casos de éxito y testimonios que no van a existir.
+                Si arrancamos ahora, ese grupo empieza con esto andando. Si no, es un grupo entero de casos y testimonios que no van a existir.
               </p>
               <p>
-                En la llamada revisamos tu método, tus referencias y cuánto produce hoy tu grupo. Traelo como está.
+                Revisamos tu método, tus referencias y cuánto produce hoy tu grupo. Traelo como está.
               </p>
             </div>
             <div className="agenda-card">
@@ -787,7 +787,7 @@ export default function TractionOS() {
       <footer className="site-footer">
         <div className="container footer-inner">
           <img src={logo} alt="Clarity Hub" />
-          <p>Clarity Traction OS · Para que los alumnos del mentor sepan exactamente qué hacer, y lo hagan.</p>
+          <p>Clarity Traction OS · Para que los alumnos del mentor sepan qué hacer, y lo hagan.</p>
           <span>Clarity Hub</span>
         </div>
       </footer>
