@@ -19,7 +19,6 @@ import {
   Layers,
   Lock,
   Lightbulb,
-  Radar,
   Repeat2,
   ShieldCheck,
   Sparkles,
@@ -185,12 +184,11 @@ function ScrollButton({ className = "" }: { className?: string }) {
   );
 }
 
-const boardStudents = [
-  { initials: "MA", name: "Martina", step: "Paso 3 · Reel aprobado, produciendo", state: "go" as const, chip: "Avanza" },
-  { initials: "JO", name: "Joaquín", step: "Paso 2 · Carrusel esperando tu OK", state: "wait" as const, chip: "Tu turno" },
-  { initials: "CA", name: "Camila", step: "Paso 1 · Hace 6 días que no publica", state: "risk" as const, chip: "La estás perdiendo" },
-  { initials: "DI", name: "Diego", step: "Paso 4 · Primer caso de éxito en curso", state: "go" as const, chip: "Avanza" },
-  { initials: "LU", name: "Lucía", step: "Paso 2 · Repitió el error del gancho", state: "wait" as const, chip: "Revisar" },
+const contentPieces = [
+  { src: "/images/traction/reel-1.jpg", tipo: "Reel", alt: "Reel generado con el método del mentor" },
+  { src: "/images/traction/carrusel-1.jpg", tipo: "Carrusel", alt: "Carrusel generado con el método del mentor" },
+  { src: "/images/traction/reel-2.jpg", tipo: "Reel", alt: "Reel generado con el método del mentor" },
+  { src: "/images/traction/carrusel-2.jpg", tipo: "Carrusel", alt: "Carrusel generado con el método del mentor" },
 ];
 
 const channels = [
@@ -202,48 +200,49 @@ const channels = [
 
 const chipIcon = { go: Check, wait: ClipboardCheck, risk: UserMinus };
 
-function GroupBoard() {
+function ContentWall() {
+  // Cada columna arranca en una pieza distinta y se duplica, para que el loop no se note.
+  const columna = (desde: number) => {
+    const rotada = [...contentPieces.slice(desde), ...contentPieces.slice(0, desde)];
+    return [...rotada, ...rotada];
+  };
+  const columnas = [
+    { clase: "wall-col", piezas: columna(0) },
+    { clase: "wall-col wall-col-b", piezas: columna(2) },
+    { clase: "wall-col wall-col-c", piezas: columna(1) },
+  ];
+
   return (
-    <div className="group-board" aria-label="Tablero del grupo con el estado de cada alumno">
+    <div className="group-board" aria-label="Contenido generado con el método del mentor">
       <div className="board-topline">
         <div className="flow-brand-signature"><img src={logo} alt="Clarity Hub" /><span>TRACTION OS</span></div>
-        <span className="status-pill"><span /> MÉTODO EN EJECUCIÓN</span>
+        <span className="status-pill"><span /> GENERANDO CONTENIDO</span>
       </div>
+
       <div className="board-channels">
         {channels.map((channel) => (
           <img key={channel.label} src={channel.src} alt={channel.label} />
         ))}
       </div>
-      <div className="board-subline">
-        <span>Tu mentoría · 5 alumnos</span>
-        <span>3 produciendo · 1 espera tu OK · 1 a punto de abandonar</span>
+
+      <div className="content-wall">
+        <div className="wall-cols">
+          {columnas.map((col, ci) => (
+            <div className={col.clase} key={col.clase} aria-hidden="true">
+              {col.piezas.map((pieza, i) => (
+                <figure className="wall-item" key={`${ci}-${i}`}>
+                  <img src={pieza.src} alt="" loading="lazy" />
+                  <span>{pieza.tipo}</span>
+                </figure>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
-      <div className="board-rows">
-        {boardStudents.map((student, index) => {
-          const ChipIcon = chipIcon[student.state];
-          return (
-            <motion.div
-              key={student.name}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 + index * 0.09, duration: 0.4 }}
-              className={`student-row ${student.state === "risk" ? "student-row-risk" : ""}`}
-            >
-              <span className="student-avatar">{student.initials}</span>
-              <span>
-                <span className="student-name">{student.name}</span>
-                <span className="student-step">{student.step}</span>
-              </span>
-              <span className={`student-chip chip-${student.state}`}>
-                <ChipIcon aria-hidden="true" />
-                {student.chip}
-              </span>
-            </motion.div>
-          );
-        })}
-      </div>
-      <div className="board-footer">
-        <strong><Radar aria-hidden="true" /> Todos con algo en marcha, y el que se frena lo ves a tiempo.</strong>
+
+      <div className="wall-caption">
+        <Sparkles aria-hidden="true" />
+        <span>Piezas nuevas todas las semanas, para cada alumno, con tu método adentro.</span>
       </div>
     </div>
   );
@@ -371,7 +370,7 @@ export default function TractionOS() {
               transition={{ delay: 0.12, duration: 0.72, ease: [0.23, 1, 0.32, 1] }}
               className="hero-visual"
             >
-              <GroupBoard />
+              <ContentWall />
             </motion.div>
           </div>
           <div className="hero-footnote container">

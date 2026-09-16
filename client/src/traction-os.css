@@ -287,6 +287,29 @@
   .contrast-row:hover .contrast-now { color: #7d8377; }
 }
 
+/* Muro de contenido: dos columnas que no terminan nunca */
+.content-wall { position: relative; z-index: 2; height: clamp(18rem, 52cqw, 25rem); margin-top: .9rem; overflow: hidden; border-radius: .9rem; }
+.content-wall::before, .content-wall::after { content: ""; position: absolute; left: 0; right: 0; height: 2.6rem; z-index: 3; pointer-events: none; }
+.content-wall::before { top: 0; background: linear-gradient(#fffefa, rgba(255,254,250,0)); }
+.content-wall::after { bottom: 0; background: linear-gradient(rgba(255,254,250,0), #fffefa); }
+.wall-cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: .5rem; height: 100%; }
+.wall-col { display: grid; gap: .55rem; align-content: start; animation: wallUp 26s linear infinite; }
+.wall-col-b { animation-duration: 34s; animation-direction: reverse; }
+.wall-col-c { animation-duration: 29s; }
+.wall-col-c { display: none; }
+.wall-item { position: relative; overflow: hidden; border: 1px solid rgba(27,33,24,.1); border-radius: .7rem; background: #fff; box-shadow: 0 6px 16px rgba(27,33,24,.08); }
+.wall-item img { display: block; width: 100%; height: auto; }
+.wall-item span { position: absolute; top: .4rem; left: .4rem; padding: .2rem .42rem; border-radius: .35rem; background: rgba(27,33,24,.72); color: #fff; font-family: "DM Mono", monospace; font-size: .44rem; letter-spacing: .08em; text-transform: uppercase; backdrop-filter: blur(4px); }
+.wall-caption { position: relative; z-index: 2; display: flex; align-items: flex-start; gap: .45rem; margin-top: .85rem; padding-top: .8rem; border-top: 1px solid rgba(46,106,52,.14); color: var(--forest); font-size: .7rem; font-weight: 700; line-height: 1.35; }
+.wall-caption svg { flex: 0 0 auto; width: .9rem; margin-top: .06rem; color: var(--coral); }
+
+@container (min-width: 460px) {
+  .wall-cols { grid-template-columns: repeat(3, 1fr); }
+  .wall-col-c { display: grid; }
+}
+
+@keyframes wallUp { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+
 /* Metodo Sombra: medidor de aprobaciones por etapa */
 .stage-meter { display: grid; align-content: center; gap: .55rem; height: 9.25rem; margin: 1rem 0 1.3rem; padding: 1rem .9rem; border: 1px solid rgba(46,106,52,.15); border-radius: .85rem; background: linear-gradient(125deg,#f9fbf4,#edf6e6); }
 .stage-meter-head { display: flex; align-items: baseline; justify-content: space-between; gap: .5rem; color: #6c7766; font-family: "DM Mono", monospace; font-size: .46rem; letter-spacing: .1em; text-transform: uppercase; }
