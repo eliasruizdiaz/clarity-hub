@@ -206,6 +206,14 @@ function GradienteInstagram() {
 type PropsIcono = { className?: string; degradado?: boolean };
 const trazo = (degradado?: boolean) => (degradado ? "url(#ig-grad)" : "currentColor");
 
+function IconoInfinito({ className = "", degradado }: PropsIcono) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke={trazo(degradado)} strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4Zm0 0c2 2.67 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.33-6 4Z" />
+    </svg>
+  );
+}
+
 function IconoReel({ className = "", degradado }: PropsIcono) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke={trazo(degradado)} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -284,6 +292,7 @@ function ContentWall() {
 
       <div className="board-channels">
         <GradienteInstagram />
+        <IconoInfinito className="format-icon format-icon-infinito" degradado />
         <img src="/images/brecha/instagram.svg" alt="Instagram" />
         {formatos.map((Icono, i) => (
           <Icono key={i} className="format-icon" degradado />
