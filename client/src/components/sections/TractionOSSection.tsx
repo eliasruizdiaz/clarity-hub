@@ -7,10 +7,10 @@ import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, GraduationCap } from "lucide-react";
 
 const students = [
-  { initials: "MA", name: "Martina", step: "Paso 3 · Reel aprobado, produciendo", chip: "Avanza", tone: "go" },
-  { initials: "JO", name: "Joaquín", step: "Paso 2 · Carrusel esperando tu OK", chip: "Tu turno", tone: "wait" },
-  { initials: "CA", name: "Camila", step: "Paso 1 · Hace 6 días que no publica", chip: "La estás perdiendo", tone: "risk" },
-  { initials: "DI", name: "Diego", step: "Paso 4 · Primer caso de éxito en curso", chip: "Avanza", tone: "go" },
+  { initials: "MA", name: "Martina", step: "4 guiones este mes · publicó los 4", chip: "Avanza", tone: "go" },
+  { initials: "JO", name: "Joaquín", step: "4 guiones este mes · publicó 3", chip: "Avanza", tone: "go" },
+  { initials: "CA", name: "Camila", step: "Tiene sus guiones hace 6 días · no publicó", chip: "La estás perdiendo", tone: "risk" },
+  { initials: "DI", name: "Diego", step: "4 guiones este mes · primer caso en curso", chip: "Avanza", tone: "go" },
 ] as const;
 
 const channels = [
@@ -49,15 +49,15 @@ export default function TractionOSSection() {
               Clarity <span className="text-[#c9f29e]">Traction OS.</span>
             </h2>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#e0ecdb] md:text-xl">
-              Tenés veinte alumnos. Cada uno necesita que le armes el guion. Y hay una sola cabeza para eso: la tuya.
+              Tenés veinte alumnos y cada uno llega a la sesión con su guion. Escuchás, corregís, y se te va la hora con cuatro.
             </p>
             <p className="mt-4 max-w-xl text-lg leading-relaxed text-[#e0ecdb] md:text-xl">
               <strong className="text-[#c9f29e]">Tu propio sistema de contenido con IA</strong>, para que tus alumnos creen guiones, carruseles y stories con tu metodología.
             </p>
             <div className="mt-8 grid gap-3">
               {[
-                "Tus alumnos producen sin que vos redactes.",
-                "Ves quién avanza y quién se está quedando, sin preguntar.",
+                "Tus alumnos llegan con el guion escrito y tu criterio adentro.",
+                "Ves quién publica y quién se está quedando, sin preguntar.",
               ].map((item) => (
                 <p key={item} className="flex items-start gap-3 text-sm leading-relaxed text-[#e7f1df] md:text-base">
                   <CheckCircle2 className="mt-0.5 h-5 w-5 flex-none text-[#9bd875]" />
@@ -84,7 +84,7 @@ export default function TractionOSSection() {
           >
             <div className="flex items-center justify-between border-b border-[#dce7d6] pb-4">
               <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#628267]">Tu mentoría hoy</span>
-              <span className="rounded-full bg-[#e7f5df] px-2.5 py-1 text-[0.62rem] font-bold uppercase tracking-[0.1em] text-[#3f7147]">Método en ejecución</span>
+              <span className="rounded-full bg-[#e7f5df] px-2.5 py-1 text-[0.62rem] font-bold uppercase tracking-[0.1em] text-[#3f7147]">Tu método, corriendo</span>
             </div>
             <div className="mt-4 flex items-center justify-center gap-5 rounded-xl border border-[#dce7d6] bg-gradient-to-r from-[#ef5f33]/[0.07] to-[#60ba46]/[0.1] px-3 py-3 sm:gap-8">
               {channels.map((channel) => (

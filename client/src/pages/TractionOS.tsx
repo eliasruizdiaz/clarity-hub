@@ -17,7 +17,7 @@ import {
   BadgeCheck,
   CalendarCheck,
   Check,
-  Lock,
+  RefreshCw,
   ShieldCheck,
   Sparkles,
   Upload,
@@ -32,21 +32,25 @@ const calendarUrl = "https://calendar.app.google/ngxAfHKR5fs7SW8aA";
 const CUPO_MENSUAL = 5;
 
 // El dolor del MENTOR, no del alumno. Tres escenas, no tres conceptos.
+// Ojo: el mentor NO escribe los guiones. Sus alumnos los arman y se los
+// explican en la sesion; el corrige los que llega a corregir. El cuello de
+// botella es su hora de revision, no su teclado.
 const escenas = [
-  "Tenés veinte alumnos. Cada uno necesita que le armes el guion. Y hay una sola cabeza para eso: la tuya.",
-  "Les explicaste el método en la sesión y te dijeron que sí. El martes no había ningún reel publicado.",
-  "El alumno que no produce no llega a su caso de éxito. Sin casos no tenés testimonios para vender el próximo grupo.",
+  "Tenés veinte alumnos y cada uno llega a la sesión con su guion. Escuchás, corregís, y se te va la hora con cuatro.",
+  "Los otros dieciséis publican sin que nadie les haya mirado el guion. O no publican y esperan a la semana que viene.",
+  "El que publica sin tu criterio no consigue resultados, y el que espera tampoco. Sin resultados no tenés casos para vender el próximo grupo.",
 ];
 
 const beneficios = [
   {
-    titulo: "Tus alumnos reciben el guion empezado",
-    texto: "Con tus referencias, tu ángulo y tu criterio. Nunca abren una hoja en blanco.",
+    titulo: "Cada alumno llega con el guion ya escrito",
+    texto:
+      "Con las referencias y el ángulo de su propio nicho, que son suyos, y tu criterio adentro. No te lo trae para que se lo armes.",
     mock: "alumno" as const,
   },
   {
-    titulo: "Vos aprobás en minutos, no redactás",
-    texto: "Las propuestas te llegan escritas. Aprobás, editás o las rehacés.",
+    titulo: "Llegás a los veinte, no a los cuatro de siempre",
+    texto: "Tu criterio entra en todos los guiones del mes sin pasar por tu agenda.",
     mock: "mentor" as const,
   },
   {
@@ -68,7 +72,7 @@ const fitSignals = [
 const faqs = [
   {
     q: "¿Reemplaza mis sesiones?",
-    a: "No. Llegás a cada sesión sabiendo qué hizo cada alumno y qué le costó. Las sesiones rinden más.",
+    a: "No. Dejan de ser una fila de veinte guiones para revisar. Llegás sabiendo qué publicó cada uno y usás la hora en lo que solo podés hacer vos.",
   },
   {
     q: "¿Qué pasa si no funciona?",
@@ -227,26 +231,27 @@ function ContentWall() {
 
 function MockAlumno() {
   return (
-    <div className="student-panel" aria-label="Lo que ve tu alumno">
+    <div className="student-panel" aria-label="Lo que recibe tu alumno">
       <div className="student-panel-top">
         <img src={logo} alt="Clarity Hub" />
-        <span>El sistema, del lado del alumno</span>
+        <span>Lo que recibe tu alumno</span>
       </div>
       <div className="panel-block">
-        <span className="panel-label">Tu paso de hoy en el programa</span>
-        <span className="panel-title">Paso 3 · Reel de autoridad</span>
+        <span className="panel-label">Martina · entrenamiento para mamás</span>
+        <span className="panel-title">Reel · guion completo</span>
       </div>
       <div className="panel-give">
-        <span className="panel-label">Lo que ya tenés listo</span>
+        <span className="panel-label">De dónde sale</span>
         <div className="panel-chips">
-          <i><Check aria-hidden="true" /> 3 referencias</i>
-          <i><Check aria-hidden="true" /> Ángulo sugerido</i>
+          <i><Check aria-hidden="true" /> Sus referencias</i>
+          <i><Check aria-hidden="true" /> Su ángulo</i>
+          <i><Check aria-hidden="true" /> Tu criterio</i>
         </div>
-        <p className="panel-draft-label"><Sparkles aria-hidden="true" /> Borrador del guion, con el criterio de tu mentor</p>
-        <p className="panel-draft">"Si llevás tres meses publicando y no te escribió nadie, el problema no es el algoritmo. Es que estás contando lo que sabés y no lo que a esa persona le duele."</p>
-        <div className="panel-drop"><Upload aria-hidden="true" /> Terminalo y mandalo</div>
+        <p className="panel-draft-label"><Sparkles aria-hidden="true" /> Así abre. El desarrollo y el cierre ya están escritos.</p>
+        <p className="panel-draft">"Si llevás tres meses entrenando en casa y no te cambió el cuerpo, el problema no es la rutina. Es que estás haciendo la que le sirve a otra."</p>
+        <div className="panel-drop"><Upload aria-hidden="true" /> Grabalo y publicalo</div>
       </div>
-      <div className="panel-next"><Lock aria-hidden="true" /> Paso 4 · Edición. Se abre cuando este quede aprobado.</div>
+      <div className="panel-next"><RefreshCw aria-hidden="true" /> Si no le cierra, pide otra versión. No vuelve a la hoja en blanco.</div>
     </div>
   );
 }
@@ -256,56 +261,58 @@ function MockMentor() {
     <div className="queue-card" aria-label="Lo que ves vos">
       <div className="queue-top">
         <img src={logo} alt="Clarity Hub" />
-        <span>El sistema, de tu lado</span>
+        <span>Lo que ves vos</span>
       </div>
       <div className="queue-head">
-        <span>Propuestas para aprobar</span>
-        <b>2</b>
+        <span>Guiones de este mes, con tu método</span>
+        <b>80</b>
       </div>
       <div className="queue-item">
-        <span>Joaquín · Carrusel del Paso 2</span>
-        <p>La IA propone el ángulo "los tres errores que cometí el primer año" y un guion armado con tus referencias.</p>
-        <div className="queue-actions"><i className="queue-ok">Aprobar</i><i className="queue-edit">Editar</i></div>
+        <span>Joaquín · 4 guiones</span>
+        <p>Los cuatro salieron con tu estructura de gancho. Publicó los cuatro.</p>
       </div>
       <div className="queue-item">
-        <span>Lucía · Reel del Paso 3</span>
-        <p>La IA propone el gancho, la estructura y el cierre. Marca que Lucía suele poner el contexto antes de tiempo.</p>
-        <div className="queue-actions"><i className="queue-ok">Aprobar</i><i className="queue-edit">Editar</i></div>
+        <span>Lucía · 4 guiones</span>
+        <p>Tiene los cuatro hace seis días y no publicó ninguno. La estás perdiendo.</p>
       </div>
       <div className="queue-foot">
         <Sparkles aria-hidden="true" />
-        <span>Esta semana: <b>18 propuestas</b>, y 11 salieron solas porque la IA ya sabía cómo las escribirías vos.</span>
+        <span>Tu criterio llegó a los veinte. Vos elegís con cuál te sentás.</span>
       </div>
     </div>
   );
 }
 
 /**
- * Calculadora de HORAS, no de plata.
+ * Calculadora de PLATA PERDIDA.
  *
- * La version anterior calculaba "ventas que no pasaron" (alumnos sin caso por
- * ticket) y no se entendia que media: mezclaba plata ya cobrada con recompra
- * hipotetica. Esta calcula el tiempo del mentor con sus propios numeros, que es
- * aritmetica verificable, y ademas es el dolor nuevo de la pagina: el cuello de
- * botella es el.
+ * Historial, para no repetir errores:
+ * v1 calculaba "ventas que no pasaron" y no se entendia que media: mezclaba
+ * plata ya cobrada con recompra hipotetica en la misma cifra.
+ * v2 calculaba horas del mentor, pero el dueño no quiere ahorro de tiempo como
+ * resultado: quiere plata.
+ *
+ * Esta calcula UNA sola cosa y la dice con todas las letras: el ticket del
+ * mentor por los alumnos que no llegan a un resultado, o sea la plata que NO
+ * le vuelve a entrar el proximo ciclo. Nunca mezcla eso con lo ya cobrado.
+ * El supuesto (el que no consigue resultados no renueva) va escrito abajo,
+ * no escondido en la cuenta.
  */
-function CalculadoraHoras() {
+function CalculadoraPerdida() {
   const [alumnos, setAlumnos] = useState(20);
-  const [piezas, setPiezas] = useState(4);
-  const [minutos, setMinutos] = useState(20);
+  const [ticket, setTicket] = useState(1000);
+  const [llegan, setLlegan] = useState(3);
 
-  const piezasMes = alumnos * piezas;
-  const horas = (piezasMes * minutos) / 60;
-  const dias = horas / 8;
-  const num = (n: number, dec = 0) =>
-    new Intl.NumberFormat("es-PY", { maximumFractionDigits: dec }).format(n);
+  const sinResultado = Math.round(alumnos * ((10 - llegan) / 10));
+  const perdida = sinResultado * ticket;
+  const num = (n: number) => new Intl.NumberFormat("es-PY", { maximumFractionDigits: 0 }).format(n);
 
   return (
     <div className="loss-calculator">
       <div className="calculator-controls">
         <div className="calculator-label">
           <span className="eyebrow">CALCULADORA</span>
-          <h3>¿Cuántas horas al mes te lleva el contenido de tus alumnos?</h3>
+          <h3>¿Cuánto te cuesta el alumno que no llega a un resultado?</h3>
           <p>Con los números de tu programa.</p>
         </div>
         <label className="range-field">
@@ -313,26 +320,26 @@ function CalculadoraHoras() {
           <input type="range" min="3" max="60" value={alumnos} onChange={(e) => setAlumnos(Number(e.target.value))} />
         </label>
         <label className="range-field">
-          <span>Piezas que produce cada uno por mes <b>{piezas}</b></span>
-          <input type="range" min="1" max="12" value={piezas} onChange={(e) => setPiezas(Number(e.target.value))} />
+          <span>Lo que te paga cada uno <b>USD {num(ticket)}</b></span>
+          <input type="range" min="200" max="5000" step="100" value={ticket} onChange={(e) => setTicket(Number(e.target.value))} />
         </label>
         <label className="range-field">
-          <span>Minutos que te lleva cada pieza <b>{minutos} min</b></span>
-          <input type="range" min="5" max="60" step="5" value={minutos} onChange={(e) => setMinutos(Number(e.target.value))} />
+          <span>De cada 10, cuántos consiguen resultados hoy <b>{llegan}</b></span>
+          <input type="range" min="0" max="10" value={llegan} onChange={(e) => setLlegan(Number(e.target.value))} />
         </label>
       </div>
       <div className="calculator-result" aria-live="polite">
-        <span className="eyebrow">TU TIEMPO, CADA MES</span>
-        <p>Entre armar, revisar y corregir esas piezas:</p>
-        <motion.strong key={horas} initial={{ opacity: 0.5, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.22 }}>
-          {num(horas, 1)} horas <small>por mes</small>
+        <span className="eyebrow">LO QUE NO TE VUELVE A ENTRAR</span>
+        <p>Los alumnos que no consiguen resultados no renuevan ni te recomiendan:</p>
+        <motion.strong key={perdida} initial={{ opacity: 0.5, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.22 }}>
+          USD {num(perdida)} <small>por grupo</small>
         </motion.strong>
         <div className="calculator-breakdown">
-          <span>{num(piezasMes)}<small>piezas por mes</small></span>
-          <span>{num(dias, 1)}<small>días de trabajo</small></span>
+          <span>{num(sinResultado)}<small>alumnos sin resultado</small></span>
+          <span>{10 - llegan} de 10<small>de tu grupo actual</small></span>
         </div>
         <p className="calculator-note">
-          Esas piezas se van a hacer igual. La pregunta es si las hacés vos.
+          Es tu ticket por los alumnos que no llegan. No cuenta lo que ya cobraste: cuenta lo que no vas a volver a cobrar.
         </p>
         <a href={calendarUrl} target="_blank" rel="noopener noreferrer" className="calculator-link">
           Quiero bajar ese número <ArrowRight aria-hidden="true" />
@@ -397,11 +404,11 @@ export default function TractionOS() {
             </motion.div>
           </div>
           <div className="hero-footnote container">
-            <span><Sparkles aria-hidden="true" /> Sombra: aprobás cada propuesta.</span>
+            <span><Sparkles aria-hidden="true" /> Guiones de reel.</span>
             <ArrowRight aria-hidden="true" />
-            <span>Copiloto: te consulta solo lo dudoso.</span>
+            <span>Carruseles.</span>
             <ArrowRight aria-hidden="true" />
-            <span>Autónomo: mirás el tablero.</span>
+            <span>Stories.</span>
           </div>
         </section>
 
@@ -426,7 +433,7 @@ export default function TractionOS() {
                 </motion.p>
               ))}
             </div>
-            <div className="calculadora-wrap"><CalculadoraHoras /></div>
+            <div className="calculadora-wrap"><CalculadoraPerdida /></div>
           </div>
         </section>
 
@@ -435,7 +442,7 @@ export default function TractionOS() {
           <div className="container">
             <div className="section-heading centered-heading">
               <span className="eyebrow">EL CAMBIO</span>
-              <h2>Hoy los guiones salen de tu cabeza. <em>Después salen del sistema.</em></h2>
+              <h2>Hoy revisás los que llegás a revisar. <em>Después salen todos con tu criterio puesto.</em></h2>
             </div>
             <div className="swap-grid">
               <motion.div
@@ -446,7 +453,7 @@ export default function TractionOS() {
                 className="swap-card swap-antes"
               >
                 <span className="swap-tag">Hoy</span>
-                <p>Ochenta piezas por mes. Todas escritas por vos, una por una.</p>
+                <p>Ochenta guiones al mes. Mirás los que entran en la sesión. El resto se publica sin vos.</p>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
@@ -456,7 +463,7 @@ export default function TractionOS() {
                 className="swap-card swap-despues"
               >
                 <span className="swap-tag">Con el sistema</span>
-                <p>Las mismas ochenta, con tu método adentro. Vos aprobás.</p>
+                <p>Los mismos ochenta, escritos con tu método adentro antes de que te los muestren.</p>
               </motion.div>
             </div>
           </div>
@@ -494,8 +501,8 @@ export default function TractionOS() {
 
             <div className="gancho">
               <p>
-                Lo hace con el <strong>Método Sombra</strong>: al principio aprobás todo, y cada semana menos.
-                Cómo funciona por dentro te lo muestro en la llamada.
+                Todo eso sale de <strong>tu método</strong>, cargado una sola vez. Cómo se carga y cómo escribe
+                con él te lo muestro en la llamada.
               </p>
               <Cta texto="Mostrame cómo lo hace" />
             </div>
@@ -526,8 +533,8 @@ export default function TractionOS() {
               <h2>Tomamos {CUPO_MENSUAL} mentores <em>por mes.</em></h2>
               <p>Es la cantidad que podemos cargar bien, con el método de cada uno adentro.</p>
               <div className="cierre-honesto">
-                <p><ShieldCheck aria-hidden="true" /> Sos de los primeros. El motor corre en nuestro propio negocio hace meses.</p>
-                <p><BadgeCheck aria-hidden="true" /> Todavía no hay casos de éxito de clientes publicados. Cuando alguien te muestre veinte logos en esta etapa, desconfiá.</p>
+                <p><ShieldCheck aria-hidden="true" /> El motor ya corre en nuestro propio negocio hace meses. No es un prototipo.</p>
+                <p><BadgeCheck aria-hidden="true" /> Trabajamos con tu método, no con una plantilla que le sirve a cualquiera.</p>
               </div>
             </div>
             <div className="agenda-card">
