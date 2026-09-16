@@ -22,11 +22,13 @@ import {
   Check,
   Clock,
   Lightbulb,
+  Medal,
   MessageSquareQuote,
   MousePointerClick,
   Search,
   ShieldCheck,
   Sparkles,
+  TrendingUp,
   Zap,
 } from "lucide-react";
 
@@ -252,6 +254,54 @@ const agentes = [
   { icono: MousePointerClick, nombre: "CTA" },
 ];
 
+function Curvas({ variante }: { variante: "ancho" | "angosto" }) {
+  // Los puntos de llegada son los centros de las columnas: cinco columnas
+  // iguales caen en 10/30/50/70/90, dos columnas en 25/75.
+  const destinos = variante === "ancho" ? [100, 300, 500, 700, 900] : [250, 750];
+  // Control points apenas distintos entre si, a proposito: si son simetricos
+  // el dibujo vuelve a verse de maquina.
+  const curvatura = [26, 32, 30, 24, 28];
+  return (
+    <svg
+      className={`curvas curvas-${variante}`}
+      viewBox="0 0 1000 60"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      {destinos.map((x, i) => (
+        <path
+          key={x}
+          d={
+            x === 500
+              ? "M500 0 C506 18 494 42 500 60"
+              : `M500 0 C500 ${curvatura[i % curvatura.length]} ${x} ${60 - curvatura[i % curvatura.length]} ${x} 60`
+          }
+          fill="none"
+          stroke="rgba(46,106,52,.5)"
+          strokeWidth="1"
+          strokeLinecap="round"
+          vectorEffect="non-scaling-stroke"
+        />
+      ))}
+    </svg>
+  );
+}
+
+function CurvaBajada() {
+  return (
+    <svg className="curva-bajada" viewBox="0 0 40 60" preserveAspectRatio="none" aria-hidden="true">
+      <path
+        d="M20 0 C28 16 12 34 20 46 C23 51 21 56 20 60"
+        fill="none"
+        stroke="rgba(46,106,52,.5)"
+        strokeWidth="1"
+        strokeLinecap="round"
+        vectorEffect="non-scaling-stroke"
+      />
+    </svg>
+  );
+}
+
 function CerebroDiagrama() {
   return (
     <div className="cerebro" aria-label="Del cerebro a los agentes, y de ahi a cada cliente">
@@ -261,6 +311,8 @@ function CerebroDiagrama() {
         <small>Tu método, tu criterio y tu forma de escribir</small>
       </div>
       <div className="cerebro-agentes">
+        <Curvas variante="ancho" />
+        <Curvas variante="angosto" />
         {agentes.map(({ icono: Icono, nombre }) => (
           <i key={nombre}>
             <Icono aria-hidden="true" />
@@ -269,6 +321,7 @@ function CerebroDiagrama() {
         ))}
       </div>
       <div className="cerebro-entrega">
+        <CurvaBajada />
         <span className="cerebro-247">
           <Clock aria-hidden="true" /> Disponible 24/7 para tus clientes
         </span>
@@ -285,6 +338,19 @@ function CerebroDiagrama() {
           <i className="cerebro-mas">+17</i>
         </div>
         <small className="cerebro-pie">Sus piezas ya están hechas. No esperan a la sesión.</small>
+        <div className="cerebro-resultado">
+          <span className="confeti" aria-hidden="true">
+            {Array.from({ length: 12 }, (_, i) => <i key={i} />)}
+          </span>
+          <Medal aria-hidden="true" className="medalla" />
+          <div className="resultado-texto">
+            <b>Martina llegó a su caso de éxito</b>
+            <small>Su testimonio es el argumento de tu próxima venta.</small>
+          </div>
+          <span className="resultado-ventas">
+            <TrendingUp aria-hidden="true" /> Más ventas
+          </span>
+        </div>
       </div>
     </div>
   );
