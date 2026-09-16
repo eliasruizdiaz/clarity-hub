@@ -47,7 +47,7 @@ const CUPO_MENSUAL = 5;
 const escenas = [
   "Tenés veinte clientes y cada uno llega a la sesión con su guion. Escuchás, corregís, y se te va la hora con cuatro.",
   "Los otros dieciséis publican sin que nadie les haya mirado el guion. O no publican y esperan a la semana que viene.",
-  "El que publica sin tu criterio no consigue resultados, y el que espera tampoco. Sin resultados no tenés casos para vender la próxima vez.",
+  "El que publica sin tu criterio no consigue resultados, y el que espera tampoco. Sin casos no tenés embajadores que te refieran ni testimonios con que vender.",
 ];
 
 const beneficios = [
@@ -66,7 +66,7 @@ const beneficios = [
   {
     titulo: "Te enterás de qué video de tus clientes funcionó",
     texto:
-      "El sistema te marca las piezas que rompieron. Ahí vas a buscar el testimonio que te falta para vender la próxima vez.",
+      "El sistema te marca las piezas que rompieron. Ahí vas a buscar el testimonio y el referido que te faltan para vender.",
     mock: "testimonios" as const,
   },
 ];
@@ -466,10 +466,13 @@ function MockTestimonios() {
  * resultado: quiere plata.
  *
  * Esta calcula UNA sola cosa y la dice con todas las letras: el ticket del
- * mentor por los clientes que no llegan a un resultado, o sea la plata que NO
- * le vuelve a entrar el proximo ciclo. Nunca mezcla eso con lo ya cobrado.
- * El supuesto (el que no consigue resultados no renueva) va escrito abajo,
- * no escondido en la cuenta.
+ * v3 asumia renovacion, y estos servicios son de pago unico: el cliente no
+ * vuelve a comprar lo mismo. Lo que se pierde son las VENTAS NUEVAS que
+ * traeria cada caso de exito: el que consigue resultados se vuelve embajador,
+ * refiere y deja testimonio con el que se vende a otros.
+ *
+ * Cuenta un solo referido por caso, a proposito: es el supuesto mas
+ * conservador posible y va escrito abajo, no escondido en la formula.
  */
 function CalculadoraPerdida() {
   const [clientes, setClientes] = useState(20);
@@ -485,7 +488,7 @@ function CalculadoraPerdida() {
       <div className="calculator-controls">
         <div className="calculator-label">
           <span className="eyebrow">CALCULADORA</span>
-          <h3>¿Cuánto te cuesta el cliente que no llega a un resultado?</h3>
+          <h3>¿Cuánto te cuesta el cliente que no llega a un caso de éxito?</h3>
           <p>Con los números de tu programa.</p>
         </div>
         <label className="range-field">
@@ -502,17 +505,17 @@ function CalculadoraPerdida() {
         </label>
       </div>
       <div className="calculator-result" aria-live="polite">
-        <span className="eyebrow">LO QUE NO TE VUELVE A ENTRAR</span>
-        <p>Los clientes que no consiguen resultados no renuevan ni te recomiendan:</p>
+        <span className="eyebrow">LO QUE NO VENDÉS</span>
+        <p>Cada caso de éxito te deja un embajador que refiere y un testimonio con el que vendés. Los que no llegan no te dejan ninguno:</p>
         <motion.strong key={perdida} initial={{ opacity: 0.5, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.22 }}>
           USD {num(perdida)} <small>por mes</small>
         </motion.strong>
         <div className="calculator-breakdown">
-          <span>{num(sinResultado)}<small>clientes sin resultado</small></span>
+          <span>{num(sinResultado)}<small>casos que no pasan</small></span>
           <span>{10 - llegan} de 10<small>de tus clientes</small></span>
         </div>
         <p className="calculator-note">
-          Es tu ticket por los clientes que no llegan. No cuenta lo que ya cobraste: cuenta lo que no vas a volver a cobrar.
+          Contamos un solo referido por caso, que es el piso. Si cada caso tuyo trae más de uno, el número es peor.
         </p>
         <a href={calendarUrl} target="_blank" rel="noopener noreferrer" className="calculator-link">
           Quiero bajar ese número <ArrowRight aria-hidden="true" />
