@@ -9,7 +9,7 @@
  * Segunda persona: el que lee es el mentor. A los suyos les dice CLIENTES,
  * nunca alumnos: es el vocabulario que usan ellos.
  */
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import tractionStyles from "../traction-os.css?inline";
 import {
@@ -456,75 +456,6 @@ function MockTestimonios() {
   );
 }
 
-/**
- * Calculadora de PLATA PERDIDA.
- *
- * Historial, para no repetir errores:
- * v1 calculaba "ventas que no pasaron" y no se entendia que media: mezclaba
- * plata ya cobrada con recompra hipotetica en la misma cifra.
- * v2 calculaba horas del mentor, pero el dueño no quiere ahorro de tiempo como
- * resultado: quiere plata.
- *
- * Esta calcula UNA sola cosa y la dice con todas las letras: el ticket del
- * v3 asumia renovacion, y estos servicios son de pago unico: el cliente no
- * vuelve a comprar lo mismo. Lo que se pierde son las VENTAS NUEVAS que
- * traeria cada caso de exito: el que consigue resultados se vuelve embajador,
- * refiere y deja testimonio con el que se vende a otros.
- *
- * Cuenta un solo referido por caso, a proposito: es el supuesto mas
- * conservador posible y va escrito abajo, no escondido en la formula.
- */
-function CalculadoraPerdida() {
-  const [clientes, setClientes] = useState(20);
-  const [ticket, setTicket] = useState(3000);
-  const [llegan, setLlegan] = useState(3);
-
-  const sinResultado = Math.round(clientes * ((10 - llegan) / 10));
-  const perdida = sinResultado * ticket;
-  const num = (n: number) => new Intl.NumberFormat("es-PY", { maximumFractionDigits: 0 }).format(n);
-
-  return (
-    <div className="loss-calculator">
-      <div className="calculator-controls">
-        <div className="calculator-label">
-          <span className="eyebrow">CALCULADORA</span>
-          <h3>¿Cuánto te cuesta el cliente que no llega a un caso de éxito?</h3>
-          <p>Con los números de tu programa.</p>
-        </div>
-        <label className="range-field">
-          <span>Clientes al mes <b>{clientes}</b></span>
-          <input type="range" min="3" max="60" value={clientes} onChange={(e) => setClientes(Number(e.target.value))} />
-        </label>
-        <label className="range-field">
-          <span>Lo que te paga cada uno <b>USD {num(ticket)}</b></span>
-          <input type="range" min="500" max="30000" step="100" value={ticket} onChange={(e) => setTicket(Number(e.target.value))} />
-        </label>
-        <label className="range-field">
-          <span>De cada 10, cuántos consiguen resultados hoy <b>{llegan}</b></span>
-          <input type="range" min="0" max="10" value={llegan} onChange={(e) => setLlegan(Number(e.target.value))} />
-        </label>
-      </div>
-      <div className="calculator-result" aria-live="polite">
-        <span className="eyebrow">LO QUE NO VENDÉS</span>
-        <p>Cada caso de éxito te deja un embajador que refiere y un testimonio con el que vendés. Los que no llegan no te dejan ninguno:</p>
-        <motion.strong key={perdida} initial={{ opacity: 0.5, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.22 }}>
-          USD {num(perdida)} <small>por mes</small>
-        </motion.strong>
-        <div className="calculator-breakdown">
-          <span>{num(sinResultado)}<small>casos que no pasan</small></span>
-          <span>{10 - llegan} de 10<small>de tus clientes</small></span>
-        </div>
-        <p className="calculator-note">
-          Contamos un solo referido por caso, que es el piso. Si cada caso tuyo trae más de uno, el número es peor.
-        </p>
-        <a href={calendarUrl} target="_blank" rel="noopener noreferrer" className="calculator-link">
-          Quiero bajar ese número <ArrowRight aria-hidden="true" />
-        </a>
-      </div>
-    </div>
-  );
-}
-
 export default function TractionOS() {
   useEffect(() => {
     const previousTitle = document.title;
@@ -605,7 +536,7 @@ export default function TractionOS() {
         {/* 2 · EL DOLOR, TUYO. Escenas en segunda persona, no conceptos. */}
         <section id="dolor" className="section section-cream">
           <div className="container">
-            <div className="section-heading">
+            <div className="section-heading centered-heading">
               <span className="eyebrow">LO QUE PASA HOY</span>
               <h2>Sos el cuello de botella de <em>tu propio programa.</em></h2>
             </div>
@@ -623,7 +554,6 @@ export default function TractionOS() {
                 </motion.p>
               ))}
             </div>
-            <div className="calculadora-wrap"><CalculadoraPerdida /></div>
           </div>
         </section>
 

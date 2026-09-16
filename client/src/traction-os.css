@@ -377,7 +377,7 @@
    ============================================================ */
 
 /* Escenas del dolor: tipografia grande, es la seccion que mas tiene que pegar. */
-.escenas { display: grid; gap: 1.6rem; max-width: 46rem; margin-top: .5rem; }
+.escenas { display: grid; gap: 1.7rem; max-width: 48rem; margin: .5rem auto 0; }
 .escena { position: relative; margin: 0; padding-left: 1.5rem; color: #2a3527;
   font-size: clamp(1.15rem, 2.4vw, 1.6rem); line-height: 1.42; font-weight: 500; }
 .escena::before { content: ""; position: absolute; left: 0; top: .55em;
