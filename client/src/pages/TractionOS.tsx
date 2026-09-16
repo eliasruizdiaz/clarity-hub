@@ -239,9 +239,9 @@ function ContentWall() {
 }
 
 const entregas = [
-  { inicial: "MA", nombre: "Martina", cuando: "Pidió su reel un domingo" },
-  { inicial: "JO", nombre: "Joaquín", cuando: "Tres piezas esta semana" },
-  { inicial: "CA", nombre: "Camila", cuando: "Otra versión, 2 de la mañana" },
+  { inicial: "MA", nombre: "Martina", nicho: "Entrenamiento para mamás" },
+  { inicial: "JO", nombre: "Joaquín", nicho: "Finanzas personales" },
+  { inicial: "CA", nombre: "Camila", nicho: "Repostería" },
 ];
 
 const agentes = [
@@ -270,7 +270,7 @@ function CerebroDiagrama() {
       </div>
       <div className="cerebro-entrega">
         <span className="cerebro-247">
-          <Clock aria-hidden="true" /> Disponible 24/7
+          <Clock aria-hidden="true" /> Disponible 24/7 para tus clientes
         </span>
         <div className="cerebro-clientes">
           {entregas.map((e) => (
@@ -278,13 +278,13 @@ function CerebroDiagrama() {
               <b>{e.inicial}</b>
               <span>
                 {e.nombre}
-                <small>{e.cuando}</small>
+                <small>{e.nicho}</small>
               </span>
             </i>
           ))}
           <i className="cerebro-mas">+17</i>
         </div>
-        <small className="cerebro-pie">Cada cliente pide lo suyo cuando lo necesita, no cuando tenés sesión.</small>
+        <small className="cerebro-pie">Sus piezas ya están hechas. No esperan a la sesión.</small>
       </div>
     </div>
   );

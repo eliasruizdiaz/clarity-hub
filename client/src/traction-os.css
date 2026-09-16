@@ -537,7 +537,7 @@
   border: 1px dashed rgba(46,106,52,.34); border-radius: 1rem; background: rgba(255,255,255,.6); }
 .cerebro-entrega::before { content: ""; position: absolute; top: -2.4rem; left: 50%;
   width: 1px; height: 2.4rem; background: rgba(46,106,52,.5); }
-.cerebro-247 { display: inline-flex; align-items: center; gap: .4rem; padding: .35rem .75rem;
+.cerebro-247 { display: inline-flex; align-items: center; gap: .4rem; padding: .4rem .8rem; text-align: center;
   border-radius: 999px; background: var(--forest); color: #f4fbee;
   font-family: "DM Mono", monospace; font-size: .7rem; letter-spacing: .09em; text-transform: uppercase; }
 .cerebro-247 svg { width: .95rem; height: .95rem; }
