@@ -17,10 +17,9 @@ import {
   BadgeCheck,
   CalendarCheck,
   Check,
-  RefreshCw,
+  MessageSquareQuote,
   ShieldCheck,
   Sparkles,
-  Upload,
 } from "lucide-react";
 
 const logo = "/images/logo_clarity.png";
@@ -54,9 +53,10 @@ const beneficios = [
     mock: "mentor" as const,
   },
   {
-    titulo: "Tomás más alumnos sin bajar la calidad",
-    texto: "Tu criterio deja de depender de tus horas.",
-    mock: null,
+    titulo: "Te enterás de qué video de tus alumnos funcionó",
+    texto:
+      "El sistema te marca las piezas que rompieron. Ahí vas a buscar el testimonio que te falta para vender el próximo grupo.",
+    mock: "testimonios" as const,
   },
 ];
 
@@ -231,53 +231,115 @@ function ContentWall() {
 
 function MockAlumno() {
   return (
-    <div className="student-panel" aria-label="Lo que recibe tu alumno">
+    <div className="student-panel" aria-label="El guion que recibe tu alumno">
       <div className="student-panel-top">
         <img src={logo} alt="Clarity Hub" />
-        <span>Lo que recibe tu alumno</span>
+        <span>El guion de Martina</span>
       </div>
-      <div className="panel-block">
-        <span className="panel-label">Martina · entrenamiento para mamás</span>
-        <span className="panel-title">Reel · guion completo</span>
+      <div className="guion-meta">
+        <span className="panel-title">Reel · entrenamiento para mamás</span>
+        <i>Listo</i>
       </div>
-      <div className="panel-give">
-        <span className="panel-label">De dónde sale</span>
-        <div className="panel-chips">
-          <i><Check aria-hidden="true" /> Sus referencias</i>
-          <i><Check aria-hidden="true" /> Su ángulo</i>
-          <i><Check aria-hidden="true" /> Tu criterio</i>
+      <div className="guion-cuerpo">
+        <div className="guion-linea">
+          <span>Gancho</span>
+          <p>"Si llevás tres meses entrenando en casa y no te cambió el cuerpo, el problema no es la rutina."</p>
         </div>
-        <p className="panel-draft-label"><Sparkles aria-hidden="true" /> Así abre. El desarrollo y el cierre ya están escritos.</p>
-        <p className="panel-draft">"Si llevás tres meses entrenando en casa y no te cambió el cuerpo, el problema no es la rutina. Es que estás haciendo la que le sirve a otra."</p>
-        <div className="panel-drop"><Upload aria-hidden="true" /> Grabalo y publicalo</div>
+        <div className="guion-linea">
+          <span>Desarrollo</span>
+          <p>"Es que estás haciendo la que le sirve a otra. Te doy las tres señales para darte cuenta."</p>
+        </div>
+        <div className="guion-linea">
+          <span>Cierre</span>
+          <p>"Escribime RUTINA y te paso la que va con tu caso."</p>
+        </div>
       </div>
-      <div className="panel-next"><RefreshCw aria-hidden="true" /> Si no le cierra, pide otra versión. No vuelve a la hoja en blanco.</div>
+      <div className="guion-foot">
+        <i><Check aria-hidden="true" /> Sus referencias</i>
+        <i><Check aria-hidden="true" /> Su ángulo</i>
+        <i><Check aria-hidden="true" /> Tu criterio</i>
+      </div>
     </div>
   );
 }
 
-function MockMentor() {
+/**
+ * Mock 02: el punto es el ALCANCE ("llegas a los veinte, no a los cuatro").
+ * Una lista de dos alumnos no muestra veinte. Veinte puntos, si.
+ */
+function MockAlcance() {
+  const puntos = Array.from({ length: 20 }, (_, i) => i);
   return (
-    <div className="queue-card" aria-label="Lo que ves vos">
+    <div className="queue-card" aria-label="A cuantos alumnos llega tu criterio">
       <div className="queue-top">
         <img src={logo} alt="Clarity Hub" />
-        <span>Lo que ves vos</span>
+        <span>Tu criterio, este mes</span>
       </div>
-      <div className="queue-head">
-        <span>Guiones de este mes, con tu método</span>
-        <b>80</b>
+      <div className="alcance-fila">
+        <div className="alcance-rotulo">
+          <b>4</b> de 20 <small>es lo que entra en tus horas de sesión</small>
+        </div>
+        <div className="alcance-puntos">
+          {puntos.map((i) => <i key={i} className={i < 4 ? "punto-antes" : ""} />)}
+        </div>
       </div>
-      <div className="queue-item">
-        <span>Joaquín · 4 guiones</span>
-        <p>Los cuatro salieron con tu estructura de gancho. Publicó los cuatro.</p>
-      </div>
-      <div className="queue-item">
-        <span>Lucía · 4 guiones</span>
-        <p>Tiene los cuatro hace seis días y no publicó ninguno. La estás perdiendo.</p>
+      <div className="alcance-fila">
+        <div className="alcance-rotulo">
+          <b>20</b> de 20 <small>con tu método adentro del sistema</small>
+        </div>
+        <div className="alcance-puntos">
+          {puntos.map((i) => <i key={i} className="punto-ahora" />)}
+        </div>
       </div>
       <div className="queue-foot">
         <Sparkles aria-hidden="true" />
-        <span>Tu criterio llegó a los veinte. Vos elegís con cuál te sentás.</span>
+        <span>Los ochenta guiones del mes salieron con tu criterio. Vos elegís con cuál te sentás.</span>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Mock 03: lo que mas funciono, para ir a buscar el testimonio.
+ * El multiplo va contra las vistas HABITUALES de cada alumno, no en numeros
+ * absolutos: la regla del vault prohibe prometer vistas.
+ */
+const topPiezas = [
+  { nombre: "Martina", pieza: 'Reel · "3 señales de que no es tu rutina"', mult: "3,1×" },
+  { nombre: "Diego", pieza: 'Carrusel · "Mi primer mes entrenando"', mult: "2,4×" },
+  { nombre: "Lucía", pieza: 'Reel · "Antes y después de 90 días"', mult: "1,8×" },
+];
+
+function MockTestimonios() {
+  return (
+    <div className="queue-card" aria-label="Lo que mas funciono este mes">
+      <div className="queue-top">
+        <img src={logo} alt="Clarity Hub" />
+        <span>Lo que más funcionó</span>
+      </div>
+      <div className="queue-head">
+        <span>Este mes, en tu grupo</span>
+        <b>TOP 3</b>
+      </div>
+      {topPiezas.map((t, i) => (
+        <div key={t.nombre} className="top-item">
+          <em>{i + 1}</em>
+          <span>
+            <b>{t.nombre}</b>
+            <small>{t.pieza}</small>
+          </span>
+          <i>
+            {t.mult}
+            {i === 0 && <small>sus vistas de siempre</small>}
+          </i>
+        </div>
+      ))}
+      <div className="top-accion">
+        <MessageSquareQuote aria-hidden="true" /> Pedirle el testimonio a Martina
+      </div>
+      <div className="queue-foot">
+        <Sparkles aria-hidden="true" />
+        <span>Antes te enterabas en la sesión, y solo si el alumno lo contaba.</span>
       </div>
     </div>
   );
@@ -486,7 +548,7 @@ export default function TractionOS() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.45, delay: i * 0.06 }}
-                  className={`beneficio ${b.mock ? "" : "beneficio-solo"}`}
+                  className="beneficio"
                 >
                   <div className="beneficio-texto">
                     <span>0{i + 1}</span>
@@ -494,7 +556,8 @@ export default function TractionOS() {
                     <p>{b.texto}</p>
                   </div>
                   {b.mock === "alumno" && <MockAlumno />}
-                  {b.mock === "mentor" && <MockMentor />}
+                  {b.mock === "mentor" && <MockAlcance />}
+                  {b.mock === "testimonios" && <MockTestimonios />}
                 </motion.div>
               ))}
             </div>

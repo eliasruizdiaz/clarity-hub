@@ -441,9 +441,67 @@
 
 @media (min-width: 900px) {
   .beneficio { grid-template-columns: .85fr 1.15fr; gap: 3.5rem; }
+  .beneficio:nth-child(even) { grid-template-columns: 1.15fr .85fr; }
   .beneficio:nth-child(even) .beneficio-texto { order: 2; }
   .beneficio-solo { grid-template-columns: 1fr; max-width: 34rem; }
   .cierre-layout { grid-template-columns: 1.05fr .95fr; gap: 5rem; }
+}
+
+/* ============================================================
+   Mocks v3 — el guion, el alcance y lo que mas funciono
+   ============================================================ */
+
+/* 01 · El guion. Tiene que LEERSE como un guion: tres bloques rotulados,
+   no un panel de pasos con una cita adentro. */
+.guion-meta { display: flex; align-items: center; justify-content: space-between; gap: .6rem; margin-top: .9rem; }
+.guion-meta .panel-title { margin: 0; font-size: 1.02rem; }
+.guion-meta i { flex: 0 0 auto; padding: .22rem .5rem; border-radius: .4rem; background: #e4f4d9; color: #3c7040;
+  font-family: "DM Mono", monospace; font-size: .46rem; font-style: normal; letter-spacing: .1em; text-transform: uppercase; }
+.guion-cuerpo { display: grid; gap: .5rem; margin-top: .8rem; }
+.guion-linea { display: grid; grid-template-columns: 4.6rem 1fr; gap: .6rem; align-items: start;
+  padding: .6rem .7rem; border: 1px solid rgba(27,33,24,.09); border-radius: .7rem; background: #fbfbf5; }
+.guion-linea > span { color: #9b4a37; font-family: "DM Mono", monospace; font-size: .46rem;
+  letter-spacing: .12em; text-transform: uppercase; padding-top: .18rem; }
+.guion-linea > p { margin: 0; color: #3f4a3b; font-size: .76rem; line-height: 1.45; }
+.guion-foot { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .85rem; padding-top: .8rem;
+  border-top: 1px solid rgba(46,106,52,.14); }
+.guion-foot i { display: inline-flex; align-items: center; gap: .28rem; padding: .28rem .5rem;
+  border: 1px solid rgba(46,106,52,.22); border-radius: .42rem; background: #fff; color: #4d6349;
+  font-family: "DM Mono", monospace; font-size: .46rem; font-style: normal; letter-spacing: .06em; text-transform: uppercase; }
+.guion-foot i svg { width: .6rem; height: .6rem; color: var(--forest); }
+
+/* 02 · El alcance. Veinte puntos, porque el punto del bloque es "veinte". */
+.alcance-fila { margin-top: .95rem; }
+.alcance-rotulo { display: flex; align-items: baseline; flex-wrap: wrap; gap: .32rem; color: var(--ink); font-size: .8rem; font-weight: 700; }
+.alcance-rotulo b { font-family: "Fraunces", Georgia, serif; font-size: 1.35rem; letter-spacing: -.03em; }
+.alcance-rotulo small { color: #78826f; font-size: .66rem; font-weight: 400; }
+.alcance-puntos { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .5rem; }
+.alcance-puntos i { width: .82rem; height: .82rem; border-radius: 50%; border: 1px solid rgba(27,33,24,.16); background: #f1f0e7; }
+.alcance-puntos i.punto-antes { border-color: transparent; background: var(--coral); }
+.alcance-puntos i.punto-ahora { border-color: transparent; background: var(--forest); }
+
+/* 03 · Lo que mas funciono. El multiplo es contra las vistas habituales de
+   cada alumno: no se prometen numeros absolutos de vistas. */
+.top-item { display: grid; grid-template-columns: auto 1fr auto; gap: .6rem; align-items: center;
+  padding: .6rem .7rem; margin-bottom: .45rem; border: 1px solid rgba(27,33,24,.09); border-radius: .8rem; background: #fbfbf5; }
+.top-item em { width: 1.25rem; height: 1.25rem; display: grid; place-items: center; border-radius: 50%;
+  background: #e4f4d9; color: #3c7040; font-family: "DM Mono", monospace; font-size: .56rem; font-style: normal; }
+.top-item > span { min-width: 0; }
+.top-item > span b { display: block; color: var(--ink); font-size: .76rem; }
+.top-item > span small { display: block; color: #78826f; font-size: .66rem; line-height: 1.35; }
+.top-item > i { text-align: right; color: var(--coral); font-family: "Fraunces", Georgia, serif;
+  font-size: 1.02rem; font-style: normal; letter-spacing: -.02em; }
+.top-item > i small { display: block; color: #9aa393; font-family: "DM Mono", monospace;
+  font-size: .4rem; letter-spacing: .07em; text-transform: uppercase; }
+.top-accion { display: flex; align-items: center; gap: .45rem; margin-top: .65rem; padding: .55rem .7rem;
+  border: 1px dashed rgba(244,81,42,.42); border-radius: .6rem; background: #fff7f3; color: #9b4a37; font-size: .72rem; font-weight: 700; }
+.top-accion svg { flex: 0 0 auto; width: .9rem; }
+
+/* Tarjetas angostas: el rotulo del guion arriba del texto y el multiplo debajo. */
+@container (max-width: 330px) {
+  .guion-linea { grid-template-columns: 1fr; gap: .25rem; }
+  .top-item { grid-template-columns: auto 1fr; }
+  .top-item > i { grid-column: 2; text-align: left; }
 }
 
 /* Dos lados del sistema */
