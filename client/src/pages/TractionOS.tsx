@@ -6,20 +6,27 @@
  *
  * Regla de escritura: cada oracion tiene que entenderse leida sola, fuera de la
  * pagina. Nada de "el que", "eso", "lo que": sujeto y objeto siempre.
- * Segunda persona: el que lee es el mentor, no el alumno.
+ * Segunda persona: el que lee es el mentor. A los suyos les dice CLIENTES,
+ * nunca alumnos: es el vocabulario que usan ellos.
  */
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import tractionStyles from "../traction-os.css?inline";
 import {
+  AlignLeft,
   ArrowDownRight,
   ArrowRight,
   BadgeCheck,
+  Brain,
   CalendarCheck,
   Check,
+  Lightbulb,
   MessageSquareQuote,
+  MousePointerClick,
+  Search,
   ShieldCheck,
   Sparkles,
+  Zap,
 } from "lucide-react";
 
 const logo = "/images/logo_clarity.png";
@@ -30,39 +37,40 @@ const calendarUrl = "https://calendar.app.google/ngxAfHKR5fs7SW8aA";
 // se usa en el titular del cierre y en el texto del boton.
 const CUPO_MENSUAL = 5;
 
-// El dolor del MENTOR, no del alumno. Tres escenas, no tres conceptos.
-// Ojo: el mentor NO escribe los guiones. Sus alumnos los arman y se los
+// El dolor del MENTOR, no del cliente. Tres escenas, no tres conceptos.
+// Ojo: el mentor NO escribe los guiones. Sus clientes los arman y se los
 // explican en la sesion; el corrige los que llega a corregir. El cuello de
 // botella es su hora de revision, no su teclado.
 const escenas = [
-  "Tenés veinte alumnos y cada uno llega a la sesión con su guion. Escuchás, corregís, y se te va la hora con cuatro.",
+  "Tenés veinte clientes y cada uno llega a la sesión con su guion. Escuchás, corregís, y se te va la hora con cuatro.",
   "Los otros dieciséis publican sin que nadie les haya mirado el guion. O no publican y esperan a la semana que viene.",
-  "El que publica sin tu criterio no consigue resultados, y el que espera tampoco. Sin resultados no tenés casos para vender el próximo grupo.",
+  "El que publica sin tu criterio no consigue resultados, y el que espera tampoco. Sin resultados no tenés casos para vender la próxima vez.",
 ];
 
 const beneficios = [
   {
-    titulo: "Cada alumno llega con el guion ya escrito",
+    titulo: "Cada cliente llega con el guion ya escrito",
     texto:
       "Con las referencias y el ángulo de su propio nicho, que son suyos, y tu criterio adentro. No te lo trae para que se lo armes.",
-    mock: "alumno" as const,
+    mock: "guion" as const,
   },
   {
     titulo: "Llegás a los veinte, no a los cuatro de siempre",
-    texto: "Tu criterio entra en todos los guiones del mes sin pasar por tu agenda.",
+    texto:
+      "No todos se animan a hablarte. Hay callados, y hay quien le saca el jugo a cada sesión. Con esto estás clonado y disponible para todos, todo el tiempo.",
     mock: "mentor" as const,
   },
   {
-    titulo: "Te enterás de qué video de tus alumnos funcionó",
+    titulo: "Te enterás de qué video de tus clientes funcionó",
     texto:
-      "El sistema te marca las piezas que rompieron. Ahí vas a buscar el testimonio que te falta para vender el próximo grupo.",
+      "El sistema te marca las piezas que rompieron. Ahí vas a buscar el testimonio que te falta para vender la próxima vez.",
     mock: "testimonios" as const,
   },
 ];
 
 const fitSignals = [
   "Tenés un programa o mentoría activa, no cursos sueltos.",
-  "Trabajás con grupos de varios alumnos a la vez.",
+  "Atendés a varios clientes a la vez, no de a uno.",
   "Cobrás ticket alto por ese programa.",
   "Tu método ya produjo casos de éxito.",
 ];
@@ -223,15 +231,43 @@ function ContentWall() {
 
       <div className="wall-caption">
         <Sparkles aria-hidden="true" />
-        <span>Piezas nuevas cada semana, para cada alumno, con tu método adentro.</span>
+        <span>Piezas nuevas cada semana, para cada cliente, con tu método adentro.</span>
       </div>
     </div>
   );
 }
 
-function MockAlumno() {
+const agentes = [
+  { icono: Lightbulb, nombre: "Ideas de contenido" },
+  { icono: Search, nombre: "Referencias de su nicho" },
+  { icono: Zap, nombre: "Hooks" },
+  { icono: AlignLeft, nombre: "Cuerpo" },
+  { icono: MousePointerClick, nombre: "CTA" },
+];
+
+function CerebroDiagrama() {
   return (
-    <div className="student-panel" aria-label="El guion que recibe tu alumno">
+    <div className="cerebro" aria-label="Los agentes salen de tu cerebro">
+      <div className="cerebro-nucleo">
+        <Brain aria-hidden="true" />
+        <b>Tu cerebro</b>
+        <small>Tu método, tu criterio y tu forma de escribir</small>
+      </div>
+      <div className="cerebro-agentes">
+        {agentes.map(({ icono: Icono, nombre }) => (
+          <i key={nombre}>
+            <Icono aria-hidden="true" />
+            {nombre}
+          </i>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function MockGuion() {
+  return (
+    <div className="student-panel" aria-label="El guion que recibe tu cliente">
       <div className="student-panel-top">
         <img src={logo} alt="Clarity Hub" />
         <span>El guion de Martina</span>
@@ -242,15 +278,15 @@ function MockAlumno() {
       </div>
       <div className="guion-cuerpo">
         <div className="guion-linea">
-          <span>Gancho</span>
+          <span>Hook</span>
           <p>"Si llevás tres meses entrenando en casa y no te cambió el cuerpo, el problema no es la rutina."</p>
         </div>
         <div className="guion-linea">
-          <span>Desarrollo</span>
+          <span>Cuerpo</span>
           <p>"Es que estás haciendo la que le sirve a otra. Te doy las tres señales para darte cuenta."</p>
         </div>
         <div className="guion-linea">
-          <span>Cierre</span>
+          <span>CTA</span>
           <p>"Escribime RUTINA y te paso la que va con tu caso."</p>
         </div>
       </div>
@@ -265,12 +301,12 @@ function MockAlumno() {
 
 /**
  * Mock 02: el punto es el ALCANCE ("llegas a los veinte, no a los cuatro").
- * Una lista de dos alumnos no muestra veinte. Veinte puntos, si.
+ * Una lista de dos clientes no muestra veinte. Veinte puntos, si.
  */
 function MockAlcance() {
   const puntos = Array.from({ length: 20 }, (_, i) => i);
   return (
-    <div className="queue-card" aria-label="A cuantos alumnos llega tu criterio">
+    <div className="queue-card" aria-label="A cuantos clientes llega tu criterio">
       <div className="queue-top">
         <img src={logo} alt="Clarity Hub" />
         <span>Tu criterio, este mes</span>
@@ -301,7 +337,7 @@ function MockAlcance() {
 
 /**
  * Mock 03: lo que mas funciono, para ir a buscar el testimonio.
- * El multiplo va contra las vistas HABITUALES de cada alumno, no en numeros
+ * El multiplo va contra las vistas HABITUALES de cada cliente, no en numeros
  * absolutos: la regla del vault prohibe prometer vistas.
  */
 const topPiezas = [
@@ -318,7 +354,7 @@ function MockTestimonios() {
         <span>Lo que más funcionó</span>
       </div>
       <div className="queue-head">
-        <span>Este mes, en tu grupo</span>
+        <span>Lo mejor de este mes</span>
         <b>TOP 3</b>
       </div>
       {topPiezas.map((t, i) => (
@@ -339,7 +375,7 @@ function MockTestimonios() {
       </div>
       <div className="queue-foot">
         <Sparkles aria-hidden="true" />
-        <span>Antes te enterabas en la sesión, y solo si el alumno lo contaba.</span>
+        <span>Antes te enterabas en la sesión, y solo si el cliente lo contaba.</span>
       </div>
     </div>
   );
@@ -355,17 +391,17 @@ function MockTestimonios() {
  * resultado: quiere plata.
  *
  * Esta calcula UNA sola cosa y la dice con todas las letras: el ticket del
- * mentor por los alumnos que no llegan a un resultado, o sea la plata que NO
+ * mentor por los clientes que no llegan a un resultado, o sea la plata que NO
  * le vuelve a entrar el proximo ciclo. Nunca mezcla eso con lo ya cobrado.
  * El supuesto (el que no consigue resultados no renueva) va escrito abajo,
  * no escondido en la cuenta.
  */
 function CalculadoraPerdida() {
-  const [alumnos, setAlumnos] = useState(20);
+  const [clientes, setClientes] = useState(20);
   const [ticket, setTicket] = useState(3000);
   const [llegan, setLlegan] = useState(3);
 
-  const sinResultado = Math.round(alumnos * ((10 - llegan) / 10));
+  const sinResultado = Math.round(clientes * ((10 - llegan) / 10));
   const perdida = sinResultado * ticket;
   const num = (n: number) => new Intl.NumberFormat("es-PY", { maximumFractionDigits: 0 }).format(n);
 
@@ -374,12 +410,12 @@ function CalculadoraPerdida() {
       <div className="calculator-controls">
         <div className="calculator-label">
           <span className="eyebrow">CALCULADORA</span>
-          <h3>¿Cuánto te cuesta el alumno que no llega a un resultado?</h3>
+          <h3>¿Cuánto te cuesta el cliente que no llega a un resultado?</h3>
           <p>Con los números de tu programa.</p>
         </div>
         <label className="range-field">
-          <span>Alumnos al mes <b>{alumnos}</b></span>
-          <input type="range" min="3" max="60" value={alumnos} onChange={(e) => setAlumnos(Number(e.target.value))} />
+          <span>Clientes al mes <b>{clientes}</b></span>
+          <input type="range" min="3" max="60" value={clientes} onChange={(e) => setClientes(Number(e.target.value))} />
         </label>
         <label className="range-field">
           <span>Lo que te paga cada uno <b>USD {num(ticket)}</b></span>
@@ -392,16 +428,16 @@ function CalculadoraPerdida() {
       </div>
       <div className="calculator-result" aria-live="polite">
         <span className="eyebrow">LO QUE NO TE VUELVE A ENTRAR</span>
-        <p>Los alumnos que no consiguen resultados no renuevan ni te recomiendan:</p>
+        <p>Los clientes que no consiguen resultados no renuevan ni te recomiendan:</p>
         <motion.strong key={perdida} initial={{ opacity: 0.5, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.22 }}>
           USD {num(perdida)} <small>por mes</small>
         </motion.strong>
         <div className="calculator-breakdown">
-          <span>{num(sinResultado)}<small>alumnos sin resultado</small></span>
-          <span>{10 - llegan} de 10<small>de tus alumnos</small></span>
+          <span>{num(sinResultado)}<small>clientes sin resultado</small></span>
+          <span>{10 - llegan} de 10<small>de tus clientes</small></span>
         </div>
         <p className="calculator-note">
-          Es tu ticket por los alumnos que no llegan. No cuenta lo que ya cobraste: cuenta lo que no vas a volver a cobrar.
+          Es tu ticket por los clientes que no llegan. No cuenta lo que ya cobraste: cuenta lo que no vas a volver a cobrar.
         </p>
         <a href={calendarUrl} target="_blank" rel="noopener noreferrer" className="calculator-link">
           Quiero bajar ese número <ArrowRight aria-hidden="true" />
@@ -441,18 +477,18 @@ export default function TractionOS() {
               className="hero-copy"
             >
               <h1>
-                <span className="brand-highlight">Tu propio sistema de contenido</span> con IA, para que tus alumnos creen <em>guiones, carruseles y stories</em>.
+                <span className="brand-highlight">Tu propio sistema de contenido</span> con IA, para que tus clientes creen <em>guiones, carruseles y stories</em>.
               </h1>
               <h2 className="hero-sub">
-                Convierte tu metodología en piezas personalizadas para cada alumno, para que sepan exactamente qué hacer y consigan resultados en 90 días.
+                Convierte tu metodología en piezas personalizadas para cada cliente, para que sepan exactamente qué hacer y consigan resultados en 90 días.
               </h2>
               <p className="hero-description">
-                Cada pieza sale con tu criterio y pasa por tu aprobación antes de llegarles. Ellos la terminan y la publican.
+                Cada pieza sale con tu criterio adentro. Ellos la terminan y la publican.
               </p>
               <div className="hero-actions">
                 <Cta texto="Agendá una llamada" />
                 <span className="hero-microcopy">
-                  <BadgeCheck aria-hidden="true" /> Primero vemos cómo es tu método y cuánto produce hoy tu grupo. Después revisamos si hay encaje.
+                  <BadgeCheck aria-hidden="true" /> Primero vemos cómo es tu método y cuánto producen hoy tus clientes. Después revisamos si hay encaje.
                 </span>
               </div>
             </motion.div>
@@ -555,7 +591,7 @@ export default function TractionOS() {
                     <h3>{b.titulo}</h3>
                     <p>{b.texto}</p>
                   </div>
-                  {b.mock === "alumno" && <MockAlumno />}
+                  {b.mock === "guion" && <MockGuion />}
                   {b.mock === "mentor" && <MockAlcance />}
                   {b.mock === "testimonios" && <MockTestimonios />}
                 </motion.div>
@@ -563,9 +599,10 @@ export default function TractionOS() {
             </div>
 
             <div className="gancho">
+              <CerebroDiagrama />
               <p>
-                Todo eso sale de <strong>tu método</strong>, cargado una sola vez. Cómo se carga y cómo escribe
-                con él te lo muestro en la llamada.
+                Cada agente trabaja con <strong>tu cerebro</strong>, cargado una sola vez. Cómo se carga y cómo
+                escribe cada uno te lo muestro en la llamada.
               </p>
               <Cta texto="Mostrame cómo lo hace" />
             </div>
@@ -577,7 +614,7 @@ export default function TractionOS() {
           <div className="container fit-layout">
             <div>
               <span className="eyebrow">¿HAY ENCAJE?</span>
-              <h2>Para mentorías de contenido con grupos, <em>no para cursos sueltos.</em></h2>
+              <h2>Para mentorías de contenido con varios clientes, <em>no para cursos sueltos.</em></h2>
               <p className="fit-note">
                 No es para vos si tu método todavía no produjo un caso de éxito. <strong>El sistema no arregla un método: lo expone.</strong>
               </p>
@@ -604,7 +641,7 @@ export default function TractionOS() {
               <CalendarCheck aria-hidden="true" />
               <span className="eyebrow">30 MINUTOS</span>
               <h3>Reservá tu lugar</h3>
-              <p>Revisamos tu método y cuánto produce hoy tu grupo. Sin pitch.</p>
+              <p>Revisamos tu método y cuánto producen hoy tus clientes. Sin pitch.</p>
               <Cta texto={`Reservar uno de los ${CUPO_MENSUAL}`} className="clarity-button-full" />
               <div className="faq-corto">
                 {faqs.map((f) => (
@@ -622,7 +659,7 @@ export default function TractionOS() {
       <footer className="site-footer">
         <div className="container footer-inner">
           <img src={logo} alt="Clarity Hub" />
-          <p>Clarity Traction OS · Guiones, carruseles y stories para los alumnos del mentor.</p>
+          <p>Clarity Traction OS · Guiones, carruseles y stories para los clientes del mentor.</p>
           <span>Clarity Hub</span>
         </div>
       </footer>

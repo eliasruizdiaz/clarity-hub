@@ -408,9 +408,9 @@
 .beneficio-texto p { margin: 0; color: #55624f; font-size: 1.05rem; line-height: 1.55; }
 
 /* El hueco de curiosidad: nombra el mecanismo y no lo abre. */
-.gancho { display: grid; justify-items: center; gap: 1.4rem; max-width: 40rem;
+.gancho { display: grid; justify-items: center; gap: 1.4rem; max-width: 54rem;
   margin: 3.4rem auto 0; padding-top: 2.2rem; border-top: 1px solid rgba(46,106,52,.2); text-align: center; }
-.gancho p { margin: 0; color: #3f4a3b; font-size: clamp(1.05rem, 2.1vw, 1.25rem); line-height: 1.5; }
+.gancho p { margin: 0; max-width: 38rem; color: #3f4a3b; font-size: clamp(1.05rem, 2.1vw, 1.25rem); line-height: 1.5; }
 .gancho strong { color: var(--forest); }
 
 /* Cierre: cupo + honestidad + la unica puerta. */
@@ -502,6 +502,40 @@
   .guion-linea { grid-template-columns: 1fr; gap: .25rem; }
   .top-item { grid-template-columns: auto 1fr; }
   .top-item > i { grid-column: 2; text-align: left; }
+}
+
+/* ============================================================
+   El cerebro y sus agentes
+   Todo cuelga del metodo del mentor. Las ramas (barra + tallos) solo se
+   dibujan cuando los cinco agentes entran en una fila; si envuelven, quedan
+   como chips y el tronco solo. Un tallo apuntando al vacio se ve roto.
+   ============================================================ */
+.cerebro { width: 100%; max-width: 54rem; display: grid; justify-items: center; }
+.cerebro-nucleo { display: grid; justify-items: center; gap: .3rem; max-width: 23rem;
+  padding: 1.05rem 1.3rem; border: 1px solid rgba(46,106,52,.28); border-radius: 1rem;
+  background: #fff; box-shadow: 0 14px 34px rgba(51,69,45,.1); text-align: center; }
+.cerebro-nucleo svg { width: 1.5rem; height: 1.5rem; color: var(--coral); }
+.cerebro-nucleo b { color: var(--ink); font-family: "Fraunces", Georgia, serif; font-size: 1.2rem; letter-spacing: -.03em; }
+.cerebro-nucleo small { color: #6b7866; font-size: .8rem; line-height: 1.4; }
+
+.cerebro-agentes { position: relative; display: flex; flex-wrap: wrap; justify-content: center;
+  gap: .45rem; margin-top: 2.2rem; }
+/* El tronco, del nucleo hacia abajo. */
+.cerebro-agentes::before { content: ""; position: absolute; top: -2.2rem; left: 50%;
+  width: 1px; height: 2.2rem; background: rgba(46,106,52,.32); }
+.cerebro-agentes i { position: relative; display: inline-flex; align-items: center; gap: .42rem;
+  padding: .5rem .75rem; border: 1px solid rgba(46,106,52,.22); border-radius: .6rem; background: #fff;
+  color: #3f4a3b; font-size: .8rem; font-style: normal; font-weight: 700; white-space: nowrap; }
+.cerebro-agentes i svg { flex: 0 0 auto; width: .95rem; height: .95rem; color: var(--forest); }
+
+@media (min-width: 940px) {
+  .cerebro-agentes { flex-wrap: nowrap; margin-top: 3.1rem; }
+  /* La barra horizontal y los tallos: recien aca los cinco entran en fila. */
+  .cerebro-agentes::before { top: -3.1rem; height: 1.95rem; }
+  .cerebro-agentes::after { content: ""; position: absolute; top: -1.15rem; left: 8%; right: 8%;
+    height: 1px; background: rgba(46,106,52,.32); }
+  .cerebro-agentes i::before { content: ""; position: absolute; top: -1.15rem; left: 50%;
+    width: 1px; height: 1.15rem; background: rgba(46,106,52,.32); }
 }
 
 /* Dos lados del sistema */
