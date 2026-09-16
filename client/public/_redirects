@@ -1,7 +1,1 @@
-# Un asset que no existe NO puede caer en el fallback SPA: devolvia index.html
-# con 200, y como /assets/* esta marcado immutable por un año, el edge cacheaba
-# HTML en la ruta de un bundle y el navegador recibia texto donde esperaba un
-# modulo. Con esto, un asset faltante es un 404 honesto.
-/assets/*    /404.html     404
-
 /*    /index.html   200
