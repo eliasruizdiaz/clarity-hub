@@ -215,6 +215,14 @@ const contentPieces = [
   { src: "/images/traction/carrusel-1.jpg", formato: "carrusel" as const },
   { src: "/images/traction/reel-2.jpg", formato: "reel" as const },
   { src: "/images/traction/carrusel-2.jpg", formato: "carrusel" as const },
+  { src: "/images/traction/reel-3.jpg", formato: "reel" as const },
+  { src: "/images/traction/carrusel-3.jpg", formato: "carrusel" as const },
+  { src: "/images/traction/reel-4.jpg", formato: "reel" as const },
+  { src: "/images/traction/carrusel-4.jpg", formato: "carrusel" as const },
+  { src: "/images/traction/reel-5.jpg", formato: "reel" as const },
+  { src: "/images/traction/carrusel-5.jpg", formato: "carrusel" as const },
+  { src: "/images/traction/reel-6.jpg", formato: "reel" as const },
+  { src: "/images/traction/carrusel-6.jpg", formato: "carrusel" as const },
 ];
 
 
@@ -253,7 +261,7 @@ function ContentWall() {
       <div className="content-wall">
         <div className="wall-cols">
           {reparto.map((set, c) => {
-            const loop = set.length ? [...set, ...set, ...set] : [];
+            const loop = set.length ? [...set, ...set] : [];
             return (
               <div className={clases[c]} key={c} aria-hidden="true">
                 {loop.map((pieza, i) => (
