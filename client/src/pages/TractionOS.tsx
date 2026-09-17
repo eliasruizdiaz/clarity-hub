@@ -45,9 +45,12 @@ const CUPO_MENSUAL = 5;
 // explican en la sesion; el corrige los que llega a corregir. El cuello de
 // botella es su hora de revision, no su teclado.
 const escenas = [
-  "Tenés veinte clientes y cada uno llega a la sesión con su guion. Escuchás, corregís, y se te va la hora con cuatro.",
-  "Los otros dieciséis publican sin que nadie les haya mirado el guion. O no publican y esperan a la semana que viene.",
-  "El que publica sin tu criterio no consigue resultados, y el que espera tampoco. Sin casos no tenés embajadores que te refieran ni testimonios con que vender.",
+  { texto: "Tenés muchos clientes y cada uno llega a la sesión con su guion. Escuchás, corregís, y se te va la hora con los primeros cuatro." },
+  { texto: "Los demás publican sin que nadie les haya mirado el guion. O no publican y esperan a la semana que viene." },
+  {
+    texto: "El que publica sin tu criterio no consigue resultados, y el que espera tampoco. ",
+    resalta: "Sin casos no tenés embajadores que te refieran ni testimonios con que vender.",
+  },
 ];
 
 const beneficios = [
@@ -58,7 +61,7 @@ const beneficios = [
     mock: "guion" as const,
   },
   {
-    titulo: "Llegás a los veinte, no a los cuatro de siempre",
+    titulo: "Llegás a todos, no a los primeros cuatro",
     texto:
       "No todos se animan a hablarte. Hay callados, y hay quien le saca el jugo a cada sesión. Con esto estás clonado y disponible para todos, todo el tiempo.",
     mock: "mentor" as const,
@@ -83,7 +86,7 @@ const fitSignals = [
 const faqs = [
   {
     q: "¿Reemplaza mis sesiones?",
-    a: "No. Dejan de ser una fila de veinte guiones para revisar. Llegás sabiendo qué publicó cada uno y usás la hora en lo que solo podés hacer vos.",
+    a: "No. Dejan de ser una fila de guiones para revisar. Llegás sabiendo qué publicó cada uno y usás la hora en lo que solo podés hacer vos.",
   },
   {
     q: "¿Qué pasa si no funciona?",
@@ -375,8 +378,10 @@ function MockGuion() {
 }
 
 /**
- * Mock 02: el punto es el ALCANCE ("llegas a los veinte, no a los cuatro").
- * Una lista de dos clientes no muestra veinte. Veinte puntos, si.
+ * Mock 02: el punto es el ALCANCE ("llegas a todos, no a los primeros cuatro").
+ * Una lista de dos clientes no muestra "todos"; una grilla de puntos si. Los
+ * puntos son ilustrativos: el rotulo NO dice cuantos, porque no sabemos cuantos
+ * clientes tiene el que lee.
  */
 function MockAlcance() {
   const puntos = Array.from({ length: 20 }, (_, i) => i);
@@ -388,7 +393,7 @@ function MockAlcance() {
       </div>
       <div className="alcance-fila">
         <div className="alcance-rotulo">
-          <b>4</b> de 20 <small>es lo que entra en tus horas de sesión</small>
+          <b>4</b> <small>es lo que entra en tus horas de sesión</small>
         </div>
         <div className="alcance-puntos">
           {puntos.map((i) => <i key={i} className={i < 4 ? "punto-antes" : ""} />)}
@@ -396,7 +401,7 @@ function MockAlcance() {
       </div>
       <div className="alcance-fila">
         <div className="alcance-rotulo">
-          <b>20</b> de 20 <small>con tu método adentro del sistema</small>
+          <b>Todos</b> <small>con tu método adentro del sistema</small>
         </div>
         <div className="alcance-puntos">
           {puntos.map((i) => <i key={i} className="punto-ahora" />)}
@@ -404,7 +409,7 @@ function MockAlcance() {
       </div>
       <div className="queue-foot">
         <Sparkles aria-hidden="true" />
-        <span>Los ochenta guiones del mes se escribieron con tu método. Vos elegís con cuál cliente te sentás.</span>
+        <span>Cientos de guiones al mes se escriben con tu método. Vos elegís con cuál cliente te sentás.</span>
       </div>
     </div>
   );
@@ -487,19 +492,13 @@ export default function TractionOS() {
               className="hero-copy"
             >
               <h1>
-                <span className="brand-highlight">Tu propio sistema de contenido</span> con IA, para que tus clientes creen <em>guiones, carruseles y stories</em>.
+                <span className="brand-highlight">Tu sistema de contenidos con IA</span> que crea <em>guiones, carruseles y stories</em> para tus clientes.
               </h1>
               <h2 className="hero-sub">
                 Convierte tu metodología en piezas personalizadas para cada cliente, para que sepan exactamente qué hacer y consigan resultados en 90 días.
               </h2>
-              <p className="hero-description">
-                Cada pieza sale con tu criterio adentro. Ellos la terminan y la publican.
-              </p>
               <div className="hero-actions">
                 <Cta texto="Agendá una llamada" />
-                <span className="hero-microcopy">
-                  <BadgeCheck aria-hidden="true" /> Primero vemos cómo es tu método y cuánto producen hoy tus clientes. Después revisamos si hay encaje.
-                </span>
               </div>
             </motion.div>
             <motion.div
@@ -544,14 +543,15 @@ export default function TractionOS() {
             <div className="escenas">
               {escenas.map((e, i) => (
                 <motion.p
-                  key={e}
+                  key={e.texto}
                   initial={{ opacity: 0, y: 14 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.4 }}
                   transition={{ duration: 0.45, delay: i * 0.08 }}
                   className="escena"
                 >
-                  {e}
+                  {e.texto}
+                  {e.resalta && <mark>{e.resalta}</mark>}
                 </motion.p>
               ))}
             </div>
@@ -574,7 +574,7 @@ export default function TractionOS() {
                 className="swap-card swap-antes"
               >
                 <span className="swap-tag">Hoy</span>
-                <p>Cada cliente escribe su guion como puede. En la sesión llegás a corregir cuatro. Los otros dieciséis se publican igual.</p>
+                <p>Cada cliente escribe su guion como puede. En la sesión llegás a corregir cuatro. Los demás se publican igual.</p>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
@@ -584,7 +584,7 @@ export default function TractionOS() {
                 className="swap-card swap-despues"
               >
                 <span className="swap-tag">Con el sistema</span>
-                <p>Los ochenta guiones del mes ya vienen escritos con tu método. Vos no escribís ninguno.</p>
+                <p>Cientos de guiones al mes ya vienen escritos con tu método. Vos no escribís ninguno.</p>
               </motion.div>
             </div>
           </div>

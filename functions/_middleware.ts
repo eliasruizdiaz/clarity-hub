@@ -29,9 +29,9 @@ const POR_RUTA: Record<string, Meta> = {
     image: "/images/og-home.jpg",
   },
   "/traction-os": {
-    title: "Clarity Traction OS · Tu propio sistema de contenido con IA",
+    title: "Clarity Traction OS · Tu sistema de contenidos con IA",
     description:
-      "Tu propio sistema de contenido con IA, para que tus clientes creen guiones, carruseles y stories con tu metodología. Tomamos 5 mentores por mes.",
+      "Tu sistema de contenidos con IA que crea guiones, carruseles y stories para tus clientes, con tu metodología adentro. Tomamos 5 mentores por mes.",
     image: "/images/og-traction-os.jpg",
   },
   "/acquisition-os": {

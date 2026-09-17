@@ -49,10 +49,10 @@ export default function TractionOSSection() {
               Clarity <span className="text-[#c9f29e]">Traction OS.</span>
             </h2>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#e0ecdb] md:text-xl">
-              Tenés veinte clientes y cada uno llega a la sesión con su guion. Escuchás, corregís, y se te va la hora con cuatro.
+              Tenés muchos clientes y cada uno llega a la sesión con su guion. Escuchás, corregís, y se te va la hora con los primeros cuatro.
             </p>
             <p className="mt-4 max-w-xl text-lg leading-relaxed text-[#e0ecdb] md:text-xl">
-              <strong className="text-[#c9f29e]">Tu propio sistema de contenido con IA</strong>, para que tus clientes creen guiones, carruseles y stories con tu metodología.
+              <strong className="text-[#c9f29e]">Tu sistema de contenidos con IA</strong> que crea guiones, carruseles y stories para tus clientes, con tu metodología adentro.
             </p>
             <div className="mt-8 grid gap-3">
               {[

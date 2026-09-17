@@ -380,6 +380,8 @@
 .escenas { display: grid; gap: 1.7rem; max-width: 48rem; margin: .5rem auto 0; }
 .escena { position: relative; margin: 0; padding-left: 1.5rem; color: #2a3527;
   font-size: clamp(1.15rem, 2.4vw, 1.6rem); line-height: 1.42; font-weight: 500; }
+.escena mark { background: linear-gradient(transparent 56%, rgba(255,205,60,.75) 56%);
+  color: inherit; padding: 0 .12em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
 .escena::before { content: ""; position: absolute; left: 0; top: .55em;
   width: .55rem; height: .55rem; border-radius: 50%; background: var(--coral); }
 

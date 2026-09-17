@@ -1,9 +1,9 @@
 # Clarity Hub
 
 > Clarity Hub construye sistemas con IA para negocios que venden por Instagram.
-> La oferta activa es **Clarity Traction OS**: el sistema de contenido propio de
-> un mentor de marca personal, que le escribe a cada uno de sus clientes los
-> guiones, carruseles y stories con el método del mentor adentro.
+> La oferta activa es **Clarity Traction OS**: el sistema de contenidos con IA
+> de un mentor de marca personal, que crea los guiones, carruseles y stories de
+> cada uno de sus clientes con el método del mentor adentro.
 
 Clarity Hub es de Elías Ruiz Díaz (Paraguay). Trabaja con mentores y creadores
 que venden programas de contenido y marca personal de ticket alto.
