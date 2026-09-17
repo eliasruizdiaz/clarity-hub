@@ -529,6 +529,10 @@ export default function TractionOS() {
             transition={{ duration: 0.5 }}
             className="container cerebro-wrap"
           >
+            <div className="section-heading centered-heading">
+              <span className="eyebrow">CÓMO FUNCIONA</span>
+              <h2>Un cerebro con tu método. <em>Agentes que escriben con él.</em></h2>
+            </div>
             <CerebroDiagrama />
           </motion.div>
         </section>
@@ -574,7 +578,7 @@ export default function TractionOS() {
                 className="swap-card swap-antes"
               >
                 <span className="swap-tag">Hoy</span>
-                <p>Cada cliente escribe su guion como puede. En la sesión llegás a corregir cuatro. Los demás se publican igual.</p>
+                <p>Cada cliente escribe su guion como puede. En la sesión llegás a corregir los primeros cuatro. Los demás no tienen tiempo de pedir ayuda en vivo.</p>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
@@ -596,7 +600,7 @@ export default function TractionOS() {
           <div className="container">
             <div className="section-heading">
               <span className="eyebrow">QUÉ CAMBIA PARA VOS</span>
-              <h2>Tu método hace el trabajo. <em>Vos decidís.</em></h2>
+              <h2>Vos corregís <em>y tu IA aprende.</em></h2>
             </div>
 
             <div className="beneficios">
