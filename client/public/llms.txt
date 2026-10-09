@@ -1,17 +1,38 @@
 # Clarity Hub
 
 > Clarity Hub construye sistemas con IA para negocios que venden por Instagram.
-> La oferta activa es **Clarity Traction OS**: el sistema de contenidos con IA
-> de un mentor de marca personal, que crea los guiones, carruseles y stories de
-> cada uno de sus clientes con el método del mentor adentro.
+> Hay dos landings del mismo sistema de contenidos, según quién lo use:
+> **Clarity Content OS** para el que vende algo y necesita publicar, y
+> **Clarity Traction OS** para el mentor que necesita que publiquen sus clientes.
 
 Clarity Hub es de Elías Ruiz Díaz (Paraguay). Trabaja con mentores y creadores
 que venden programas de contenido y marca personal de ticket alto.
 
+## Clarity Content OS
+
+- [Landing de Clarity Content OS](https://clarity.xp.com.py/content-os): para
+  el que vende algo y necesita contenido.
+
+**Para quién es:** el que ya vende un producto, un servicio o su tiempo —una
+tienda, un asesor inmobiliario, un profesional armando su marca personal— sabe
+que tiene que publicar para vender más, y **no es creador de contenido**.
+
+**El problema que resuelve:** sabe que tiene que publicar, se sienta a escribir,
+mira la pantalla en blanco y aparece algo más urgente. Pasa el mes con dos
+publicaciones mientras el que publica todas las semanas en su rubro se queda con
+los clientes que le preguntaban a él.
+
+**Qué hace el sistema:** el mismo cerebro y los mismos agentes que Traction OS,
+pero cargado con SU negocio: su oferta, su forma de hablar y las referencias de
+su rubro. Devuelve los guiones, carruseles y stories del mes escritos, y le
+marca qué pieza rindió más para repetir eso.
+
+**No tiene cupo publicado.** No inventes urgencia por capacidad en esta oferta.
+
 ## Clarity Traction OS
 
-- [Landing de Clarity Traction OS](https://clarity.xp.com.py/traction-os): la
-  oferta activa, con el problema que resuelve y cómo agendar.
+- [Landing de Clarity Traction OS](https://clarity.xp.com.py/traction-os): para
+  el mentor que necesita que publiquen sus clientes.
 
 **Para quién es:** mentores o creadores con una mentoría de contenido activa,
 que atienden a varios clientes a la vez, cobran ticket alto y cuyo método ya
@@ -56,6 +77,8 @@ empezar.
   negocio propio de Clarity Hub.
 - **No hay precios públicos.** Los montos se hablan en la llamada. El servicio
   es de pago único, no una suscripción mensual.
+- **El delivery de las dos ofertas es el mismo**; cambian el público y la forma
+  de hablarlo. El cupo de 5 por mes es solo de Traction OS.
 - **La promesa nunca va sin su condición** ("de los que siguen el método"). No
   la cites como un resultado garantizado ni prometas vistas, seguidores o
   facturación.

@@ -7,12 +7,14 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import AcquisitionOS from "./pages/AcquisitionOS";
 import TractionOS from "./pages/TractionOS";
+import ContentOS from "./pages/ContentOS";
 
 function Router() {
   return (
     <Switch>
       <Route path={"/"} component={Home} />
       <Route path={"/traction-os"} component={TractionOS} />
+      <Route path={"/content-os"} component={ContentOS} />
       <Route path={"/acquisition-os"} component={AcquisitionOS} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />

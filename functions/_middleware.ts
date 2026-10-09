@@ -34,6 +34,12 @@ const POR_RUTA: Record<string, Meta> = {
       "Tu sistema de contenidos con IA que crea guiones, carruseles y stories para tus clientes, con tu metodología adentro. Tomamos 5 mentores por mes.",
     image: "/images/og-traction-os.jpg",
   },
+  "/content-os": {
+    title: "Clarity Content OS · Tu sistema de contenidos con IA",
+    description:
+      "Tu sistema de contenidos con IA que escribe tus guiones, carruseles y stories. Aunque no seas creador de contenido.",
+    image: "/images/og-content-os.jpg",
+  },
   "/acquisition-os": {
     title: "Clarity Acquisition OS · Tu máquina de adquisición",
     description:
