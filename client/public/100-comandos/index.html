@@ -283,6 +283,23 @@ footer p+p{margin-top:8px}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 
+.eyebrow-top{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.eyebrow-top span{color:var(--orange);margin:0 4px}
+.ticker .slug{font-size:20px}
+.upbox{margin-top:24px;background:var(--paper);border:2px solid var(--ink);border-radius:18px;padding:20px;display:grid;gap:14px;justify-items:start;max-width:560px}
+.upbox p{font-size:15px;color:var(--muted)}
+.upbox b{color:var(--ink)}
+.hero .btns{margin-top:16px}
+.credits{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;border-top:1px solid var(--line);padding-block:32px}
+.byline{display:flex;align-items:center;gap:16px}
+.byline img{height:34px;width:auto}
+.who-n{font-weight:700}
+.who-r{font-size:14px;color:var(--muted)}
+.float-offer{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;background:var(--orange);color:#fff;font-weight:700;text-decoration:none;padding:14px 22px;border-radius:999px;box-shadow:0 12px 30px rgba(240,82,43,.35)}
+.float-offer:hover{background:var(--orange-ink)}
+
+.offer h2{font-size:clamp(28px,3.4vw,40px)}
+
 </style>
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -300,22 +317,24 @@ fbq('track', 'PageView');
 <body>
 <header class="wrap top">
   <a href="/" aria-label="Clarity Hub"><img src="/images/logo_clarity.png" alt="Clarity Hub" width="101" height="42"></a>
-  <span class="tag">Material gratuito · <b>Clarity Hub</b></span>
 </header>
 
 <main>
 <section class="wrap hero">
   <div>
+    <p class="eyebrow-top">Material gratuito <span>/</span> Clarity Hub</p>
     <h1>100 comandos <em>de producto</em></h1>
-    <p class="sub">La misma foto, convertida en video y en anuncio</p>
-    <p class="lead">50 comandos para Gemini que convierten la foto de tu producto en video, y 50 para ChatGPT que la convierten en pieza publicitaria. Sin filmar, sin estudio y sin escribir un prompt: mandás la foto, pegás el comando y listo.</p>
-    <div class="ticker" aria-live="off"><span class="dot"></span>Probá con <span class="slug" id="tick">/hero-reveal-premium</span></div>
-    <div class="btns">
-      <a class="btn btn-main" href="#los-100">Ver los 100 gratis
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
-      <button class="btn btn-ghost" type="button" id="openAllTop">Abrir la lista completa</button>
+    <p class="sub">Video en Gemini, anuncio en ChatGPT</p>
+    <p class="lead">La misma foto de tu producto se convierte en video en Gemini y en pieza publicitaria en ChatGPT. Son 50 de cada uno, listos para copiar y pegar. Sin filmar, sin estudio y sin escribir un prompt.</p>
+    <div class="ticker" aria-live="off"><span class="dot"></span><span class="slug" id="tick">/hero-reveal-premium</span></div>
+    <div class="upbox">
+      <p><b>Estos 100 resuelven el video y la foto de tu producto.</b> En el Pack 10K la imagen ya viene escrita para tu negocio: <b>+10.000 comandos de imagen</b> y <b>+1.000 de video</b> para <b>200 tipos de negocio</b>, por <b>Gs. 50.000</b>.</p>
+      <a class="btn btn-main" href="/pack-10k/">Ver los +11.000 por Gs. 50.000</a>
     </div>
-    <p class="upsell"><b>Estos 100 resuelven el video y la foto de tu producto.</b> En el Pack 10K los comandos ya vienen escritos para tu negocio: +10.000 de imagen y +1.000 de video para 200 rubros, por Gs. 50.000. <a href="/pack-10k/">Ver el Pack 10K</a></p>
+    <div class="btns">
+      <a class="btn btn-ghost" href="#los-100">Ver los 100 gratis</a>
+      <button class="btn btn-ghost" type="button" id="searchTop">Buscar por palabra</button>
+    </div>
   </div>
 
   <figure class="flow" aria-label="Una foto de producto que se convierte en video con Gemini y en anuncio con ChatGPT" style="margin:0">
@@ -372,18 +391,12 @@ fbq('track', 'PageView');
   </figure>
 </section>
 
-<div class="wrap">
-  <div class="split">
-    <div><span class="n o">50</span><div><h3>Para Gemini</h3><p>La foto se convierte en video: el producto girando, la luz armando la silueta, la cámara acercándose.</p></div></div>
-    <div><span class="n g">50</span><div><h3>Para ChatGPT</h3><p>La foto cruda se convierte en campaña: estudio, lujo, cartel en la calle, escenario y formato de anuncio.</p></div></div>
-  </div>
-</div>
 
 <section class="wrap sec" id="los-100">
   <p class="eyebrow">Los 100, gratis</p>
   <h2>Video en Gemini arriba, imagen en ChatGPT abajo.</h2>
-  <p class="h-hand">Tocá una categoría y se abre con todos sus comandos</p>
-  <p class="intro">Cada comando se copia con un toque. No se cobra nada y no hay nada escondido.</p>
+  <p class="h-hand">Tocá una categoría y se abre la lista entera</p>
+  <p class="intro">Con buscador, para copiar y pegar. No se cobra nada y no hay nada escondido.</p>
 
   <div class="searchbar">
     <label class="search" for="q">
@@ -417,27 +430,14 @@ fbq('track', 'PageView');
   </div>
 </section>
 
-<section class="how" aria-labelledby="how-t">
-  <div class="wrap">
-    <p class="eyebrow">Cómo se usa</p>
-    <h2 id="how-t" style="font-size:clamp(30px,4vw,44px);font-weight:800;margin-top:10px">La categoría te dice la herramienta.</h2>
-    <p class="hand" style="font-size:26px;color:var(--green-ink);margin-top:8px">Mandás la foto, pegás el comando</p>
-    <div class="steps">
-      <div class="step"><span class="k">1</span><h3>Mirá el nombre</h3><p>Cada categoría arranca con Gemini o ChatGPT. Eso te dice dónde pegarlo.</p></div>
-      <div class="step"><span class="k">2</span><h3>Gemini devuelve video</h3><p>Abrí una conversación nueva, adjuntá la foto y pegá, por ejemplo, <span class="slug">/pedestal-shot-dark</span>.</p></div>
-      <div class="step"><span class="k">3</span><h3>ChatGPT devuelve imagen</h3><p>Mejor si la foto tiene fondo limpio. Pegá, por ejemplo, <span class="slug">/luxury</span>.</p></div>
-      <div class="step"><span class="k">4</span><h3>Ajustá el resultado</h3><p>Pedí "más lento", "más oscuro" o "más cerca". Ajustás el resultado, no reescribís el pedido.</p></div>
-    </div>
-  </div>
-</section>
 
 <section class="wrap offer" id="siguiente">
   <div class="offer-grid">
     <div>
       <p class="eyebrow">Después de estos 100 · Pack 10K</p>
-      <h2>¿Querés <em>+11.000 comandos</em> de ChatGPT y Gemini para tus imágenes todo el año?</h2>
-      <p class="h-hand">Ya escritos para tu negocio</p>
-      <p class="intro">Estos 100 resuelven la foto y el video de tu producto. En el Pack 10K la imagen viene escrita para tu rubro: la oferta con precio, el primer plano, la story y el arte sin cara de IA.</p>
+      <h2>¿Querés <em>+11 mil comandos</em> de ChatGPT y Gemini para usar en tus imágenes todo el año?</h2>
+      <p class="h-hand">La imagen ya viene escrita para tu negocio</p>
+      <p class="intro">Estos 100 resuelven el video y la foto del producto. Adentro, la imagen viene escrita para tu negocio, con la oferta que muestra el precio, el primer plano, la story y el arte sin cara de IA.</p>
       <p class="rubros">Gastronomía y delivery · Belleza · Peluquería y barbería · Automotriz · Moda · Casa y deco · Inmobiliaria · Salud · Fitness · Mascotas · Eventos · Comercio <span>y cualquier otro negocio</span></p>
       <ul class="ticks"><li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span><b>+10.000 comandos de imagen</b> para ChatGPT</span></li><li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span><b>+1.000 comandos de video</b> para Gemini: tu foto se convierte en video</span></li><li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span><b>200 tipos de negocio</b>, con el vocabulario de cada uno</span></li><li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Mejorar foto, oferta con precio, primer plano, story y arte sin cara de IA</span></li><li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Cada comando completo: copiar y pegar</span></li><li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Acceso el mismo día y garantía de 7 días</span></li></ul>
     </div>
@@ -447,9 +447,19 @@ fbq('track', 'PageView');
       <p class="muted">Pago único, sin mensualidad.</p>
       <a class="btn btn-main full" id="packBtn" href="/pack-10k/">Quiero los +11.000 comandos
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <p class="muted">Pagás, mandás el comprobante y recibís el acceso ese mismo día. Si no te sirve, te devolvemos el dinero en 7 días.</p>
+      <p class="muted">Pagaste, te llega el mismo día. ¿No te gustó? Te devolvemos el dinero en 7 días.</p>
     </aside>
   </div>
+</section>
+
+<section class="wrap credits">
+  <div class="byline">
+    <img src="/images/logo_clarity.png" alt="Clarity Hub" width="82" height="34">
+    <div><p class="who-n">Elias Ruiz Diaz</p><p class="who-r">Clarity Hub · +14 años automatizando empresas en Europa y Latinoamérica</p></div>
+  </div>
+  <a class="btn btn-green" href="/100-comandos/100-comandos-de-producto.pdf" target="_blank" rel="noopener">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+    Descargar los 100 en PDF</a>
 </section>
 </main>
 
@@ -457,7 +467,7 @@ fbq('track', 'PageView');
   <div class="wrap">
     <img src="/images/logo_clarity.png" alt="Clarity Hub" width="82" height="34">
     <div>
-      <p>Material gratuito. Podés usarlo en tu trabajo, en tus proyectos y en los de tus clientes, adaptar los comandos y usar comercialmente lo que produzcas con ellos. Podés compartir esta página con quien quieras. No podés vender este material ni publicarlo como propio.</p>
+      <p>Material gratuito. Podés usarlo en tu trabajo, en tus proyectos y en los de tus clientes, adaptar los comandos y usar comercialmente lo que produzcas con ellos. Podés mandar esta página a quien quieras. No podés vender este material ni publicarlo como propio.</p>
       <p>Gemini y ChatGPT cambian de comportamiento entre versiones y un comando puede necesitar ajuste. Revisá siempre lo que sale antes de publicarlo.</p>
       <p>2026 · Clarity Hub · XP E.A.S. · Paraguay</p>
     </div>
@@ -480,6 +490,7 @@ fbq('track', 'PageView');
   </div>
   <div class="p-body" id="pBody"></div>
 </aside>
+<a class="float-offer" id="floatOffer" href="/pack-10k/" hidden>Ver la oferta</a>
 <div class="toast" id="toast" role="status" hidden></div>
 
 <script>
@@ -668,7 +679,7 @@ function renderPanel(q){
   if(!shown){ const e = document.createElement("p"); e.className="empty"; e.textContent = "No hay comandos con esa palabra. Probá con otra, por ejemplo: luz, dark, ciudad."; pBody.appendChild(e); }
   if(current.length>1 && !qq){
     const end = document.createElement("div"); end.className = "p-end";
-    end.innerHTML = '<h4>Llegaste al final de los 100.</h4><p>¿Querés +11.000 comandos de ChatGPT y Gemini para tus imágenes todo el año? Son 10.000 de imagen para 200 tipos de negocio, por Gs. 50.000.</p>';
+    end.innerHTML = '<h4>Llegaste al final de los 100.</h4><p><b>¿Querés +11 mil comandos de ChatGPT y Gemini para usar en tus imágenes todo el año?</b> Son +10.000 comandos de imagen para 200 tipos de negocio, por Gs. 50.000.</p>';
     const a = document.getElementById("packBtn").cloneNode(true); a.removeAttribute("id"); a.classList.remove("full"); end.appendChild(a);
     pBody.appendChild(end);
   }
@@ -676,7 +687,6 @@ function renderPanel(q){
 function close(){ panel.hidden = true; scrim.hidden = true; document.body.style.overflow = ""; if(lastFocus) lastFocus.focus(); }
 document.querySelectorAll("[data-cat]").forEach(b=>b.addEventListener("click",()=>open(CATS.find(c=>c.id===b.dataset.cat))));
 document.getElementById("openAll").addEventListener("click",()=>open(null));
-document.getElementById("openAllTop").addEventListener("click",()=>open(null));
 document.getElementById("pClose").addEventListener("click",close);
 scrim.addEventListener("click",close);
 document.addEventListener("keydown",e=>{ if(e.key==="Escape" && !panel.hidden) close(); });
@@ -696,6 +706,13 @@ q.addEventListener("input",()=>{
   hits.forEach(h=>{ const li = document.createElement("li"); li.appendChild(row(h,true)); res.appendChild(li); });
   out.hidden = false; idx.hidden = true;
 });
+
+/* buscar por palabra + botón flotante */
+document.getElementById("searchTop").addEventListener("click",()=>{ document.getElementById("los-100").scrollIntoView({behavior:"smooth"}); setTimeout(()=>q.focus({preventScroll:true}),450); });
+const fo = document.getElementById("floatOffer");
+const onScroll = ()=>{ const off = document.getElementById("siguiente").getBoundingClientRect(); fo.hidden = window.scrollY < 600 || (off.top < innerHeight && off.bottom > 0); };
+addEventListener("scroll", onScroll, {passive:true}); onScroll();
+fo.addEventListener("click",()=>{ try{ fbq('trackCustom','VerOferta',{origen:'boton_flotante'}); }catch(e){} });
 
 /* ticker */
 const tick = document.getElementById("tick");
