@@ -183,7 +183,7 @@ fbq('track', 'PageView');
     <p class="sub hand">Sacás la foto con el celular, pegás el comando y sale el anuncio</p>
     <p class="lead">Más de 11.000 comandos listos para ChatGPT y Gemini, escritos para 200 tipos de negocio. Convierten una foto común en anuncio, story o video de campaña, sin diseñador y sin agencia.</p>
     <div class="buy">
-      <div class="price"><s>Gs. 100.000</s><b>Gs. 50.000</b><span>pago único</span></div>
+      <div class="price"><s><span data-usd="US$ 14">Gs. 100.000</span></s><b><span data-usd="US$ 7">Gs. 50.000</span></b><span>pago único</span></div>
       <a class="btn btn-main" href="/pack-10k/checkout/">Quiero los +11.000 comandos
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <ul class="trust">
@@ -323,8 +323,8 @@ fbq('track', 'PageView');
     </div>
     <div class="buybox">
       <p class="lote"><span class="dot"></span>Lote 1 · precio de lanzamiento</p>
-      <div class="price"><s>Gs. 100.000</s><b>Gs. 50.000</b></div>
-      <p class="muted">Pago único, sin mensualidad. Pago seguro con Bancard.</p>
+      <div class="price"><s><span data-usd="US$ 14">Gs. 100.000</span></s><b><span data-usd="US$ 7">Gs. 50.000</span></b></div>
+      <p class="muted">Pago único, sin mensualidad. <span data-usd="Pagás con tarjeta internacional.">Pago seguro con Bancard.</span></p>
       <a class="btn btn-main full" href="/pack-10k/checkout/">Quiero el Pack 10K</a>
       <div class="guarantee">
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.4 3.4 8.3 8 9 4.6-.7 8-4.6 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>
@@ -343,11 +343,11 @@ fbq('track', 'PageView');
     <details><summary>¿Tengo que saber escribir prompts?</summary><p>No. Cada comando ya viene escrito completo. Copiás, pegás y listo.</p></details>
     <details><summary>¿Cuánto tarda cada pieza?</summary><p>Segundos en ChatGPT y uno o dos minutos para el video en Gemini.</p></details>
     <details><summary>¿Es una suscripción?</summary><p>No. Pagás una sola vez y el pack es tuyo.</p></details>
-    <details><summary>¿Cómo lo recibo?</summary><p>Después de pagar, mandanos el comprobante por WhatsApp al +595 982 120 861 y te enviamos el acceso ese mismo día, también por correo.</p></details>
-    <details><summary>¿Puedo pagar desde fuera de Paraguay?</summary><p>Sí. Escribinos por WhatsApp y te pasamos el link para pagar en dólares.</p></details>
+    <details><summary>¿Cómo lo recibo?</summary><p>Si pagás desde fuera de Paraguay, el acceso te llega a tu correo apenas se aprueba el pago. Si pagás desde Paraguay con Bancard, mandanos el comprobante por WhatsApp al +595 982 120 861 y te enviamos el acceso ese mismo día.</p></details>
+    <details><summary>¿Puedo pagar desde fuera de Paraguay?</summary><p>Sí. La página te muestra el precio en dólares y pagás con tarjeta internacional. En el checkout podés cambiar de país si hace falta.</p></details>
   </div>
   <div class="final">
-    <div class="price"><s>Gs. 100.000</s><b>Gs. 50.000</b><span>pago único</span></div>
+    <div class="price"><s><span data-usd="US$ 14">Gs. 100.000</span></s><b><span data-usd="US$ 7">Gs. 50.000</span></b><span>pago único</span></div>
     <a class="btn btn-main" href="/pack-10k/checkout/">Quiero los +11.000 comandos</a>
   </div>
 </section>
@@ -366,14 +366,38 @@ fbq('track', 'PageView');
 
 <div class="sticky" id="sticky" hidden>
   <div class="wrap sticky-in">
-    <div class="price"><s>Gs. 100.000</s><b>Gs. 50.000</b></div>
+    <div class="price"><s><span data-usd="US$ 14">Gs. 100.000</span></s><b><span data-usd="US$ 7">Gs. 50.000</span></b></div>
     <a class="btn btn-main btn-sm" href="/pack-10k/checkout/">Quiero el Pack 10K</a>
   </div>
 </div>
 
 <script>
+/* Moneda según el país del visitante: Paraguay paga en guaraníes (Bancard), el resto en dólares (Whop). */
 (function(){
-  try{ fbq('track','ViewContent',{content_name:'Pack 10K de Comandos IA',value:50000,currency:'PYG'}); }catch(e){}
+  var K='pack10k_moneda';
+  function apply(cur){
+    window.MONEDA=cur;
+    document.documentElement.setAttribute('data-moneda',cur);
+    [].forEach.call(document.querySelectorAll('[data-usd]'),function(el){
+      if(el.dataset.pyg===undefined) el.dataset.pyg=el.textContent;
+      el.textContent = cur==='USD' ? el.dataset.usd : el.dataset.pyg;
+    });
+    document.dispatchEvent(new CustomEvent('moneda',{detail:cur}));
+  }
+  window.setMoneda=function(cur){ try{localStorage.setItem(K,cur)}catch(e){} apply(cur); };
+  new MutationObserver(function(){ if(window.MONEDA==='USD'){ [].forEach.call(document.querySelectorAll('[data-usd]'),function(el){ if(el.dataset.pyg===undefined){ el.dataset.pyg=el.textContent; el.textContent=el.dataset.usd; } }); } }).observe(document.body,{childList:true,subtree:true});
+  var saved=null; try{saved=localStorage.getItem(K)}catch(e){}
+  if(saved==='USD'||saved==='PYG'){ apply(saved); return; }
+  var tz=''; try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
+  apply(tz==='America/Asuncion'?'PYG':'USD');
+  fetch('/api/pais',{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){
+    if(d && d.country) apply(d.country==='PY'?'PYG':'USD');
+  }).catch(function(){});
+})();
+</script>
+<script>
+(function(){
+  try{ var usd=window.MONEDA==='USD'; fbq('track','ViewContent',{content_name:'Pack 10K de Comandos IA',value:usd?7:50000,currency:usd?'USD':'PYG'}); }catch(e){}
   var st=document.getElementById('sticky'), hero=document.querySelector('.buy');
   if('IntersectionObserver' in window && hero){
     new IntersectionObserver(function(es){ st.hidden = es[0].isIntersecting || window.scrollY < 200; }).observe(hero);

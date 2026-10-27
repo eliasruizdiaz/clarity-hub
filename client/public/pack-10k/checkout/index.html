@@ -127,6 +127,13 @@ footer p+p{margin-top:8px}
   .secure{font-size:12px}
 }
 
+.pais{display:grid;gap:8px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.pais-t{font-size:13px;font-weight:700;color:var(--muted)}
+.seg{display:grid;grid-template-columns:1fr 1fr;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:4px;gap:4px}
+.seg button{border:0;background:transparent;border-radius:999px;padding:9px 8px;font-size:13px;font-weight:700;color:var(--muted)}
+.seg button.on{background:var(--ink);color:var(--bg)}
+html[data-moneda="USD"] .only-pyg,html:not([data-moneda="USD"]) .only-usd{display:none}
+
 </style>
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -144,7 +151,7 @@ fbq('track', 'PageView');
 <body>
 <header class="wrap top">
   <a href="/pack-10k/" aria-label="Volver al Pack 10K"><img src="/images/logo_clarity.png" alt="Clarity Hub" width="101" height="42"></a>
-  <span class="secure"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Pago seguro con Bancard</span>
+  <span class="secure" id="secure"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span data-usd="Pago seguro con Whop">Pago seguro con Bancard</span></span>
 </header>
 
 <main class="wrap co">
@@ -157,60 +164,68 @@ fbq('track', 'PageView');
         <p class="item-name">+10.000 comandos de imagen para ChatGPT y +1.000 de video para Gemini</p>
         <p class="item-d">200 tipos de negocio · acceso el mismo día · garantía de 7 días</p>
       </div>
-      <p class="item-p"><s>Gs. 100.000</s><b>Gs. 50.000</b></p>
+      <p class="item-p"><s data-usd="US$ 14">Gs. 100.000</s><b data-usd="US$ 7">Gs. 50.000</b></p>
     </div>
 
     <p class="bump-title hand">Sumá esto ahora, solo en esta página</p>
 
     <label class="bump" for="b1">
-      <input type="checkbox" id="b1" data-bit="1" data-price="69000" data-name="Editor de Reels con Claude">
+      <input type="checkbox" id="b1" data-bit="1" data-price="69000" data-usd-price="9" data-name="Editor de Reels con Claude">
       <span class="box" aria-hidden="true"></span>
       <span class="cover sm c-orange" aria-hidden="true"><span>/reels</span></span>
       <span class="b-txt">
         <span class="b-head">Editor de Reels con Claude</span>
         <span class="b-d">5 modelos virales listos: grabás, elegís el modelo y Claude te entrega el reel editado, con subtítulos y movimiento.</span>
-        <span class="b-p">Suelto sale <s>Gs. 109.000</s> · hoy <b>Gs. 69.000</b></span>
+        <span class="b-p">Suelto sale <s data-usd="US$ 15">Gs. 109.000</s> · hoy <b data-usd="US$ 9">Gs. 69.000</b></span>
       </span>
     </label>
 
     <label class="bump" for="b2">
-      <input type="checkbox" id="b2" data-bit="2" data-price="49000" data-name="100 Prompts para tu Web con IA">
+      <input type="checkbox" id="b2" data-bit="2" data-price="49000" data-usd-price="7" data-name="100 Prompts para tu Web con IA">
       <span class="box" aria-hidden="true"></span>
       <span class="cover sm c-green" aria-hidden="true"><span>/web</span></span>
       <span class="b-txt">
         <span class="b-head">100 Prompts para tu Web con IA</span>
         <span class="b-d">100 prompts que generan la web entera de tu negocio, con 3D y animación, más 50 modelos listos y la clase para ponerla online.</span>
-        <span class="b-p">Suelto sale <s>Gs. 79.000</s> · hoy <b>Gs. 49.000</b></span>
+        <span class="b-p">Suelto sale <s data-usd="US$ 11">Gs. 79.000</s> · hoy <b data-usd="US$ 7">Gs. 49.000</b></span>
       </span>
     </label>
 
     <label class="bump" for="b3">
-      <input type="checkbox" id="b3" data-bit="4" data-price="29000" data-name="100 Prompts para tu Catálogo con IA">
+      <input type="checkbox" id="b3" data-bit="4" data-price="29000" data-usd-price="4" data-name="100 Prompts para tu Catálogo con IA">
       <span class="box" aria-hidden="true"></span>
       <span class="cover sm c-ink" aria-hidden="true"><span>/catalogo</span></span>
       <span class="b-txt">
         <span class="b-head">100 Prompts para tu Catálogo con IA</span>
         <span class="b-d">Arman la vidriera de tu tienda con cara de marca premium: apertura en 3D, movimiento y el pedido llegando a tu WhatsApp.</span>
-        <span class="b-p">Suelto sale <s>Gs. 49.000</s> · hoy <b>Gs. 29.000</b></span>
+        <span class="b-p">Suelto sale <s data-usd="US$ 7">Gs. 49.000</s> · hoy <b data-usd="US$ 4">Gs. 29.000</b></span>
       </span>
     </label>
   </section>
 
   <aside class="summary" aria-labelledby="st">
+    <div class="pais">
+      <p class="pais-t">¿Desde dónde pagás?</p>
+      <div class="seg" role="radiogroup" aria-label="País de pago">
+        <button type="button" role="radio" data-cur="PYG" id="curPY">Paraguay · Gs.</button>
+        <button type="button" role="radio" data-cur="USD" id="curUSD">Otro país · US$</button>
+      </div>
+    </div>
     <h2 id="st">Resumen</h2>
     <ul class="lines" id="lines"></ul>
     <div class="total"><span>Total</span><b id="total">Gs. 50.000</b></div>
     <a class="btn btn-main full" id="pay" href="#">Pagar Gs. 50.000</a>
-    <p class="note">Te llevamos a la página de pago de Bancard. Pagás una sola vez, sin mensualidad.</p>
+    <p class="note"><span data-usd="Te llevamos al pago seguro de Whop, con tarjeta internacional.">Te llevamos a la página de pago de Bancard.</span> Pagás una sola vez, sin mensualidad.</p>
     <div class="after">
       <p class="after-t">Después de pagar</p>
-      <p>Mandá el comprobante por WhatsApp al <b>+595 982 120 861</b> y te enviamos el acceso ese mismo día.</p>
+      <p class="only-pyg">Mandá el comprobante por WhatsApp al <b>+595 982 120 861</b> y te enviamos el acceso ese mismo día.</p>
+      <p class="only-usd">El acceso te llega a tu correo apenas se aprueba el pago. Si tenés algún problema, escribinos por WhatsApp al <b>+595 982 120 861</b>.</p>
     </div>
     <div class="guarantee">
       <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.4 3.4 8.3 8 9 4.6-.7 8-4.6 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>
       <p><b>Garantía de 7 días.</b> Si no te sirve, te devolvemos el dinero.</p>
     </div>
-    <p class="intl">¿Pagás desde fuera de Paraguay? <a href="https://wa.me/595982120861?text=Hola%2C%20quiero%20el%20Pack%2010K%20y%20pago%20desde%20fuera%20de%20Paraguay" target="_blank" rel="noopener">Escribinos y te pasamos el link en dólares</a>.</p>
+    
   </aside>
 </main>
 
@@ -218,12 +233,36 @@ fbq('track', 'PageView');
   <div class="wrap">
     <img src="/images/logo_clarity.png" alt="Clarity Hub" width="82" height="34">
     <div>
-      <p>El cobro lo procesa Bancard a nombre de XP E.A.S. ChatGPT y Gemini son marcas de sus respectivos dueños; este pack no está afiliado a OpenAI ni a Google.</p>
+      <p>El cobro lo procesa Bancard (Paraguay) o Whop (resto de los países) a nombre de Clarity Hub · XP E.A.S. ChatGPT y Gemini son marcas de sus respectivos dueños; este pack no está afiliado a OpenAI ni a Google.</p>
       <p>2026 · Clarity Hub · XP E.A.S. · Paraguay</p>
     </div>
   </div>
 </footer>
 
+<script>
+/* Moneda según el país del visitante: Paraguay paga en guaraníes (Bancard), el resto en dólares (Whop). */
+(function(){
+  var K='pack10k_moneda';
+  function apply(cur){
+    window.MONEDA=cur;
+    document.documentElement.setAttribute('data-moneda',cur);
+    [].forEach.call(document.querySelectorAll('[data-usd]'),function(el){
+      if(el.dataset.pyg===undefined) el.dataset.pyg=el.textContent;
+      el.textContent = cur==='USD' ? el.dataset.usd : el.dataset.pyg;
+    });
+    document.dispatchEvent(new CustomEvent('moneda',{detail:cur}));
+  }
+  window.setMoneda=function(cur){ try{localStorage.setItem(K,cur)}catch(e){} apply(cur); };
+  new MutationObserver(function(){ if(window.MONEDA==='USD'){ [].forEach.call(document.querySelectorAll('[data-usd]'),function(el){ if(el.dataset.pyg===undefined){ el.dataset.pyg=el.textContent; el.textContent=el.dataset.usd; } }); } }).observe(document.body,{childList:true,subtree:true});
+  var saved=null; try{saved=localStorage.getItem(K)}catch(e){}
+  if(saved==='USD'||saved==='PYG'){ apply(saved); return; }
+  var tz=''; try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
+  apply(tz==='America/Asuncion'?'PYG':'USD');
+  fetch('/api/pais',{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){
+    if(d && d.country) apply(d.country==='PY'?'PYG':'USD');
+  }).catch(function(){});
+})();
+</script>
 <script>
 (function(){
   // Un link de pago por combinación: bit 1 = Reels, bit 2 = Web, bit 4 = Catálogo.
@@ -238,15 +277,27 @@ fbq('track', 'PageView');
     6: "https://www.tpago.com.py/links?alias=PUPHM67945&commerce_branch_name=XP+E.A.S.", // + Web + Catálogo · 128.000
     7: "https://www.tpago.com.py/links?alias=POGIV57649&commerce_branch_name=XP+E.A.S."  // Completo · 197.000
   };
-  var BASE = 50000;
+  // Fuera de Paraguay se cobra en dólares por Whop: un plan por combinación, misma numeración.
+  var LINKS_USD = {
+    0: "https://whop.com/checkout/ch_0yvI5CrDuSnwAfB/", // Pack 10K · US$ 7
+    1: "https://whop.com/checkout/ch_BXwwjE7cqQjrmyc/", // + Reels · US$ 16
+    2: "https://whop.com/checkout/ch_9i1wfm6CyE6uGEl/", // + Web · US$ 14
+    4: "https://whop.com/checkout/ch_vOCmodNNBZvaETd/", // + Catálogo · US$ 11
+    3: "https://whop.com/checkout/ch_RrLXvz5JFF5Rfwb/", // + Reels + Web · US$ 23
+    5: "https://whop.com/checkout/ch_Uy6ypYKDklxkHpg/", // + Reels + Catálogo · US$ 20
+    6: "https://whop.com/checkout/ch_3YL1I5MaL7WAz5c/", // + Web + Catálogo · US$ 18
+    7: "https://whop.com/checkout/ch_YNI0N4BsuIVjWPL/"  // Completo · US$ 27
+  };
+  var usd = function(){ return window.MONEDA === 'USD'; };
+  var BASE = 50000, BASE_USD = 7;
   var boxes = [].slice.call(document.querySelectorAll('.bump input'));
   var lines = document.getElementById('lines'), totalEl = document.getElementById('total'), pay = document.getElementById('pay');
-  var fmt = function(n){ return 'Gs. ' + n.toLocaleString('es-PY').replace(/,/g,'.'); };
+  var fmt = function(n){ return usd() ? 'US$ ' + n : 'Gs. ' + n.toLocaleString('es-PY').replace(/,/g,'.'); };
   function state(){
-    var mask = 0, total = BASE, items = [['Pack 10K de Comandos IA', BASE]];
+    var u = usd(), mask = 0, total = u ? BASE_USD : BASE, items = [['Pack 10K de Comandos IA', u ? BASE_USD : BASE]];
     boxes.forEach(function(b){
       b.closest('.bump').classList.toggle('on', b.checked);
-      if(b.checked){ mask |= +b.dataset.bit; total += +b.dataset.price; items.push([b.dataset.name, +b.dataset.price]); }
+      if(b.checked){ var pr = u ? +b.dataset.usdPrice : +b.dataset.price; mask |= +b.dataset.bit; total += pr; items.push([b.dataset.name, pr]); }
     });
     return {mask:mask, total:total, items:items};
   }
@@ -261,17 +312,20 @@ fbq('track', 'PageView');
     });
     totalEl.textContent = fmt(s.total);
     pay.textContent = 'Pagar ' + fmt(s.total);
-    pay.href = LINKS[s.mask];
+    pay.href = (usd() ? LINKS_USD : LINKS)[s.mask];
+    [].forEach.call(document.querySelectorAll('.seg button'), function(x){ var on = x.dataset.cur === (usd() ? 'USD' : 'PYG'); x.classList.toggle('on', on); x.setAttribute('aria-checked', on); });
   }
   boxes.forEach(function(b){ b.addEventListener('change', function(){
     render();
-    if(b.checked){ try{ fbq('track','AddToCart',{content_name:b.dataset.name,value:+b.dataset.price,currency:'PYG'}); }catch(e){} }
+    if(b.checked){ try{ fbq('track','AddToCart',{content_name:b.dataset.name,value:usd()?+b.dataset.usdPrice:+b.dataset.price,currency:usd()?'USD':'PYG'}); }catch(e){} }
   }); });
   pay.addEventListener('click', function(){
     var s = state();
-    try{ localStorage.setItem('pack10k_pedido', JSON.stringify({items:s.items.map(function(i){return i[0]}), total:s.total, at:Date.now()})); }catch(e){}
-    try{ fbq('track','InitiateCheckout',{value:s.total,currency:'PYG',num_items:s.items.length}); }catch(e){}
+    try{ localStorage.setItem('pack10k_pedido', JSON.stringify({items:s.items.map(function(i){return i[0]}), total:s.total, moneda:usd()?'USD':'PYG', at:Date.now()})); }catch(e){}
+    try{ fbq('track','InitiateCheckout',{value:s.total,currency:usd()?'USD':'PYG',num_items:s.items.length}); }catch(e){}
   });
+  [].forEach.call(document.querySelectorAll('.seg button'), function(x){ x.addEventListener('click', function(){ window.setMoneda(x.dataset.cur); }); });
+  document.addEventListener('moneda', render);
   render();
 })();
 </script>
