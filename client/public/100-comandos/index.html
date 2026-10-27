@@ -317,7 +317,7 @@ footer p+p{margin-top:8px}
 }
 
 .hero{grid-template-columns:minmax(0,1.25fr) minmax(0,.9fr);padding-block:12px 48px}
-.hero h1{font-size:clamp(38px,5vw,60px);line-height:1.02}
+.hero h1{font-size:clamp(42px,6.4vw,76px);line-height:1}
 .opt .btn{white-space:nowrap}
 @media (max-width:860px){
   .hero{grid-template-columns:1fr;gap:24px}
@@ -326,6 +326,25 @@ footer p+p{margin-top:8px}
   .hero .lead{font-size:16px}
 }
 .opt-d span{white-space:nowrap}
+
+.cta2{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:640px}
+.cta2 .btn{width:100%;padding:18px 20px;font-size:17px;text-align:center;line-height:1.25}
+.btn-dl{background:var(--green);color:#fff}
+.btn-dl:hover{background:var(--green-ink)}
+.btn-pay span{white-space:nowrap}
+.cta2-note{margin-top:12px;font-size:14px;color:var(--muted)}
+.cta2-note a{color:var(--green-ink);font-weight:600}
+@media (max-width:640px){
+  .cta2{grid-template-columns:1fr}
+  .cta2 .btn{font-size:18px;padding:19px 20px}
+}
+
+.cta2 .btn{border-radius:18px;justify-content:center}
+.b-l{display:grid;gap:2px;text-align:left}
+.b-l b{font-size:17px;font-weight:800}
+.b-l small{font-size:13px;font-weight:600;opacity:.9}
+.btn-pay .b-l{text-align:center}
+.btn-dl .b-l{text-align:left}
 
 </style>
 <script>
@@ -354,25 +373,13 @@ fbq('track', 'PageView');
     <p class="sub">Video en Gemini, anuncio en ChatGPT</p>
     <p class="lead">La misma foto de tu producto se convierte en video en Gemini y en pieza publicitaria en ChatGPT. Son 50 de cada uno, listos para copiar y pegar. Sin filmar, sin estudio y sin escribir un prompt.</p>
     <div class="ticker" aria-live="off"><span class="dot"></span><span class="slug" id="tick">/hero-reveal-premium</span></div>
-    <div class="choice">
-      <div class="opt free">
-        <p class="opt-t">Gratis</p>
-        <p class="opt-h">Descargá los 100 comandos</p>
-        <div class="opt-btns">
-          <a class="btn btn-main" href="/100-comandos/100-comandos-de-producto.pdf" target="_blank" rel="noopener" id="pdfTop">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
-            Descargar los 100 gratis</a>
-          <a class="link" href="#los-100">o miralos acá abajo</a>
-        </div>
-      </div>
-      <span class="or hand" aria-hidden="true">o</span>
-      <div class="opt paid">
-        <p class="opt-t">Pack 10K</p>
-        <p class="opt-h">Accedé a +11.000 comandos escritos para tu negocio</p>
-        <p class="opt-d">+10.000 de imagen y +1.000 de video para 200 rubros, por <span data-usd="US$ 7">Gs. 50.000</span>.</p>
-        <a class="btn btn-ghost" href="/pack-10k/">Ver el Pack 10K</a>
-      </div>
+    <div class="cta2">
+      <a class="btn btn-dl" href="/100-comandos/100-comandos-de-producto.pdf" target="_blank" rel="noopener" id="pdfTop">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+        <span class="b-l"><b>Descargar los 100 gratis</b><small>PDF · 25 páginas</small></span></a>
+      <a class="btn btn-main btn-pay" href="/pack-10k/"><span class="b-l"><b>Acceder a +11.000 comandos</b><small>Pack 10K · <span data-usd="US$ 7">Gs. 50.000</span> pago único</small></span></a>
     </div>
+    <p class="cta2-note">Los 100 son gratis y sin registro. <a href="#los-100">También podés verlos acá abajo.</a></p>
   </div>
 
   <figure class="flow" aria-label="Una foto de producto que se convierte en video con Gemini y en anuncio con ChatGPT" style="margin:0">
