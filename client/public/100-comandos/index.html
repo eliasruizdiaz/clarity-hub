@@ -300,6 +300,33 @@ footer p+p{margin-top:8px}
 
 .offer h2{font-size:clamp(28px,3.4vw,40px)}
 
+.choice{margin-top:26px;display:grid;grid-template-columns:minmax(0,1.1fr) auto minmax(0,1fr);gap:18px;align-items:stretch;border-top:2px solid var(--ink);padding-top:20px;max-width:640px}
+.opt{display:grid;gap:8px;align-content:start;justify-items:start}
+.opt-t{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.free .opt-t{color:var(--green-ink)} .paid .opt-t{color:var(--orange-ink)}
+.opt-h{font-size:19px;font-weight:800;line-height:1.2;letter-spacing:-0.01em}
+.opt-d{font-size:14px;color:var(--muted)}
+.opt-btns{display:grid;gap:8px;justify-items:start}
+.opt .link{font-size:14px;color:var(--muted);font-weight:600}
+.or{align-self:center;font-size:26px;color:var(--muted);border-left:1px solid var(--line);border-right:1px solid var(--line);padding:0 14px;height:100%;display:flex;align-items:center}
+.paid .btn-ghost{padding:13px 20px;font-size:15px}
+@media (max-width:640px){
+  .choice{grid-template-columns:1fr;gap:14px}
+  .or{border:0;padding:0;height:auto;justify-self:start}
+  .paid{border-top:1px solid var(--line);padding-top:14px}
+}
+
+.hero{grid-template-columns:minmax(0,1.25fr) minmax(0,.9fr);padding-block:12px 48px}
+.hero h1{font-size:clamp(38px,5vw,60px);line-height:1.02}
+.opt .btn{white-space:nowrap}
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:24px}
+  .flow{order:0!important;max-width:420px}
+  .ticker{display:none}
+  .hero .lead{font-size:16px}
+}
+.opt-d span{white-space:nowrap}
+
 </style>
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -323,17 +350,28 @@ fbq('track', 'PageView');
 <section class="wrap hero">
   <div>
     <p class="eyebrow-top">Material gratuito <span>/</span> Clarity Hub</p>
-    <h1>100 comandos <em>de producto</em></h1>
+    <h1>100 comandos de producto, <em>gratis</em></h1>
     <p class="sub">Video en Gemini, anuncio en ChatGPT</p>
     <p class="lead">La misma foto de tu producto se convierte en video en Gemini y en pieza publicitaria en ChatGPT. Son 50 de cada uno, listos para copiar y pegar. Sin filmar, sin estudio y sin escribir un prompt.</p>
     <div class="ticker" aria-live="off"><span class="dot"></span><span class="slug" id="tick">/hero-reveal-premium</span></div>
-    <div class="upbox">
-      <p><b>Estos 100 resuelven el video y la foto de tu producto.</b> En el Pack 10K la imagen ya viene escrita para tu negocio: <b>+10.000 comandos de imagen</b> y <b>+1.000 de video</b> para <b>200 tipos de negocio</b>, por <b><span data-usd="US$ 7">Gs. 50.000</span></b>.</p>
-      <a class="btn btn-main" href="/pack-10k/">Ver los +11.000 por <span data-usd="US$ 7">Gs. 50.000</span></a>
-    </div>
-    <div class="btns">
-      <a class="btn btn-ghost" href="#los-100">Ver los 100 gratis</a>
-      <button class="btn btn-ghost" type="button" id="searchTop">Buscar por palabra</button>
+    <div class="choice">
+      <div class="opt free">
+        <p class="opt-t">Gratis</p>
+        <p class="opt-h">Descargá los 100 comandos</p>
+        <div class="opt-btns">
+          <a class="btn btn-main" href="/100-comandos/100-comandos-de-producto.pdf" target="_blank" rel="noopener" id="pdfTop">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+            Descargar los 100 gratis</a>
+          <a class="link" href="#los-100">o miralos acá abajo</a>
+        </div>
+      </div>
+      <span class="or hand" aria-hidden="true">o</span>
+      <div class="opt paid">
+        <p class="opt-t">Pack 10K</p>
+        <p class="opt-h">Accedé a +11.000 comandos escritos para tu negocio</p>
+        <p class="opt-d">+10.000 de imagen y +1.000 de video para 200 rubros, por <span data-usd="US$ 7">Gs. 50.000</span>.</p>
+        <a class="btn btn-ghost" href="/pack-10k/">Ver el Pack 10K</a>
+      </div>
     </div>
   </div>
 
@@ -732,7 +770,7 @@ q.addEventListener("input",()=>{
 });
 
 /* buscar por palabra + botón flotante */
-document.getElementById("searchTop").addEventListener("click",()=>{ document.getElementById("los-100").scrollIntoView({behavior:"smooth"}); setTimeout(()=>q.focus({preventScroll:true}),450); });
+document.getElementById("pdfTop").addEventListener("click",()=>{ try{ fbq("track","Lead",{content_name:"100 comandos PDF"}); }catch(e){} });
 const fo = document.getElementById("floatOffer");
 const onScroll = ()=>{ const off = document.getElementById("siguiente").getBoundingClientRect(); fo.hidden = window.scrollY < 600 || (off.top < innerHeight && off.bottom > 0); };
 addEventListener("scroll", onScroll, {passive:true}); onScroll();
