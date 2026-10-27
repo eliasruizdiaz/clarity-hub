@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>100 comandos de producto · Clarity Hub</title>
+<meta name="description" content="50 comandos que convierten la foto de tu producto en video con Gemini y 50 que la convierten en anuncio con ChatGPT. Gratis, para copiar y pegar.">
+<link rel="canonical" href="https://clarity.xp.com.py/100-comandos">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Clarity Hub">
+<meta property="og:locale" content="es_PY">
+<meta property="og:url" content="https://clarity.xp.com.py/100-comandos">
+<meta property="og:title" content="100 comandos de producto · Clarity Hub">
+<meta property="og:description" content="50 comandos que convierten la foto de tu producto en video con Gemini y 50 que la convierten en anuncio con ChatGPT. Gratis, para copiar y pegar.">
+<meta property="og:image" content="https://clarity.xp.com.py/images/og-home.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Kalam:wght@400;700&display=swap">
+<style>
+:root{
+  --bg:#FBF6EF;--bg-2:#F4EBDF;--paper:#FFFFFF;--ink:#1F2420;--muted:#5E635F;--line:#E6DACB;
+  --orange:#F0522B;--orange-ink:#C2441D;--green:#51B048;--green-ink:#2F7A28;--green-deep:#1E4428;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --hand:"Kalam","Segoe Print","Comic Sans MS",cursive;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+[hidden]{display:none!important}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--orange);outline-offset:2px;border-radius:6px}
+h1,h2,h3,h4{text-wrap:balance;margin:0;letter-spacing:-0.02em}
+p{margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.hand{font-family:var(--hand);font-weight:700}
+.slug{font-weight:700;color:var(--orange-ink);letter-spacing:-0.01em}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-ink)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:22px}
+.top img{height:42px;width:auto;display:block}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:999px;padding:16px 26px;font-weight:700;font-size:16px;text-decoration:none;transition:transform .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-main{background:var(--orange);color:#fff}
+.btn-main:hover{background:var(--orange-ink)}
+.btn-ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.btn-green{background:var(--green-deep);color:#fff}
+.btn-green:hover{background:#163420}
+.btn-sm{padding:11px 18px;font-size:14px}
+.price{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.price s{color:var(--muted);font-size:18px}
+.price b{font-size:44px;font-weight:800;letter-spacing:-0.03em;line-height:1}
+.price span{color:var(--muted);font-size:14px}
+footer{border-top:1px solid var(--line)}
+footer .wrap{padding-block:32px 48px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start}
+footer img{height:34px;width:auto}
+footer p{font-size:13px;color:var(--muted);max-width:80ch}
+footer p+p{margin-top:8px}
+@media (max-width:560px){footer .wrap{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+
+/* Layout: columna editorial crema, índice de categorías en filas (no cards), un panel lateral para copiar comandos */
+:root{
+  --bg:#FBF6EF;        /* crema Clarity */
+  --bg-2:#F4EBDF;      /* crema más profunda para bandas */
+  --paper:#FFFFFF;
+  --ink:#1F2420;
+  --muted:#5E635F;
+  --line:#E6DACB;
+  --orange:#F0522B;    /* naranja del logo */
+  --orange-ink:#C2441D;/* naranja para texto sobre crema */
+  --green:#51B048;     /* verde HUB */
+  --green-ink:#2F7A28;
+  --green-deep:#1E4428;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --hand:"Kalam","Segoe Print","Comic Sans MS",cursive;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--orange);outline-offset:2px;border-radius:6px}
+.hand{font-family:var(--hand);font-weight:700}
+h1,h2,h3{text-wrap:balance;margin:0;letter-spacing:-0.02em}
+p{margin:0}
+.slug{font-weight:700;color:var(--orange-ink);letter-spacing:-0.01em}
+
+/* top bar */
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:22px}
+.top img{height:42px;width:auto;display:block}
+.tag{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.tag b{color:var(--green-ink)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:48px;align-items:center;padding-block:28px 56px}
+.hero h1{font-size:clamp(44px,7vw,84px);line-height:.98;font-weight:800}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero .sub{font-family:var(--hand);font-size:clamp(22px,2.6vw,28px);color:var(--green-ink);margin-top:14px;line-height:1.25}
+.hero .lead{font-size:18px;color:var(--muted);margin-top:18px;max-width:52ch}
+.ticker{margin-top:22px;display:flex;align-items:center;gap:10px;font-size:15px;color:var(--muted);min-height:28px}
+.ticker .slug{font-size:18px}
+.ticker .dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex:none;animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35}}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:10px;border:0;border-radius:999px;padding:15px 24px;font-weight:700;font-size:16px;text-decoration:none;transition:transform .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-main{background:var(--orange);color:#fff}
+.btn-main:hover{background:var(--orange-ink)}
+.btn-ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.btn-green{background:var(--green-deep);color:#fff}
+.btn-green:hover{background:#163420}
+
+/* hero visual */
+.flow{position:relative}
+.flow svg{width:100%;height:auto;display:block}
+.flow .cap{display:grid;grid-template-columns:repeat(3,1fr);text-align:center;margin-top:10px;font-family:var(--hand);font-size:18px;color:var(--muted);line-height:1.2}
+.flow .cap span:nth-child(2){color:var(--orange-ink)}
+.flow .cap span:nth-child(3){color:var(--green-ink)}
+.sweep{animation:sweep 3.2s ease-in-out infinite}
+@keyframes sweep{0%{transform:translateX(-60px);opacity:0}30%{opacity:.85}70%{opacity:.85}100%{transform:translateX(60px);opacity:0}}
+.spin{transform-origin:center;transform-box:fill-box;animation:spin 5s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* split */
+.split{border-top:2px solid var(--ink);border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr}
+.split>div{padding-block:26px;display:flex;gap:18px;align-items:baseline}
+.split>div+div{border-left:1px solid var(--line);padding-left:28px}
+.split .n{font-size:64px;font-weight:800;line-height:1;letter-spacing:-0.04em}
+.split .n.o{color:var(--orange)}
+.split .n.g{color:var(--green)}
+.split h3{font-size:18px;font-weight:700}
+.split p{font-size:15px;color:var(--muted);margin-top:2px}
+
+/* section heads */
+.sec{padding-block:72px 24px}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-ink)}
+.sec h2{font-size:clamp(32px,4.4vw,48px);font-weight:800;line-height:1.05;margin-top:10px}
+.sec .h-hand{font-family:var(--hand);font-weight:700;font-size:clamp(22px,2.6vw,28px);color:var(--green-ink);margin-top:8px;line-height:1.25}
+.sec .intro{color:var(--muted);margin-top:12px;max-width:62ch;font-size:17px}
+
+/* search */
+.searchbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:28px}
+.search{flex:1 1 320px;min-width:0;display:flex;align-items:center;gap:10px;background:var(--paper);border:1.5px solid var(--line);border-radius:999px;padding:0 18px;height:52px}
+.search:focus-within{border-color:var(--orange)}
+.search input{border:0;outline:0;background:transparent;font:inherit;font-size:16px;flex:1;min-width:0;color:var(--ink)}
+.search svg{flex:none;color:var(--muted)}
+
+/* category index */
+.part{margin-top:44px}
+.part-head{display:flex;align-items:center;gap:14px;padding-bottom:12px;border-bottom:2px solid var(--ink)}
+.badge{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
+.badge.gem{background:#FDE3DA;color:var(--orange-ink)}
+.badge.gpt{background:#E2F2DF;color:var(--green-ink)}
+.badge.go{background:var(--ink);color:var(--bg)}
+.part-head p{font-size:15px;color:var(--muted)}
+.cats{list-style:none;margin:0;padding:0}
+.cat{border-bottom:1px solid var(--line)}
+.cat button{width:100%;background:none;border:0;text-align:left;display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:18px;align-items:center;padding:20px 4px;transition:background .15s ease}
+.cat button:hover{background:var(--bg-2)}
+.cat .num{font-size:15px;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+.cat h3{font-size:21px;font-weight:700}
+.cat .d{color:var(--muted);font-size:15px;margin-top:2px}
+.cat .chips{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:8px;font-size:14px}
+.cat .right{display:flex;align-items:center;gap:14px;color:var(--muted);font-size:14px;white-space:nowrap}
+.cat .arrow{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--paper);border:1px solid var(--line);color:var(--ink);transition:background .15s ease,color .15s ease}
+.cat button:hover .arrow{background:var(--orange);color:#fff;border-color:var(--orange)}
+.all-row{display:flex;justify-content:center;margin-top:36px}
+
+/* search results inline */
+.results{list-style:none;margin:16px 0 0;padding:0}
+.empty{color:var(--muted);padding:24px 4px}
+
+/* command rows (panel + results) */
+.cmd{border-bottom:1px solid var(--line);padding:16px 2px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:start}
+.cmd .slug{font-size:17px}
+.cmd .meta{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-left:8px;color:var(--muted)}
+.cmd .d{color:var(--muted);font-size:15px;margin-top:2px}
+.cmd details{margin-top:8px}
+.cmd summary{font-size:14px;color:var(--ink);cursor:pointer;font-weight:600;list-style:none;display:inline-flex;gap:6px;align-items:center}
+.cmd summary::-webkit-details-marker{display:none}
+.cmd summary::after{content:"+";font-weight:700;color:var(--orange-ink)}
+.cmd details[open] summary::after{content:"–"}
+.cmd .prompt{margin-top:8px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14px;line-height:1.6;color:var(--ink);white-space:pre-wrap;overflow-wrap:anywhere;user-select:all}
+.copy{border:1.5px solid var(--ink);background:var(--paper);border-radius:999px;padding:9px 16px;font-weight:700;font-size:14px;display:inline-flex;gap:8px;align-items:center;white-space:nowrap;transition:background .15s ease,color .15s ease}
+.copy:hover{background:var(--ink);color:var(--bg)}
+.copy.ok{background:var(--green);border-color:var(--green);color:#fff}
+
+/* how */
+.how{background:var(--bg-2);margin-top:72px}
+.how .wrap{padding-block:64px}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;margin-top:36px;counter-reset:s}
+.step{border-top:2px solid var(--ink);padding-top:16px}
+.step .k{font-family:var(--hand);font-size:34px;color:var(--orange);line-height:1}
+.step h3{font-size:18px;font-weight:700;margin-top:8px}
+.step p{color:var(--muted);font-size:15px;margin-top:6px}
+.step .slug{font-size:15px}
+
+/* offer */
+.upsell{margin-top:22px;font-size:15px;color:var(--muted);border-left:3px solid var(--green);padding-left:14px;max-width:56ch}
+.upsell b{color:var(--ink)}
+.upsell a{color:var(--orange-ink);font-weight:700}
+.offer .rubros{margin-top:18px;font-size:15px;font-weight:600;line-height:1.7}
+.offer .rubros span{color:var(--orange-ink)}
+.ticks span b{font-weight:700}
+.buybox{background:var(--paper);border:2px solid var(--ink);border-radius:20px;padding:28px;display:grid;gap:14px}
+.lote{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--green-ink)}
+.lote .dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 1.6s ease-in-out infinite}
+.price{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.price s{color:var(--muted);font-size:18px}
+.price b{font-size:44px;font-weight:800;letter-spacing:-0.03em;line-height:1}
+.muted{color:var(--muted);font-size:14px}
+.full{width:100%}
+.offer{padding-block:80px}
+.offer-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:start}
+.offer h2{font-size:clamp(32px,4.4vw,50px);font-weight:800;line-height:1.05}
+.offer h2 em{font-style:normal;color:var(--orange)}
+.offer .h-hand{font-family:var(--hand);font-weight:700;font-size:26px;color:var(--green-ink);margin-top:10px;line-height:1.25}
+.offer .intro{color:var(--muted);margin-top:16px;font-size:17px;max-width:56ch}
+.ticks{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px}
+.ticks li{display:grid;grid-template-columns:26px 1fr;gap:10px;align-items:start;font-size:16px}
+.ticks svg{color:var(--green);margin-top:2px}
+.who{border-left:3px solid var(--orange);padding:4px 0 4px 24px}
+.who .big{font-size:56px;font-weight:800;letter-spacing:-0.04em;line-height:1;color:var(--ink)}
+.who .big span{color:var(--orange)}
+.who p{color:var(--muted);margin-top:8px}
+.who .name{font-weight:700;color:var(--ink);margin-top:22px}
+.who .role{font-size:14px;color:var(--muted)}
+.contact{margin-top:22px;display:grid;gap:6px;font-size:15px}
+.contact b{user-select:all}
+
+/* footer */
+footer{border-top:1px solid var(--line)}
+footer .wrap{padding-block:32px 48px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start}
+footer img{height:34px;width:auto}
+footer p{font-size:13px;color:var(--muted);max-width:80ch}
+footer p+p{margin-top:8px}
+
+/* panel */
+.scrim{position:fixed;inset:0;background:rgba(31,36,32,.45);z-index:40;animation:fade .2s ease}
+@keyframes fade{from{opacity:0}}
+.panel{position:fixed;top:0;right:0;bottom:0;width:min(640px,100%);background:var(--bg);z-index:41;display:flex;flex-direction:column;box-shadow:-20px 0 60px rgba(31,36,32,.18);animation:slide .25s ease;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);padding-right:env(safe-area-inset-right,0px)}
+@keyframes slide{from{transform:translateX(40px);opacity:0}}
+.p-head{padding:22px 24px 16px;border-bottom:1px solid var(--line);display:grid;gap:12px}
+.p-row{display:flex;justify-content:space-between;align-items:start;gap:12px}
+.p-head h3{font-size:26px;font-weight:800;margin-top:8px}
+.p-head .d{color:var(--muted);font-size:15px}
+.x{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--paper);display:grid;place-items:center;flex:none}
+.p-how{font-size:14px;background:var(--paper);border:1px dashed var(--line);border-radius:12px;padding:10px 14px;color:var(--muted)}
+.p-how b{color:var(--ink)}
+.p-body{overflow-y:auto;padding:4px 24px 32px;flex:1;min-height:0}
+.p-group{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:22px 0 4px}
+.p-end{margin-top:28px;border-top:2px solid var(--ink);padding-top:20px}
+.p-end h4{font-size:20px;font-weight:800;margin:0}
+.p-end p{color:var(--muted);font-size:15px;margin:6px 0 16px}
+
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;z-index:60}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:28px}
+  .flow{order:-1;max-width:520px}
+  .offer-grid{grid-template-columns:1fr;gap:36px}
+  .steps{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .split{grid-template-columns:1fr}
+  .split>div+div{border-left:0;border-top:1px solid var(--line);padding-left:0}
+  .cat button{grid-template-columns:32px minmax(0,1fr) auto;gap:12px}
+  .cat .right .count{display:none}
+  .steps{grid-template-columns:1fr}
+  .cmd{grid-template-columns:1fr}
+  .cmd .copy{justify-self:start}
+  footer .wrap{grid-template-columns:1fr}
+  .top .tag{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+</style>
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1509576223444567');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1509576223444567&amp;ev=PageView&amp;noscript=1"></noscript>
+</head>
+<body>
+<header class="wrap top">
+  <a href="/" aria-label="Clarity Hub"><img src="/images/logo_clarity.png" alt="Clarity Hub" width="101" height="42"></a>
+  <span class="tag">Material gratuito · <b>Clarity Hub</b></span>
+</header>
+
+<main>
+<section class="wrap hero">
+  <div>
+    <h1>100 comandos <em>de producto</em></h1>
+    <p class="sub">La misma foto, convertida en video y en anuncio</p>
+    <p class="lead">50 comandos para Gemini que convierten la foto de tu producto en video, y 50 para ChatGPT que la convierten en pieza publicitaria. Sin filmar, sin estudio y sin escribir un prompt: mandás la foto, pegás el comando y listo.</p>
+    <div class="ticker" aria-live="off"><span class="dot"></span>Probá con <span class="slug" id="tick">/hero-reveal-premium</span></div>
+    <div class="btns">
+      <a class="btn btn-main" href="#los-100">Ver los 100 gratis
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+      <button class="btn btn-ghost" type="button" id="openAllTop">Abrir la lista completa</button>
+    </div>
+    <p class="upsell"><b>Estos 100 resuelven el video y la foto de tu producto.</b> En el Pack 10K los comandos ya vienen escritos para tu negocio: +10.000 de imagen y +1.000 de video para 200 rubros, por Gs. 50.000. <a href="/pack-10k/">Ver el Pack 10K</a></p>
+  </div>
+
+  <figure class="flow" aria-label="Una foto de producto que se convierte en video con Gemini y en anuncio con ChatGPT" style="margin:0">
+    <svg viewBox="0 0 520 300" role="img" aria-hidden="true">
+      <defs>
+        <linearGradient id="bottle" x1="0" x2="1">
+          <stop offset="0" stop-color="#F0522B"/><stop offset=".55" stop-color="#F57A55"/><stop offset="1" stop-color="#C2441D"/>
+        </linearGradient>
+        <linearGradient id="beam" x1="0" x2="1">
+          <stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/><stop offset=".5" stop-color="#FFFFFF" stop-opacity=".9"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+        </linearGradient>
+        <clipPath id="f2"><rect x="186" y="30" width="148" height="210" rx="14"/></clipPath>
+        <symbol id="prod" viewBox="0 0 60 120">
+          <rect x="22" y="0" width="16" height="14" rx="3" fill="#1F2420"/>
+          <rect x="18" y="12" width="24" height="10" rx="3" fill="#1F2420"/>
+          <rect x="6" y="20" width="48" height="100" rx="14" fill="url(#bottle)"/>
+          <rect x="14" y="52" width="32" height="34" rx="4" fill="#FBF6EF"/>
+          <rect x="19" y="60" width="22" height="4" rx="2" fill="#51B048"/>
+          <rect x="19" y="70" width="16" height="3" rx="1.5" fill="#1F2420" opacity=".5"/>
+        </symbol>
+      </defs>
+      <!-- frame 1: foto -->
+      <rect x="10" y="50" width="140" height="170" rx="14" fill="#FFFFFF" stroke="#E6DACB" stroke-width="1.5"/>
+      <rect x="22" y="62" width="116" height="146" rx="8" fill="#EFE7DC"/>
+      <use href="#prod" x="50" y="78" width="60" height="120"/>
+      <circle cx="128" cy="74" r="4" fill="#5E635F" opacity=".5"/>
+      <!-- arrows -->
+      <path d="M156 135 h22" stroke="#1F2420" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M172 129 l7 6 -7 6" fill="none" stroke="#1F2420" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M340 135 h22" stroke="#1F2420" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M356 129 l7 6 -7 6" fill="none" stroke="#1F2420" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- frame 2: video -->
+      <rect x="186" y="30" width="148" height="210" rx="14" fill="#1F2420"/>
+      <g clip-path="url(#f2)">
+        <ellipse cx="260" cy="214" rx="54" ry="10" fill="#F0522B" opacity=".25"/>
+        <use href="#prod" x="225" y="80" width="70" height="140"/>
+        <rect class="sweep" x="236" y="30" width="48" height="210" fill="url(#beam)" opacity=".6"/>
+      </g>
+      <rect x="198" y="222" width="124" height="4" rx="2" fill="#FFFFFF" opacity=".25"/>
+      <rect x="198" y="222" width="70" height="4" rx="2" fill="#F0522B"/>
+      <circle cx="306" cy="52" r="10" fill="#F0522B"/>
+      <path d="M303 47 l8 5 -8 5z" fill="#FFFFFF"/>
+      <!-- frame 3: anuncio -->
+      <rect x="370" y="50" width="140" height="170" rx="14" fill="#1E4428"/>
+      <circle class="spin" cx="440" cy="118" r="44" fill="none" stroke="#51B048" stroke-width="2" stroke-dasharray="4 8"/>
+      <use href="#prod" x="415" y="70" width="50" height="100"/>
+      <rect x="384" y="178" width="76" height="8" rx="4" fill="#FBF6EF"/>
+      <rect x="384" y="192" width="52" height="6" rx="3" fill="#FBF6EF" opacity=".55"/>
+      <rect x="462" y="182" width="36" height="20" rx="10" fill="#F0522B"/>
+      <circle cx="488" cy="72" r="14" fill="#51B048"/>
+      <path d="M481 72 l5 5 9 -10" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <figcaption class="cap"><span>Tu foto</span><span>Video en Gemini</span><span>Anuncio en ChatGPT</span></figcaption>
+  </figure>
+</section>
+
+<div class="wrap">
+  <div class="split">
+    <div><span class="n o">50</span><div><h3>Para Gemini</h3><p>La foto se convierte en video: el producto girando, la luz armando la silueta, la cámara acercándose.</p></div></div>
+    <div><span class="n g">50</span><div><h3>Para ChatGPT</h3><p>La foto cruda se convierte en campaña: estudio, lujo, cartel en la calle, escenario y formato de anuncio.</p></div></div>
+  </div>
+</div>
+
+<section class="wrap sec" id="los-100">
+  <p class="eyebrow">Los 100, gratis</p>
+  <h2>Video en Gemini arriba, imagen en ChatGPT abajo.</h2>
+  <p class="h-hand">Tocá una categoría y se abre con todos sus comandos</p>
+  <p class="intro">Cada comando se copia con un toque. No se cobra nada y no hay nada escondido.</p>
+
+  <div class="searchbar">
+    <label class="search" for="q">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Buscar: neon, lujo, dark, packshot…" autocomplete="off">
+    </label>
+  </div>
+
+  <div id="searchOut" hidden>
+    <ul class="results" id="results"></ul>
+  </div>
+
+  <div id="index">
+    <div class="part">
+      <div class="part-head"><span class="badge go">Empezá por acá</span><p>Los cuatro que resuelven la mayoría de las fotos.</p></div>
+      <ul class="cats" id="cats-start"></ul>
+    </div>
+    <div class="part">
+      <div class="part-head"><span class="badge gem">Gemini · video</span><p>10 temas, cada uno en 5 versiones.</p></div>
+      <ul class="cats" id="cats-gem"></ul>
+    </div>
+    <div class="part">
+      <div class="part-head"><span class="badge gpt">ChatGPT · imagen</span><p>10 categorías de 5 comandos.</p></div>
+      <ul class="cats" id="cats-gpt"></ul>
+    </div>
+    <div class="part">
+      <div class="part-head"><span class="badge go">De regalo</span><p>Para quien vende por delivery.</p></div>
+      <ul class="cats" id="cats-bonus"></ul>
+    </div>
+    <div class="all-row"><button class="btn btn-main" type="button" id="openAll">Abrir los 100 de una vez</button></div>
+  </div>
+</section>
+
+<section class="how" aria-labelledby="how-t">
+  <div class="wrap">
+    <p class="eyebrow">Cómo se usa</p>
+    <h2 id="how-t" style="font-size:clamp(30px,4vw,44px);font-weight:800;margin-top:10px">La categoría te dice la herramienta.</h2>
+    <p class="hand" style="font-size:26px;color:var(--green-ink);margin-top:8px">Mandás la foto, pegás el comando</p>
+    <div class="steps">
+      <div class="step"><span class="k">1</span><h3>Mirá el nombre</h3><p>Cada categoría arranca con Gemini o ChatGPT. Eso te dice dónde pegarlo.</p></div>
+      <div class="step"><span class="k">2</span><h3>Gemini devuelve video</h3><p>Abrí una conversación nueva, adjuntá la foto y pegá, por ejemplo, <span class="slug">/pedestal-shot-dark</span>.</p></div>
+      <div class="step"><span class="k">3</span><h3>ChatGPT devuelve imagen</h3><p>Mejor si la foto tiene fondo limpio. Pegá, por ejemplo, <span class="slug">/luxury</span>.</p></div>
+      <div class="step"><span class="k">4</span><h3>Ajustá el resultado</h3><p>Pedí "más lento", "más oscuro" o "más cerca". Ajustás el resultado, no reescribís el pedido.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap offer" id="siguiente">
+  <div class="offer-grid">
+    <div>
+      <p class="eyebrow">Después de estos 100 · Pack 10K</p>
+      <h2>¿Querés <em>+11.000 comandos</em> de ChatGPT y Gemini para tus imágenes todo el año?</h2>
+      <p class="h-hand">Ya escritos para tu negocio</p>
+      <p class="intro">Estos 100 resuelven la foto y el video de tu producto. En el Pack 10K la imagen viene escrita para tu rubro: la oferta con precio, el primer plano, la story y el arte sin cara de IA.</p>
+      <p class="rubros">Gastronomía y delivery · Belleza · Peluquería y barbería · Automotriz · Moda · Casa y deco · Inmobiliaria · Salud · Fitness · Mascotas · Eventos · Comercio <span>y cualquier otro negocio</span></p>
+      <ul class="ticks"><li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span><b>+10.000 comandos de imagen</b> para ChatGPT</span></li><li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span><b>+1.000 comandos de video</b> para Gemini: tu foto se convierte en video</span></li><li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span><b>200 tipos de negocio</b>, con el vocabulario de cada uno</span></li><li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Mejorar foto, oferta con precio, primer plano, story y arte sin cara de IA</span></li><li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Cada comando completo: copiar y pegar</span></li><li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Acceso el mismo día y garantía de 7 días</span></li></ul>
+    </div>
+    <aside class="buybox">
+      <p class="lote"><span class="dot"></span>Lote 1 · precio de lanzamiento</p>
+      <div class="price"><s>Gs. 100.000</s><b>Gs. 50.000</b></div>
+      <p class="muted">Pago único, sin mensualidad.</p>
+      <a class="btn btn-main full" id="packBtn" href="/pack-10k/">Quiero los +11.000 comandos
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p class="muted">Pagás, mandás el comprobante y recibís el acceso ese mismo día. Si no te sirve, te devolvemos el dinero en 7 días.</p>
+    </aside>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="/images/logo_clarity.png" alt="Clarity Hub" width="82" height="34">
+    <div>
+      <p>Material gratuito. Podés usarlo en tu trabajo, en tus proyectos y en los de tus clientes, adaptar los comandos y usar comercialmente lo que produzcas con ellos. Podés compartir esta página con quien quieras. No podés vender este material ni publicarlo como propio.</p>
+      <p>Gemini y ChatGPT cambian de comportamiento entre versiones y un comando puede necesitar ajuste. Revisá siempre lo que sale antes de publicarlo.</p>
+      <p>2026 · Clarity Hub · XP E.A.S. · Paraguay</p>
+    </div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="panel" id="panel" role="dialog" aria-modal="true" aria-labelledby="pTitle" hidden>
+  <div class="p-head">
+    <div class="p-row">
+      <div><span class="badge" id="pBadge"></span><h3 id="pTitle"></h3><p class="d" id="pDesc"></p></div>
+      <button class="x" type="button" id="pClose" aria-label="Cerrar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <label class="search" for="pq" style="height:46px">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="pq" type="search" placeholder="Filtrar en esta lista" autocomplete="off">
+    </label>
+    <p class="p-how" id="pHow"></p>
+  </div>
+  <div class="p-body" id="pBody"></div>
+</aside>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(function(){
+const BASE_G = "Use the attached photo as the exact product reference. Keep the shape, proportions, colors, materials, logo and every printed text identical; do not redesign, distort or add text. ";
+const END_G = " Format: 9:16 vertical, 8 seconds, photorealistic commercial quality, no people, no hands, no added logos or captions, smooth stable motion, sharp focus on the product in the final frame.";
+const VERS = {
+  premium:{es:"Versión premium, con movimientos lentos, terminación sofisticada y luz publicitaria controlada.", en:"Style: premium. Slow, elegant camera moves, refined finish, controlled advertising lighting with soft highlights and clean reflections, neutral luxurious backdrop."},
+  dark:{es:"Versión oscura, con fondo profundo, recortes de luz y contraste dramático.", en:"Style: dark. Deep black backdrop, sculpted rim lights cutting the silhouette, dramatic contrast, glossy reflections on a dark floor."},
+  bright:{es:"Versión clara, con iluminación amplia, sensación limpia y comunicación optimista.", en:"Style: bright. Wide soft daylight, airy light backdrop, clean fresh look, optimistic and friendly mood."},
+  kinetic:{es:"Versión dinámica, con aceleraciones suaves, cortes de movimiento y energía comercial.", en:"Style: kinetic. Smooth speed ramps, energetic camera moves, quick motion transitions, punchy commercial rhythm that still lands on a clean hero frame."},
+  minimal:{es:"Versión minimalista, con pocos elementos, mucho aire y foco absoluto en el producto.", en:"Style: minimal. Very few elements, generous negative space, single soft light, seamless solid backdrop, absolute focus on the product."}
+};
+const GEM = [
+  ["hero-reveal","La revelación","Revela el producto de a poco: la luz va armando la silueta hasta mostrarlo entero.","Create a product reveal video. Open in near darkness, then let light gradually build the product's silhouette, edge by edge, until the full product is revealed and held as a hero shot."],
+  ["pedestal-shot","El pedestal","Presenta el producto sobre un pedestal con un movimiento de cámara que destaca forma, envase y presencia.","Create a pedestal presentation video. Place the product centered on a sleek pedestal; the camera orbits slowly around it, highlighting shape, packaging and presence, ending on a front-facing hero frame."],
+  ["signature-shot","El plano firma","Arma el plano firma de la campaña: el producto domina el cuadro y termina en una composición memorable.","Create the signature shot of a campaign. The product dominates the frame from the first second; the camera glides to a bold, memorable final composition that could be the campaign's key visual."],
+  ["spotlight-entry","La entrada bajo la luz","Hace entrar el producto en escena bajo un único haz de luz, con foco total en él.","Create a spotlight entry video. A single beam of light falls on an empty stage; the product enters the beam smoothly and comes to rest perfectly lit, everything else in shadow."],
+  ["launch-moment","El lanzamiento","Convierte la presentación en un momento de lanzamiento, con entrada de impacto y final publicitario.","Create a product launch moment. Build anticipation with light and atmosphere, then make the product appear with an impactful entrance and finish on an advertising end frame."],
+  ["centerpiece","El centro de la escena","Mantiene el producto como centro absoluto mientras el escenario y la luz se mueven alrededor.","Create a centerpiece video. The product stays perfectly still at the center of the frame while the set, light and background elements move and change around it."],
+  ["icon-shot","El producto como ícono","Trata el producto como un ícono visual: encuadre limpio, movimiento preciso y pose final fuerte.","Create an icon shot. Treat the product as a visual icon: clean graphic framing, precise deliberate camera movement and a strong, symmetrical final pose."],
+  ["brand-intro","La apertura de marca","Abre el video con la atmósfera de la marca y lleva la cámara hasta el producto principal.","Create a brand intro video. Open on an atmospheric scene inspired by the product's colors and materials, then guide the camera smoothly until it lands on the product as the hero."],
+  ["final-packshot","El packshot final","Arma una secuencia corta que termina en un packshot estable, legible y listo para anuncio.","Create a short sequence that ends on a final packshot: stable, perfectly legible label, centered composition with clean space around it, ready to be used as the end card of an ad."],
+  ["campaign-opener","La apertura de campaña","Crea una apertura de campaña con progresión visual hasta que el producto toma el protagonismo.","Create a campaign opener. Start wide with a visual progression of light, texture and movement that builds up until the product takes over the frame as the protagonist."]
+];
+const C_END = " Use the attached photo as the exact product reference: keep its shape, colors, logo and printed text identical, do not redesign it. Photorealistic, high resolution, professional advertising quality, no extra text or watermarks unless requested.";
+const GPT = [
+  ["Fotografía de producto","Lo básico bien hecho: el producto convertido en pieza publicitaria.",[
+    ["showcase","Convierte el producto en una foto publicitaria premium, con luz cinematográfica, reflejos y escenario sofisticado.","Turn this product into a premium advertising photograph with cinematic lighting, subtle reflections and a sophisticated set."],
+    ["metaad","Arma un anuncio pensado para Meta Ads: composición llamativa, producto destacado y espacio para el texto.","Create a Meta Ads creative: eye-catching composition, product as the clear focal point, and clean empty space at the top for ad copy. Square 1:1."],
+    ["3Dbillboard","Pone el producto en un gigantesco cartel 3D anamórfico en plena ciudad.","Place this product on a giant anamorphic 3D billboard on a city building corner, popping out of the screen, with street and pedestrians below for scale."],
+    ["productshot","Foto profesional de estudio con fondo limpio y foco total en el producto.","Professional studio product shot: seamless clean background, soft three-point lighting, gentle shadow, total focus on the product."],
+    ["luxury","Convierte el producto en una campaña de lujo, con terminación sofisticada y estética de grandes marcas.","Turn this product into a luxury campaign: rich materials like marble and brushed metal, warm controlled lighting, elegant composition in the style of high-end brands."]]],
+  ["Cine y detalle","Luz, textura y profundidad: lo que separa una foto amateur de una campaña.",[
+    ["cinematic","Escena cinematográfica dramática con luz volumétrica, profundidad y atmósfera de película.","Create a dramatic cinematic scene around this product: volumetric light rays, haze, shallow depth of field and a film-like color grade."],
+    ["macro","Primerísimo plano con textura, materiales, gotas y pequeños detalles.","Extreme macro close-up of this product showing texture, materials, droplets and fine details, razor-sharp focus with creamy bokeh."],
+    ["floating","Hace levitar el producto rodeado de partículas u objetos relacionados con la marca.","Make this product levitate in mid-air, surrounded by floating particles and objects related to what it is, soft shadows below, clean backdrop."],
+    ["splash","El producto golpeado o rodeado por una explosión de agua o líquido.","Show this product hit by a dynamic splash of water or liquid, frozen at high speed with crisp droplets, studio lighting."],
+    ["ice","El producto en un escenario congelado con hielo, cristales, niebla fría y condensación.","Place this product in a frozen scene with ice blocks, crystals, cold mist and condensation drops on its surface, cool blue lighting."]]],
+  ["Escenarios de impacto","Cuando el anuncio tiene que frenar el dedo en el feed.",[
+    ["jungle","El producto dentro de una selva tropical exuberante con atmósfera cinematográfica.","Place this product inside a lush tropical jungle with dense leaves, mist and cinematic sun rays filtering through."],
+    ["fire","El producto rodeado de fuego, brasas, chispas e iluminación cálida dramática.","Surround this product with controlled fire, embers and sparks, dramatic warm lighting, dark background."],
+    ["energy","Agrega rayos, electricidad, partículas de energía y un aura intensa alrededor del producto.","Add lightning bolts, electricity arcs, energy particles and an intense glowing aura around this product, dark backdrop."],
+    ["neon","Escenario futurista iluminado con luces neón, reflejos y atmósfera cyberpunk.","Place this product in a futuristic set lit by neon lights, with glossy reflections on a wet floor and a cyberpunk atmosphere."],
+    ["cyberpunk","Convierte la imagen en una campaña futurista inspirada en ciudades cyberpunk.","Turn this into a futuristic campaign set in a cyberpunk city at night: holographic signs, rain, neon haze, product as the hero in the foreground."]]],
+  ["Tecnología y escena épica","Interfaces, portales y explosiones controladas.",[
+    ["futuristic","Pone el producto en un ambiente tecnológico avanzado, minimalista y futurista.","Place this product in an advanced, minimalist, futuristic tech environment with clean lines, glowing panels and soft white light."],
+    ["hologram","El producto rodeado de hologramas, interfaces digitales y elementos HUD.","Surround this product with holograms, floating digital interfaces and HUD elements showing abstract data, cool blue glow."],
+    ["portal","El producto saliendo a través de un portal de energía cinematográfico.","Show this product emerging through a cinematic swirling energy portal, light streaks and particles flowing outward."],
+    ["explosion","El producto en el centro de una explosión visual controlada con partículas y fragmentos.","Place this product at the center of a controlled visual explosion of particles, fragments and dust, frozen in time, product intact and sharp."],
+    ["smoke","Crea humo volumétrico dramático alrededor del producto.","Create dramatic volumetric smoke swirling around this product, backlit, dark moody background."]]],
+  ["Naturaleza y elementos","Escenarios orgánicos que transmiten frescura y verdad.",[
+    ["storm","El producto en medio de una tormenta, con rayos, lluvia y atmósfera épica.","Place this product in the middle of an epic storm: lightning in the sky, heavy rain, wet surfaces, dramatic light."],
+    ["underwater","El producto sumergido en agua, con burbujas, luz refractada y sensación premium.","Submerge this product underwater with rising bubbles, refracted caustic light and a premium clear-water look."],
+    ["ocean","El producto integrado en una gran escena oceánica con olas y agua en movimiento.","Integrate this product into a grand ocean scene with crashing waves and moving water, sea spray, golden hour light."],
+    ["desert","El producto en un desierto cinematográfico con arena, polvo y sol intenso.","Place this product in a cinematic desert with sand dunes, blowing dust and intense low sun, long shadows."],
+    ["nature","Integra el producto de forma orgánica con bosques, plantas, piedras y elementos naturales.","Integrate this product organically into nature: moss, stones, ferns and forest light, fresh and authentic mood."]]],
+  ["Espacio y escala","El producto fuera de su escala real, donde la imagen se vuelve noticia.",[
+    ["space","El producto en el espacio, rodeado de estrellas, planetas y nebulosas.","Place this product floating in outer space surrounded by stars, planets and colorful nebulae, rim light from a distant sun."],
+    ["moon","Pone el producto sobre la superficie de la Luna en una campaña surrealista.","Place this product on the surface of the Moon with Earth rising in the background, surreal advertising campaign look."],
+    ["mars","El producto en Marte, con escenario espacial cinematográfico.","Place this product on Mars: red rocky terrain, dusty atmosphere, cinematic space-mission lighting."],
+    ["gravity","Composición surrealista con objetos flotando alrededor del producto.","Create a surreal zero-gravity composition with related objects floating around this product, balanced and clean."],
+    ["giant","Convierte el producto en una versión gigante dentro de una ciudad o paisaje real.","Turn this product into a giant version standing inside a real city or landscape, people and cars tiny around it for scale."]]],
+  ["Ciudad y medios externos","El producto ocupando la calle, el cartel y la vidriera.",[
+    ["miniature","Personitas interactuando con el producto como si fuera gigante.","Create tiny miniature people interacting with this product as if it were gigantic: climbing, cleaning, photographing it, tilt-shift look."],
+    ["street","El producto en una campaña urbana moderna con calles, edificios y estilo de vida.","Place this product in a modern urban lifestyle campaign: city streets, buildings, natural daylight, editorial feel."],
+    ["timesquare","Pone la marca o el producto en enormes pantallas tipo Times Square.","Put this product on huge advertising screens in a Times Square style plaza at night, bright lights and crowds."],
+    ["tokyo","Campaña urbana futurista inspirada en Tokio, con neón y grandes anuncios.","Futuristic urban campaign inspired by Tokyo at night: neon signs, giant ads, rain-soaked streets, product in the foreground."],
+    ["dubai","El producto en un ambiente lujoso y futurista inspirado en Dubái.","Place this product in a luxurious futuristic setting inspired by Dubai: skyline, gold accents, warm sunset light."]]],
+  ["Marca y lanzamiento","Del envase a la tienda: el producto convertido en marca.",[
+    ["storefront","Convierte la marca en una tienda física premium con fachada conceptual.","Turn this brand into a premium physical store with a conceptual facade designed around the product's colors and shape."],
+    ["popupstore","Crea una pop-up store temática basada en la identidad visual del producto.","Create a themed pop-up store based on this product's visual identity, with displays, signage and shoppers."],
+    ["packaging","Arma un mockup profesional del envase en un escenario publicitario.","Create a professional packaging mockup for this product: box and product side by side in an advertising set."],
+    ["launch","Visual de lanzamiento con iluminación dramática, pedestal y atmósfera de revelación.","Product launch visual: dramatic lighting, the product on a pedestal, haze and a reveal atmosphere."],
+    ["pedestal","El producto centrado sobre un pedestal premium en un escenario minimalista.","Product centered on a premium pedestal in a minimalist set, soft light, clean backdrop."]]],
+  ["Limpio y comercial","Lo que vende en el catálogo, la web y el e-commerce.",[
+    ["minimal","Campaña extremadamente limpia, elegante y minimalista.","Create an extremely clean, elegant, minimalist campaign image of this product, lots of negative space."],
+    ["gradient","El producto sobre un fondo degradado moderno que combina con la identidad visual.","Place this product on a modern gradient background that matches its own colors, soft shadow, studio light."],
+    ["studio","Foto comercial realista hecha en un estudio profesional.","Realistic commercial photo of this product shot in a professional studio, true-to-life colors."],
+    ["ecommerce","Producto aislado, perfectamente iluminado y listo para catálogo o e-commerce.","Isolated product on pure white, perfectly lit, no harsh shadows, ready for catalog or e-commerce. Square 1:1."],
+    ["instagram","Composición publicitaria optimizada para el feed de Instagram.","Create an advertising composition optimized for the Instagram feed, 4:5 vertical, scroll-stopping colors."]]],
+  ["Formatos de red","Ya sale en el formato justo para publicar y anunciar.",[
+    ["reelscover","Convierte la imagen en una portada vertical de impacto para Reels.","Turn this into a striking vertical Reels cover, 9:16, product big in the center with space for a short title."],
+    ["storyad","Anuncio vertical 9:16 optimizado para Stories de Instagram.","Create a vertical 9:16 ad optimized for Instagram Stories, keep the top and bottom 15% free of key elements."],
+    ["ugc","Pone el producto en una foto más natural y espontánea, tipo contenido UGC.","Place this product in a natural, spontaneous smartphone-style photo, like user-generated content in a real home."],
+    ["viral","Imagen exagerada a propósito, sorprendente y pensada para llamar la atención en redes.","Create a deliberately exaggerated, surprising image of this product designed to grab attention on social media."],
+    ["hero","La imagen principal definitiva de la campaña, con el producto como protagonista absoluto.","Create the definitive hero image of a campaign, with this product as the absolute protagonist and premium advertising finish."]]]
+];
+const BONUS = [
+  ["delivery","La foto del plato o producto lista para PedidosYa, Monchis o tu menú de delivery.","Turn this photo of my dish or product into an appetizing delivery app photo: top-down or 45 degree angle, natural light, clean background, vivid but realistic colors, square 1:1. Keep the food exactly as it is, do not add ingredients."],
+  ["deliverycover","La portada de tu local en la app: el plato estrella con fondo de marca.","Create a horizontal cover image for my store on a delivery app, 16:9, with this dish as the hero on a background in my brand colors and clean space on the left for the store name. Keep the food exactly as it is."]
+];
+
+/* build data */
+const CMDS = [];
+const CATS = [];
+let n = 0;
+GEM.forEach((t,i)=>{
+  const items = Object.keys(VERS).map(v=>{
+    const c = {slug:"/"+t[0]+"-"+v, tool:"gem", cat:"Gemini · "+t[1], d:VERS[v].es, p:BASE_G + t[3] + " " + VERS[v].en + END_G};
+    CMDS.push(c); return c;
+  });
+  CATS.push({id:"g"+i, group:"gem", name:t[1], d:t[2], items});
+});
+GPT.forEach((c,i)=>{
+  const items = c[2].map(x=>{ const o={slug:"/"+x[0], tool:"gpt", cat:"ChatGPT · "+c[0], d:x[1], p:x[2]+C_END}; CMDS.push(o); return o; });
+  CATS.push({id:"c"+i, group:"gpt", name:c[0], d:c[1], items});
+});
+const bonusItems = BONUS.map(x=>({slug:"/"+x[0], tool:"gpt", cat:"ChatGPT · Foto para delivery", d:x[1], p:x[2]}));
+CATS.push({id:"b0", group:"bonus", name:"Foto para delivery", d:"El comando de menú que más pide quien vende por apps de delivery.", items:bonusItems});
+const find = s => CMDS.find(c=>c.slug===s);
+const startItems = ["/productshot","/showcase","/minimal","/hero-reveal-premium"].map(find);
+CATS.unshift({id:"s0", group:"start", name:"Los cuatro primeros", d:"Mandás la foto y pegás el comando. Tres para ChatGPT y uno para Gemini.", items:startItems});
+
+const esc = s => s.replace(/[&<>"]/g, ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));
+const ARROW = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+
+/* render index */
+const lists = {start:"cats-start", gem:"cats-gem", gpt:"cats-gpt", bonus:"cats-bonus"};
+const counters = {start:0, gem:0, gpt:0, bonus:0};
+let num = 0;
+CATS.forEach(c=>{
+  num++;
+  const ul = document.getElementById(lists[c.group]);
+  const chips = c.items.slice(0,3).map(i=>'<span class="slug">'+esc(i.slug)+'</span>').join("");
+  const li = document.createElement("li");
+  li.className = "cat";
+  li.innerHTML = '<button type="button" data-cat="'+c.id+'"><span class="num">'+String(num).padStart(2,"0")+'</span><span style="min-width:0"><h3>'+esc(c.name)+'</h3><p class="d">'+esc(c.d)+'</p><span class="chips">'+chips+'</span></span><span class="right"><span class="count">'+c.items.length+' comandos</span><span class="arrow">'+ARROW+'</span></span></button>';
+  ul.appendChild(li);
+});
+
+/* command row */
+const toolLabel = t => t==="gem" ? "Gemini · video" : "ChatGPT · imagen";
+function row(c, showCat){
+  const li = document.createElement("div");
+  li.className = "cmd";
+  li.innerHTML = '<div style="min-width:0"><span class="slug">'+esc(c.slug)+'</span>'+(showCat?'<span class="meta">'+esc(c.cat)+'</span>':'')+
+    '<p class="d">'+esc(c.d)+'</p><details><summary>Ver el comando completo</summary><div class="prompt">'+esc(c.p)+'</div></details></div>'+
+    '<button type="button" class="copy">Copiar</button>';
+  li.querySelector(".copy").addEventListener("click", e=>copy(c, e.currentTarget, li));
+  return li;
+}
+
+/* copy */
+const toast = document.getElementById("toast");
+let tt;
+function showToast(msg){ toast.textContent = msg; toast.hidden = false; clearTimeout(tt); tt = setTimeout(()=>toast.hidden = true, 2200); }
+function copy(c, btn, li){
+  const done = ()=>{ btn.textContent = "Copiado"; btn.classList.add("ok"); showToast(c.slug+" copiado. Pegalo en "+(c.tool==="gem"?"Gemini":"ChatGPT")+" junto con tu foto."); setTimeout(()=>{btn.textContent="Copiar";btn.classList.remove("ok")},1800); };
+  const fallback = ()=>{ const d = li.querySelector("details"); d.open = true; const p = li.querySelector(".prompt"); const r = document.createRange(); r.selectNodeContents(p); const s = getSelection(); s.removeAllRanges(); s.addRange(r); showToast("Texto seleccionado: copialo con Ctrl+C o mantené presionado."); };
+  try{ navigator.clipboard.writeText(c.p).then(done, fallback); }catch(e){ fallback(); }
+}
+
+/* panel */
+const panel = document.getElementById("panel"), scrim = document.getElementById("scrim"), pBody = document.getElementById("pBody"), pq = document.getElementById("pq");
+let current = [], lastFocus = null;
+function open(cat){
+  lastFocus = document.activeElement;
+  const all = !cat;
+  const badge = document.getElementById("pBadge");
+  badge.className = "badge " + (all ? "go" : cat.group==="gem" ? "gem" : cat.group==="gpt" ? "gpt" : "go");
+  badge.textContent = all ? "Los 100 + 2 de regalo" : cat.group==="gem" ? "Gemini · video" : cat.group==="gpt" ? "ChatGPT · imagen" : cat.group==="start" ? "Empezá por acá" : "De regalo";
+  document.getElementById("pTitle").textContent = all ? "Todos los comandos" : cat.name;
+  document.getElementById("pDesc").textContent = all ? "Video en Gemini primero, imagen en ChatGPT después." : cat.d;
+  document.getElementById("pHow").innerHTML = (all || cat.group==="start") ? "<b>Cómo usar:</b> los que dicen Gemini devuelven video; los de ChatGPT devuelven imagen. Primero la foto, después el comando." :
+    cat.group==="gem" ? "<b>Cómo usar:</b> abrí Gemini, adjuntá la foto del producto y pegá el comando. Devuelve un VIDEO." :
+    "<b>Cómo usar:</b> abrí ChatGPT, adjuntá la foto del producto y pegá el comando. Devuelve una IMAGEN.";
+  current = all ? CATS.filter(c=>c.group!=="start") : [cat];
+  pq.value = "";
+  renderPanel("");
+  panel.hidden = false; scrim.hidden = false;
+  document.body.style.overflow = "hidden";
+  pBody.scrollTop = 0;
+  document.getElementById("pClose").focus();
+}
+function renderPanel(q){
+  pBody.innerHTML = "";
+  const qq = norm(q);
+  let shown = 0;
+  current.forEach(c=>{
+    const items = c.items.filter(i=>!qq || match(i,qq));
+    if(!items.length) return;
+    if(current.length>1){ const h = document.createElement("p"); h.className="p-group"; h.textContent = (c.group==="gem"?"Gemini · ":c.group==="gpt"?"ChatGPT · ":"Regalo · ")+c.name; pBody.appendChild(h); }
+    items.forEach(i=>{ pBody.appendChild(row(i,false)); shown++; });
+  });
+  if(!shown){ const e = document.createElement("p"); e.className="empty"; e.textContent = "No hay comandos con esa palabra. Probá con otra, por ejemplo: luz, dark, ciudad."; pBody.appendChild(e); }
+  if(current.length>1 && !qq){
+    const end = document.createElement("div"); end.className = "p-end";
+    end.innerHTML = '<h4>Llegaste al final de los 100.</h4><p>¿Querés +11.000 comandos de ChatGPT y Gemini para tus imágenes todo el año? Son 10.000 de imagen para 200 tipos de negocio, por Gs. 50.000.</p>';
+    const a = document.getElementById("packBtn").cloneNode(true); a.removeAttribute("id"); a.classList.remove("full"); end.appendChild(a);
+    pBody.appendChild(end);
+  }
+}
+function close(){ panel.hidden = true; scrim.hidden = true; document.body.style.overflow = ""; if(lastFocus) lastFocus.focus(); }
+document.querySelectorAll("[data-cat]").forEach(b=>b.addEventListener("click",()=>open(CATS.find(c=>c.id===b.dataset.cat))));
+document.getElementById("openAll").addEventListener("click",()=>open(null));
+document.getElementById("openAllTop").addEventListener("click",()=>open(null));
+document.getElementById("pClose").addEventListener("click",close);
+scrim.addEventListener("click",close);
+document.addEventListener("keydown",e=>{ if(e.key==="Escape" && !panel.hidden) close(); });
+pq.addEventListener("input",()=>renderPanel(pq.value));
+
+/* global search */
+function norm(s){ return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").trim(); }
+function match(i,q){ return norm(i.slug+" "+i.d+" "+i.cat+" "+i.p).includes(q); }
+const q = document.getElementById("q"), out = document.getElementById("searchOut"), idx = document.getElementById("index"), res = document.getElementById("results");
+q.addEventListener("input",()=>{
+  const v = norm(q.value);
+  if(!v){ out.hidden = true; idx.hidden = false; return; }
+  const seen = new Set(), hits = [];
+  CATS.forEach(c=>c.items.forEach(i=>{ if(!seen.has(i.slug) && match(i,v)){ seen.add(i.slug); hits.push(i); } }));
+  res.innerHTML = "";
+  if(!hits.length){ const e = document.createElement("li"); e.className="empty"; e.textContent="No hay comandos con esa palabra. Probá con otra, por ejemplo: luz, dark, ciudad."; res.appendChild(e); }
+  hits.forEach(h=>{ const li = document.createElement("li"); li.appendChild(row(h,true)); res.appendChild(li); });
+  out.hidden = false; idx.hidden = true;
+});
+
+/* ticker */
+const tick = document.getElementById("tick");
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+if(!reduce){
+  const pick = ["/hero-reveal-premium","/luxury","/pedestal-shot-dark","/splash","/final-packshot-minimal","/miniature","/neon","/launch-moment-kinetic","/3Dbillboard","/ugc"];
+  let k = 0;
+  setInterval(()=>{ k = (k+1)%pick.length; tick.textContent = pick[k]; }, 1800);
+}
+})();
+</script>
+</body>
+</html>
