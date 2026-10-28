@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tu agente de contenido en Claude · Clarity Hub</title>
+<meta name="description" content="La guía para armar en Claude el mismo proceso con el que escribo un mes de contenido: desarmar los reels que funcionaron, sacar ángulos para tu negocio y escribir los guiones con tu voz.">
+<link rel="canonical" href="https://clarity.xp.com.py/agente-de-contenido">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Clarity Hub">
+<meta property="og:locale" content="es_PY">
+<meta property="og:url" content="https://clarity.xp.com.py/agente-de-contenido">
+<meta property="og:title" content="Tu agente de contenido en Claude · Clarity Hub">
+<meta property="og:description" content="Desarmá los reels que funcionaron, sacá ángulos para tu negocio y escribí los guiones con tu voz. Gratis, para armar en 10 minutos.">
+<meta property="og:image" content="https://clarity.xp.com.py/images/og-home.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Kalam:wght@400;700&display=swap">
+<style>
+:root{
+  --bg:#FBF6EF;--bg-2:#F4EBDF;--paper:#FFFFFF;--ink:#1F2420;--muted:#5E635F;--line:#E6DACB;
+  --orange:#F0522B;--orange-ink:#C2441D;--green:#51B048;--green-ink:#2F7A28;--green-deep:#1E4428;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --hand:"Kalam","Segoe Print","Comic Sans MS",cursive;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+[hidden]{display:none!important}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--orange);outline-offset:2px;border-radius:6px}
+h1,h2,h3{text-wrap:balance;margin:0;letter-spacing:-0.02em}
+p{margin:0}
+.wrap{max-width:860px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.hand{font-family:var(--hand);font-weight:700}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:22px}
+.top img{height:42px;width:auto;display:block}
+
+/* Hero */
+.hero{padding-block:24px 40px}
+.kicker{font-size:14px;font-weight:600;color:var(--muted)}
+.kicker span{color:var(--line);margin:0 6px}
+.hero h1{font-size:clamp(34px,6.4vw,58px);line-height:1.04;font-weight:800;margin-top:14px}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero .lead{font-size:clamp(17px,2.2vw,19px);color:var(--muted);max-width:60ch;margin-top:18px}
+.hero .hand-note{font-size:22px;color:var(--green-ink);margin-top:14px;transform:rotate(-1.5deg);display:inline-block}
+
+/* Mapa de los 5 pasos */
+.mapa{margin-top:34px}
+.mapa svg{width:100%;height:auto;display:block}
+.mapa-leyenda{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:14px;color:var(--muted);margin-top:10px}
+.mapa-leyenda span{display:inline-flex;align-items:center;gap:8px}
+.mapa-leyenda i{width:14px;height:14px;border-radius:50%;display:inline-block}
+.mapa-leyenda .c{background:var(--orange)}
+.mapa-leyenda .v{background:transparent;box-shadow:inset 0 0 0 2px var(--ink)}
+.mapa .mapa-v{display:none;max-width:380px}
+@media (max-width:640px){.mapa .mapa-h{display:none}.mapa .mapa-v{display:block}}
+
+/* Secciones */
+.sec{padding-block:48px;border-top:1px solid var(--line)}
+.sec h2{font-size:clamp(26px,4vw,36px);line-height:1.12;font-weight:800}
+.sec .intro{color:var(--muted);max-width:62ch;margin-top:12px;font-size:17px}
+
+/* Pasos numerados: cifra grande + contenido, separados por hairlines */
+.pasos{list-style:none;margin:28px 0 0;padding:0}
+.paso{display:grid;grid-template-columns:72px 1fr;gap:4px 18px;padding-block:26px;border-top:1px solid var(--line)}
+.paso:first-child{border-top:0;padding-top:6px}
+.paso .n{font-size:56px;line-height:.9;font-weight:800;color:var(--orange);letter-spacing:-0.04em}
+.paso h3{font-size:21px;font-weight:700;line-height:1.25}
+.paso p{color:var(--muted);margin-top:8px;max-width:62ch}
+.paso p b{color:var(--ink)}
+@media (max-width:520px){.paso{grid-template-columns:1fr}.paso .n{font-size:44px}}
+
+/* Bloques para copiar */
+.copiar{margin-top:16px;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.copiar-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px 10px 16px;border-bottom:1px solid var(--line);background:#FFFCF8}
+.copiar-top b{font-size:14px}
+.copiar-acciones{display:flex;gap:8px;flex-wrap:wrap}
+.copiar pre{margin:0;padding:16px;white-space:pre-wrap;word-break:break-word;font-family:var(--sans);font-size:14.5px;line-height:1.6;color:var(--ink);max-height:300px;overflow:auto}
+.copiar.abierto pre{max-height:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:14px 24px;font-weight:700;font-size:16px;text-decoration:none;transition:transform .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-sm{padding:8px 14px;font-size:13.5px}
+.btn-main{background:var(--orange);color:#fff}
+.btn-main:hover{background:var(--orange-ink)}
+.btn-line{background:transparent;box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn-line:hover{background:var(--bg-2)}
+.btn-dark{background:var(--ink);color:#fff}
+.mas{display:block;width:100%;border:0;border-top:1px solid var(--line);background:#FFFCF8;padding:10px;font-size:13.5px;font-weight:600;color:var(--muted)}
+.copiar.abierto .mas{display:none}
+
+/* Detalle en acordeón */
+details{margin-top:14px;border-top:1px solid var(--line)}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:14px 0;font-weight:600;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-weight:700;color:var(--orange);font-size:20px;line-height:1}
+details[open] summary::after{content:"−"}
+details .det{padding-bottom:16px;color:var(--muted);max-width:62ch}
+details .det p+p{margin-top:10px}
+
+/* Semana: los 4 mensajes */
+.semana{margin-top:28px;display:grid;gap:26px}
+.msg h3{font-size:19px;font-weight:700}
+.msg h3 span{color:var(--orange);margin-right:8px}
+.msg>p{color:var(--muted);margin-top:6px;max-width:62ch}
+
+/* Lista con hairlines */
+.lista{list-style:none;margin:22px 0 0;padding:0}
+.lista li{padding:14px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:start}
+.lista li:last-child{border-bottom:1px solid var(--line)}
+.lista svg{margin-top:2px}
+.lista b{display:block}
+.lista span{color:var(--muted)}
+
+/* Cierre */
+.cierre{padding-block:56px;border-top:1px solid var(--line)}
+.cierre h2{font-size:clamp(28px,4.4vw,40px);line-height:1.1;font-weight:800}
+.cierre h2 em{font-style:normal;color:var(--orange)}
+.cierre .intro{color:var(--muted);max-width:60ch;margin-top:14px;font-size:17px}
+.cierre .dm{margin-top:26px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;max-width:620px}
+.cierre .dm svg{color:var(--orange)}
+.cierre .dm p{font-size:18px;font-weight:600}
+.cierre .dm p span{display:block;font-size:15px;font-weight:400;color:var(--muted);margin-top:4px}
+.cierre .otro{margin-top:30px;font-size:15px;color:var(--muted)}
+.cierre .otro a{color:var(--ink);font-weight:600}
+
+.byline{display:flex;align-items:center;gap:14px;padding-block:28px}
+.byline img{height:34px;width:auto}
+.who-n{font-weight:700}
+.who-r{font-size:14px;color:var(--muted)}
+footer{border-top:1px solid var(--line)}
+footer .wrap{padding-block:28px 44px}
+footer p{font-size:13px;color:var(--muted);max-width:80ch}
+footer p+p{margin-top:8px}
+
+.toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 18px;border-radius:999px;font-weight:600;font-size:14px;z-index:20}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1509576223444567');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1509576223444567&amp;ev=PageView&amp;noscript=1"></noscript>
+</head>
+<body>
+<header class="wrap top">
+  <a href="/" aria-label="Clarity Hub"><img src="/images/logo_clarity.png" alt="Clarity Hub" width="101" height="42"></a>
+</header>
+
+<main>
+<section class="wrap hero">
+  <p class="kicker">Guía gratuita<span>/</span>Clarity Hub</p>
+  <h1>Tu agente de contenido, <em>armado en Claude</em></h1>
+  <p class="lead">Es el mismo proceso con el que escribo un mes de contenido: desarmar los reels que de verdad funcionaron, llevar lo que funcionó a tu negocio y escribir los guiones con tu voz y tu oferta. Lo armás en 10 minutos y lo usás todas las semanas.</p>
+  <p class="hand hand-note">Claude hace tres pasos. Los otros dos, por ahora, los hacés vos.</p>
+
+  <figure class="mapa" style="margin-inline:0;margin-bottom:0" aria-label="Los 5 pasos: buscar, desarmar, ángulos, guion y aprender">
+    <svg class="mapa-h" viewBox="0 0 820 170" role="img" aria-hidden="true">
+      <path d="M70 62 H750" stroke="#1F2420" stroke-width="2" stroke-dasharray="2 7" stroke-linecap="round"/>
+      <path d="M232 62 H588" stroke="#F0522B" stroke-width="4" stroke-linecap="round"/>
+      <g font-family="Inter,system-ui,sans-serif" text-anchor="middle">
+        <circle cx="70" cy="62" r="30" fill="#FBF6EF" stroke="#1F2420" stroke-width="2.5"/>
+        <text x="70" y="70" font-size="24" font-weight="800" fill="#1F2420">1</text>
+        <text x="70" y="122" font-size="16" font-weight="700" fill="#1F2420">Buscar</text>
+        <text x="70" y="143" font-size="13" fill="#5E635F">los reels que</text>
+        <text x="70" y="160" font-size="13" fill="#5E635F">rompieron el patrón</text>
+
+        <circle cx="240" cy="62" r="34" fill="#F0522B"/>
+        <text x="240" y="71" font-size="26" font-weight="800" fill="#FFFFFF">2</text>
+        <text x="240" y="122" font-size="16" font-weight="700" fill="#1F2420">Desarmar</text>
+        <text x="240" y="143" font-size="13" fill="#5E635F">gancho, estructura,</text>
+        <text x="240" y="160" font-size="13" fill="#5E635F">por qué retiene</text>
+
+        <circle cx="410" cy="62" r="34" fill="#F0522B"/>
+        <text x="410" y="71" font-size="26" font-weight="800" fill="#FFFFFF">3</text>
+        <text x="410" y="122" font-size="16" font-weight="700" fill="#1F2420">Ángulos</text>
+        <text x="410" y="143" font-size="13" fill="#5E635F">lo que funcionó,</text>
+        <text x="410" y="160" font-size="13" fill="#5E635F">llevado a tu negocio</text>
+
+        <circle cx="580" cy="62" r="34" fill="#F0522B"/>
+        <text x="580" y="71" font-size="26" font-weight="800" fill="#FFFFFF">4</text>
+        <text x="580" y="122" font-size="16" font-weight="700" fill="#1F2420">Guion</text>
+        <text x="580" y="143" font-size="13" fill="#5E635F">con tu voz</text>
+        <text x="580" y="160" font-size="13" fill="#5E635F">y tu oferta</text>
+
+        <circle cx="750" cy="62" r="30" fill="#FBF6EF" stroke="#1F2420" stroke-width="2.5"/>
+        <text x="750" y="70" font-size="24" font-weight="800" fill="#1F2420">5</text>
+        <text x="750" y="122" font-size="16" font-weight="700" fill="#1F2420">Aprender</text>
+        <text x="750" y="143" font-size="13" fill="#5E635F">de cada</text>
+        <text x="750" y="160" font-size="13" fill="#5E635F">corrección</text>
+      </g>
+      <text x="410" y="18" text-anchor="middle" font-family="Kalam,cursive" font-weight="700" font-size="17" fill="#2F7A28">esto lo hace Claude</text>
+    </svg>
+    <svg class="mapa-v" viewBox="0 0 340 420" role="img" aria-hidden="true">
+      <path d="M40 34 V386" stroke="#1F2420" stroke-width="2" stroke-dasharray="2 7" stroke-linecap="round"/>
+      <path d="M40 112 V300" stroke="#F0522B" stroke-width="4" stroke-linecap="round"/>
+      <g font-family="Inter,system-ui,sans-serif">
+        <circle cx="40" cy="34" r="22" fill="#FBF6EF" stroke="#1F2420" stroke-width="2.5"/>
+        <text x="40" y="41" font-size="19" font-weight="800" fill="#1F2420" text-anchor="middle">1</text>
+        <text x="78" y="30" font-size="16" font-weight="700" fill="#1F2420">Buscar</text>
+        <text x="78" y="50" font-size="13" fill="#5E635F">los reels que rompieron el patrón</text>
+
+        <circle cx="40" cy="122" r="25" fill="#F0522B"/>
+        <text x="40" y="129" font-size="20" font-weight="800" fill="#FFFFFF" text-anchor="middle">2</text>
+        <text x="78" y="118" font-size="16" font-weight="700" fill="#1F2420">Desarmar</text>
+        <text x="78" y="138" font-size="13" fill="#5E635F">gancho, estructura, por qué retiene</text>
+
+        <circle cx="40" cy="210" r="25" fill="#F0522B"/>
+        <text x="40" y="217" font-size="20" font-weight="800" fill="#FFFFFF" text-anchor="middle">3</text>
+        <text x="78" y="206" font-size="16" font-weight="700" fill="#1F2420">Ángulos</text>
+        <text x="78" y="226" font-size="13" fill="#5E635F">lo que funcionó, llevado a tu negocio</text>
+
+        <circle cx="40" cy="298" r="25" fill="#F0522B"/>
+        <text x="40" y="305" font-size="20" font-weight="800" fill="#FFFFFF" text-anchor="middle">4</text>
+        <text x="78" y="294" font-size="16" font-weight="700" fill="#1F2420">Guion</text>
+        <text x="78" y="314" font-size="13" fill="#5E635F">con tu voz y tu oferta</text>
+
+        <circle cx="40" cy="386" r="22" fill="#FBF6EF" stroke="#1F2420" stroke-width="2.5"/>
+        <text x="40" y="393" font-size="19" font-weight="800" fill="#1F2420" text-anchor="middle">5</text>
+        <text x="78" y="382" font-size="16" font-weight="700" fill="#1F2420">Aprender</text>
+        <text x="78" y="402" font-size="13" fill="#5E635F">de cada corrección</text>
+      </g>
+    </svg>
+    <figcaption class="mapa-leyenda"><span><i class="c"></i>Lo hace Claude</span><span><i class="v"></i>Lo hacés vos, a mano</span></figcaption>
+  </figure>
+</section>
+
+<section class="wrap sec" id="armado">
+  <h2>Armalo en 10 minutos</h2>
+  <p class="intro">Una sola vez. Después, cada semana arrancás desde acá sin explicarle quién sos.</p>
+
+  <ol class="pasos">
+    <li class="paso">
+      <span class="n">1</span>
+      <div>
+        <h3>Creá un proyecto en Claude</h3>
+        <p>Entrá a <b>claude.ai</b>, abrí <b>Proyectos</b> y tocá <b>Crear proyecto</b>. Ponele de nombre <b>Mi agente de contenido</b>. Funciona con la cuenta gratis.</p>
+      </div>
+    </li>
+    <li class="paso">
+      <span class="n">2</span>
+      <div>
+        <h3>Pegale las instrucciones</h3>
+        <p>Dentro del proyecto, en <b>Instrucciones</b>, pegá este texto entero. Es lo que le enseña el proceso: cómo desarmar un reel, las dos pruebas de cada ángulo y cómo escribir con tu voz.</p>
+        <div class="copiar" data-copiar>
+          <div class="copiar-top"><b>Instrucciones del proyecto</b><div class="copiar-acciones"><button class="btn btn-sm btn-line" type="button" data-bajar="instrucciones-agente-de-contenido.txt">Descargar</button><button class="btn btn-sm btn-main" type="button" data-copy>Copiar</button></div></div>
+<pre>Sos mi agente de contenido. Tu trabajo es convertir reels que ya funcionaron en guiones para mi negocio, con mi voz y mi oferta.
+
+ANTES DE RESPONDER, SIEMPRE
+- Leé el archivo "MI NEGOCIO Y MI VOZ": ahí está qué vendo, a quién, cómo hablo y qué quiero que haga la gente al final de cada video. No me preguntes nada que ya esté ahí.
+- Leé el archivo "LO QUE APRENDÍ": son correcciones mías y mandan sobre todo lo demás. Cada regla dice cuándo aplica.
+- Si falta alguno de los dos archivos, avisame antes de seguir.
+
+TRABAJAMOS EN 4 PASOS. Te digo en cuál estamos con la primera palabra del mensaje.
+
+1. DESARMAR
+Te paso un reel que rompió el patrón de su creador: lo que dice (pegado o en capturas) y, si las tengo, las vistas de ese reel y las vistas normales de esa cuenta.
+Devolveme:
+- El gancho, palabra por palabra, y por qué frena el dedo: qué tensión abre en los primeros 3 segundos.
+- La estructura, parte por parte, con cuánto dura cada una más o menos.
+- Por qué retiene: la promesa, el giro, lo que se guarda para el final.
+- El mecanismo en una frase: la idea que se puede llevar a cualquier negocio, separada del tema del creador.
+- Lo que sobra o no funcionó.
+No inventes nada que no esté en lo que te pasé. Si te falta algo para entenderlo, preguntame.
+
+2. ÁNGULOS
+Con el mecanismo del reel que desarmamos, proponeme 5 ángulos para mi negocio. Para cada uno:
+- El tema y el gancho, tal cual se diría en voz alta.
+- Por qué encaja con lo que vendo.
+- Las dos pruebas, con un sí o un no y el porqué:
+  a) ¿Un nene de 5 años entiende el gancho? Palabras simples, una sola idea, nada de jerga.
+  b) ¿El tema le interesa a más de la mitad de la gente que lo vea, y no solo a los que ya me compran?
+Si un ángulo no pasa las dos pruebas, descartalo y traé otro. Ordenalos del más fuerte al más débil.
+
+3. GUION
+Escribí el guion del ángulo que te diga:
+- Para decir en voz alta, con mi forma de hablar: frases cortas, como hablo yo y no como escribe un copywriter.
+- El gancho en los primeros 3 segundos, la estructura del reel original y un cierre con la acción que quiero que haga la gente.
+- Entre 30 y 60 segundos. Decime cuánto dura aproximadamente.
+- Al final, 2 ganchos alternativos.
+No uses datos, cifras ni casos que no estén en mis archivos o que yo no te haya dado.
+
+4. APRENDER
+Te paso cómo quedó el guion después de mis cambios, o te cuento qué no me gustó.
+Compará con lo que escribiste y devolveme de 1 a 3 reglas para el archivo "LO QUE APRENDÍ", cada una con cuándo aplica: "cuando..., hacé...". Que sirvan para los próximos guiones, no solo para este.
+Si una regla nueva parece chocar con una que ya está, fijate si son situaciones distintas: muchas veces en un caso va una cosa y en otro caso otra. Si es así, escribí las dos con su condición.
+
+SIEMPRE
+- Escribí como hablo yo, no como un anuncio.
+- Nada de relleno ni promesas exageradas.
+- Si no estás seguro de algo de mi negocio, preguntá en vez de inventar.</pre>
+          <button class="mas" type="button" data-mas>Ver el texto entero</button>
+        </div>
+        <details>
+          <summary>No encuentro dónde van las instrucciones</summary>
+          <div class="det"><p>Según el plan y la versión de Claude, el lugar puede llamarse distinto o no aparecer. Si no lo encontrás, tocá <b>Descargar</b> y subí el archivo a los archivos del proyecto. Funciona igual: Claude lo lee en cada chat.</p></div>
+        </details>
+      </div>
+    </li>
+    <li class="paso">
+      <span class="n">3</span>
+      <div>
+        <h3>Contale tu negocio una sola vez</h3>
+        <p>Abrí un chat nuevo dentro del proyecto y pegá este mensaje. Claude te va a entrevistar con una pregunta por vez y al final te devuelve el archivo <b>MI NEGOCIO Y MI VOZ</b>. Guardalo en los archivos del proyecto. Creá también un archivo vacío que se llame <b>LO QUE APRENDÍ</b>: ahí van a ir tus correcciones.</p>
+        <div class="copiar" data-copiar>
+          <div class="copiar-top"><b>La entrevista</b><div class="copiar-acciones"><button class="btn btn-sm btn-main" type="button" data-copy>Copiar</button></div></div>
+<pre>Quiero armar el archivo "MI NEGOCIO Y MI VOZ" para este proyecto. Entrevistame: hacé UNA pregunta por vez, esperá mi respuesta y repreguntá si quedó vaga.
+
+Necesitás saber:
+1. Qué vendo y cuánto sale más o menos.
+2. A quién le vendo: quién es, qué le pasa y qué quiere lograr.
+3. Qué resultado consigue la gente conmigo y en cuánto tiempo, con algún caso real si lo tengo.
+4. Por qué me compran a mí y no a otro.
+5. Qué dudas u objeciones escucho antes de que me compren.
+6. Qué quiero que haga la persona al terminar de ver un video: comentar una palabra, escribirme o ir a un link.
+7. Cómo hablo: pedime que te pegue 3 o 4 mensajes o audios transcriptos míos, y sacá de ahí mis palabras, mis muletillas y mi tono.
+8. Qué palabras o tonos no uso nunca.
+9. De qué temas sé mucho y de cuáles no quiero hablar.
+
+Al final, escribí el archivo completo, con un título por cada punto, en primera persona y listo para guardar. No agregues nada que yo no te haya dicho.</pre>
+          <button class="mas" type="button" data-mas>Ver el texto entero</button>
+        </div>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<section class="wrap sec" id="semana">
+  <h2>Cómo lo usás cada semana</h2>
+  <p class="intro">Cuatro mensajes, siempre en el mismo chat del proyecto. La primera palabra le dice a Claude en qué paso están.</p>
+
+  <div class="semana">
+    <div class="msg">
+      <h3><span>Antes</span>Encontrá los reels que rompieron el patrón</h3>
+      <p>No te sirven los reels con más vistas de Instagram. Te sirven los que se despegaron de lo normal de su propio creador: ahí hay algo que funcionó de verdad y no es solo una cuenta grande.</p>
+      <ul class="lista">
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F0522B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><div><b>Buscá en tres lugares</b><span>Tu nicho, un nicho vecino al tuyo y cuentas de otro idioma que hablen de lo mismo.</span></div></li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F0522B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><div><b>Mirá sus últimos 12 reels</b><span>Fijate cuántas vistas tienen normalmente.</span></div></li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F0522B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><div><b>Quedate con el que tiene 3 veces o más</b><span>Si la cuenta suele tener 10 mil y uno tiene 40 mil, ese es. Con dos o tres por semana alcanza.</span></div></li>
+      </ul>
+    </div>
+
+    <div class="msg">
+      <h3><span>1</span>DESARMAR</h3>
+      <p>Claude no mira videos, así que le pasás lo que dice el reel. Si tiene subtítulos, sacale 3 o 4 capturas y adjuntalas: Claude lee el texto de las imágenes. Si no tiene, escribí el gancho y lo principal.</p>
+      <div class="copiar" data-copiar>
+        <div class="copiar-top"><b>Mensaje</b><div class="copiar-acciones"><button class="btn btn-sm btn-main" type="button" data-copy>Copiar</button></div></div>
+<pre>DESARMAR
+Reel de: @
+Vistas de este reel:
+Vistas normales de esa cuenta:
+Lo que dice: (pegalo acá o adjuntá las capturas)</pre>
+      </div>
+    </div>
+
+    <div class="msg">
+      <h3><span>2</span>ÁNGULOS</h3>
+      <p>Te devuelve 5 ángulos para tu negocio, cada uno con las dos pruebas: que un nene de 5 años entienda el gancho, y que el tema le interese a más de la mitad de la gente que lo vea.</p>
+      <div class="copiar" data-copiar>
+        <div class="copiar-top"><b>Mensaje</b><div class="copiar-acciones"><button class="btn btn-sm btn-main" type="button" data-copy>Copiar</button></div></div>
+<pre>ÁNGULOS
+Sacame 5 ángulos para mi negocio con el reel que desarmamos.</pre>
+      </div>
+    </div>
+
+    <div class="msg">
+      <h3><span>3</span>GUION</h3>
+      <p>Elegís el ángulo que más te guste y te lo escribe para decir en voz alta, con tu forma de hablar y el cierre que pusiste en tu archivo.</p>
+      <div class="copiar" data-copiar>
+        <div class="copiar-top"><b>Mensaje</b><div class="copiar-acciones"><button class="btn btn-sm btn-main" type="button" data-copy>Copiar</button></div></div>
+<pre>GUION
+Escribí el guion del ángulo 2.</pre>
+      </div>
+    </div>
+
+    <div class="msg">
+      <h3><span>4</span>APRENDER</h3>
+      <p>Este es el paso que casi nadie hace y el que más rinde. Cuando corregís un guion, le pasás tu versión y te devuelve las reglas para pegar en <b>LO QUE APRENDÍ</b>. Cada corrección queda guardada y el próximo guion sale más parecido a vos.</p>
+      <div class="copiar" data-copiar>
+        <div class="copiar-top"><b>Mensaje</b><div class="copiar-acciones"><button class="btn btn-sm btn-main" type="button" data-copy>Copiar</button></div></div>
+<pre>APRENDER
+Así quedó el guion después de mis cambios:
+(pegá tu versión)</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap sec" id="limites">
+  <h2>Lo que esto no hace solo</h2>
+  <p class="intro">Con la guía tenés el proceso entero, pero las manos siguen siendo las tuyas. Estas son las partes que hacés vos cada semana:</p>
+  <ul class="lista">
+    <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F2420" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Buscar los reels</b><span>Revisar perfiles y comparar vistas, todas las semanas.</span></div></li>
+    <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F2420" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Pasarle lo que dice cada video</b><span>Claude no los mira: las capturas y el texto los ponés vos.</span></div></li>
+    <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F2420" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Guardar lo que aprende</b><span>Cada regla nueva la pegás a mano en tu archivo.</span></div></li>
+  </ul>
+  <p class="intro">Mi agente hace esas tres cosas solo: encuentra los reels que rompieron el patrón en las cuentas que sigo, mira los videos, aprende de cada corrección y me arma el mes entero de una vez.</p>
+</section>
+
+<section class="wrap cierre" id="siguiente">
+  <h2>Cuando tengas tu primer guion, <em>mandámelo</em></h2>
+  <p class="intro">Te digo qué le cambiaría para que retenga más. Es gratis y lo leo yo.</p>
+  <div class="dm">
+    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>
+    <p>Respondé en el mismo chat de Instagram donde te llegó esta guía<span>Pegá el guion tal cual te lo dio Claude, o con tus cambios.</span></p>
+  </div>
+  <p class="otro">Si preferís que el sistema lo haga solo en tu negocio, <a href="/content-os">acá te cuento cómo funciona</a>.</p>
+</section>
+
+<section class="wrap">
+  <div class="byline">
+    <img src="/images/logo_clarity.png" alt="Clarity Hub" width="82" height="34">
+    <div><p class="who-n">Elias Ruiz Diaz</p><p class="who-r">Clarity Hub · +14 años automatizando empresas en Europa y Latinoamérica</p></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Guía gratuita. Podés usarla en tu negocio y en los de tus clientes, y mandar esta página a quien quieras. No podés venderla ni publicarla como propia.</p>
+    <p>Claude cambia de versión y de pantallas con el tiempo: si algo no está donde dice la guía, buscá la opción equivalente. Revisá siempre los guiones antes de grabarlos.</p>
+    <p>2026 · Clarity Hub · XP E.A.S. · Paraguay</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(function(){
+  var toast=document.getElementById('toast'), t;
+  function aviso(txt){ toast.textContent=txt; toast.hidden=false; clearTimeout(t); t=setTimeout(function(){toast.hidden=true},1800); }
+  function textoDe(btn){ return btn.closest('[data-copiar]').querySelector('pre').textContent; }
+  function copiarSeleccionando(pre){
+    var r=document.createRange(); r.selectNodeContents(pre);
+    var s=window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    try{ document.execCommand('copy'); aviso('Copiado'); }catch(e){ aviso('Seleccionado: copialo con el menú'); }
+  }
+  document.addEventListener('click',function(e){
+    var c=e.target.closest('[data-copy]');
+    if(c){
+      var bloque=c.closest('[data-copiar]'), pre=bloque.querySelector('pre');
+      if(navigator.clipboard && window.isSecureContext){
+        navigator.clipboard.writeText(pre.textContent).then(function(){ aviso('Copiado'); },function(){ copiarSeleccionando(pre); });
+      } else copiarSeleccionando(pre);
+      if(window.fbq) fbq('trackCustom','CopiarAgente',{bloque:bloque.querySelector('.copiar-top b').textContent});
+      return;
+    }
+    var d=e.target.closest('[data-bajar]');
+    if(d){
+      var blob=new Blob([textoDe(d)],{type:'text/plain;charset=utf-8'});
+      var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=d.getAttribute('data-bajar');
+      document.body.appendChild(a); a.click(); setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); },500);
+      return;
+    }
+    var m=e.target.closest('[data-mas]');
+    if(m){ m.closest('[data-copiar]').classList.add('abierto'); }
+  });
+  // Los bloques cortos no necesitan "Ver el texto entero".
+  [].forEach.call(document.querySelectorAll('[data-copiar]'),function(b){
+    var pre=b.querySelector('pre'), mas=b.querySelector('[data-mas]');
+    if(mas && pre.scrollHeight<=pre.clientHeight+4) b.classList.add('abierto');
+  });
+})();
+</script>
+</body>
+</html>
