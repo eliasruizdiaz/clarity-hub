@@ -376,7 +376,7 @@ fbq('track', 'PageView');
     <div class="cta2">
       <a class="btn btn-dl" href="/100-comandos/100-comandos-de-producto.pdf" target="_blank" rel="noopener" id="pdfTop">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
-        <span class="b-l"><b>Descargar los 100 gratis</b><small>PDF · 25 páginas</small></span></a>
+        <span class="b-l"><b>Descargar los 100 gratis</b><small>PDF · 26 páginas</small></span></a>
       <a class="btn btn-main btn-pay" href="/pack-10k/"><span class="b-l"><b>Acceder a +11.000 comandos</b><small>Pack 10K · <span data-usd="US$ 7">Gs. 50.000</span> pago único</small></span></a>
     </div>
     <p class="cta2-note">Los 100 son gratis y sin registro. <a href="#los-100">También podés verlos acá abajo.</a></p>
@@ -455,6 +455,10 @@ fbq('track', 'PageView');
   </div>
 
   <div id="index">
+    <div class="part">
+      <div class="part-head"><span class="badge gem">Los del video</span><p>Los 4 comandos de Gemini del reel, y el arreglo si el zoom sale al revés.</p></div>
+      <ul class="cats" id="cats-video"></ul>
+    </div>
     <div class="part">
       <div class="part-head"><span class="badge go">Empezá por acá</span><p>Los cuatro que resuelven la mayoría de las fotos.</p></div>
       <ul class="cats" id="cats-start"></ul>
@@ -670,16 +674,26 @@ GPT.forEach((c,i)=>{
 });
 const bonusItems = BONUS.map(x=>({slug:"/"+x[0], tool:"gpt", cat:"ChatGPT · Foto para delivery", d:x[1], p:x[2]}));
 CATS.push({id:"b0", group:"bonus", name:"Foto para delivery", d:"El comando de menú que más pide quien vende por apps de delivery.", items:bonusItems});
+/* Los 4 del reel de Gemini (eran su recurso antes de esta página): se pegan tal cual, junto con la foto. */
+const VIDEO = [
+  ["/satelite-zoom","La cámara arranca en el espacio y se acerca hasta tu local. Subí una foto de tu local o fachada.","/satelite-zoom"],
+  ["/satelite-zoom-reversa","Si el zoom salió al revés (arranca en tu local y se aleja). Cambiá los segundos si querés otra duración.","/satelite-zoom en reversa: empieza en el espacio, termina en el local de la foto. Un solo movimiento hacia adentro, sin alejarse nunca. Duración: 5 segundos."],
+  ["/photoshoot-ad","Tu foto de producto convertida en anuncio con movimiento, sin sesión de fotos. Subí una foto de tu producto.","/photoshoot-ad"],
+  ["/unboxing","El unboxing de tu producto sin filmar nada. Subí una foto del producto o de la caja.","/unboxing"],
+  ["/logo-reveal","Tu logo con una animación de entrada, para la intro de reels y stories. Subí una imagen de tu logo.","/logo-reveal"]
+];
+const videoItems = VIDEO.map(x=>{ const o={slug:x[0], tool:"gem", cat:"Gemini · Los del video", d:x[1], p:x[2]}; CMDS.push(o); return o; });
 const find = s => CMDS.find(c=>c.slug===s);
 const startItems = ["/productshot","/showcase","/minimal","/hero-reveal-premium"].map(find);
 CATS.unshift({id:"s0", group:"start", name:"Los cuatro primeros", d:"Mandás la foto y pegás el comando. Tres para ChatGPT y uno para Gemini.", items:startItems});
+CATS.unshift({id:"v0", group:"video", name:"Los 4 comandos secretos de Gemini", d:"Los del reel: del espacio a tu local, anuncio de producto, unboxing y tu logo animado. Necesitás Gemini con un plan que genere video.", items:videoItems});
 
 const esc = s => s.replace(/[&<>"]/g, ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));
 const ARROW = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 
 /* render index */
-const lists = {start:"cats-start", gem:"cats-gem", gpt:"cats-gpt", bonus:"cats-bonus"};
-const counters = {start:0, gem:0, gpt:0, bonus:0};
+const lists = {video:"cats-video", start:"cats-start", gem:"cats-gem", gpt:"cats-gpt", bonus:"cats-bonus"};
+const counters = {video:0, start:0, gem:0, gpt:0, bonus:0};
 let num = 0;
 CATS.forEach(c=>{
   num++;
@@ -720,11 +734,12 @@ function open(cat){
   lastFocus = document.activeElement;
   const all = !cat;
   const badge = document.getElementById("pBadge");
-  badge.className = "badge " + (all ? "go" : cat.group==="gem" ? "gem" : cat.group==="gpt" ? "gpt" : "go");
-  badge.textContent = all ? "Los 100 + 2 de regalo" : cat.group==="gem" ? "Gemini · video" : cat.group==="gpt" ? "ChatGPT · imagen" : cat.group==="start" ? "Empezá por acá" : "De regalo";
+  badge.className = "badge " + (all ? "go" : (cat.group==="gem" || cat.group==="video") ? "gem" : cat.group==="gpt" ? "gpt" : "go");
+  badge.textContent = all ? "Los 100 + 7 de regalo" : cat.group==="video" ? "Los del video · Gemini" : cat.group==="gem" ? "Gemini · video" : cat.group==="gpt" ? "ChatGPT · imagen" : cat.group==="start" ? "Empezá por acá" : "De regalo";
   document.getElementById("pTitle").textContent = all ? "Todos los comandos" : cat.name;
   document.getElementById("pDesc").textContent = all ? "Video en Gemini primero, imagen en ChatGPT después." : cat.d;
   document.getElementById("pHow").innerHTML = (all || cat.group==="start") ? "<b>Cómo usar:</b> los que dicen Gemini devuelven video; los de ChatGPT devuelven imagen. Primero la foto, después el comando." :
+    cat.group==="video" ? "<b>Cómo usar:</b> abrí Gemini, tocá + y elegí Crear video, subí tu imagen y pegá el comando. Devuelve un VIDEO." :
     cat.group==="gem" ? "<b>Cómo usar:</b> abrí Gemini, adjuntá la foto del producto y pegá el comando. Devuelve un VIDEO." :
     "<b>Cómo usar:</b> abrí ChatGPT, adjuntá la foto del producto y pegá el comando. Devuelve una IMAGEN.";
   current = all ? CATS.filter(c=>c.group!=="start") : [cat];
