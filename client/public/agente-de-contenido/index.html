@@ -119,17 +119,24 @@ details .det p+p{margin-top:10px}
 .lista b{display:block}
 .lista span{color:var(--muted)}
 
-/* Cierre */
-.cierre{padding-block:56px;border-top:1px solid var(--line)}
-.cierre h2{font-size:clamp(28px,4.4vw,40px);line-height:1.1;font-weight:800}
-.cierre h2 em{font-style:normal;color:var(--orange)}
-.cierre .intro{color:var(--muted);max-width:60ch;margin-top:14px;font-size:17px}
-.cierre .dm{margin-top:26px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;max-width:620px}
-.cierre .dm svg{color:var(--orange)}
-.cierre .dm p{font-size:18px;font-weight:600}
-.cierre .dm p span{display:block;font-size:15px;font-weight:400;color:var(--muted);margin-top:4px}
-.cierre .otro{margin-top:30px;font-size:15px;color:var(--muted)}
-.cierre .otro a{color:var(--ink);font-weight:600}
+/* Cierre: banda verde de lado a lado con el botón grande */
+.cierre{background:var(--green-deep);color:#FBF6EF;padding-block:72px 76px;margin-top:8px}
+.cierre h2{font-size:clamp(34px,6vw,58px);line-height:1.04;font-weight:800;max-width:16ch}
+.cierre h2 em{font-style:normal;color:#8FE07F}
+.cierre .intro{color:#D6E7D2;max-width:46ch;margin-top:18px;font-size:clamp(17px,2.2vw,20px)}
+.btn-cta{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:14px;margin-top:34px;background:var(--green);color:#0E2414;border-radius:999px;padding:24px 38px;font-size:clamp(19px,2.6vw,23px);font-weight:800;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.28);transition:transform .15s ease,background .15s ease}
+.btn-cta:hover{background:#62C259;transform:translateY(-2px)}
+.btn-cta .flecha{transition:transform .2s ease;animation:acompana 5s ease-in-out infinite}
+.btn-cta:hover .flecha{transform:translateX(4px)}
+.btn-cta::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:brillo 5s ease-in-out infinite}
+@keyframes brillo{0%,72%{left:-60%}88%,100%{left:130%}}
+@keyframes acompana{0%,74%,100%{transform:translateX(0)}82%{transform:translateX(6px)}}
+.cierre .cta-nota{margin-top:16px;font-size:15px;color:#B9D3B4;max-width:52ch}
+.cierre .cta-nota b{color:#FBF6EF}
+.cierre .otro{margin-top:40px;padding-top:22px;border-top:1px solid rgba(251,246,239,.18);font-size:15px;color:#B9D3B4}
+.cierre .otro a{color:#FBF6EF;font-weight:600}
+.btn-cta{white-space:nowrap}
+@media (max-width:520px){.btn-cta{width:100%;justify-content:center;gap:10px;padding:22px 14px;font-size:18px}}
 
 .byline{display:flex;align-items:center;gap:14px;padding-block:28px}
 .byline img{height:34px;width:auto}
@@ -411,14 +418,18 @@ Así quedó el guion después de mis cambios:
   <p class="intro">Mi agente hace esas tres cosas solo: encuentra los reels que rompieron el patrón en las cuentas que sigo, mira los videos, aprende de cada corrección y me arma el mes entero de una vez.</p>
 </section>
 
-<section class="wrap cierre" id="siguiente">
-  <h2>Cuando tengas tu primer guion, <em>mandámelo</em></h2>
-  <p class="intro">Te digo qué le cambiaría para que retenga más. Es gratis y lo leo yo.</p>
-  <div class="dm">
-    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>
-    <p>Respondé en el mismo chat de Instagram donde te llegó esta guía<span>Pegá el guion tal cual te lo dio Claude, o con tus cambios.</span></p>
+<section class="cierre" id="siguiente">
+  <div class="wrap">
+    <h2>Cuando tengas tu primer guion, <em>mandámelo</em></h2>
+    <p class="intro">Te digo qué le cambiaría para que retenga más. Es gratis y lo leo yo.</p>
+    <a class="btn-cta" id="ctaDm" href="https://ig.me/m/soyeliasruizdiaz" target="_blank" rel="noopener">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>
+      Mandame tu guion por DM
+      <svg class="flecha" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <p class="cta-nota">Se abre el chat de Instagram con <b>@soyeliasruizdiaz</b>. Pegá el guion tal cual te lo dio Claude, o con tus cambios.</p>
+    <p class="otro">Si preferís que el sistema lo haga solo en tu negocio, <a href="/content-os">acá te cuento cómo funciona</a>.</p>
   </div>
-  <p class="otro">Si preferís que el sistema lo haga solo en tu negocio, <a href="/content-os">acá te cuento cómo funciona</a>.</p>
 </section>
 
 <section class="wrap">
@@ -450,6 +461,7 @@ Así quedó el guion después de mis cambios:
     try{ document.execCommand('copy'); aviso('Copiado'); }catch(e){ aviso('Seleccionado: copialo con el menú'); }
   }
   document.addEventListener('click',function(e){
+    if(e.target.closest('#ctaDm') && window.fbq) fbq('trackCustom','DMGuion');
     var c=e.target.closest('[data-copy]');
     if(c){
       var bloque=c.closest('[data-copiar]'), pre=bloque.querySelector('pre');
